@@ -1,0 +1,133 @@
+
+%\qquad Due quadratoni.
+%
+%\quad Un quadratone.
+%
+%\<SP> Uno spazio «normale».
+%
+%$\;$  Uno spazio spesso (5/8 di quadratone).
+%
+%$\>$  Uno spazio medio (2/9 di quadratone).
+%
+%$\.$  Uno spazio molto sottile (1/6 di quadratone).
+%
+%$\!$  Uno spazio negativo (-1/6 di quadratone).
+
+
+
+%\documentclass[11 pt , letterpaper , twoside , openright ]{book}
+\documentclass[11 pt , letterpaper , oneside ]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{etoolbox}
+
+\usepackage[ED=MEGEP-DyF, Ets=INP]{tlsflyleaf}
+
+
+\usepackage[english]{babel}   
+
+\usepackage{caption} 
+\usepackage{subfig}
+
+\usepackage{transparent}
+\usepackage{eso-pic}
+\usepackage{textcomp}
+%\usepackage[acronym]{glossaries}
+
+%the two package under these line are used for flow chart in chapter 2
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{mindmap} %for mind maps using tikz
+\usepackage[procnames]{listings}  %scrivere codici
+\usepackage{url} %generare collegamenti
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{psfrag}
+%\usepackage{subfigure}
+% AMS bundle
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{amsthm}
+
+\usepackage{bm}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{color}
+
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{float} % is needed by \begin{figure}[H]  to write [H]
+\usepackage{mathrsfs}
+
+\usepackage[numbers, square]{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+
+\newcommand{\derp}[2]{\frac{\partial #1}{\partial #2}}
+
+\def\rprth#1{\left( #1 \right)} %\prth{.} inside round parentesis
+\def\sprth#1{\left[ #1 \right]} %\prth{.} inside square parentesis
+\def\gprth#1{\left{ #1 \right}} %\prth{.} inside graph parentesis
+\newcommand{\volb}{V_\beta} %\volb  volume of the fluid phase
+\def\meani#1{{\left< #1 \right>}^{\beta}} %\mean{.} intrinsic average operator
+\def\means#1{{\left< #1 \right>}^{s}} %\mean{.} superficial average operator
+\newcommand{\vb}{\textbf{v}_{\beta}} %\vb velocity in the fluid
+\newcommand{\vbt}{\tilde{\textbf{v}}_{\beta}} %\vbt spatial fluctuation velocity in the fluid
+\newcommand{\pbt}{\tilde{p}_{\beta}} %\pbt spatial fluctuation pressure in the fluid
+\newcommand{\vbmi}{\meani{\textbf{v}_{\beta}}} %\vbmi intrinsic average velocity of fluid phase 
+\newcommand{\vbms}{\means{\textbf{v}_{\beta}}} %\vbms superficial average velocity of fluid phase 
+\newcommand{\rhos}{\rho_{\sigma}} %\rob density of fluid phase
+\newcommand{\pb}{p_{\beta}} %\pb pressure of fluid phase
+\newcommand{\pbmi}{\meani{p_{\beta}}} %\pbmi intrinsic average pressure of fluid phase 
+\newcommand{\pbms}{\means{\textbf{v}_{\beta}}} %\vbms superficial average velocity of fluid phase 
+\newcommand{\nub}{\nu_{\beta}} %\nub cinematic viscosity of fluid phase
+\newcommand{\mub}{\mu_{\beta}} %\mub dynamic viscosity of fluid phase
+
+\newcommand{\Red}[1]{{\textcolor{magenta}{#1}}}
+\newcommand{\Blue}[1]{{\textcolor{blue}{#1}}}
+
+\newcommand{\vs}[1]{\vspace{ #1 cm}}
+\newcommand{\hs}[1]{\hspace{ #1 cm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input frontpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% with this you compile only one chapter and not the all document
+%\includeonly{capitoli/7/capitolo_7} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+	\makeflyleaf
+
+
+%\include{contorno/dediche}
+%\include{contorno/sommario}
+%%\include{contorno/nomenclatura}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\include{chapter_1/chapter_1}
+\include{chapter_2/chapter_2}
+\include{chapter_3/chapter_3}
+\include{chapter_4/chapter_4}
+
+%\nocite{*}  %serve per stampare tutta la bibliografia altrimenti stampa solo quella che uso nelle citazioni all'interno del testo
+\bibliographystyle{plainnat}
+%\bibliographystyle{unsrtnat}
+
+\bibliography{biblio}
+\end{document}
