@@ -24,10 +24,10 @@
 \usepackage[ED=MEGEP-DyF, Ets=INP]{tlsflyleaf}
 
 
-\usepackage[english]{babel}   
+\usepackage[english]{babel}
 
 \usepackage{caption} 
-\usepackage{subfig}
+%\usepackage{subfig}
 
 \usepackage{transparent}
 \usepackage{eso-pic}
@@ -47,6 +47,7 @@
 \usepackage{epsfig}
 \usepackage{psfrag}
 %\usepackage{subfigure}
+\usepackage{subcaption}
 % AMS bundle
 
 \usepackage{amssymb}
@@ -87,7 +88,7 @@
 \newcommand{\pbt}{\tilde{p}_{\beta}} %\pbt spatial fluctuation pressure in the fluid
 \newcommand{\vbmi}{\meani{\textbf{v}_{\beta}}} %\vbmi intrinsic average velocity of fluid phase 
 \newcommand{\vbms}{\means{\textbf{v}_{\beta}}} %\vbms superficial average velocity of fluid phase 
-\newcommand{\rhos}{\rho_{\sigma}} %\rob density of fluid phase
+\newcommand{\rhos}{\rho_{\sigma}} %\ density of the solid phase
 \newcommand{\pb}{p_{\beta}} %\pb pressure of fluid phase
 \newcommand{\pbmi}{\meani{p_{\beta}}} %\pbmi intrinsic average pressure of fluid phase 
 \newcommand{\pbms}{\means{\textbf{v}_{\beta}}} %\vbms superficial average velocity of fluid phase 
@@ -108,6 +109,9 @@
 % with this you compile only one chapter and not the all document
 %\includeonly{capitoli/7/capitolo_7} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 
 \begin{document}
@@ -132,4 +136,5 @@
 %\bibliographystyle{unsrtnat}
 
 \bibliography{biblio}
+
 \end{document}
