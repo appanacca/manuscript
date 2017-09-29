@@ -1,0 +1,328 @@
+\begin{thebibliography}{49}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ackerman and Okubo(1993)]{ackerman1993reduced}
+JD~Ackerman and A~Okubo.
+\newblock Reduced mixing in a marine macrophyte canopy.
+\newblock \emph{Functional Ecology}, pages 305--309, 1993.
+
+\bibitem[Adams et~al.(2014)Adams, Bauman, Bohnhoff, Dalbey, Ebeida, Eddy,
+  Eldred, Hough, Hu, Jakeman, Stephens, Swiler, Vigil, , and Wildey]{dakota}
+B.M. Adams, L.E. Bauman, W.J. Bohnhoff, K.R. Dalbey, M.S. Ebeida, J.P. Eddy,
+  M.S. Eldred, P.D. Hough, K.T. Hu, J.D. Jakeman, J.A. Stephens, L.P. Swiler,
+  D.M. Vigil, , and T.M. Wildey.
+\newblock Dakota, a multilevel parallel object-oriented framework for design
+  optimization, parameter estimation, uncertainty quantification, and
+  sensitivity analysis: {V}ersion 6.0 {T}heory {M}anual.
+\newblock Technical report, Sandia National Laboratories, SAND2014-4253, 2014.
+
+\bibitem[Agnaou et~al.(2016)Agnaou, Lasseux, and Ahmadi]{lasseux_hopf}
+Mehrez Agnaou, Didier Lasseux, and Azita Ahmadi.
+\newblock From steady to unsteady laminar flow in model porous structures: an
+  investigation of the first {H}opf bifurcation.
+\newblock \emph{Computers \& Fluids}, 136:\penalty0 67--82, 2016.
+
+\bibitem[Asaeda et~al.(2005)Asaeda, Fujino, and
+  Manatunge]{asaeda2005morphological}
+Takashi Asaeda, Takeshi Fujino, and Jagath Manatunge.
+\newblock Morphological adaptations of emergent plants to water flow: a case
+  study with typha angustifolia, zizania latifolia and phragmites australis.
+\newblock \emph{Freshwater Biology}, 50\penalty0 (12):\penalty0 1991--2001,
+  2005.
+
+\bibitem[Baudin et~al.(2016)Baudin, Dutfoy, Iooss, and Popelin]{openturns}
+Micha{\"e}l Baudin, Anne Dutfoy, Bertrand Iooss, and Anne-Laure Popelin.
+\newblock \emph{OpenTURNS: An industrial software for uncertainty
+  quantification in simulation}.
+\newblock Springer International Publishing, Cham, 2016.
+\newblock ISBN 978-3-319-11259-6.
+\newblock \doi{10.1007/978-3-319-11259-6_64-1}.
+\newblock URL \url{http://dx.doi.org/10.1007/978-3-319-11259-6_64-1}.
+
+\bibitem[Beavers and Joseph(1967)]{beaver}
+Gordon~S Beavers and Daniel~D Joseph.
+\newblock Boundary conditions at a naturally permeable wall.
+\newblock \emph{Journal of fluid mechanics}, 30\penalty0 (1):\penalty0
+  197--207, 1967.
+
+\bibitem[Bottaro et~al.(2003)Bottaro, Corbett, and Luchini]{bottaro2003effect}
+Alessandro Bottaro, Peter Corbett, and Paolo Luchini.
+\newblock The effect of base flow variation on flow stability.
+\newblock \emph{Journal of Fluid Mechanics}, 476:\penalty0 293--302, 2003.
+
+\bibitem[Breugem(2005)]{brugem_phd}
+Wim-Paul Breugem.
+\newblock \emph{The influence of wall permeability on laminar and turbulent
+  flows. Theory and simulations}.
+\newblock PhD thesis, Delft University of Technology, The Netherlands, 2005.
+
+\bibitem[Brevis et~al.(2014)Brevis, Garc{\'\i}a-Villalba, and
+  Ni{\~n}o]{brevis2014experimental}
+W~Brevis, M~Garc{\'\i}a-Villalba, and Y~Ni{\~n}o.
+\newblock Experimental and large eddy simulation study of the flow developed by
+  a sequence of lateral obstacles.
+\newblock \emph{Environmental Fluid Mechanics}, 14\penalty0 (4):\penalty0
+  873--893, 2014.
+
+\bibitem[Brinkman(1949)]{brinkman}
+HC~Brinkman.
+\newblock A calculation of the viscous force exerted by a flowing fluid on a
+  dense swarm of particles.
+\newblock \emph{Applied Scientific Research}, 1\penalty0 (1):\penalty0 27--34,
+  1949.
+
+\bibitem[Carman(1937)]{carman}
+P.~C. Carman.
+\newblock {Fluid Flow Through Granular Beds}.
+\newblock \emph{Transactions - Institution of Chemical Engineeres},
+  15:\penalty0 150--166, 1937.
+
+\bibitem[Chen et~al.(2017)Chen, Teruaki, Toshiyuki, and Hao]{rao2017owl}
+Rao Chen, Ikeda Teruaki, Nakata Toshiyuki, and Liu Hao.
+\newblock Owl-inspired leading-edge serrations play a crucial role in
+  aerodynamic force production and sound suppression.
+\newblock \emph{Bioinspiration & Biomimetics}, 12\penalty0 (4):\penalty0
+  046008, 2017.
+
+\bibitem[Darcy(1856)]{darcy}
+Henry Darcy.
+\newblock \emph{Les fontaines publiques de la ville de Dijon}.
+\newblock Victor Dalmont, 1856.
+
+\bibitem[Edwards et~al.(1990)Edwards, Shapiro, Bar-Yoseph, and
+  Shapira]{edwards1990}
+DA~Edwards, M~Shapiro, P~Bar-Yoseph, and M~Shapira.
+\newblock The influence of {R}eynolds number upon the apparent permeability of
+  spatially periodic arrays of cylinders.
+\newblock \emph{Physics of Fluids A: Fluid Dynamics}, 2\penalty0 (1):\penalty0
+  45--55, 1990.
+
+\bibitem[Ensikat et~al.(2011)Ensikat, Ditsche-Kuru, Neinhuis, and
+  Barthlott]{ensikat2011lotus}
+H.~J. Ensikat, P.~Ditsche-Kuru, C.~Neinhuis, and W.~Beilstein~J Barthlott.
+\newblock Superhydrophobicity in perfection: the outstanding properties of the
+  lotus leaf.
+\newblock page 152–161, 2 2011.
+\newblock \doi{10.3762/bjnano.2.19}.
+
+\bibitem[Ergun and Orning(1949)]{ergun}
+Sabri Ergun and Ao~Ao Orning.
+\newblock Fluid flow through randomly packed columns and fluidized beds.
+\newblock \emph{Industrial \& Engineering Chemistry}, 41\penalty0 (6):\penalty0
+  1179--1184, 1949.
+
+\bibitem[Forchheimer(1901)]{forchheimer}
+PH~Forchheimer.
+\newblock Wasserbewegung durch boden.
+\newblock \emph{Zeitz. Ver. Duetch Ing.}, 45:\penalty0 1782--1788, 1901.
+
+\bibitem[Ghisalberti and Nepf(2004)]{ghisalberti2004limited}
+M~Ghisalberti and HM~Nepf.
+\newblock The limited growth of vegetated shear layers.
+\newblock \emph{Water Resources Research}, 40\penalty0 (7), 2004.
+
+\bibitem[Ghisalberti and Nepf(2005)]{ghisalberti2005mass}
+Marco Ghisalberti and Heidi Nepf.
+\newblock Mass transport in vegetated shear flows.
+\newblock \emph{Environmental fluid mechanics}, 5\penalty0 (6):\penalty0
+  527--551, 2005.
+
+\bibitem[Ghisalberti and Nepf(2002)]{ghisalberti2002mixing}
+Marco Ghisalberti and Heidi~M Nepf.
+\newblock Mixing layers and coherent structures in vegetated aquatic flows.
+\newblock \emph{Journal of Geophysical Research: Oceans}, 107\penalty0 (C2),
+  2002.
+
+\bibitem[Giunta et~al.(2003)Giunta, Wojtkiewicz, and Eldred]{giunta}
+Anthony~A Giunta, Steven~F Wojtkiewicz, and Michael~S Eldred.
+\newblock Overview of modern design of experiments methods for computational
+  simulations.
+\newblock In \emph{Proceedings of the 41st AIAA aerospace sciences meeting and
+  exhibit, AIAA-2003-0649}, 2003.
+
+\bibitem[Hussaini and Zang(1987)]{hussaini1987spectral}
+M~Yousuff Hussaini and Thomas~A Zang.
+\newblock Spectral methods in fluid dynamics.
+\newblock \emph{Annual review of fluid mechanics}, 19\penalty0 (1):\penalty0
+  339--367, 1987.
+
+\bibitem[Jaworski and Peake(2013)]{jaworski2013aerodynamic}
+Justin~W Jaworski and N~Peake.
+\newblock Aerodynamic noise from a poroelastic edge with implications for the
+  silent flight of owls.
+\newblock \emph{Journal of Fluid Mechanics}, 723:\penalty0 456--479, 2013.
+
+\bibitem[Kleijnen(2017)]{Kleijnen20171}
+Jack~P.C. Kleijnen.
+\newblock Regression and kriging metamodels with their experimental designs in
+  simulation: A review.
+\newblock \emph{European Journal of Operational Research}, 256\penalty0
+  (1):\penalty0 1 -- 16, 2017.
+\newblock ISSN 0377-2217.
+\newblock \doi{https://doi.org/10.1016/j.ejor.2016.06.041}.
+
+\bibitem[Kozeny(1927)]{kozeny}
+J~Kozeny.
+\newblock {\"U}ber grundwasserbewegung.
+\newblock \emph{Wasserkraft und Wasserwirtschaft}, 22\penalty0 (5):\penalty0
+  67--70, 1927.
+
+\bibitem[Lang and Jones(2011)]{lang2011Butterfly}
+Amy Lang and Robert Jones.
+\newblock Butterfly scales and their local surface drag dependence on flow
+  orientation.
+\newblock pages 6006--, 11 2011.
+
+\bibitem[Lasseux et~al.(2011)Lasseux, Arani~Abbasian, and Ahmadi]{lasseux}
+Didier Lasseux, A.~Arani~Abbasian, and A.~Ahmadi.
+\newblock On the stationary macroscopic inertial effects for one phase flow in
+  ordered and disordered porous media.
+\newblock \emph{Physics of Fluids (1994-present)}, 23\penalty0 (7):\penalty0
+  073103, 2011.
+
+\bibitem[Le~Bars and Worster(2006)]{le2006interfacial}
+Michael Le~Bars and M~Grae Worster.
+\newblock Interfacial conditions between a pure fluid and a porous medium:
+  implications for binary alloy solidification.
+\newblock \emph{Journal of Fluid Mechanics}, 550:\penalty0 149--173, 2006.
+
+\bibitem[Lilley(1998)]{lilley1998}
+Geoffrey~M Lilley.
+\newblock A study of the silent flight of the owl.
+\newblock \emph{AIAA paper}, 2340\penalty0 (1998):\penalty0 l--6, 1998.
+
+\bibitem[Mei and Vernescu(2010)]{mei2010homogenization}
+Chiang~C Mei and Bogdan Vernescu.
+\newblock \emph{Homogenization methods for multiscale mechanics}.
+\newblock World scientific, 2010.
+
+\bibitem[Oeffner and Lauder(2012)]{Oeffner785}
+Johannes Oeffner and George~V. Lauder.
+\newblock The hydrodynamic function of shark skin and two biomimetic
+  applications.
+\newblock \emph{Journal of Experimental Biology}, 215\penalty0 (5):\penalty0
+  785--795, 2012.
+\newblock ISSN 0022-0949.
+\newblock \doi{10.1242/jeb.063040}.
+
+\bibitem[Patil and Singh(2010)]{patil2010characteristics}
+S~Patil and VP~Singh.
+\newblock Characteristics of monami wave in submerged vegetated flow.
+\newblock \emph{Journal of Hydrologic Engineering}, 15\penalty0 (3):\penalty0
+  171--181, 2010.
+
+\bibitem[Pauthenet et~al.(2017)Pauthenet, Davit, Quintard, and
+  Bottaro]{pauthenet}
+M.~Pauthenet, Y.~Davit, M.~Quintard, and A~Bottaro.
+\newblock Topological scaling for inertial transition in porous media.
+\newblock \emph{submitted}, 2017.
+
+\bibitem[Py et~al.(2004)Py, De~Langre, and Moulia]{py2004mixing}
+Charlotte Py, Emmanuel De~Langre, and Bruno Moulia.
+\newblock The mixing layer instability of wind over a flexible crop canopy.
+\newblock \emph{Comptes Rendus M{\'e}canique}, 332\penalty0 (8):\penalty0
+  613--618, 2004.
+
+\bibitem[Raupach et~al.(1996)Raupach, Finnigan, and
+  Brunet]{raupach1996coherent}
+M\_R Raupach, JJ~Finnigan, and Y~Brunet.
+\newblock Coherent eddies and turbulence in vegetation canopies: the
+  mixing-layer analogy.
+\newblock In \emph{Boundary-Layer Meteorology 25th Anniversary Volume,
+  1970--1995}, pages 351--382. Springer, 1996.
+
+\bibitem[Roache(1998)]{roache}
+P.J. Roache.
+\newblock \emph{Verification and validation in computational science and
+  engineering}.
+\newblock Hermosa Press, Albuquerque, NM., 1998.
+
+\bibitem[Singh et~al.(2016)Singh, Bandi, Mahadevan, and
+  Mandre]{singh2016linear}
+Ravi Singh, MM~Bandi, Amala Mahadevan, and Shreyas Mandre.
+\newblock Linear stability analysis for monami in a submerged seagrass bed.
+\newblock \emph{Journal of Fluid Mechanics}, 786, 2016.
+
+\bibitem[Soulaine and Quintard(2014)]{soulaine2014}
+Cyprien Soulaine and Michel Quintard.
+\newblock On the use of a {D}arcy--{F}orchheimer like model for a macro-scale
+  description of turbulence in porous media and its application to structured
+  packings.
+\newblock \emph{International Journal of Heat and Mass Transfer}, 74:\penalty0
+  88--100, 2014.
+
+\bibitem[Srygley and Thomas(2002)]{srygley2002unconventional}
+RB~Srygley and ALR Thomas.
+\newblock Unconventional lift-generating mechanisms in free-flying butterflies.
+\newblock \emph{Nature}, 420\penalty0 (6916):\penalty0 660, 2002.
+
+\bibitem[Weller et~al.(1998)Weller, Tabor, Jasak, and Fureby]{openfoam}
+H.~G. Weller, G.~Tabor, H.~Jasak, and C.~Fureby.
+\newblock A tensorial approach to computational continuum mechanics using
+  object-oriented techniques.
+\newblock \emph{Computers in Physics}, 12\penalty0 (6):\penalty0 620--631,
+  1998.
+
+\bibitem[Whitaker(1986)]{whitaker1986flow}
+Stephen Whitaker.
+\newblock Flow in porous media i: A theoretical derivation of darcy's law.
+\newblock \emph{Transport in porous media}, 1\penalty0 (1):\penalty0 3--25,
+  1986.
+
+\bibitem[Whitaker(1996)]{whitaker1996forchheimer}
+Stephen Whitaker.
+\newblock The {F}orchheimer equation: a theoretical development.
+\newblock \emph{Transport in Porous Media}, 25\penalty0 (1):\penalty0 27--61,
+  1996.
+
+\bibitem[Whitaker(2013)]{whitaker2013method}
+Stephen Whitaker.
+\newblock \emph{The {M}ethod of {V}olume {A}veraging}, volume~13.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem[Yazdchi et~al.(2011)Yazdchi, Srivastava, and Luding]{yazdchi2011}
+K~Yazdchi, S~Srivastava, and S~Luding.
+\newblock Microstructural effects on the permeability of periodic fibrous
+  porous media.
+\newblock \emph{International Journal of Multiphase Flow}, 37\penalty0
+  (8):\penalty0 956--966, 2011.
+
+\bibitem[{Zampogna} and {Bottaro}(2016)]{zampogna}
+G.~A. {Zampogna} and A.~{Bottaro}.
+\newblock Fluid flow over and through a regular bundle of rigid fibres.
+\newblock \emph{Journal of Fluid Mechanics}, 792:\penalty0 5--35, 2016.
+\newblock \doi{10.1017/jfm.2016.66}.
+
+\bibitem[Zampogna and Bottaro(2016{\natexlab{a}})]{zampogna2016fluid}
+Giuseppe~A Zampogna and Alessandro Bottaro.
+\newblock Fluid flow over and through a regular bundle of rigid fibres.
+\newblock \emph{Journal of Fluid Mechanics}, 792:\penalty0 5--35,
+  2016{\natexlab{a}}.
+
+\bibitem[Zampogna and Bottaro(2016{\natexlab{b}})]{zampognaprivate}
+Giuseppe~A Zampogna and Alessandro Bottaro.
+\newblock private communication.
+\newblock \emph{The values of $\mathcal{K}_{11}$ and $\mathcal{K}_{22}$ arise
+  from the solution of a local, microscopic problem which accounts for inertia
+  through the porous medium \cite{zampogna2016fluid}. It is not unexpected that
+  $\mathcal{K}_{11}$ approaches $\mathcal{K}_{22}$ as we leave the Stokes
+  regime.}, 2016{\natexlab{b}}.
+
+\bibitem[Zampogna and Bottaro(2017)]{zampognaMech}
+Giuseppe~A Zampogna and Alessandro Bottaro.
+\newblock The pelskin project—part iii: a homogenized model of flows over and
+  through dense poroelastic media.
+\newblock \emph{Meccanica}, 52\penalty0 (8):\penalty0 1797--1808, 2017.
+
+\bibitem[Zampogna et~al.(2016)Zampogna, Pluvinage, Kourta, and
+  Bottaro]{zampogna2016instability}
+Giuseppe~A Zampogna, Franck Pluvinage, Azeddine Kourta, and Alessandro Bottaro.
+\newblock Instability of canopy flows.
+\newblock \emph{Water Resources Research}, 52\penalty0 (7):\penalty0
+  5421--5432, 2016.
+
+\end{thebibliography}
