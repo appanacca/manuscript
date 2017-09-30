@@ -93,134 +93,134 @@ flows through bundles of fibers of varying orientation and density.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:2ch4}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{A brief description of the method}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-The system under investigation consists of an incompressible Newtonian fluid which flows through a rigid porous medium. In the following, the subscript $\beta$ is used to indicate the fluid phase while $\sigma$ is adopted for  the solid phase. The governing equations  valid at the microscale are
-\begin{equation}
-\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}, 
-\label{eq:mom}
-\end{equation}
-\begin{equation}
-\nabla \cdot \vb = 0,
-\label{eq:cont}
-\end{equation}
-where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
-The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives the fluid motion and can be interpreted as the macroscopic pressure gradient acting on the system.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\linewidth]{chapter_4/figure/REV}
-	\caption{Illustration of the REV concept.}
-	\label{fig:rev}
-\end{figure}
-
-
-The concept of Reference Elementary Volume (REV) of the porous medium is classically introduced in the framework of the VANS approach.
-An example of REV  is depicted on figure \ref{fig:rev}, together with relevant notations (volume shape and size, indication of the fact that the normal unit vector is directed from the fluid to the solid phase, centroid $\rm {\bf{x}}$ of the REV). The REV represents  the domain over which the    microscopic problem is solved; its size is defined so as to contain all the microscopic features of the flow. 
-As a rule of thumb, the REV is the smallest  fluid domain over which   periodic boundary conditions can be applied.
-
-
-In the computational domain, any flow variable  $\phi$ can be decomposed into an intrinsic average part $\meani{\phi}$ plus a perturbation $\tilde{\phi}$, as:
-$$  \phi = \meani{\phi} + \tilde{\phi}.$$
-The intrinsic average is defined with an integration carried out only on the fluid phase \cite{whitaker2013method}:
-\begin{equation}
-\meani{\psi_{\beta}} = \dfrac{1}{\volb} \int_{\volb} \psi_\beta (\mathbf{x}) d \volb.
-\label{eq:avg_intrinsic}
-\end{equation}
-Applying such an operator to equations \eqref{eq:mom} and \eqref{eq:cont}, and following \citet{whitaker1996forchheimer} we have:
-$$
-\dfrac{\partial \vbmi}{\partial t} + \vbmi \cdot \nabla \vbmi = -\frac{1}{\rho_{\beta}} \nabla \pbmi + \nu_\beta \nabla^2 \vbmi + \, \mathbf{f} \, + 
-$$
-\begin{equation}
-\dfrac{1}{\volb} \int_{A_{\beta \sigma}}  ( - \frac{\pbt}{\rho_\beta} \mathbf{I} + \nub \nabla \vbt ) \cdot  \mathbf{n}_{\beta \sigma} dA,
-\label{eq:darcy_forch}
-\end{equation}	
-\begin{equation}
-\nabla \cdot \meani{\vb} = 0,
-\label{eq:cont_vans}
-\end{equation}	
-upon neglecting in equation \eqref{eq:darcy_forch} the sub-REV scale dispersion term (linked to the $\left< \vbt \vbt \right>^{\beta}$ term) which is often small in porous media flows \cite{brugem_phd}.
-
-The surface integral term in equation \eqref{eq:darcy_forch}  represents the drag (per unit mass) due to surface forces at the fluid-solid interface of the medium. It is called the Darcy-Forchheimer microscale force, $\mathbf{F}^{\textit{m}}$. The equations are however often to be solved at the macroscale, so that a macroscale force model, 
-$\mathbf{F}^{\textit{M}}$, must be used to replace $\mathbf{F}^{\textit{m}}$ in the governing equation. Such a model is often based on a permeability tensor, $\mathbf{K}$, and a Forchheimer tensor, $\mathbf{F}$, and reads:
-\begin{equation} 
-\mathbf{F}^{\textit{M}} = - \nub \mathbf{K}^{-1} (\mathbf{I} + \mathbf{F})\vbmi,
-\label{eq:macroscale} 
-\end{equation}
-so that the system is closed by imposing
-\begin{equation}
-\mathbf{F}^{\textit{m}} = \mathbf{F}^{\textit{M}}.
-\label{eq:closure_KF} 
-\end{equation}
-
-
-\noindent The drag force $\mathbf{F}^{\textit{m}}$ computed by direct numerical simulations (DNS) with account of all individual pores will be later compared to the model based on the permeability and Forchheimer tensors (whose equations are given below).
-This is just a useful exercise to demonstrate consistency of the approach and accuracy of the numerical simulations; it does nothing else since, as briefly described below, to derive the Forchheimer tensor the microscopic velocity field must be known anyhow.  Nonetheless, knowledge of the behaviour of these tensors (or, equivalently, of the related \emph{apparent} permeability) might prove both useful and instructive, in particular should one wish to extend the range of applicability of the model to cases for which the microscopic solution is not available.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\subsubsection{Closure problems for $\mathbf{K}$ and $\mathbf{F}$}
+%\subsection{A brief description of the method}
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-The core of the VANS approach consists in the identification of the permeability and Forchheimer tensors. This problem, referred to as the closure problem, is discussed at length by \citet{whitaker1986flow,whitaker1996forchheimer}.  He derives two partial differential equation systems, the first valid in the zero Reynolds number limit (system \eqref{eq:K_closure} below), while the second applies when inertial terms are not negligible (system \eqref{eq:F_closure1}).
-
-
-
-In the first system of equations   a three component vector $\mathbf{d}$  and  a $3 \times 3$ tensor  $\mathbf{D}$ are introduced.
-This system  can be divided into  three separate independent problems which resemble a forced Stokes problem where each component of $\mathbf{d}$ and the corresponding row of  $\mathbf{D}$  play, respectively, the role of a pressure and a velocity field. Together with the periodic  boundary conditions, the problem reads: 
-\begin{equation}
-\begin{cases} 
-0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} + \mathbf{I},\\ 
-\nabla \cdot \mathbf{D} = 0, \\ 
-\mathbf{D} = 0 \qquad {\rm on }  \qquad A_{\beta \sigma},\\
-\mathbf{d}(\mathbf{x} + \ell_i) = \mathbf{d}(\mathbf{x}), \qquad 
-\mathbf{D}(\mathbf{x} + \ell_i) = \mathbf{D}(\mathbf{x}) \qquad i = 1,2,3.
-\end{cases} 
-\label{eq:K_closure}
-\end{equation}
-The permeability tensor is found by applying  the intrinsic average on the $\mathbf{D}$ tensor, i.e.
-$\mathbf{K} = \varepsilon \; \meani{\mathbf{D}}$  and, in the Stokes regime, it is
-\begin{equation}
-\mathbf{F}^{\textit{M}} = - \nub \mathbf{K}^{-1} \vbmi.
-\end{equation}
-
-The second closure problem differs from the first only for the presence of a linearised convective term 
-in which the microscopic velocity obtained from the DNS, $\vb$, is used as an input.  This of course implies knowledge of the microscopic velocity field. A Oseen-like approximation which relaxes this constraint has been proposed by \citet{zampogna}.
-
-The new unknowns are a  vector and a tensor called, respectively,   $\mathbf{m}$  and  $\mathbf{M}$, with  the same meanings of $\mathbf{d}$ and 
-$\mathbf{D}$.
-The system reads:
-\begin{equation}
-\begin{cases} 
-\dfrac{1}{\nub} \vb \cdot \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} + \mathbf{I},\\ 
-\nabla \cdot \mathbf{M} = 0, \\ 
-\mathbf{M} = 0  \qquad {\rm on } \qquad A_{\beta \sigma}, \\
-\mathbf{m}(\mathbf{x} + \ell_i) = \mathbf{m}(\mathbf{x}), \qquad 
-\mathbf{M}(\mathbf{x} + \ell_i) = \mathbf{M}(\mathbf{x}) \qquad i = 1,2,3.
-\end{cases} 
-\label{eq:F_closure1}
-\end{equation}
-The average  of the tensor $\mathbf{M}$  multiplied by the porosity is the \textit{apparent permeability}, 
-$\mathbf{H}= \varepsilon \; \meani{\mathbf{M}}$. When inertia is important equation \eqref{eq:macroscale}  can be written as 
-\begin{equation}
-\mathbf{F}^{\textit{M}} = - \nub \mathbf{H}^{-1} \vbmi,
-\end{equation}
-\noindent as shown by \citet{whitaker1996forchheimer}.
-
-Two remarks are in order at this point.
-First, the equations in the closure problem \eqref{eq:F_closure1} are time-independent because the microscopic velocity $\vb$ is a solution of a stationary DNS.  Thus, the Reynolds number should be sufficiently small for unsteady effects not to be present. Should the wake behind a solid inclusion display regular or irregular temporal oscillations, the equations of system \eqref{eq:F_closure1} may be used, as an
-approximation, by replacing the instantaneous velocity in the REV with its time-averaged distribution.  This case is however not of present concern.
-Secondly, the closure problems reflect the structure of the solution of the two system \eqref{eq:K_closure} and \eqref{eq:F_closure1}. In particular, the solution of \eqref{eq:K_closure} depends only on the geometry of the porous medium so that the permeability tensor $\mathbf{K}$ is symmetric. This is not the case for $\mathbf{H}$, because of the effect of the microscopic velocity amplitude and direction.  Clearly, the solution of system \eqref{eq:K_closure} tends to that of \eqref{eq:F_closure1} when $Re_d \rightarrow 0$. 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%The system under investigation consists of an incompressible Newtonian fluid which flows through a rigid porous medium. In the following, the subscript $\beta$ is used to indicate the fluid phase while $\sigma$ is adopted for  the solid phase. The governing equations  valid at the microscale are
+%\begin{equation}
+%\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}, 
+%\label{eq:mom}
+%\end{equation}
+%\begin{equation}
+%\nabla \cdot \vb = 0,
+%\label{eq:cont}
+%\end{equation}
+%where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
+%The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives the fluid motion and can be interpreted as the macroscopic pressure gradient acting on the system.
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.8\linewidth]{chapter_4/figure/REV}
+%	\caption{Illustration of the REV concept.}
+%	\label{fig:rev}
+%\end{figure}
+%
+%
+%The concept of Reference Elementary Volume (REV) of the porous medium is classically introduced in the framework of the VANS approach.
+%An example of REV  is depicted on figure \ref{fig:rev}, together with relevant notations (volume shape and size, indication of the fact that the normal unit vector is directed from the fluid to the solid phase, centroid $\rm {\bf{x}}$ of the REV). The REV represents  the domain over which the    microscopic problem is solved; its size is defined so as to contain all the microscopic features of the flow. 
+%As a rule of thumb, the REV is the smallest  fluid domain over which   periodic boundary conditions can be applied.
+%
+%
+%In the computational domain, any flow variable  $\phi$ can be decomposed into an intrinsic average part $\meani{\phi}$ plus a perturbation $\tilde{\phi}$, as:
+%$$  \phi = \meani{\phi} + \tilde{\phi}.$$
+%The intrinsic average is defined with an integration carried out only on the fluid phase \cite{whitaker2013method}:
+%\begin{equation}
+%\meani{\psi_{\beta}} = \dfrac{1}{\volb} \int_{\volb} \psi_\beta (\mathbf{x}) d \volb.
+%\label{eq:avg_intrinsic}
+%\end{equation}
+%Applying such an operator to equations \eqref{eq:mom} and \eqref{eq:cont}, and following \citet{whitaker1996forchheimer} we have:
+%$$
+%\dfrac{\partial \vbmi}{\partial t} + \vbmi \cdot \nabla \vbmi = -\frac{1}{\rho_{\beta}} \nabla \pbmi + \nu_\beta \nabla^2 \vbmi + \, \mathbf{f} \, + 
+%$$
+%\begin{equation}
+%\dfrac{1}{\volb} \int_{A_{\beta \sigma}}  ( - \frac{\pbt}{\rho_\beta} \mathbf{I} + \nub \nabla \vbt ) \cdot  \mathbf{n}_{\beta \sigma} dA,
+%\label{eq:darcy_forch}
+%\end{equation}	
+%\begin{equation}
+%\nabla \cdot \meani{\vb} = 0,
+%\label{eq:cont_vans}
+%\end{equation}	
+%upon neglecting in equation \eqref{eq:darcy_forch} the sub-REV scale dispersion term (linked to the $\left< \vbt \vbt \right>^{\beta}$ term) which is often small in porous media flows \cite{brugem_phd}.
+%
+%The surface integral term in equation \eqref{eq:darcy_forch}  represents the drag (per unit mass) due to surface forces at the fluid-solid interface of the medium. It is called the Darcy-Forchheimer microscale force, $\mathbf{F}^{\textit{m}}$. The equations are however often to be solved at the macroscale, so that a macroscale force model, 
+%$\mathbf{F}^{\textit{M}}$, must be used to replace $\mathbf{F}^{\textit{m}}$ in the governing equation. Such a model is often based on a permeability tensor, $\mathbf{K}$, and a Forchheimer tensor, $\mathbf{F}$, and reads:
+%\begin{equation} 
+%\mathbf{F}^{\textit{M}} = - \nub \mathbf{K}^{-1} (\mathbf{I} + \mathbf{F})\vbmi,
+%\label{eq:macroscale} 
+%\end{equation}
+%so that the system is closed by imposing
+%\begin{equation}
+%\mathbf{F}^{\textit{m}} = \mathbf{F}^{\textit{M}}.
+%\label{eq:closure_KF} 
+%\end{equation}
+%
+%
+%\noindent The drag force $\mathbf{F}^{\textit{m}}$ computed by direct numerical simulations (DNS) with account of all individual pores will be later compared to the model based on the permeability and Forchheimer tensors (whose equations are given below).
+%This is just a useful exercise to demonstrate consistency of the approach and accuracy of the numerical simulations; it does nothing else since, as briefly described below, to derive the Forchheimer tensor the microscopic velocity field must be known anyhow.  Nonetheless, knowledge of the behaviour of these tensors (or, equivalently, of the related \emph{apparent} permeability) might prove both useful and instructive, in particular should one wish to extend the range of applicability of the model to cases for which the microscopic solution is not available.
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%\subsubsection{Closure problems for $\mathbf{K}$ and $\mathbf{F}$}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%The core of the VANS approach consists in the identification of the permeability and Forchheimer tensors. This problem, referred to as the closure problem, is discussed at length by \citet{whitaker1986flow,whitaker1996forchheimer}.  He derives two partial differential equation systems, the first valid in the zero Reynolds number limit (system \eqref{eq:K_closure} below), while the second applies when inertial terms are not negligible (system \eqref{eq:F_closure1}).
+%
+%
+%
+%In the first system of equations   a three component vector $\mathbf{d}$  and  a $3 \times 3$ tensor  $\mathbf{D}$ are introduced.
+%This system  can be divided into  three separate independent problems which resemble a forced Stokes problem where each component of $\mathbf{d}$ and the corresponding row of  $\mathbf{D}$  play, respectively, the role of a pressure and a velocity field. Together with the periodic  boundary conditions, the problem reads: 
+%\begin{equation}
+%\begin{cases} 
+%0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} + \mathbf{I},\\ 
+%\nabla \cdot \mathbf{D} = 0, \\ 
+%\mathbf{D} = 0 \qquad {\rm on }  \qquad A_{\beta \sigma},\\
+%\mathbf{d}(\mathbf{x} + \ell_i) = \mathbf{d}(\mathbf{x}), \qquad 
+%\mathbf{D}(\mathbf{x} + \ell_i) = \mathbf{D}(\mathbf{x}) \qquad i = 1,2,3.
+%\end{cases} 
+%\label{eq:K_closure}
+%\end{equation}
+%The permeability tensor is found by applying  the intrinsic average on the $\mathbf{D}$ tensor, i.e.
+%$\mathbf{K} = \varepsilon \; \meani{\mathbf{D}}$  and, in the Stokes regime, it is
+%\begin{equation}
+%\mathbf{F}^{\textit{M}} = - \nub \mathbf{K}^{-1} \vbmi.
+%\end{equation}
+%
+%The second closure problem differs from the first only for the presence of a linearised convective term 
+%in which the microscopic velocity obtained from the DNS, $\vb$, is used as an input.  This of course implies knowledge of the microscopic velocity field. A Oseen-like approximation which relaxes this constraint has been proposed by \citet{zampogna}.
+%
+%The new unknowns are a  vector and a tensor called, respectively,   $\mathbf{m}$  and  $\mathbf{M}$, with  the same meanings of $\mathbf{d}$ and 
+%$\mathbf{D}$.
+%The system reads:
+%\begin{equation}
+%\begin{cases} 
+%\dfrac{1}{\nub} \vb \cdot \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} + \mathbf{I},\\ 
+%\nabla \cdot \mathbf{M} = 0, \\ 
+%\mathbf{M} = 0  \qquad {\rm on } \qquad A_{\beta \sigma}, \\
+%\mathbf{m}(\mathbf{x} + \ell_i) = \mathbf{m}(\mathbf{x}), \qquad 
+%\mathbf{M}(\mathbf{x} + \ell_i) = \mathbf{M}(\mathbf{x}) \qquad i = 1,2,3.
+%\end{cases} 
+%\label{eq:F_closure1}
+%\end{equation}
+%The average  of the tensor $\mathbf{M}$  multiplied by the porosity is the \textit{apparent permeability}, 
+%$\mathbf{H}= \varepsilon \; \meani{\mathbf{M}}$. When inertia is important equation \eqref{eq:macroscale}  can be written as 
+%\begin{equation}
+%\mathbf{F}^{\textit{M}} = - \nub \mathbf{H}^{-1} \vbmi,
+%\end{equation}
+%\noindent as shown by \citet{whitaker1996forchheimer}.
+%
+%Two remarks are in order at this point.
+%First, the equations in the closure problem \eqref{eq:F_closure1} are time-independent because the microscopic velocity $\vb$ is a solution of a stationary DNS.  Thus, the Reynolds number should be sufficiently small for unsteady effects not to be present. Should the wake behind a solid inclusion display regular or irregular temporal oscillations, the equations of system \eqref{eq:F_closure1} may be used, as an
+%approximation, by replacing the instantaneous velocity in the REV with its time-averaged distribution.  This case is however not of present concern.
+%Secondly, the closure problems reflect the structure of the solution of the two system \eqref{eq:K_closure} and \eqref{eq:F_closure1}. In particular, the solution of \eqref{eq:K_closure} depends only on the geometry of the porous medium so that the permeability tensor $\mathbf{K}$ is symmetric. This is not the case for $\mathbf{H}$, because of the effect of the microscopic velocity amplitude and direction.  Clearly, the solution of system \eqref{eq:K_closure} tends to that of \eqref{eq:F_closure1} when $Re_d \rightarrow 0$. 
+%
 
 
 
