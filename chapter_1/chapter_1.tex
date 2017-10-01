@@ -99,42 +99,67 @@ The interest reader could find other examples and broaden the above key aspect a
 
 
 
-\subsection{Riblets}
+\subsection{Riblets and shark-skin surfaces}
 
 We have seen that natural surface can be an inspiration to find some strategies for many aerodynamic problems; in the following we will focus especially on the drag reduction.
 
 Is known that the total drag contribution can be separated in different components, and the classical decomposition is between skin-friction and pressure drag.
 
-Since most of the industrial application involves turbulent flow, obviously there is a lot of research trying to develop solution to reduce the skin-friction in this regime.
-Table 6.3.1 in the book of \citet{mclean2012understanding} make a wide list of technique already been proposed on this problem.
+Since most of the industrial application involves turbulent flow, obviously there is a lot of research developing solution to reduce the skin-friction in this regime.
+Table 6.3.1 in the book of \citet{mclean2012understanding} make a wide list of technique already been proposed on the problem.
 
-As the same author pinpoint the most effective and probably the most practicable concept to reduce skin-friction are the riblets.
-They are regularly arranged alternating ridges aligned in the streamwise direction of the flow as the figure \ref{fig:riblets1} show.
-The reduce the skin-friction acting on the near wall streamwise vortices 
+As the same author pinpoint the most effective, and probably the most practicable concept, are the riblets.
+They are regularly arranged alternating ridges aligned in the streamwise flow direction as the figure \ref{fig:riblets1} show.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{chapter_1/riblets3}
+	\caption{Schematics of the physics ... \citet{bechert1997experiments}}
+	\label{fig:riblets1}
+\end{figure}
+
+The reduce the skin-friction drag reduction correlates with the spacing between the ridges expressed in wall units $ s^+ $, the typical shape is depicted in \ref{fig:riblets_perf} where the vertical axis show the drag reduction computed against the smooth surface case against the $ s^+ $.
+This general shape of the curve, in which the skin friction decrease in certain range of spacing and then increase as the $ s^+ $ increase, is caused by a competition between the capacity of riblets to obstruct lateral fluid flow and an increase in the penetration of high speed vorticies inside this manufactured rugosities.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{chapter_1/riblets_performance}
+	\caption{Performance ... \citet{jimenez2001turbulent} }
+	\label{fig:riblets_perf}
+\end{figure}
+
+This last physical explanation of the riblets performances is presented in the schematics \ref{fig:riblets_schem} 
 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_1/riblets1}
-	\caption{Schematics of the physics ...}
-	\label{fig:riblets1}
+	\caption{ ... \citet{choi1993direct} }
+	\label{fig:riblets_schem}
 \end{figure}
 
 
-The only model is DNS 
 
-They are robust, forgiving about yaw effect and riblets shape
+Computing the performance of such surfaces can be expensive since the only quantitative theory in such problems are DNS simulations or experiments.
+The slope of the curve \ref{fig:riblets_perf} can be predicted by linear stability theory or by means of empirical correlations as in \citet{garcia2011hydrodynamic}
+
+They are robust off-design, forgiving about yaw effect and riblets shape
 
 cita il paper con i riblets nel becco 
 
 Riblets e shark per skin friction
 
+The hulls of the USA challengers in the America’s Cup 1987 and 2010 sailing competitions were fitted with riblets
+
+Luchini 2011 genrating slip delta u+ and offset delta h+
+
 Porous surface(mortazvi) per viscous pressure drag, (pressure redistribution)
 
 
 
+\citet{itoh2006turbulent} and \citet{bechert1997experiments} shows that compliant wall can outperform riblets.
 
-
+\citet{boomsma2016direct} dice che il drag cresce ma è perche usa IBM che con le forze nn ci azzecca, e la superficie nn è elastica
 
 
 
@@ -146,3 +171,4 @@ Usually the pressure contribution is the most significant and even in highly str
 Compliant, surfaces that deflect in response to the surface pressure fluctuation of the boundary layer
 
 cita esperimenti tedeschi sul cilindro con il bordo d'uscita poroso
+
