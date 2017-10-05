@@ -101,11 +101,20 @@ The interest reader could find other examples and broaden the above key aspect a
 
 \subsection{Riblets and shark-skin surfaces}
 
-We have seen that natural surface can be an inspiration to find some strategies for many aerodynamic problems; in the following we will focus especially on the drag reduction.
+We have seen that natural surface can be an inspiration to find strategies to solve many aerodynamics problems; in the following we will focus especially on the drag reduction.
 
 Is known that the total drag contribution can be separated in different components, and the classical decomposition is between skin-friction and pressure drag.
 
-Since most of the industrial application involves turbulent flow, obviously there is a lot of research developing solution to reduce the skin-friction in this regime.
+\begin{equation}
+ \int_{A_{\sigma}}  [ \underbrace{\left( \frac{p}{\rho} \mathbf{I} \right) \cdot  \mathbf{n}_{\sigma} }_\text{pressure drag}  +  \underbrace{ \left( \nu \nabla \mathbf{v} \right) \cdot  \mathbf{n}_{\sigma}}_\text{viscous drag} ] \; dA,
+ \label{eq:force}
+\end{equation}
+
+
+
+Where $A_{\sigma}$ is the solid interface of some object where a no slip condition is applied, and $ \mathbf{n}_{\sigma}$ is its outward normal.
+
+Since most of the industrial application involves turbulent flow, obviously there is a lot of research that aim to reduce the skin-friction in this regime.
 Table 6.3.1 in the book of \citet{mclean2012understanding} make a wide list of technique already been proposed on the problem.
 
 As the same author pinpoint the most effective, and probably the most practicable concept, are the riblets.
