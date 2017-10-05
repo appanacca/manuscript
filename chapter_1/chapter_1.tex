@@ -103,18 +103,21 @@ The interest reader could find other examples and broaden the above key aspect a
 
 We have seen that natural surface can be an inspiration to find strategies to solve many aerodynamics problems; in the following we will focus especially on the drag reduction.
 
-Is known that the total drag contribution can be separated in different components, and the classical decomposition is between skin-friction and pressure drag.
+Is known that the total drag contribution can be separated in different components, and the classical decomposition is between viscous drag (sometimes referred as skin friction) and pressure drag.
 
 \begin{equation}
  \int_{A_{\sigma}}  [ \underbrace{\left( \frac{p}{\rho} \mathbf{I} \right) \cdot  \mathbf{n}_{\sigma} }_\text{pressure drag}  +  \underbrace{ \left( \nu \nabla \mathbf{v} \right) \cdot  \mathbf{n}_{\sigma}}_\text{viscous drag} ] \; dA,
  \label{eq:force}
 \end{equation}
 
+Where $A_{\sigma}$ is the solid interface of some body where a no slip condition is applied, and $ \mathbf{n}_{\sigma}$ is its outward normal.
+In this section we will talk about the existing possible ways to reduce the viscous part of the drag since historically has attract more interest and/or make more progress.
 
+$$
+\tau_{ij} = \left( \mu + \mu_t \right) \left[ \derp{\overline{u_i}}{x_j} + \derp{\overline{u_j}}{x_i}\right] ???????????
+$$
 
-Where $A_{\sigma}$ is the solid interface of some object where a no slip condition is applied, and $ \mathbf{n}_{\sigma}$ is its outward normal.
-
-Since most of the industrial application involves turbulent flow, obviously there is a lot of research that aim to reduce the skin-friction in this regime.
+Most of the industrial application involves turbulent flow; obviously there is a lot of research that aim to reduce the skin-friction in this regime.
 Table 6.3.1 in the book of \citet{mclean2012understanding} make a wide list of technique already been proposed on the problem.
 
 As the same author pinpoint the most effective, and probably the most practicable concept, are the riblets.
@@ -126,7 +129,7 @@ Reducing this fluctuations close to the surface the turbulent momentum transfer 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_1/riblets3}
-	\caption{Schematics of the physics ... \citet{bechert1997experiments}}
+	\caption{Schematics of the concept of \textit{protusion height}. The mean velocity profiles for the streamwise and crossflow velocities are presented. Where they are in the presence of a ridge is it possible to extrapolate the point of zero velocity from the velocity gradient outside the riblet, finding respectively the \textit{streamwise protusion height} $h_{ps}$ and the \textit{crossflow protusion height} $h_{pc}$. Image from \citet{bechert1997experiments}}
 	\label{fig:riblets1}
 \end{figure}
 
@@ -148,7 +151,7 @@ On the contrary when the riblets are smaller, the high speed vortices "touch" on
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_1/riblets1}
-	\caption{ ... \citet{choi1993direct} }
+	\caption{Two different size of riblets are represented interacting with a sublayer vortex. In grey is it represented the areas where the friction is important; clearly when the size of two is comparable (as the left picture) the surface experience a larger friction and the performance is lowered. Image from \citet{choi1993direct}}
 	\label{fig:riblets_schem}
 \end{figure}
 
@@ -189,7 +192,7 @@ Also \citet{itoh2006turbulent} shows that movable rugosities can outperform ribl
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\linewidth]{chapter_1/seal}
-\caption{Image from \citet{itoh2006turbulent}.}
+\caption{$DR \% = \dfrac{ \Delta \tau}{\tau_{0}} \%$ Image from \citet{itoh2006turbulent}.}
 \label{fig:seal}
 \end{figure}
 
