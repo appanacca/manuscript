@@ -113,9 +113,13 @@ Is known that the total drag contribution can be separated in different componen
 Where $A_{\sigma}$ is the solid interface of some body where a no slip condition is applied, and $ \mathbf{n}_{\sigma}$ is its outward normal.
 In this section we will talk about the existing possible ways to reduce the viscous part of the drag since historically has attract more interest and/or make more progress.
 
-$$
-\tau = \left( \mu + \mu_t \right) \derp{\overline{u}}{y}
-$$
+In the following we will refer as the wall shear stress in the turbulent case as:
+\begin{equation}
+\tau = \left( \left( \mu + \mu_t \right)  \nabla \mathbf{\overline{v}} \right) \cdot  \mathbf{n}_{\sigma} = \left( \mu + \mu_t \right) \derp{\overline{u}}{y}
+\end{equation}
+
+where $\mu_t$ is the turbulent viscosity and $\overline{u}$ is the average velocity stramwise component; in the laminar case obviously the definition rest the same with some correction (there is no turbulent viscosity and no notion of average velocity).
+Also $\mathbf{n}_{\sigma} = (0,1,0)$ is the conventional orientation in the literature.
 
 Most of the industrial application involves turbulent flow; obviously there is a lot of research that aim to reduce the skin-friction in this regime.
 Table 6.3.1 in the book of \citet{mclean2012understanding} make a wide list of technique already been proposed on the problem.
@@ -236,11 +240,13 @@ Here we are interested in passive techniques to achieve pressure redistribution 
 \citet{heenan1998passive} perform an experiment in which he take a backward facing step with a porous insert in the recirculation region.
 His measurement show a $13\%$ decrease of the peak of pressure at the wall and a relocation of the detachment point further downstream.
 Also depending on the length of the porous insert a maximum of $9\%$ of drag reduction was also observed.
-The effect of the porous surface is to limit the pressure fluctuations that cause the unsteadiness of the recirculation bubble.
+The effect of adding a porous surface in this case was to limit the pressure fluctuations that causes the recirculation bubble unsteadiness.
 
-The idea has been tested numerically by \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}.
-These works use some classical two dimensional bluff bodies (cylinder, square cylinder, ahmed body section) and apply a porous coatings on their surfaces.
-They show that even of the porous medium is rigid the flow field downstream to the object is strongly regularized as figure \ref{fig:porous_cylinder} show.
+The idea of adding a porous layer to a bluff body has been tested numerically by multiple authors: \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}.
+These works present numerical experiment on some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section) and a porous coatings on some extension of their surfaces.
+
+These works show some very strong result on multiple quantities, like: entstrophy, root mean square of the lift signal, drag reduction, regularization of the wake and lower pressure gradients; even if the porous medium is rigid.
+An example is shown in figure \ref{fig:porous_cylinder} where the flow field downstream to a square cylinder is computed in a turbulent case; the picture show how the porous layer strongly regularize the wake.
 
 \begin{figure}[h]
 	\centering
@@ -249,11 +255,12 @@ They show that even of the porous medium is rigid the flow field downstream to t
 	\label{fig:porous_cylinder}
 \end{figure}
 
-Also they compute regularization in the root mean square of the lift signal and some very promising drag reduction.
+
 It seems also that the medium parameters like the porous resistance and his vertical extension has very strong effect on the results.
+
 In all these work we observe a reduced pressure drop between the front and the read of the body, a reduced drag, delays in the vortex shedding in the laminar case and regularization on both the frequency and the amplitude of shedded vorticies oscillations.
 
-These early work show very promising numbers but they should be taken with some care, since only \citet{naito2012numerical} simulations are three-dimensional, and they all use a modeling approach for the porous medium (see section \ref{sec:vans}) without any validation of the method, and sometimes they use it outside his field of validity (there is some discussion in the scientific community in using such methods for highly turbulent flows).
+These early work show very optimistic numbers but they should be taken with some care, since only \citet{naito2012numerical} simulations are three-dimensional, and they all use a modeling approach for the porous medium (see section \ref{sec:vans}) without any validation of the method, and sometimes they use it outside his field of validity (there is some discussion in the scientific community in using such methods for highly turbulent flows).
 
 Even though the lack of validation reflect the fact that reliable experiment of such porous coatings are almost non existent in literature.
 
@@ -275,7 +282,7 @@ In all the different versions of the equation for the flow dynamic, velocity and
 \subsubsection{VANS}
 \label{sec:vans}
 
-Penalization method \cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}
+Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
 
 \subsubsection{Multiple scales}
 
