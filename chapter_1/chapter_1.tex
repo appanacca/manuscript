@@ -211,49 +211,35 @@ In the next section we will introduce another class of solution that try to act 
 
 \subsection{Permeable surfaces}
 
-Permeable surface has been proposed as the natural extension to exploit even further the mechanism explained above.
-There is some experimental evidence that in the lamina case the generation of slip velocity at the interface decrease the friction drag \citet{beavers1967boundary}, however in the turbulent case it seems that the instabilities developing at the interface can cause an increase in drag up to $40\%$ \citet{jimenez2001turbulent}, \citet{breugem2006influence}, but this last mechanism will be further exploited in the section \ref{sec:stability}.
-Is important to pinpoint that the cases cited above the permeable surface is rigid.
+Permeable surface has been proposed to exploit even further the mechanism explained above using riblets.
+There is some experimental evidence that in laminar cases the generation of some \textit{slip velocity}, at the interface between the permeable surface with the fluid , can decrease the friction drag \citet{beavers1967boundary}.
+However in the turbulent case it seems that the instabilities developing at the interface can cause an increase in drag up to $40\%$ \citet{jimenez2001turbulent}, \citet{breugem2006influence}; this last mechanism will be further exploited in the section \ref{sec:stability}.
+Is important to pinpoint that the permeable surface cited in the above references were all rigid.
 
-In bluff body resistance the pressure contribution is usually the most significant one, and even in highly streamlined body its around  $10\%$ of the total drag.
-Researchers have tried to find the way to modify the pressure distribution around a body in order to reduce the resistance but also to dump the force oscillation on the body (drag and/or lift).
+The resistance pressure contribution is usually the most significant one in bluff bodies applications, and even in highly streamlined body it is around $10\%$ of the total drag.
+Researchers have tried to find a way to modify the pressure distribution around a bluff body to reduce the associated resistance, and also dump the force oscillation on the body (drag and/or lift).
 
-The pressure drag on a bluff body depends mostly on the difference between the low pressure on the rear part of the body, where there is usually a recirculation bubble, and the high pressure in the front part of it.
-The way in which the recirculation is decreased is well shown in figure \ref{fig:cylinerveldistrib}
-
-This is mainly due to the fact that in the porous layers there is a low speed (less than $10\%$ of the incoming flow velocity) laminar flow that is expelled at the back in the nearwake inducing a weak horizontal jet that increases the negative mean pressure significantly
-
-when Reynolds number is beyond 40, the shear layers exhibit Kelvin–Helmeholtz instability and an alternate vortex shedding is observed.
-At the fluid–porous interface, there is effectively a slip velocity on the porous surface and the boundary layer which develops above the porous layer is different from the classical Prandt boundary layer
-
-The shear and the vorticity near the surface are weakened by the slip velocity. 
-The fluid that enters into the porous media loses its energy due to strong dissipation and the resultant low-energy fluid is ejected from the downstream side of the porous surface
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=1\linewidth]{chapter_1/cyliner_vel_distrib}
-	\caption{Mean velocity profiles from 3D cylinder simulations, (a) solid case, (b) porous case with layer extension $h=20\% R$ and (c) (b) porous case with layer extension $h=50\% R$. The solid line define the solid cylinder boundary, and the dotted line is the porous layer boundary. Image from \citet{naito2012numerical}}
-	\label{fig:cylinerveldistrib}
-\end{figure}
-
+The pressure drag on a bluff body depends mostly on the difference between the low pressure on the rear part of the body, where there is usually a separated flow region, and the high pressure in the forward part.
+This idea is sketched in figure \ref{fig:pressure_dist} where two different pressure distribution are shown; the black one represent the classical solid body, and the green one is the one with a porous layer at the back of the body.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{chapter_1/pressure_dist}
-	\caption{Image from \citet{klausmann2017drag}}
+	\caption{Diagram showing an example of pressure distribution around a cylinder for a viscous flow. The black line is the angular distribution as a solid body, the green one is the modified pressure in presence of a porous layer at the rear part. Image from \citet{klausmann2017drag}}
 	\label{fig:pressure_dist}
 \end{figure}
 
-Here we are interested in passive techniques to achieve pressure redistribution using porous surfaces.
-\citet{heenan1998passive} perform an experiment in which he take a backward facing step with a porous insert in the re-circulation region.
-His measurement show a $13\%$ decrease of the peak of pressure at the wall and a relocation of the detachment point further downstream.
-Also depending on the length of the porous insert a maximum of $9\%$ of drag reduction was also observed.
-The effect of adding a porous surface in this case was to limit the pressure fluctuations that causes the recirculation bubble unsteadiness.
+The favorable increase in the back pressure is due to the low speed laminar flow in the porous media that is ejected in the back region where the separation take place.
+Even in very high speed turbulent flow the fluid inside permeable surface exhibit a very high energy loss due to the strong dissipation that the medium provide, resulting so in a low speed flow ejected downstream of the body.
 
-The idea of adding a porous layer to a bluff body has been tested numerically by multiple authors: \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}.
-These works present numerical experiment on some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section) and a porous coatings on some extension of their surfaces.
+The instability around a cylinder is due to the shear layer that forms in the top part of the body when the flow start to decelerate.
+This shear layer exhibit a Kelvin–Helmeholtz type instability that develop in the classical Von-Karman wake.
+The permeable interface, producing a slip velocity, can modify the boundary layer that develops above it and with that produce less shear and vorticity.
 
-These works show some very strong result on multiple quantities, like: entstrophy, root mean square of the lift signal, drag reduction, regularization of the wake and lower pressure gradients; even if the porous medium is rigid.
+This two hypothetical mechanisms has been tested numerically numerically by multiple authors: \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}.
+In their work they have add a porous layer to some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section)and performed laminar and turbulent simulation for the flow around such bodies.
+
+These works show some very strong result on multiple quantities, like: decrease of entstrophy, lower root mean square of the lift signal, drag reduction, regularization of the wake and lower pressure gradients; even if the porous medium is always rigid in their case.
 An example is shown in figure \ref{fig:porous_cylinder} where the flow field downstream to a square cylinder is computed in a turbulent case; the picture show how the porous layer strongly regularize the wake.
 
 \begin{figure}[h]
@@ -264,7 +250,8 @@ An example is shown in figure \ref{fig:porous_cylinder} where the flow field dow
 \end{figure}
 
 
-It seems also that the medium parameters like the porous resistance and his vertical extension has very strong effect on the results.
+It seems from the previous works that the medium parameters, like the porous resistance (permeability) or the vertical extension of it, have important effects on the results.
+They seems to agree (at least qualitatively) that increasing too the porous medium extension over a certain limit is not beneficial, and thay also show that the resistance of the medium in order to be effective should not be excessive (medium to high porosity are the best).
 
 In all these work we observe a reduced pressure drop between the front and the read of the body, a reduced drag, delays in the vortex shedding in the laminar case and regularization on both the frequency and the amplitude of shedded vorticies oscillations.
 
@@ -272,17 +259,30 @@ These early work show very optimistic numbers but they should be taken with some
 
 Even though the lack of validation reflect the fact that reliable experiment of such porous coatings are almost non existent in literature.
 
+DIGRESSION ON THE FORCE BETWEEN A FLUID AND A BLUFF POROUS MEDIUM BODY \citet{caltagirone1994interaction}
+
+
 \citet{favier2009passive} confirms the results on the cylinder using a different numerical method
 
 
 
+The only two experiments find in literature show less promising numbers ...
+
+\citet{heenan1998passive} perform an experiment in which he take a backward facing step with a porous insert in the re-circulation region.
+His measurement show a $13\%$ decrease of the peak of pressure at the wall and a relocation of the detachment point further downstream.
+Also depending on the length of the porous insert a maximum of $9\%$ of drag reduction was also observed.
+The effect of adding a porous surface in this case was to limit the pressure fluctuations that causes the re-circulation bubble unsteadiness.
+
 Later we have some experiment \citet{klausmann2017drag} that show some lower numbers...
+
+
+
 
 Compared to the riblets approach it is clear that a lot has yet to be explained from the physical mechanism involved. 
 The scientific community also need much more experimental data in order to develop new and improved numerical and theoretical models  fro such permeable coatings. 
 
-However is very difficult to separate the two contribution of the drag.
-In all the different versions of the equation for the flow dynamic, velocity and pressure are alway coupled, so is not always possible to decouple the different behavior.
+However is very difficult to separate the two contribution of the drag (in general, and in this case is impossible due to the porous medium).
+In all the different versions of the equation for the flow dynamic, velocity and pressure are always coupled, so is not always possible to decouple the different behavior.
 
 \section{Models for flows through porous surfaces}
 \subsection{Drag that is function of the canopy depth (canopy flow, flow vegetation)}
