@@ -236,8 +236,8 @@ The instability around a cylinder is due to the shear layer that forms in the to
 This shear layer exhibit a Kelvin–Helmeholtz type instability that develop in the classical Von-Karman wake.
 The permeable interface, producing a slip velocity, can modify the boundary layer that develops above it and with that produce less shear and vorticity.
 
-This two hypothetical mechanisms has been tested numerically numerically by multiple authors: \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}.
-In their work they have add a porous layer to some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section)and performed laminar and turbulent simulation for the flow around such bodies.
+This two hypothetical mechanisms has been tested numerically numerically by multiple authors: \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}, \citet{mimeau2017passive}.
+In their work they have add a porous layer to some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section, 3D hemisphere)and performed laminar and turbulent simulation for the flow around such bodies.
 
 These works show some very strong result on multiple quantities, like: decrease of entstrophy, lower root mean square of the lift signal, drag reduction, regularization of the wake and lower pressure gradients; even if the porous medium is always rigid in their case.
 An example is shown in figure \ref{fig:porous_cylinder} where the flow field downstream to a square cylinder is computed in a turbulent case; the picture show how the porous layer strongly regularize the wake.
@@ -250,39 +250,47 @@ An example is shown in figure \ref{fig:porous_cylinder} where the flow field dow
 \end{figure}
 
 
-It seems from the previous works that the medium parameters, like the porous resistance (permeability) or the vertical extension of it, have important effects on the results.
-They seems to agree (at least qualitatively) that increasing too the porous medium extension over a certain limit is not beneficial, and thay also show that the resistance of the medium in order to be effective should not be excessive (medium to high porosity are the best).
+It seems from the previous works that the porous medium parameters, like the permeability (resistance) or its vertical extension, have important effects on the results.
+They seems to agree (at least qualitatively) that increasing too the porous medium extension over a certain limit is not beneficial, and they also show that the resistance of the medium in order to be effective should not be excessive (medium to high porosity are the best).
 
-In all these work we observe a reduced pressure drop between the front and the read of the body, a reduced drag, delays in the vortex shedding in the laminar case and regularization on both the frequency and the amplitude of shedded vorticies oscillations.
+In all these work we observe a reduced pressure drop between the front and the rear of the body, a reduced drag, delays in the vortex shedding in the laminar case and regularization on both the frequency and the amplitude of shedded vorticies oscillations.
 
-These early work show very optimistic numbers but they should be taken with some care, since only \citet{naito2012numerical} simulations are three-dimensional, and they all use a modeling approach for the porous medium (see section \ref{sec:vans}) without any validation of the method, and sometimes they use it outside his field of validity (there is some discussion in the scientific community in using such methods for highly turbulent flows).
+These early work show very optimistic numbers but they should be taken with some care; only few cases are three-dimensional, and they all use a modeling approach for the porous medium based on a simplified version of the VANS (volume average Navier-Stokes equations, see section \ref{sec:vans}) without performing any validation of the method, and sometimes they use the equations outside their field of validity (there is some discussion in the scientific community in using such methods for highly turbulent flows).
 
-Even though the lack of validation reflect the fact that reliable experiment of such porous coatings are almost non existent in literature.
-
-DIGRESSION ON THE FORCE BETWEEN A FLUID AND A BLUFF POROUS MEDIUM BODY \citet{caltagirone1994interaction}
-
-
-\citet{favier2009passive} confirms the results on the cylinder using a different numerical method
+The lack of validation reflect the fact that reliable experiment of such porous coatings are almost non existent in literature.
+They also do not agree on the methods used to compute the forces \citet{caltagirone1994interaction}?? SHOW HERE THE GOOD METHOD ? MAYBE IN THE VANS SECTION...
 
 
+\citet{favier2009passive} use a different numerical method that includes the dynamic of a moving porous medium made of fibers at the back of a cylinder.
+Their results in a laminar flow case agree with the results on the stabilization of the wake and show some more realistic values of drag reduction, about $15\%$.
+The difficulties in this model is in the medium dynamic, since it introduce many mechanical parameters that are not easy to identify for natural surfaces.
 
-The only two experiments find in literature show less promising numbers ...
+A similar model to the previous one has been used by \citet{venkataraman2012numerical}; the authors applied a movable porous coating in the top part of naca airfoil.
+In this case the synchronization between the oscillations of the structures and the natural frequency of the fluid is responsible for the pressure distribution modification.
+They have shown the robustness of this solution in a wide range of angle of attack, in the best case they have found some lift enchantment and regularization and a drag reduction has been measured to be on the order of $10\%$.
 
-\citet{heenan1998passive} perform an experiment in which he take a backward facing step with a porous insert in the re-circulation region.
+Later on \citet{rosti2017pelskin} works on a similar configuration with only one movable flap on the low pressure side of airfoil; the results both numerical and experimental qualitatively agree (on the flow mechanism) with the results in the complete porous case.
+
+
+WHEN IT WILL BE PUBLISHED SHOW SOME RESULTS ON THE 3D SPHERE USING HOMOGENIZATION \citet{zampogna2017new}
+
+The are very few experiment in literature on this porous coatings, but they all seems to show less promising numbers when  dealing with drag reduction.
+
+For example \citet{heenan1998passive} perform an experiment in which he take a backward facing step with a porous insert in the re-circulation region.
 His measurement show a $13\%$ decrease of the peak of pressure at the wall and a relocation of the detachment point further downstream.
 Also depending on the length of the porous insert a maximum of $9\%$ of drag reduction was also observed.
 The effect of adding a porous surface in this case was to limit the pressure fluctuations that causes the re-circulation bubble unsteadiness.
 
-Later we have some experiment \citet{klausmann2017drag} that show some lower numbers...
+Later \citet{klausmann2017drag} study a 3D cylinder with a porous insert in the back; the authors use a wind tunnel testing with pressure measurements around the body and particle image velocimetry (PIV) flow capture.
+Their results confirms that the porous layer on the leeward side increase of pressure in that zone, causing the reduction of drag.
+The drag reduction measured to be around $10\%$ over various Reynolds number in the fully developped turbulence range, but it can be more sensible to the geometrical parameters of the medium as the position and its size.
+At our knowledge this is the first example of actual measurements of flow quantities using PIV, that can later be used to perform some validation on different numerical models.
 
+Some other experimental data can be found in the case of flow over aquatic canopies \citet{zhang2011exchange}, \citet{segalini2011experimental}, even though the published data is limited and the problem in this case has also a free surface that increase the difficulty of the problem and limits the possible use as validation.
 
+From this section the main physical mechanism that tied to permeable surfaces has been introduced but the different approaches in literature seems to be discordant in the predicted values of some fundamental items such as the forces.
+Is it clear that the scientific community need much more experimental data in order to develop new and improved numerical and theoretical models for such permeable coatings.
 
-
-Compared to the riblets approach it is clear that a lot has yet to be explained from the physical mechanism involved. 
-The scientific community also need much more experimental data in order to develop new and improved numerical and theoretical models  fro such permeable coatings. 
-
-However is very difficult to separate the two contribution of the drag (in general, and in this case is impossible due to the porous medium).
-In all the different versions of the equation for the flow dynamic, velocity and pressure are always coupled, so is not always possible to decouple the different behavior.
 
 \section{Models for flows through porous surfaces}
 \subsection{Drag that is function of the canopy depth (canopy flow, flow vegetation)}
