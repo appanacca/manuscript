@@ -213,6 +213,8 @@ In the next section we will introduce another class of solution that try to act 
 
 \subsection{Permeable surfaces}
 
+\subsection{Bluff bodies}
+
 Permeable surface has been proposed to exploit even further the mechanism explained above using riblets.
 There is some experimental evidence that in laminar cases the generation of some \textit{slip velocity}, at the interface between the permeable surface with the fluid , can decrease the friction drag \citet{beavers1967boundary}.
 However in the turbulent case it seems that the instabilities developing at the interface can cause an increase in drag up to $40\%$ \citet{jimenez2001turbulent}, \citet{breugem2006influence}; this last mechanism will be further exploited in the section \ref{sec:stability}.
@@ -293,6 +295,45 @@ Some other experimental data can be found in the case of flow over aquatic canop
 From this section the main physical mechanism that tied to permeable surfaces has been introduced but the different approaches in literature seems to be discordant in the predicted values of some fundamental items such as the forces.
 Is it clear that the scientific community need much more experimental data in order to develop new and improved numerical and theoretical models for such permeable coatings.
 
+\subsection{Canopy flow}
+
+Another important class of flow over poroelastic carpets are the \textit{canopy flow} as known in literature; they are flow over flexible slender structure as threes or aquatic vegetations.
+The importance of winds over plants is very important in a large variety of fields, like: the transport of substances as $CO_2$ and nutrients or preventing agricultural damage (windthrow of crop fields).
+
+It is known that the turbulent boundary layer profile over a canopy differ substantially from the rough wall one, figure \ref{fig:spectra}.
+The vegetation resistance (drag) cause the creation of an inflection point in the mean velocity profile that lead to a mixing layer type of instability near the vegetation top.
+In the work of \citet{finnigan2000turbulence} the author focused on the turbulent feature of the flow field in presence of vegetation.
+He show that the vegetation can heavily modify the turbulence spectra as a results of the interface instabilities and the coherent structures above it.
+As the two bottom pictures in figure \ref{fig:spectra} show, the spectrum in the case of canopy flow present a larger peak in the frequency of the mixing layer instability, a steeper slope in the energy cascade part due to the larger dissipation inside the permeable layer and possible high frequency peaks associated to the swinging of the pants that can emit or absorb small scales vorticies.
+ 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{chapter_1/spectra}
+	\caption{bla bla \citet{de2008effects}}
+		\label{fig:spectra}
+	\end{figure}
+
+So is it clear that the dynamic of the permeable substrate made by vegetation is extremely important and should always take into account to fully generalize the physics in such problems involving moving canopies.
+As shown in \citet{nepf2012flow} especially for aquatic plants the movements of the plants can be important and so the interface can be largely modified.
+
+In order to discriminate the different behavior of the fibrous structure we need to introduce some important non dimensional parameters used in fluid structure interaction problems:
+$$ m^* = \rho_{\beta} / \rho_{\sigma}, \quad C_Y= \rho_{\beta} U^2 s^3 / E, \quad s = L/\ell $$
+The first one is the mass ratio, the second is called Cauchy number and the last one is the slenderness of the structure.
+The mass ratio $m*$ is a measure of the added mass effects caused by the solid inertia, but this effects are usually negligible in case of fibrous permeable media.
+The Cauchy number $C_Y$ define the statical deformation of a solid caused by the fluid flow ($E$ is the modulus of elasticity of the solid material), at Cauchy numbers over the unity important deformation are expected.
+This number is extremely important since it control a phenomena called \textit{reconfiguration} that leads to drag reduction \citet{gosselin2011drag}, \citet{alvarado2017nature}.
+In figure \ref{fig:cycd} is it possible 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{chapter_1/cy_cd}
+	\caption{fwrwfr  \citet{de2008effects}}
+	\label{fig:cycd}
+\end{figure}
+
+
+
+Is important to pinpoint that the above results are restricted to fibrous or slender structure, and they cannot be extrapolated in general for all different porous structure ans shapes, even though similar mechanism are expected.
 
 \section{Models for flows through porous surfaces}
 
@@ -351,18 +392,16 @@ The key point in such methods are:
 Also the interface treatment and the solid model can be tied to the choice of the porous fluid model.
 The source term introduced in $\Omega_{P}$ depends on the theory in which we develop our porous media model, in the next two section we will talk about the two main  branches existing in literature.
 
+\subsection{Isotropic drag models}
 
-\subsection{Canopy model}
-Is related to fibrous or slender structure, is not a general approximation for all different porous structure ans shapes.
+
 Drag that is function of the canopy depth (canopy flow, flow vegetation)
 
 For our point of view this approach lack of strong mathematical formalism, from which one should derive all the additional terms of the equations.
 As a concequence of what said above, this method heavily rely on empirical relations.
 
-Gosselin and De Langre in their cases are cheating because in the reconfiguration theory the invested area of the solid became much smaller that the one with the coating filaments not bent; this is why they have reduction in the drag, is a problem in the non-dimensinalization of the body area
 
-
-\subsection{Homogenization model}
+\subsection{Homogenization models}
 
 
 \subsubsection{VANS}
@@ -378,10 +417,11 @@ Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passiv
 \citet{finnigan2000turbulence} \citet{jimenez2001turbulent}
 
 \subsection{Stability theory generalities}
-Ono of the first topic treated in my phd was the linear stability analysis, this is a part of the more general stability theory that covers the modelling of the stability and transition of fluids.
-We hare interested in this approach because it's a simple mode to compute the main frequency of the unstable mods of the canopy flow, the monami, and it is also possible to see if the porous flow can change the stability property of the flow introducing more unstable modes that doesn't compare in the flow without the canopy bed. 
 
-We have limits our study (till now) in the local modal stability theory, basically given an operator that describe the evolution of small perturbation, is possible to study the spatial or temporal evolution of the individual eigenmodes of that operator.
+In order to study some of the characteristic of the instabilities that develops at the interface of the permeable surfaces we have used the linear stability analysis; this methodology is part of stability theory that covers the modelling of the stability and transition of fluids flows.
+We hare interested in this approach because it's a simple mode to compute the main frequency of the unstable mods of the canopy flow, the monami, and it is also possible to see if the porous flow can change the stability property of the flow introducing more unstable modes that doesn't exist in the flow without the canopy bed. 
+ 
+We have limits our study in the local modal stability theory, basically given an operator that describe the evolution of small perturbation, is possible to study the spatial or temporal evolution of the individual eigenmodes of that operator.
 The procedure of the linear stability relies on the decomposition of the flow quantities $\mathbf{q}$ into a steady state part $\overline{\mathbf{q}}$ called base flow, and an unsteady part $\widetilde{\mathbf{q}}$:
 
 $$ \mathbf{q} (\mathbf{x},t)= \overline{\mathbf{q}} (\mathbf{x}) + \epsilon \widetilde{\mathbf{q}} (\mathbf{x},t) $$
@@ -416,7 +456,17 @@ The above explanation is quite condensed but a lot of good literature has been d
 
 \subsubsection{Porous Medium applications: monami/honami}
 
-\citet{de2008effects} figure 3 spectrum should be discussed
+\citet{inoue1955studies} first to talk about monami /honami
+
+
+\citet{pluvinage2014instabilities}
+\citet{py2006frequency}
+
+figure from Finnigan
+figure from Nepf
+
+
+
 
 
 The above framework for the stability problem of fluids has already been applied in some porous media flow configurations. 
