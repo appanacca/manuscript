@@ -168,9 +168,12 @@ There is only one other theory, besides the already cited expensive ones, that u
 The \textit{protusion height} is defined as the vertical distance between the riblet top ridge and point of zero velocity extrapolated from the constant velocity gradient outside above the protusions.
 It seems that especially the difference of protusion heights computed from the streamwise $h_{ps}$ and cross-flow flow $h_{pc}$ correlates very well with the drag reduction, and the two quantities can be computed with a simple Stokes problem over the local geometry of the grooves.
 The last results has been analyzed by \citet{segura2017permeable} that came out with an empirical law for the drag reduction, that relates the previous protusion heights with the permeability expressed in wall units:
-$$
-DR \approx 0.04\left( \sqrt{{K^+}_s} - \sqrt{{K^+}_c} \right)
-$$
+
+\begin{equation}
+DR \approx 0.04\left( \sqrt{{K^+}_s} - \sqrt{{K^+}_c} \right),
+\label{eq:max_dr}
+\end{equation}
+
 where ${K^+}_s$ and ${K^+}_c$ are the stramwise and crossflow permeability tensor components; this law establish an instrument to estimate the drag reduction from a given geometry of the wall (the permeability tensor can be computed within the porous media homogenization approach).
 
 Another very characteristic of the performance is that they are robust in off-design conditions, such as in presence of yaw (misalignment between the flow and the riblets ridges) and tip erosion of the ridges \citet{garcia2011drag}.
@@ -303,7 +306,7 @@ Is it clear that the scientific community need much more experimental data in or
 \subsection{Canopy flow}
 
 Another important class of flow over poroelastic carpets are the \textit{canopy flow} as known in literature; they are flow over flexible slender structure as threes or aquatic vegetations.
-The importance of winds over plants is very important in a large variety of fields, like: the transport of substances as $CO_2$ and nutrients or preventing agricultural damage (windthrow of crop fields).
+The importance of winds over plants is very important in a large variety of fields, like: the transport of substances as $CO_2$ and nutrients or preventing agricultural damage (windthrow of crop fields); also the above examples show some dynamic similarities even with urban canopies \citet{ghisalberti2009obstructed}.
 
 It is known that the turbulent boundary layer profile over a canopy differ substantially from the rough wall one, figure \ref{fig:spectra}.
 The vegetation resistance (drag) cause the creation of an inflection point in the mean velocity profile that lead to a mixing layer type of instability near the vegetation top.
@@ -409,21 +412,11 @@ The key point in such methods are:
 Also the interface treatment and the solid model can be tied to the choice of the porous fluid model.
 The source term introduced in $\Omega_{P}$ depends on the theory in which we develop our porous media model, in the next two section we will talk about the two main  branches existing in literature.
 
-\subsection{Isotropic drag models}
-\label{sec:canopy_eq}
-
-Since the flow is eterogeneous at the micro scale finnigan use a double averaging method to ... turbulent case, express some terms as $C_D$....
-Usually the presence of the permeable medium is modelled as a sink term in the momentum equation with a cetain spatial distribution .
-
-Drag that is function of the canopy depth (canopy flow, flow vegetation) and quadratic in the speed even of there is some evidence that Vogel exponent...
-
-\citet{maza2013coupled} woks with cd...
-
-For our point of view this approach lack of strong mathematical formalism, from which one should derive all the additional terms of the equations.
-As a consequence of what said above, this method heavily rely on empirical relations.
-
 
 \subsection{Homogenization models}
+
+The above section introduce the idea to look at the problem as the  approach used to derive a description of the permeable medium in terms of macroscopic quantities
+
 
 
 \subsubsection{VANS}
@@ -431,9 +424,41 @@ As a consequence of what said above, this method heavily rely on empirical relat
 
 Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
 
+
+
 \subsubsection{Multiple scales}
 
-\section{Stability of flow over permeable surfaces (monami and honami)}
+
+
+Is also worth mention another homogenization based approach that uses mixture theory and show that even within that framework is it possible to retrieve the same equation as VANS or multiple scales \citet{rajagopal2007hierarchy}.
+
+\subsection{Isotropic drag models}
+\label{sec:canopy_eq}
+
+In the case of flow through vegetation (canopy flows) it is common to use a simpler isotropic drag model for parametrize the resistance of the canopy.
+So the drag is usually function of the depth (the distance from the interface in the wall normal direction) and it is supposed to be isotropic; this hypothesis can be correct in case of dense vegetation when the flow cannot generate almost any wake inside the canopy, but it is certainly wrong in the wall normal direction since for a flow purely vertical the resistance of the medium should be smaller.
+However since this models are mostly applied in channel problems where the mean flow is mostly streamwise the resistance in the vertical direction can be approximated in this manner, but in application where the transpiration of the interface is important (wake control of bluff body) the isotropic drag model is certainty not convenient.
+
+The drag resistance is included in the incompressible Navier-Stokes equations as a sink of momentum as in equation \ref{eq:mom_cd}.
+
+\begin{equation}
+\derp{\vb}{t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2 -C_D a |\vb| \vb, 
+\label{eq:mom_cd}
+\end{equation}
+
+The sink term is quadratic in the velocity but there is some evidence that the reconfiguration phenomena can change this relationship taking into account the drag reduction \cite{gosselin2011drag}, \citet{alvarado2017nature}.
+
+The sink term includes also the parameter $a$ that is the frontal area per unit volume of the vegetation and even if it has the dimension of a length this parameter is an expression of the porosity of the medium.
+
+For our point of view this approach lack of strong mathematical formalism, from which one should be able to derive all the additional terms of the equations; as a consequence, this method heavily rely on empirical relations.
+One other problem is that the isotropic hypothesis rule out the possibility to model the anisotropic nature of most of the surfaces in which we are interested (as equation \ref{eq:max_dr} suggest the difference in the permeability in different directions can be important for the drag reduction).
+
+But in the field of vegetations a lot of authors have successfully used this approach in various domain, for example \citet{maza2013coupled}, \citet{maza2015tsunami} use it to study wave attenuation, \citet{ghisalberti2004limited}, \citet{battiato2014single} develop a simple model for the 2D mean flow over a canopy.
+
+\subsection{Solid models}
+?????? should be here ?
+
+\section{Stability of flow over permeable surfaces (monami/honami and Kelvin-Helmholtz)}
 \label{sec:stability}
 
 \citet{finnigan2000turbulence} \citet{jimenez2001turbulent}
