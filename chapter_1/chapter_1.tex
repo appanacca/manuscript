@@ -422,15 +422,28 @@ The above section introduce the idea to look at the problem as the  approach use
 \subsubsection{VANS}
 \label{sec:vans}
 
-Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
+The Volume Average Navier-Stokes equations are the homogenization method that we have used in here 
+
+
 
 
 
 \subsubsection{Multiple scales}
 
 
-
 Is also worth mention another homogenization based approach that uses mixture theory and show that even within that framework is it possible to retrieve the same equation as VANS or multiple scales \citet{rajagopal2007hierarchy}.
+
+\subsubsection{Interface condition}
+
+Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
+
+
+We think that using a boundary condition at the interface is not a superior approach nor physically neither mathematically.
+Using penalization method the slip velocity at the interface can be computed as well as using a boundary condition, and either methods require a parameter to close the formulation, with the advantage using penalization method that the parameter is the spatial distribution of the porosity field that is trivial to compute known the geometry of the medium.
+
+Also in case of very low Reynolds number the boundary condition can be a necessity since the Stokes equations, for the free fluid, and the Darcy one for the porous media are not mathematically compatible; but for $Re>10$ when the Brinkmann model for the porous media is applicable the two set of equations are of the same order and the continuity of pressure and velocity can be imposed directly.
+
+Also there is evidence in literature through numerical and computational experiments \citet{ochoa2017fluid} that exist a transition zone with the size of the pore scale in which the velocity and pressure have a continuous variation.
 
 \subsection{Isotropic drag models}
 \label{sec:canopy_eq}
