@@ -415,23 +415,52 @@ The source term introduced in $\Omega_{P}$ depends on the theory in which we dev
 
 \subsection{Homogenization models}
 
-The above section introduce the idea to look at the problem as the  approach used to derive a description of the permeable medium in terms of macroscopic quantities
+The above section introduce the idea to look at the problem as it was composed by two different domains; here in this section we want to introduce the most used approach to derive the equations that are valid in the porous domain in an \textit{averaged} sense.
+The fundamental idea is to construct a micro-scale model, either for the fluid as for the solid, and then derive the macro-scale equations using some averaging operator over the micro-scale.
+
+The two most known homogenization methods are the \textit{Volume Averaging} method \citet{whitaker2013method}, and the \textit{Multiple Scales} method \citet{mei2010homogenization}; they can be more broadly classified as perturbations methods. 
+The key differences and the main results retrieved within this approaches will be presented in the following.
 
 
-
-\subsubsection{VANS}
+\subsubsection{Volume Averaging}
 \label{sec:vans}
 
-The Volume Average Navier-Stokes equations are the homogenization method that we have used in here 
+The method of Volume Averaging has been developed to threat transport equation in porous media applications; in this case the presence of two different length scales is obvious as in figure \ref{fig:porsystem}.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{chapter_1/por_system}
+		\caption{dfdfsfd}
+		\label{fig:porsystem}
+	\end{figure}
+
+The micro-scale behavior associated with the length scale 
+
+\begin{equation}
+\means{\psi} = \dfrac{1}{V} \int_{V} \psi d \, V.
+\label{eq:avg_superficial_intro}
+\end{equation}
+
+
+\begin{equation}
+\psi =   \underbrace{ \means{\psi} }_\text{O($L$)}  +  \underbrace{\tilde{\psi} }_\text{O($\ell$)},
+\label{eq:vans_decomp}
+\end{equation}
+
+
+
+Since this is the method chosen to solve our problem it will be detailed explained in the chapter \ref{ch:vans}.
 
 
 
 
+\subsubsection{Multiple Scales}
 
-\subsubsection{Multiple scales}
+
+The dualism of the approaches are well studied in \cite{davit2013homogenization}....
 
 
-Is also worth mention another homogenization based approach that uses mixture theory and show that even within that framework is it possible to retrieve the same equation as VANS or multiple scales \citet{rajagopal2007hierarchy}.
+Is also worth mention another homogenization based approach that uses mixture theory and show that even within that framework is it possible to retrieve the same equation as the previous two methods \citet{rajagopal2007hierarchy}.
 
 \subsubsection{Interface condition}
 
@@ -468,8 +497,6 @@ One other problem is that the isotropic hypothesis rule out the possibility to m
 
 But in the field of vegetations a lot of authors have successfully used this approach in various domain, for example \citet{maza2013coupled}, \citet{maza2015tsunami} use it to study wave attenuation, \citet{ghisalberti2004limited}, \citet{battiato2014single} develop a simple model for the 2D mean flow over a canopy.
 
-\subsection{Solid models}
-?????? should be here ?
 
 \section{Stability of flow over permeable surfaces (monami/honami and Kelvin-Helmholtz)}
 \label{sec:stability}
