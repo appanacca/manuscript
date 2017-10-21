@@ -410,69 +410,7 @@ The key point in such methods are:
 \end{itemize}
 
 Also the interface treatment and the solid model can be tied to the choice of the porous fluid model.
-The source term introduced in $\Omega_{P}$ depends on the theory in which we develop our porous media model, in the next two section we will talk about the two main  branches existing in literature.
-
-
-\subsection{Homogenization models}
-
-The above section introduce the idea to look at the problem as it was composed by two different domains; here in this section we want to introduce the most used approach to derive the equations that are valid in the porous domain in an \textit{averaged} sense.
-The fundamental idea is to construct a micro-scale model, either for the fluid as for the solid, and then derive the macro-scale equations using some averaging operator over the micro-scale.
-
-The two most known homogenization methods are the \textit{Volume Averaging} method \citet{whitaker2013method}, and the \textit{Multiple Scales} method \citet{mei2010homogenization}; they can be more broadly classified as perturbations methods. 
-The key differences and the main results retrieved within this approaches will be presented in the following.
-
-
-\subsubsection{Volume Averaging}
-\label{sec:vans}
-
-The method of Volume Averaging has been developed to threat transport equation in porous media applications; in this case the presence of two different length scales is obvious as in figure \ref{fig:porsystem}.
-	
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.7\linewidth]{chapter_1/por_system}
-		\caption{dfdfsfd}
-		\label{fig:porsystem}
-	\end{figure}
-
-The micro-scale behavior associated with the length scale 
-
-\begin{equation}
-\means{\psi} = \dfrac{1}{V} \int_{V} \psi d \, V.
-\label{eq:avg_superficial_intro}
-\end{equation}
-
-
-\begin{equation}
-\psi =   \underbrace{ \means{\psi} }_\text{O($L$)}  +  \underbrace{\tilde{\psi} }_\text{O($\ell$)},
-\label{eq:vans_decomp}
-\end{equation}
-
-
-
-Since this is the method chosen to solve our problem it will be detailed explained in the chapter \ref{ch:vans}.
-
-
-
-
-\subsubsection{Multiple Scales}
-
-
-The dualism of the approaches are well studied in \cite{davit2013homogenization}....
-
-
-Is also worth mention another homogenization based approach that uses mixture theory and show that even within that framework is it possible to retrieve the same equation as the previous two methods \citet{rajagopal2007hierarchy}.
-
-\subsubsection{Interface condition}
-
-Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
-
-
-We think that using a boundary condition at the interface is not a superior approach nor physically neither mathematically.
-Using penalization method the slip velocity at the interface can be computed as well as using a boundary condition, and either methods require a parameter to close the formulation, with the advantage using penalization method that the parameter is the spatial distribution of the porosity field that is trivial to compute known the geometry of the medium.
-
-Also in case of very low Reynolds number the boundary condition can be a necessity since the Stokes equations, for the free fluid, and the Darcy one for the porous media are not mathematically compatible; but for $Re>10$ when the Brinkmann model for the porous media is applicable the two set of equations are of the same order and the continuity of pressure and velocity can be imposed directly.
-
-Also there is evidence in literature through numerical and computational experiments \citet{ochoa2017fluid} that exist a transition zone with the size of the pore scale in which the velocity and pressure have a continuous variation.
+The source term introduced in $\Omega_{P}$ depends on the theory in which we develop our porous media model, in the next two section we will talk about the two main branches existing in literature.
 
 \subsection{Isotropic drag models}
 \label{sec:canopy_eq}
@@ -496,6 +434,81 @@ For our point of view this approach lack of strong mathematical formalism, from 
 One other problem is that the isotropic hypothesis rule out the possibility to model the anisotropic nature of most of the surfaces in which we are interested (as equation \ref{eq:max_dr} suggest the difference in the permeability in different directions can be important for the drag reduction).
 
 But in the field of vegetations a lot of authors have successfully used this approach in various domain, for example \citet{maza2013coupled}, \citet{maza2015tsunami} use it to study wave attenuation, \citet{ghisalberti2004limited}, \citet{battiato2014single} develop a simple model for the 2D mean flow over a canopy.
+
+
+\subsection{Homogenization models}
+
+The above section introduce the idea to look at the problem as it was composed by two different domains; here in this section we want to introduce the most used approach to derive the equations that are valid in the porous domain in an \textit{averaged} sense.
+The fundamental idea is to construct a micro-scale model, either for the fluid as for the solid, and then derive the macro-scale equations using some averaging operator over the micro-scale.
+
+The two most known homogenization methods are the \textit{Volume Averaging} method \citet{whitaker2013method}, and the \textit{Multiple Scales} method \citet{mei2010homogenization}; they can be more broadly classified as perturbations methods. 
+The key differences and the main results retrieved within this approaches will be presented in the following.
+
+
+\subsubsection{Volume Averaging}
+\label{sec:vans}
+
+The method of Volume Averaging has been developed to threat transport equation in porous media applications; in this case the presence of two different length scales is obvious as in figure \ref{fig:porsystem}.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{chapter_1/por_system}
+		\caption{dfdfsfd}
+		\label{fig:porsystem}
+	\end{figure}
+
+The core idea of the methods is that we can firstly define an average operator as \eqref{eq:avg_intrinsic_intro}, in this case the variable $\psi$ can be any vector or scalar variable in the sistem of equations that we want to homogenize, for Navier-Stokes it will be the velocity and the pressure.
+
+\begin{equation}
+\meani{\psi} = \dfrac{1}{\volb} \int_{V} \psi \, d \, V,
+\label{eq:avg_intrinsic_intro}
+\end{equation}
+
+The average operator has the purpose to "scale up" the equation, in fact the second crucial step of the method is to decompose the variables as proposed by \citet{gray1975derivation}:
+
+\begin{equation}
+\psi =   \underbrace{ \meani{\psi} }_\text{O($L$)}  +  \underbrace{\tilde{\psi} }_\text{O($\ell$)},
+\label{eq:vans_decomp}
+\end{equation}
+
+The \eqref{eq:vans_decomp} show how each variable can be decomposed in an averaged part that contains only spatial variation at the macro-scale $L$ and a \textit{fluctuation} part that contains only the micro-scale $\ell$ spatial variations.
+
+The decomposition can be injected in the transport equations that we want to homogenize, and new transport equations that includes only variables of order O($L$) can be retrieved.
+Since this is the method chosen to solve our problem, all the technical details will be detailed explained in the chapter \ref{ch:vans}.
+
+The most famous application of the method is the Stokes flow inside a rigid porous medium as the one in figure \ref{fig:porsystem}, the $\beta$ subscript indicate the liquid phase:
+\begin{equation}
+0 = -\dfrac{1}{\rho_{\beta}} \nabla \pb +\nub \nabla^2 \vb
+\label{eq:stokes}
+\end{equation} 
+
+Here is important to note that the equation \eqref{eq:stokes} is valid only in the liquid phase and to solve it we have to consider all the solid phase as rigid boundaries, with the difficulties that came to define the complex structure of the solid inclusion.
+Applying the Averaging Method we can derive an homogeneous version of the \eqref{eq:stokes} that is valid in the all the porous domain that include the two different phases, the solid and the liquid one; the famous Darcy equation \eqref{eq:darcyeq} \citet{whitaker1986flow}.
+
+\begin{equation}
+\vbmi = -\dfrac{\mathbf{K} \varepsilon}{\mub} \nabla \pbmi
+\label{eq:darcyeq}
+\end{equation} 
+
+In the Darcy equation is possible to recognize two additional quantities that arise from the averaging procedure, the fist one is a scalar called porosity $\varepsilon$ and represent the ratio of the liquid phase present in a reference volume of the medium.
+The second one is the tensor $\mathbf{K}$ called permeability, it express the resistance of the porous medium that affect the flow in its travel.
+The term $\mathbf{K}$ play the same role as $C_D a$ in the isotropic drag model; but the main difference is that the permeability tensor can be computed directly from the geometry of the medium (see chapter \ref{ch:vans}) so it does not rely on empirical relations.
+Also the tensorial nature of this terms permits us to model porous inclusion that are anisotropic in nature.
+
+Applications of the theory include: fluid inertial terms \citet{whitaker1996forchheimer}, porous media with small deformations \cite{whitaker1986flow2}, and high deformations \citet{hussong2011continuum}, turbulence \citet{soulaine2014}, \citet{breugem2006influence}, interface between a permeable medium and a free flow \citet{beavers1967boundary}, multiphase systems \citet{whitaker1973transport}, heat transfer \citet{carbonell1984heat}.
+
+Here we do not want to go into details of the derivation of equation for our specific problem but we want just to be clear about the differences of this method to the isotropic drag model of the previous section.
+One of the greatest differences is the robustness that came from a mathematical formalism instead of an approach rely heavily on experimental closure terms.
+
+\subsubsection{Multiple Scales}
+
+
+The dualism of the approaches are well studied in \cite{davit2013homogenization}....
+
+
+Is also worth mention another homogenization based approach that uses mixture theory and show that even within that framework is it possible to retrieve the same equation as the previous two methods \citet{rajagopal2007hierarchy}.
+
+
 
 
 \section{Stability of flow over permeable surfaces (monami/honami and Kelvin-Helmholtz)}
