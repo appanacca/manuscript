@@ -502,11 +502,38 @@ One of the greatest differences is the robustness that came from a mathematical 
 
 \subsubsection{Multiple Scales}
 
+The multiple scale method is similar to the previous one; and it has also been applied to similar problems in the context of porous media applications.
 
-The dualism of the approaches are well studied in \cite{davit2013homogenization}....
+In this method we start with the assumption of scale separation between the two length scales, $\ell$ micro-scale and $L$ macro-scale; the scale separation factor can be defined as $\epsilon = \ell/L \ll 1$.
+Using the same examples as before we want to show the how to compute the homogenized version of the Stokes equation for fluid flow through a porous media.
+We introduce the micro-scale and the macro-scale coordinates of the problem defined respectively as:
+$$
+ X_i = \dfrac{\tilde{x_i}}{L}, \quad   x_i = \dfrac{\tilde{x_i}}{\ell},
+$$
+where $x_i$ are the original coordinate of the problem.
+Using the above separation factor is possible to expand the variables of the problem (pressure and velocity) into orders (like a Taylor expansion) indicated with the number as superscript:
+$$
+\psi(X_i, x_i) = \psi^{(0)}(X_i, x_i)  +\epsilon \psi^{(1)}(X_i, x_i) +\epsilon^2 \psi^{(2)}(X_i, x_i) +O(\epsilon^3),
+$$
+injecting this decompositions inside the equation \eqref{eq:stokes} is it possible to derive a set of system of equations for each order of the expansion.
+It can be shown that analyzing each equation in the set we can retrieve the homogenized equation:
+
+\begin{equation}
+{v_i}^{(0)} = -K_{ij} \dfrac{\partial p^{(0)}}{\partial X_i}
+\label{eq:darcy_ms}
+\end{equation} 
+
+In which either the pressure and the velocity fields appear only at the order zero, and the equation depends only on the macro-scale length.
+
+We find the same permeability tensor $\mathbf{K}$ as before, and its definition is the same.
+So it is clear that for this example problem we find as results the same set of homogenized equation; it only change the starting hypotheses of the method and the mathematical development to compute them.
+
+A full analysis of the dualism of the two approaches can be found in the work by \cite{davit2013homogenization}.
+
+The multiple scale also has been used in \citet{zampogna2016fluid}, \citet{ugis}, ... FINISH THE APPLICATIONS IN THE LITERATURE
 
 
-Is also worth mention another homogenization based approach that uses mixture theory and show that even within that framework is it possible to retrieve the same equation as the previous two methods \citet{rajagopal2007hierarchy}.
+Is also worth mention another homogenization based method called mixture theory, based on similar approach is it possible to retrieve the same equation as the previous two methods \citet{rajagopal2007hierarchy}.
 
 
 
