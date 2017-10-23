@@ -3,43 +3,59 @@
 
 \section{Introduction}
 
+Maximum 10 lines recalling some of the things said in the previous chapter.
 
 \section{Derivation of VANS equations for 3D incompressible fluids}
+%The dynamic of the liquid phase indicated with the subscript $\beta$ is governed by the Navier-Stokes equation for incompressible Newtonian fluid, in presence of a porous medium solid; the equation valid inside the liquid phase are:
+%
+%\begin{equation}
+%\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}, 
+%\label{eq:mom}
+%\end{equation}
+%\begin{equation}
+%\nabla \cdot \vb = 0,
+%\label{eq:cont}
+%\end{equation}
+%where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
+
 \subsection{Definition of the averaging filter}
 
 In the figure \ref{fig:rev} is an illustration of our porous problem; in the same figure we show all the main definition that we need to introduce in order to develop our mathematical approach.
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\linewidth]{chapter_4/figure/REV}
+	\includegraphics[width=0.7\linewidth]{chapter_2/figure/REV}
 	\caption{Illustration of the REV concept.}
 	\label{fig:rev}
 \end{figure}
 
+Let $\psi_{\beta}$ be an arbitrary vector or scalar field defined on the volume $V$ where $x$ is its centroid, we can define two different spacing average operator.
 
 \begin{equation}
-\meani{\psi_{\beta}}(\mathbf{X}, t) = \dfrac{1}{\volb} \int_{\volb} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \volb.
+\meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \, \volb,
 \label{eq:avg_intrinsic}
 \end{equation}
 
-
 \begin{equation}
-\meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \volb.
-\label{eq:avg_intrinsic_ext}
-\end{equation}
-
-\begin{equation}
-\means{\psi_{\beta}} = \dfrac{1}{V} \int_{\volb} \psi_\beta (\mathbf{x}) d \volb.
+\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb} \psi_\beta (\mathbf{x}) d \, \volb,
 \label{eq:avg_superficial}
 \end{equation}
 
+$\meani{\psi_{\beta}}$ is called the \textit{intrinsic average} and $\means{\psi_{\beta}}$ is the \textit{superficial average}.
+The filter $m$ act as a ...
+ it is required that
+$$
+\int_{\volb(\mathbf{x})}  m(\mathbf{y}) d \, \volb = 1
+$$
 
+The porosity is defined as:
 \begin{equation}
 	\varepsilon = \dfrac{\volb}{V}
 	\label{eq:porosity}
 \end{equation}
 
+So we can defy the relationship:
 \begin{equation}
 	\means{\psi_{\beta}} =  \varepsilon \meani{\psi_{\beta}}
 \end{equation}
@@ -62,7 +78,7 @@ In the figure \ref{fig:rev} is an illustration of our porous problem; in the sam
 
 \begin{equation}
 \nabla \cdot \vb = 0
-\label{eq:cont}
+\label{eq:cont_vans}
 \end{equation}
 
 \subsection{Averaged momentum equations}
@@ -70,7 +86,7 @@ In the figure \ref{fig:rev} is an illustration of our porous problem; in the sam
 
 \begin{equation}
 \dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}
-\label{eq:mom}
+\label{eq:mom_vans}
 \end{equation}
 
 
