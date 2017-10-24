@@ -170,10 +170,10 @@ DR \approx 0.04\left( \sqrt{{K^+}_s} - \sqrt{{K^+}_c} \right),
 where ${K^+}_s$ and ${K^+}_c$ are the stream-wise and cross-flow permeability tensor components.
 This law establish an instrument to estimate the drag reduction from a given geometry of the wall (the permeability tensor can be computed within the porous media homogenization approach as chapter \ref{ch:vans} will explain).
 
-Another very important characteristic of the performance is that they are robust in off-design conditions, such as in presence of yaw (misalignment between flow and riblets ridges) and tip ridges erosion \citet{garcia2011drag}.
+Another important characteristic of riblets performance is that they are robust in off-design conditions, such as in presence of yaw (misalignment between flow and riblets ridges) and tip ridges erosion \citet{garcia2011drag}.
 
 But still, besides some very specific application such as sailing competitions (the hulls of the USA challengers in the America’s Cup 1987 and 2010), the massive utilization of this technology is still in question.
-Since the riblets size need to be very little, producing such surfaces in a larger area like the roof of a car or the wing of an airplane can be an issue for a routine use.
+Producing such surfaces in a larger area, like the roof of a car or the wing of an airplane, can be an issue for a routine use; because riblets size need to be very little to be effective.
 
 Riblets like surface has been observed in nature for many years, for example \citet{Martin2016riblets} found out that skimmer birds (Rynchops) have riblets like grooves in their beak, since they fly with it under the water surface to catch fishes.
 However, as already introduced, the most clear example of such natural surfaces are shark skin.
@@ -181,48 +181,47 @@ In his review \citet{dean2010shark} present the status of the shape optimization
 Shape optimization on riblets geometry has been studied, the findings show that just a few $\%$ can be improved on the base line geometry \citet{bechert1997experiments}.
 
 There is in fact some controversial result in literature stating that surfaces with actual shark skin replica can indeed increase drag.
-\citet{boomsma2016direct} perform some simulations on actual shark skin denticles using the immersed boundary method; the authors find that in some configuration 
-the actual drag increase up to $40\%$, but even though their numbers are probably too large (it is know that the immersed boundary method can generate some errors especially in computing forces at high Reynolds number), this can be a clue that the shark skin does not work with the same mechanism as riblets.
+\citet{boomsma2016direct} perform some simulations on actual shark skin denticles using the immersed boundary method; the authors find that in some configuration the actual drag increase up to $40\%$, but even though their numbers are probably too large (it is know that the immersed boundary method can generate some errors especially in computing forces at high Reynolds number), this can be a clue that the shark skin does not work with the same mechanism as riblets.
 
-In fact \citet{bechert1997natural} had already tested such geometries in his experiments. 
-He builds a synthetic surface made by artificial shark denticles posed on top of springs and measure that even with the introduction of  surface elasticity the actual drag was increasing.
-However the authors pinpoints that the actual shark flow regime is nothing at all as steady as the experiments that he performed, and he speculates that the excellent swimming performance of the shark came from the separation control that flexible denticles can increase in the periodic oscillating flow that the swimming generate.
+Experiments on such geometries are available in literature \citet{bechert1997natural}.
+The authors of the previous work have built a synthetic surface made by artificial shark denticles posed on top of springs and measure that even with the introduction of  surface elasticity the actual drag was increasing.
+However the authors pinpoints that the actual shark flow regime is not steady as the experiments that he performed, and they speculate that the excellent swimming performance of the shark came from the separation control that flexible denticles can increase in the periodic oscillating flow that the swimming generate.
 
-Experiment using DPIV on a NACA covered with actual skin samples of "Isurus oxyrinchus" mako shark, has been performed by \citet{lang2014SharkControl}, confirming that the flexibility of sharks denticles perform as a passive flow control in order to avoid early separation.
+Experiment using DPIV on a NACA profile covered with actual skin samples of "Isurus oxyrinchus" mako shark, has been performed by \citet{lang2014SharkControl}, confirming that the flexibility of sharks denticles act as a passive flow control in order to avoid early separation.
 In fact the experiments proves that for angles of attack larger than $15^{\circ}$ the flow reversal is almost completely avoided.
-The same author introduce the importance in the different geometries of the denticles in different part of the body that obviously experience different flow condition,
+The same author introduce the importance in the different geometries of the denticles in various part of the body that obviously experience disparate flow condition,
 \citet{motta2012Shark} perform a detailed collection of flexibility and scale measurement of different shark species that can be valuable for future studies.
 
-Swimming experiment from \citet{Oeffner785}, who used a flat plate covered with real shark skin, also confirm the previous flow control mechanism and also make some conjectures about possible thrust enhancing controlled by the same movable scale that can move away the leading edge vortex.
+Swimming experiment from \citet{Oeffner785}, who used a flat plate covered with real shark skin, also confirm the previous flow control mechanism and also make some conjectures about possible thrust enhancing controlled by the same movable scales that can move away the leading edge vortex.
 
 Also \citet{itoh2006turbulent} shows that movable rugosities can outperform riblets, the authors in fact measure the drag reduction of a seal fur (that present fibrous movable surface) against a riblet surface in an experimental channel; its results are show in figure \ref{fig:seal}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\linewidth]{chapter_1/seal}
-\caption{$DR \% = \dfrac{ \Delta \tau}{\tau_{0}} \%$ Image from \citet{itoh2006turbulent}.}
+\caption{Performance comparison between a riblet surface against a seal fur. The drag reduction has been computed as: $DR \% = \dfrac{ \Delta \tau}{\tau_{0}} \%$ Image from \citet{itoh2006turbulent}.}
 \label{fig:seal}
 \end{figure}
 
 
 Compliant surfaces can in fact move accordingly to the surface pressure gradients along the boundary layer and so respond to the pressure fluctuation over the surface itself.
-This mechanism is already know to be beneficial to delay the transition to turbulence and many authors have presented theoretical and experimental evidence on the effectiveness of this solution \citet{carpenter1990status}, \citet{bushnell1977effect}.
+This mechanism is already know to be beneficial in delaying the transition to turbulence and many authors have presented theoretical and experimental evidence on the effectiveness of this solution \citet{carpenter1990status}, \citet{bushnell1977effect}.
 
-So we have seen that to reduce turbulent skin-friction drag riblets and natural surfaces uses various mechanism such as: sublayer vortices interaction, compliance and separation control.
+In conclusion we have seen that in order to reduce turbulent skin-friction drag, riblets and natural surfaces uses various mechanism such as: sublayer vortices interaction, compliance and separation control.
 Such solution have proven to be effective in some cases but they are related mostly in reducing the viscous component of the total drag.
-In the next section we will introduce another class of solution that try to act instead on the pressure component.
+In the next section we will introduce another class of solution that try to act instead mostly on the pressure component.
 
 
 \subsection{Permeable surfaces}
 
 \subsection{Bluff bodies}
 
-Permeable surface has been proposed to exploit even further the mechanism explained above using riblets.
-There is some experimental evidence that in laminar cases the generation of some \textit{slip velocity}, at the interface between the permeable surface with the fluid , can decrease the friction drag \citet{beavers1967boundary}.
-However in the turbulent case it seems that the instabilities developing at the interface can cause an increase in drag up to $40\%$ \citet{jimenez2001turbulent}, \citet{breugem2006influence}; this last mechanism will be further exploited in the section \ref{sec:stability}.
+%Permeable surface has been proposed to exploit even further the mechanism explained above using riblets.
+There is some experimental evidence that in laminar cases the generation of some \textit{slip velocity}, at the interface between the permeable surface with the fluid, can decrease the friction drag \citet{beavers1967boundary}.
+However in the turbulent case it seems that the instabilities developing at the interface can cause an increase in drag up to $40\%$ \citet{jimenez2001turbulent}, \citet{breugem2006influence}; this instabilities mechanism will be further explained in the section \ref{sec:stability}.
 Is important to pinpoint that the permeable surface cited in the above references were all rigid.
 
-The resistance pressure contribution is usually the most significant one in bluff bodies applications, and even in highly streamlined body it is around $10\%$ of the total drag.
+The pressure contribution to the resistance is usually the most significant one in bluff bodies applications, and even in highly streamlined body it is around $10\%$ of the total drag.
 Researchers have tried to find a way to modify the pressure distribution around a bluff body to reduce the associated resistance, and also dump the force oscillation on the body (drag and/or lift).
 
 The pressure drag on a bluff body depends mostly on the difference between the low pressure on the rear part of the body, where there is usually a separated flow region, and the high pressure in the forward part.
@@ -231,21 +230,21 @@ This idea is sketched in figure \ref{fig:pressure_dist} where two different pres
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{chapter_1/pressure_dist}
-	\caption{Diagram showing an example of pressure distribution around a cylinder for a viscous flow. The black line is the angular distribution as a solid body, the green one is the modified pressure in presence of a porous layer at the rear part. Image from \citet{klausmann2017drag}}
+	\caption{Diagram showing an example of angular pressure distribution around a cylinder for viscous flow. The black line is the case of a solid body, the green one is the modified pressure in presence of a porous layer at the rear part. Image from \citet{klausmann2017drag}}
 	\label{fig:pressure_dist}
 \end{figure}
 
 The favorable increase in the back pressure is due to the low speed laminar flow in the porous media that is ejected in the back region where the separation take place.
-Even in very high speed turbulent flow the fluid inside permeable surface exhibit a very high energy loss due to the strong dissipation that the medium provide, resulting so in a low speed flow ejected downstream of the body.
+Even in very high speed turbulent flow the fluid inside permeable surface exhibit a very high energy loss due to the strong dissipation that the medium provide, resulting in a low speed flow ejected downstream of the body.
 
+The permeable interface, producing a slip velocity, can modify the boundary layer that develops above it and with that produce less shear and vorticity; and can also modify the stability characteristics of the flow.
 The instability around a cylinder is due to the shear layer that forms in the top part of the body when the flow start to decelerate.
 This shear layer exhibit a Kelvin–Helmholtz type instability that develop in the classical Von-Karman wake.
-The permeable interface, producing a slip velocity, can modify the boundary layer that develops above it and with that produce less shear and vorticity.
 
-This two hypothetical mechanisms has been tested numerically numerically by multiple authors: \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}, \citet{mimeau2017passive}.
-In their work they have add a porous layer to some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section, 3D hemisphere)and performed laminar and turbulent simulation for the flow around such bodies.
+This two hypothetical mechanisms has been tested by numerical simulation by multiple authors: \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bhattacharyya2011reduction}, \citet{naito2012numerical}, \citet{mimeau2017passive}.
+All these works study the flow around some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section, 3D hemisphere) with the add of a porous layer.
 
-These works show some very strong result on multiple quantities, like: decrease of enstropy, lower root mean square of the lift signal, drag reduction, regularization of the wake and lower pressure gradients; even if the porous medium is always rigid in their case.
+These works show some very promising result on multiple quantities, like: decrease of enstropy, lower oscillations in lift signal, drag reduction, regularization of the wake and lower pressure gradients; even if the porous medium is always rigid in their case.
 An example is shown in figure \ref{fig:porous_cylinder} where the flow field downstream to a square cylinder is computed in a turbulent case; the picture show how the porous layer strongly regularize the wake.
 
 \begin{figure}[h]
@@ -256,10 +255,10 @@ An example is shown in figure \ref{fig:porous_cylinder} where the flow field dow
 \end{figure}
 
 
-It seems from the previous works that the porous medium parameters, like the permeability (resistance) or its vertical extension, have important effects on the results.
-They seems to agree (at least qualitatively) that increasing too the porous medium extension over a certain limit is not beneficial, and they also show that the resistance of the medium in order to be effective should not be excessive (medium to high porosity are the best).
+It seems from the previous works that the porous medium parameters, like the medium resistance or its vertical extension, have important effects on the results.
+They seems to agree (at least qualitatively) that increasing the porous medium extension over a certain limit is not beneficial, and they also show that the resistance of the medium should not be excessive in order to be effective (high/medium porosity are the best).
 
-In all these work we observe a reduced pressure drop between the front and the rear of the body, a reduced drag, delays in the vortex shedding in the laminar case and regularization on both the frequency and the amplitude of shredded vorticies oscillations.
+In all these work we observe a reduced pressure drop between the front and the rear of the body, reduced drag, delays in the vortex shedding in the laminar case and regularization on both the frequency and amplitude of shredded vorticies oscillations.
 
 These early work show very optimistic numbers but they should be taken with some care; only few cases are three-dimensional, and they all use a modeling approach for the porous medium based on a simplified version of the VANS (volume average Navier-Stokes equations, see section \ref{sec:vans}) without performing any validation of the method, and sometimes they use the equations outside their field of validity (there is some discussion in the scientific community in using such methods for highly turbulent flows).
 
