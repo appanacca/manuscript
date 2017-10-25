@@ -351,9 +351,9 @@ Even if experiments are easier to find, like \citet{segalini2011experimental}, \
 
 \section{Models for flows through porous surfaces}
 
-In this section we want to state clearly what is the problem that we are trying to solve and which characteristic are the difficult one.
-In order to be as clear as possible we have taken the simplest example to define the problem; the flow over a wall that include multiple flexible filaments. 
-This is probably the simplest geometrical configuration to think about but it still has all the characteristic and difficulties of more interesting configuration, such as a bluff body with a poroelastic layer.
+In this section we want to show some insight of the various models characteristic flow through poroelastic layers.
+In order to be as clear as possible we have taken as example a very simple geometry to sketch the problem; the flow over a wall that include multiple flexible filaments. 
+This simple geometrical configuration still has all the characteristic and difficulties of more interesting applications, such as a bluff body with a poroelastic layer.
 
 \begin{figure}[h]
 	\centering
@@ -362,20 +362,20 @@ This is probably the simplest geometrical configuration to think about but it st
 	\label{fig:schema_problem}
 \end{figure}
 
-The figure \ref{fig:schema_problem} show a graphical schema of such flow; the fluid main direction is aligned with the $x_2$ axis and the projection of the stream-wise component is shown in the plane $x_2 - x_3$.
-Such flow can bend the filaments and, of course, pass through their ensemble.
-The hypothetical surface that envelop all the filaments ends ($\Gamma$), defines the limit between the flow without obstacle ($\Omega_{NS}$) and the one inside the poroelastic medium ($\Omega_{P}$), their projection are shown in the  $x_2 - x_3$ plane.
+The figure \ref{fig:schema_problem} show a graphical schema of such flow; the fluid main direction is aligned with the $x_2$ axis and the projection of velocity stream-wise component is shown in the plane $x_2 - x_3$.
+Such flow can bend the filaments and, of course, go by their ensemble.
+The hypothetical surface that envelop all the filaments lid ($\Gamma$), defines the limit between the flow without obstacle ($\Omega_{f}$) and the one inside the poroelastic medium ($\Omega_{p}$), their projection are shown in the  $x_2 - x_3$ plane.
 
-In order to computationally solve this problem there are some key points:
+In order to computationally solve this problem there are some key points to address:
 \begin{itemize}
-	\item Length scales: the flow is very rich of multiple scales vorticies. The flow can have Kelvin–Helmholtz instabilities on the interface (that has the size of $h$) but they can even penetrate inside the medium and brake up to very small scales. In order to resolve this complex dynamic one should have a very fine mesh (very computational expensive) or came up with a model (like in turbulence).
-	Also the turbulence dynamic can be a problematic; the hypothesis that turbulence can exist in porous media is still at debate in the community.
-	Deal with such small scale dynamic and find a model for at least the interface part (in which the Kelvin–Helmholtz vorticies forms and brake up) is not an easy task.
+	\item Length scales: the flow present interaction at multiple scales. The flow can develop Kelvin–Helmholtz type instabilities on the interface (of size $h$) and they can even penetrate inside the medium and brake up to very small scales eddies. In order to resolve this complex dynamic one should use a very fine numerical mesh (highly computational expensive) or came up with a model (like in the context of turbulence modeling).
+	Turbulence dynamic can be also problematic; the hypothesis that pore size eddies can exist deep inside the porous medium is still at debate in the community.
+	How to deal with such small scale dynamic and/or find a model is not an easy task.
 	
-	\item Compliance (Fluid structure interaction): if the filaments are flexible they bent and swing due to the fluid force that act on them.
-	We have to take into account a mechanical solid model for the filaments such as the Bernoulli beam, and compute the energy that the swing of the filaments will re-inject inside the fluid flow.
-	This two-way coupling could be also really computational expensive in presence of a large number of filament structures, and also if the the filaments are really flexible one should in principle take into account the possibility of contact and repulsion between the fibers.
-	If the medium has a much more complicated shape (like the scales in the butterfly) one probably cannot use simplified models sor the solid dynamic and so use a general FEA discretization on the solid that is even more expensive.
+	\item Compliance (fluid structure interaction): if the filaments are flexible they can bent and swing due to the fluid impact on them.
+	We have to take into account a mechanical solid model for the filaments (for example a the Bernoulli beam), including also the computation of energy that the swing motion will re-inject inside the fluid.
+	This two-way coupling could also be really computational expensive in presence of a large number of filament, and also, if the flexibility is important one should in principle take into account the contact and repulsion between the fibers.
+	If the porous medium has a more complicated shape (like the scales in the butterfly wing) came out with a simplified model for the solid dynamic is even more difficult and the use of a general FEA discretization is probably a necessity (at it will increase the computational cost of the problem).
 	Another approach consist of consider a general model for the medium, for example treat it like a porous medium that can have elastic properties.
 	Such models mimic the dynamic of the solid and in theory are more adapted to porous media that are fully connected, in principle they are very computational convenient but their mathematical description can e difficult and one should agree on the idea of losing information inside the medium.
 	
