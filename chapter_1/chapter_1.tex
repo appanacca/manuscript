@@ -245,7 +245,7 @@ This two hypothetical mechanisms has been tested by numerical simulation by mult
 All these works study the flow around some classical two dimensional bluff bodies (cylinder, square cylinder, Ahmed body section, 3D hemisphere) with the add of a porous layer.
 
 These works show some very promising result on multiple quantities, like: decrease of enstropy, lower oscillations in lift signal, drag reduction, regularization of the wake and lower pressure gradients; even if the porous medium is always rigid in their case.
-An example is shown in figure \ref{fig:porous_cylinder} where the flow field downstream to a square cylinder is computed in a turbulent case; the picture show how the porous layer strongly regularize the wake.
+An example is shown in figure \ref{fig:porous_cylinder} where the turbulent flow field downstream to a square cylinder is shown; the picture show how the porous layer strongly regularize the wake.
 
 \begin{figure}[h]
 	\centering
@@ -255,97 +255,98 @@ An example is shown in figure \ref{fig:porous_cylinder} where the flow field dow
 \end{figure}
 
 
-It seems from the previous works that the porous medium parameters, like the medium resistance or its vertical extension, have important effects on the results.
-They seems to agree (at least qualitatively) that increasing the porous medium extension over a certain limit is not beneficial, and they also show that the resistance of the medium should not be excessive in order to be effective (high/medium porosity are the best).
+The previous works shows that porous medium parameters, like the medium resistance or its vertical extension, have important effects on the results.
+The variety of results seems to agree (at least qualitatively) that increasing the porous medium extension over a certain limit is not beneficial, and they also show that the resistance of the medium should not be excessive in order to be effective (high/medium porosity are the best).
 
-In all these work we observe a reduced pressure drop between the front and the rear of the body, reduced drag, delays in the vortex shedding in the laminar case and regularization on both the frequency and amplitude of shredded vorticies oscillations.
+In all these work we also observe: a reduced pressure drop between the front and the rear of the body, a reduced drag, a delays in the vortex shedding and regularization on both the frequency and amplitude of shredded vorticies oscillations.
 
-These early work show very optimistic numbers but they should be taken with some care; only few cases are three-dimensional, and they all use a modeling approach for the porous medium based on a simplified version of the VANS (volume average Navier-Stokes equations, see section \ref{sec:vans}) without performing any validation of the method, and sometimes they use the equations outside their field of validity (there is some discussion in the scientific community in using such methods for highly turbulent flows).
+These works show very optimistic results, but they should be taken with some care; only few cases are three-dimensional, they all use a modeling approach for the porous medium based on a simplified version of the VANS (Volume Average Navier-Stokes equations, see section \ref{sec:vans}) without performing any validation of the method.
+Sometimes they also use the equations outside their field of validity (there is some discussion in the scientific community in using the previous version of VANS equations for highly turbulent flows).
 
 The lack of validation reflect the fact that reliable experiment of such porous coatings are almost non existent in literature.
-They also do not agree on the methods used to compute the forces \citet{caltagirone1994interaction}?? SHOW HERE THE GOOD METHOD ? MAYBE IN THE VANS SECTION...
+There is also some confusion in literature on how to compute the forces on such bodies surrounded by a porous coating, this differences has taken some authors as\citet{naito2012numerical} to over-estimate the forces and their prediction are not inline with the literature.
+There is some theoretical base \citet{caltagirone1994interaction} that establish that the approach used by \citet{bruneau2004passive} is the correct one for that specific version of the VANS used by all the previous authors, REFERENCE TO SECTION IN THE VANS CHAPTER WHERE THERE IS THE FORMULA TO COMPUTE FORCES.
 
+The approach by \citet{favier2009passive} differentiate itself from the previous works, the authors uses a numerical method that includes the dynamic of a moving porous medium made of fibers at the back of a cylinder.
+Their results in a laminar flow case agree with the prediction of a stabilization of the wake and show some more realistic values of drag reduction, about $15\%$.
+The difficulties in this approach is that the medium dynamic introduces many mechanical parameters that are not easily identifiable for natural surfaces.
 
-\citet{favier2009passive} use a different numerical method that includes the dynamic of a moving porous medium made of fibers at the back of a cylinder.
-Their results in a laminar flow case agree with the results on the stabilization of the wake and show some more realistic values of drag reduction, about $15\%$.
-The difficulties in this model is in the medium dynamic, since it introduce many mechanical parameters that are not easy to identify for natural surfaces.
-
-A similar model to the previous one has been used by \citet{venkataraman2012numerical}; the authors applied a movable porous coating in the top part of NACA airfoil.
+A similar model has been used by \citet{venkataraman2012numerical}; the authors applied a movable porous coating in the top part of NACA airfoil.
 In this case the synchronization between the oscillations of the structures and the natural frequency of the fluid is responsible for the pressure distribution modification.
-They have shown the robustness of this solution in a wide range of angle of attack, in the best case they have found some lift enchantment and regularization and a drag reduction has been measured to be on the order of $10\%$.
+They have shown the robustness of this solution in a wide range of angle of attack, in the best case they have found some lift enchantment and a drag reduction around $10\%$.
 
 Later on \citet{rosti2017pelskin} works on a similar configuration with only one movable flap on the low pressure side of airfoil; the results both numerical and experimental qualitatively agree (on the flow mechanism) with the results in the complete porous case.
 
-
 WHEN IT WILL BE PUBLISHED SHOW SOME RESULTS ON THE 3D SPHERE USING HOMOGENIZATION \citet{zampogna2017new}
 
-The are very few experiment in literature on this porous coatings, but they all seems to show less promising numbers when  dealing with drag reduction.
+The very few experiment in literature on this porous coatings, shows less promising results associated to drag reduction.
 
-For example \citet{heenan1998passive} perform an experiment in which he take a backward facing step with a porous insert in the re-circulation region.
+For example \citet{heenan1998passive} perform an experiment in which they take a backward facing step with a porous insert in the re-circulation region.
 His measurement show a $13\%$ decrease of the peak of pressure at the wall and a relocation of the detachment point further downstream.
-Also depending on the length of the porous insert a maximum of $9\%$ of drag reduction was also observed.
+A maximum of $9\%$ of drag reduction was observed.
 The effect of adding a porous surface in this case was to limit the pressure fluctuations that causes the re-circulation bubble unsteadiness.
 
-Later \citet{klausmann2017drag} study a 3D cylinder with a porous insert in the back; the authors use a wind tunnel testing with pressure measurements around the body and particle image velocimetry (PIV) flow capture.
+Later \citet{klausmann2017drag} study a 3D cylinder with a porous insert in the back (as in figure \ref{fig:pressure_dist}); the authors use a wind tunnel testing with pressure measurements around the body and particle image velocimetry (PIV) flow capture.
 Their results confirms that the porous layer on the leeward side increase of pressure in that zone, causing the reduction of drag.
-The drag reduction measured to be around $10\%$ over various Reynolds number in the fully developed turbulence range, but it can be more sensible to the geometrical parameters of the medium as the position and its size.
+The drag reduction measured was around $10\%$ over various Reynolds number (in turbulence range), this value was sensible to the geometrical parameters of the medium as the position and its size.
 At our knowledge this is the first example of actual measurements of flow quantities using PIV, that can later be used to perform some validation on different numerical models.
 
-Some other experimental data can be found in the case of flow over aquatic canopies \citet{zhang2011exchange}, \citet{segalini2011experimental}, \citet{hamed2017impact}, even though the published data is limited and the problem in this case has also a free surface that increase the difficulty of the problem and limits the possible use as validation.
+Some other experimental data can be found in the case of flow over aquatic canopies \citet{zhang2011exchange}, \citet{segalini2011experimental}, \citet{hamed2017impact}, even though the published data is limited and the experiments have the presence of a free surface that increase the difficulty of the problem and limits the possible use as simple validation.
 
-From this section the main physical mechanism that tied to permeable surfaces has been introduced but the different approaches in literature seems to be discordant in the predicted values of some fundamental items such as the forces.
+From this section the main physical mechanism that are tied to permeable surfaces has been introduced.
+Even thought the different approaches in literature seems to be discordant in the predicted values of some fundamental items such as the forces, a general trend on all the data shows that porous coatings can be effectively used in many situations.
 Is it clear that the scientific community need much more experimental data in order to develop new and improved numerical and theoretical models for such permeable coatings.
 
 \subsection{Canopy flow}
 
-Another important class of flow over poroelastic carpets are the \textit{canopy flow} as known in literature; they are flow over flexible slender structure as threes or aquatic vegetations.
-The importance of winds over plants is very important in a large variety of fields, like: the transport of substances as $CO_2$ and nutrients or preventing agricultural damage (wind-throw of crop fields); also the above examples show some dynamic similarities even with urban canopies \citet{ghisalberti2009obstructed}.
+Another important class of flow over poroelastic carpets are the \textit{canopy flow} as named in literature.
+These type of problems involve flow over flexible slender structure such as threes and aquatic vegetation.
+The importance of winds over plants is very important in a large variety of fields, like: the transport of substances as $CO_2$ and nutrients or preventing agricultural damage (wind-throw of crop fields); also some similarities with urban canopies can be found \citet{ghisalberti2009obstructed}.
 
-It is known that the turbulent boundary layer profile over a canopy differ substantially from the rough wall one, figure \ref{fig:spectra}.
-The vegetation resistance (drag) cause the creation of an inflection point in the mean velocity profile that lead to a mixing layer type of instability near the vegetation top.
-In the work of \citet{finnigan2000turbulence} the author focused on the turbulent feature of the flow field in presence of vegetation.
-He show that the vegetation can heavily modify the turbulence spectra as a results of the interface instabilities and the coherent structures above it.
-As the two bottom pictures in figure \ref{fig:spectra} show, the spectrum in the case of canopy flow present a larger peak in the frequency of the mixing layer instability, a steeper slope in the energy cascade part due to the larger dissipation inside the permeable layer and possible high frequency peaks associated to the swinging of the pants that can emit or absorb small scales vorticies.
+The boundary layer profile over such canopies differ substantially from the rough wall one, as figure \ref{fig:spectra} shown.
+The vegetation resistance cause the creation of an inflection point in the mean velocity profile that lead to a mixing layer type of instability near the vegetation top.
+As a consequence of such instabilities \citet{finnigan2000turbulence} show that the vegetation can heavily modify the turbulence spectra as a results of the interface instabilities and the coherent structures above it.
+The two bottom pictures in figure \ref{fig:spectra} outline the above statements; the spectrum in case of canopy flow present a larger peak in the frequency of the mixing layer instability, a steeper slope in the energy cascade part due to the larger dissipation inside the permeable layer and possible high frequency peaks associated to the swinging of the pants that can emit or absorb small scales vorticies.
  
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_1/spectra}
-	\caption{bla bla \citet{de2008effects}}
+	\caption{Figure \textbf{a} and \textbf{b} show respectively the schematics of the mean flow over a rough wall and a canopy flow; the difference in the eddy size is clear, also the inflection point in the canopy flow velocity profile is transparent.
+		The figure \textbf{c} and \textbf{d} instead show the turbulent spectra for the two different flow above, in case of rougth wall a Kolmogorov type of spectra can be retrieved; in case of canopy flow is possible to see  a larger peak in the frequency of the mixing layer instability, a steeper slope in the energy cascade part and high frequency peaks at high frequencies. Image from \citet{de2008effects}}
 		\label{fig:spectra}
 	\end{figure}
 
-So is it clear that the dynamic of the permeable substrate made by vegetation is extremely important and should always take into account to fully generalize the physics in such problems involving moving canopies.
-As shown in \citet{nepf2012flow} especially for aquatic plants the movements of the plants can be important and so the interface can be largely modified.
+Is it clear from literature that the dynamic of the permeable substrate made by vegetation is extremely important and should always had taken into account to fully generalize the physics in such problems involving moving canopies; \citet{nepf2012flow} show how the interface between aquatic plants and the free flow can be largely modified due to the movement of the fibers.
 
-In order to discriminate the different behavior of the fibrous structure we need to introduce some important non dimensional parameters used in fluid structure interaction problems:
+In order to discriminate the different behavior of the fibrous structure is convenient to introduce some important non-dimensional parameters used in fluid structure interaction problems:
 $$ m^* = \rho_{\beta} / \rho_{\sigma}, \quad C_Y= \rho_{\beta} U^2 s^3 / E, \quad s = L/\ell $$
-The first one is the mass ratio, the second is called Cauchy number and the last one is the slenderness of the structure.
-The mass ratio $m*$ is a measure of the added mass effects caused by the solid inertia, but this effects are usually negligible in case of fibrous permeable media.
-The Cauchy number $C_Y$ define the static deformation of a solid caused by the fluid flow ($E$ is the modulus of elasticity of the solid material), at Cauchy numbers over the unity important deformation are expected.
-This number is extremely important since it control a phenomena called \textit{reconfiguration} that leads to drag reduction \citet{gosselin2011drag}, \citet{alvarado2017nature}.
-The reconfiguration is the capability of the structure to adopt a new shape when forced by a flow, it can become more streamlined and/or reduce its exposed frontal area with the aim to reduce the total drag.
-When dealing with this phenomena we should take together the frontal area $A$ and the drag coefficient $C_D$ to avoid misinterpretation of the drag reduction; in figure \ref{fig:cycd} this ratio has been represented for different natural structures against the Cauchy number and is it clear that for a $C_Y>1$ we have a drastic drag reduction.
+The first one is the \textit{mass ratio}, the second is called \textit{Cauchy number} and the last one is the \textit{slenderness} of the structure.
+The mass ratio $m*$ is a measure of the added mass effects caused by the solid inertia, however these effects are usually negligible in case of fibrous permeable media.
+The Cauchy number $C_Y$ define the static deformation of a fiber caused by the fluid flow ($E$ is the modulus of elasticity of the solid material); when Cauchy number is greater than unity, important deformation are expected.
+This last parameter is extremely important since it control a phenomena called \textit{reconfiguration} that leads to drag reduction \citet{gosselin2011drag}, \citet{alvarado2017nature}.
+The reconfiguration can be defined as the capability of the structure to adopt a new shape when forced by a flow, it can become more streamlined to reduce its exposed frontal area with the aim to reduce the total drag.
+When dealing with this phenomena one should take into account the frontal area $A$ and the drag coefficient $C_D$ as an ensemble, in order to avoid misinterpretation of the drag reduction; in figure \ref{fig:cycd} the ratio of the couple $AC_D$ has been represented for different natural structures against the Cauchy number and it's evident that for a $C_Y>1$ a drastic drag reduction can be observed.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_1/cy_cd}
-	\caption{The effect of the Cauchy number $C_Y$ on the drag reduction are presented in the figure. The drag reduction has been represented has the ration between the frontal area $A$ and the drag coefficient $C_D$ at static condition (subscript $0$) and the dynamic condition. Image from \citet{de2008effects}}
+	\caption{The effect of the Cauchy number $C_Y$ on the drag reduction are presented in the figure. The drag reduction has been represented as the ration between the frontal area $A$ and the drag coefficient $C_D$ at static condition (subscript $0$) and the dynamic condition (no subscript). Image from \citet{de2008effects}}
 	\label{fig:cycd}
 \end{figure}
 
-The overall reconfiguration of the permeable medium can lead to pressure recovery and a wake regularization applied to a bluff body, as the experiments by \citet{gosselin2011drag} show.
+The overall reconfiguration of the permeable medium can lead to pressure recovery and a wake regularization applied when applied to a bluff body, as the experiments by \citet{gosselin2011drag} shows.
 
-Another important non dimensional number is the \textit{reduced velocity} and it can be derived form the previous ones as:
+Another non-dimensional number to mention is the \textit{reduced velocity}, it can be derived form the previous ones:
 $$ U_R = \sqrt{C_Y s / m^*},$$
-this number is used dealing with vortex induced vibration of slender structure, if it is in the order of unity it means that some dynamical coupling between is expected such as resonance or lock-in.
+this number is used dealing with vortex induced vibration of slender structures; when is near to one dynamical coupling between the fluid and the structure is expected, such as resonance or lock-in phenomena.
 
-Canopies can help to prevent separation in presence of adverse pressure gradients, \citet{belcher2012wind} show an analysis of the flow over an hill covered with canopies using either numerical and experimental data; the authors show how the permeable layer can present a recirculation region inside the canopy in the decreasing slope side of the hill, so moving the separation from the flow over the hill to the internal structure of the canopy.
-In this sense when we look at the "global" hill (ground and canopy layer) the reversed flow typical of this geometry is not present.
+Canopies can also help to prevent separation in presence of adverse pressure gradients, \citet{belcher2012wind} show an analysis of the flow over an hill covered with canopies using either numerical and experimental data; the authors show how the permeable layer can present a re-circulation region inside the canopy in the decreasing slope side of the hill, this zone move the separation away from the flow over the hill to the internal structure of the canopy.
+%In this sense when we look at the "global" hill (ground and canopy layer) the reversed flow typical of this geometry is not present.
 
-Is important to pinpoint that the above results are restricted to fibrous or slender structure, and they cannot be extrapolated in general for all different porous structure ans shapes, even though similar mechanism are expected.
+Is important to pinpoint that the above results are restricted to fibrous or slender structure, and they cannot be extrapolated in general for different porous structure and shapes, even though similar mechanism are expected.
 
-In the case of canopy flow is very difficult to compare results because most of the authors use very different models in a lot of regimes of velocities and using flexible structure with very different shapes.
-Even if much more experiments are available \citet{segalini2011experimental}, \citet{segalini2013scaling}, \citet{maza2013coupled}, \citet{barsu2016drag}, \citet{alvarado2017nature}, there is no quantitatively mathematical model established for the fluid and structure equations and most of them rely on empirical correlations that fit the data of each different case.
+The research on canopy flow embrace a wide range of configurations and this makes very difficult the comparison of the results since most of the authors use very different models in a lot of various regimes of velocities using flexible structure with very different shapes.
+Even if experiments are easier to find, like \citet{segalini2011experimental}, \citet{segalini2013scaling}, \citet{maza2013coupled}, \citet{barsu2016drag}, \citet{alvarado2017nature}, there is no quantitatively mathematical model established for the fluid and structure equations and almost all the models available rely on empirical correlations that fit the data in each different application.
 
 
 \section{Models for flows through porous surfaces}
