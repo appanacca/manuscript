@@ -376,41 +376,37 @@ In order to computationally solve this problem there are some key points to addr
 	We have to take into account a mechanical solid model for the filaments (for example a the Bernoulli beam), including also the computation of energy that the swing motion will re-inject inside the fluid.
 	This two-way coupling could also be really computational expensive in presence of a large number of filament, and also, if the flexibility is important one should in principle take into account the contact and repulsion between the fibers.
 	If the porous medium has a more complicated shape (like the scales in the butterfly wing) came out with a simplified model for the solid dynamic is even more difficult and the use of a general FEA discretization is probably a necessity (at it will increase the computational cost of the problem).
-	Another approach consist of consider a general model for the medium, for example treat it like a porous medium that can have elastic properties.
-	Such models mimic the dynamic of the solid and in theory are more adapted to porous media that are fully connected, in principle they are very computational convenient but their mathematical description can e difficult and one should agree on the idea of losing information inside the medium.
+	Another approach consist of consider a "rheology" model for the medium, for example treat it like a porous medium that have elastic properties as an ensemble.
+	Such models are applicable only to porous media where the solid inclusion are connected to each other; in principle they are convenient, computational speaking, but their mathematical description can be difficult.
 	
-	\item Anisotropy: the problem should be capable of treat permeable surfaces that have different response when stressed in different directions. For example the geometrical disposition and/or the mechanical properties of the medium can be non homogeneous, so the medium will be more permeable in one direction and so have a preferential flow path.
+	\item Anisotropy: the model used should be capable of treat permeable surfaces that have different responses when stressed in different directions. For example the geometrical disposition and/or the mechanical properties of the medium can be non-homogeneous, so it will be more permeable in one direction and show a preferential flow path.
 \end{itemize}
 
-Examples of full resolved fluid-structural problem in which either the flow and the filaments structure has been resolved directly are very few in literature.
-\citet{marjoribanks2017does} performs large eddy simulation over a bed with $300$ filaments; but he use a very simple drag model for the fibers mechanics and use a one way coupling between the solid and the fluid, so he resolve the fluid, pass the forces on the solid, compute the new solid position and directly go to the next time-step without re-iterating.
-Even with a simple coupling and solid dynamics the flow show some insight in the fibers dynamic, but again the lack of validation makes the results questionable.
+\citet{dupont2010modelling} had performed a LES simulation introducing a two way coupling for the fluid-structure interaction problem, they validate their code with video recording of a similar experiment and the frequency measurements of the Kelvin–Helmholtz instabilities at the interface agrees very well.
+The authors haven't specified the computational configuration used but they have mentioned an important high performance computing center in the acknowledgment which made us suppose that the computational power involved were substantial.
+Recently also in \citet{marjoribanks2017does} a similar approach has been used.
 
-\citet{dupont2010modelling} previously made a similar model introducing a two way coupling for the fluid-structure interaction problem, this time they validate their code with video recording of a similar experiment and the frequency measurements of the Kelvin–Helmholtz instabilities at the interface agrees very well.
-The authors so not give quantitative information of the computational configuration but mention a very important high performance computing center in the acknowledgment which made us suppose that the computational power involved were substantial.
+Show other examples that solve directly the full coupled problem are in \citet{pinelli2017pelskin}, \citet{favier2017pelskin}, \citet{revell2017pelskin} but in this case the number of filaments is small and so they can be though more as isolated filaments rather that a poroelastic medium.
 
-Show other examples that solve directly the full coupled problem are in \citet{pinelli2017pelskin} \citet{favier2017pelskin}, \citet{revell2017pelskin} but in this case the number of filaments is small and so they can be though more as singular filaments that a really poroelastic medium.
+Due to the computationally expensiveness of solving the problem directly, the scientific community has came out with different approaches that treat the porous domain with a generalized model that do not resolve the fine scale inside the filaments but instead express them as a function of the larger length scales present in the fluid domain $\Omega_{f}$.
 
-There is of course another way to treat the problem state ìt above that does not use \textit{brute force}.
-
-Due to the computationally expensiveness on solving the problem directly the scientific community has came out in time with different approaches that treat the porous domain with a generalized model that do not resolve the fine scale inside and between the filaments but instead express them as a function of the length scales present in the fluid domain $\Omega_{NS}$.
-
-The key point in such methods are:
+These are called homogenization approaches and the key point in such methods are:
 \begin{itemize}
-	\item They divide the overall domain in two different parts: the fluid domain $\Omega_{NS}$ and the porous domain $\Omega_{P}$
-	\item Two different fluid models are solved in the two domains, in $\Omega_{NS}$ the Naver-Stokes equations for incompressible fluids are the classical choice, and in the porous part there are a number of different models that usually neglect the temporal derivative and the convective part in the latter equations but adds other source terms in order to take into account the presence of the solid inclusion that form the porous medium
-	\item The two domains are coupled together with an interface boundary condition or a special equation treatments for this transition region
-	\item A model for the dynamic of the solid porous part should also be chosen
+	\item The division of the overall domain in two different parts: the fluid domain $\Omega_{f}$ and the porous domain $\Omega_{p}$
+	\item Two different fluid models are solved in the two domains, in $\Omega_{f}$ the Naver-Stokes equations for incompressible Newtonian fluids are solved. In the porous part there are a number of different models that adds source terms in the former equations to take into account the presence of the porous medium.
+	\item The two domains should be coupled together with a boundary condition at the interface or a special treatments for the equation in the transition region.
+	\item A model for the dynamic of the solid porous part, it can model the structures directly or with an averaged rheology model.
 \end{itemize}
 
-Also the interface treatment and the solid model can be tied to the choice of the porous fluid model.
-The source term introduced in $\Omega_{P}$ depends on the theory in which we develop our porous media model, in the next two section we will talk about the two main branches existing in literature.
+The key points showed above will be extensively expanded, in chapter \ref{ch:vans}, for the homogenization method chosen in this thesis.
+However in the next sections the two main branches in literature, that takes into account the presence of a porous medium layer, will be summarized in order to give a panoramic on all the possible choices.
+
 
 \subsection{Isotropic drag models}
 \label{sec:canopy_eq}
 
-In the case of flow through vegetation (canopy flows) it is common to use a simpler isotropic drag model for parametrize the resistance of the canopy.
-So the drag is usually function of the depth (the distance from the interface in the wall normal direction) and it is supposed to be isotropic; this hypothesis can be correct in case of dense vegetation when the flow cannot generate almost any wake inside the canopy, but it is certainly wrong in the wall normal direction since for a flow purely vertical the resistance of the medium should be smaller.
+In the case of flow through vegetation (canopy flows) it is common to use an isotropic drag model for parametrize the resistance of the canopy.
+In this case the drag is usually function of the medium depth (distance computed from the interface in the wall normal direction) and it is supposed to be isotropic; this hypothesis can be correct in case of dense vegetation when the flow cannot generate almost any wake inside the canopy, but it is certainly wrong in the wall normal direction since for a flow purely vertical the resistance of the medium should be smaller.
 However since this models are mostly applied in channel problems where the mean flow is mostly stream-wise the resistance in the vertical direction can be approximated in this manner, but in application where the transpiration of the interface is important (wake control of bluff body) the isotropic drag model is certainty not convenient.
 
 The drag resistance is included in the incompressible Navier-Stokes equations as a sink of momentum as in equation \ref{eq:mom_cd}.
