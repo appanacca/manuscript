@@ -51,6 +51,8 @@ $$
 \int_{\volb(\mathbf{x})}  m(\mathbf{y}) d \, \volb = 1
 $$
 
+Also for the sake of simplicity we will consider a filter $m$ to be rectangular and wi will not maintain it in the formulation...
+
 The porosity is defined as:
 \begin{equation}
 	\varepsilon = \dfrac{\volb}{V}
@@ -66,27 +68,81 @@ So we can defy the relationship:
 
 \begin{theorem}[Spatial averaging theorem]
 Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, then:
-\[	\means{\nabla \psi_{\beta}} = \nabla \means{\psi_{\beta}} + \dfrac{1}{V}\int_{A_{\beta \sigma}} \mathbf{n}_{\beta \sigma} \psi_{\beta} dA \]
+	\begin{equation}
+		\means{\nabla \psi_{\beta}} = \nabla \means{\psi_{\beta}} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \psi_{\beta} \mathbf{n}_{\beta \sigma}  dA
+		\label{th:spat_avg}
+	\end{equation}
 \end{theorem}
 
-\begin{corollary}
-	corollary ?
+\begin{corollary}[Vector form of \ref{th:spat_avg}]
+	The vector form of the spatial averaging theorem is given by:
+	\begin{equation}
+	\means{\nabla \cdot \boldsymbol{\psi_{\beta}}} = \nabla \cdot \means{  \boldsymbol{\psi_{\beta}}} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \boldsymbol{n_{\beta \sigma}} \cdot \boldsymbol{\psi_{\beta}} dA
+	\end{equation}
 \end{corollary}
+
+\begin{corollary}
+	Applying the theorem \ref{th:spat_avg} to a constant field $\psi_{\beta} = 1$ we obtain:
+	\begin{equation}
+		\nabla \varepsilon = - \int_{A_{\sigma \beta}} \mathbf{n_{\sigma \beta}} d \, A,
+	\end{equation}
+\end{corollary}
+
+
+\begin{theorem}[General transport theorem]
+	Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, then:
+	\begin{equation}
+	\dfrac{\partial}{\partial t} \int_{\volb(t)} \psi_{\beta} dV =  \int_{\volb(t)} \dfrac{\partial \psi_{\beta}}{\partial t} dV + \int_{A_{\beta \sigma}(t)} \psi_{\beta} (\mathbf{n}_{\beta \sigma} \cdot \mathbf{w} ) dA,
+	\label{th:transport}
+	\end{equation}
+	
+	where $\mathbf{w}$ is the point velocity of the solid-liquid interface $A_{\beta \sigma}$.
+\end{theorem}
 
 
 \subsection{Length scale decomposition}
 
 \begin{equation}
-	\psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
+	\psi_{\beta} = \means{\psi_{\beta}} + \tilde{\psi}_{\beta}
  \end{equation}
+ 
 
 \subsection{Averaged continuity equations}
 
+The continuity equation for a Newtonian ... reads:
 
 \begin{equation}
-\nabla \cdot \vb = 0
-\label{eq:cont_vans}
+\means{\dfrac{\partial \rho_{\beta}}{\partial t}} + \means{\nabla \cdot (\rho_{\beta}\vb)}   = 0
+\label{eq:superf_avg_cont}
 \end{equation}
+
+Applying \ref{th:spat_avg} to the second term we get:
+\begin{equation}
+ \means{\nabla \cdot (\rho_{\beta}\vb)} = \nabla \cdot \means{ (\rho_{\beta}\vb)} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \boldsymbol{n_{\beta \sigma}} \cdot \boldsymbol{\rho_{\beta} \vb} dA
+ \label{eq:avg_1}
+\end{equation}
+
+and applying fist the definition of superficial average, than \ref{th:transport} to the first one:
+
+\begin{eqnarray}
+&&\means{\dfrac{\partial \rho_{\beta}}{\partial t}} = \dfrac{1}{V} \int_{V} \dfrac{\partial \rho_{\beta}}{\partial t} dV = \\
+&& = \dfrac{1}{V} \left[  \dfrac{\partial}{\partial t} \int_{V} \rho_{\beta} dV -  \int_{A_{\beta \sigma}} \rho_{\beta} (\mathbf{n}_{\beta \sigma} \cdot \mathbf{w} ) dA   \right] \\
+&& = \dfrac{\partial \means{\rho_{\beta}}}{\partial t} -\dfrac{1}{V}  \int_{A_{\beta \sigma}} \rho_{\beta} (\mathbf{n}_{\beta \sigma} \cdot \mathbf{w} ) dA 
+\label{eq:avg_2}
+\end{eqnarray}
+
+The boundary condition at the interface $\mathbf{w} = \vb$ imply that the integrals in \ref{eq:avg_1} is equal to the integral in \ref{eq:avg_2} so we end up with:
+
+\begin{equation}
+\derp{\means{\rho_{\beta}}}{t} + \nabla \cdot \means{\rho_{\beta}\vb} = 0
+\end{equation}
+
+Adding the hypothesis of incompressible fluid:
+\begin{equation}
+\derp{\varepsilon}{t} + \nabla \cdot \means{\vb} = 0
+\end{equation}
+
+
 
 \subsection{Averaged momentum equations}
 
