@@ -1,6 +1,8 @@
 \chapter{Volume Average Method}
 \label{ch:vans}
 
+\chapquote{Do not worry about your difficulties in mathematics; I can assure you that mine are still greater.}{Letter to junior high school student Barbara Wilson, \\ January 7, 1943}{Albert Einstein}
+
 \section{Introduction}
 
 Maximum 10 lines recalling some of the things said in the previous chapter.
@@ -38,13 +40,13 @@ Let $\psi_{\beta}$ be an arbitrary vector or scalar field defined on the volume 
 \end{equation}
 
 \begin{equation}
-\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb} \psi_\beta (\mathbf{x}) d \, \volb,
+\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \, \volb,
 \label{eq:avg_superficial}
 \end{equation}
 
 $\meani{\psi_{\beta}}$ is called the \textit{intrinsic average} and $\means{\psi_{\beta}}$ is the \textit{superficial average}.
-The filter $m$ act as a ...
- it is required that
+For the sake of a less heavy notation the $|_{\mathbf{x}}$ has been dropped in the following, within mind that the volume averaged quantities are intended to be computed in the center of the REV.
+The filter $m$ act as a ... it is required that
 $$
 \int_{\volb(\mathbf{x})}  m(\mathbf{y}) d \, \volb = 1
 $$
@@ -62,9 +64,14 @@ So we can defy the relationship:
 
 \subsection{Theorems involving derivatives of spatial averaging}
 
-\begin{theorem}[Averaging theorem Howes and Withaker, 1985]
+\begin{theorem}[Spatial averaging theorem]
+Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, then:
 \[	\means{\nabla \psi_{\beta}} = \nabla \means{\psi_{\beta}} + \dfrac{1}{V}\int_{A_{\beta \sigma}} \mathbf{n}_{\beta \sigma} \psi_{\beta} dA \]
 \end{theorem}
+
+\begin{corollary}
+	ta mere
+\end{corollary}
 
 
 \subsection{Length scale decomposition}
