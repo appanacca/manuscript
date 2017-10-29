@@ -70,7 +70,7 @@ So we can defy the relationship:
 Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, then:
 	\begin{equation}
 		\means{\nabla \psi_{\beta}} = \nabla \means{\psi_{\beta}} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \psi_{\beta} \mathbf{n}_{\beta \sigma}  dA
-		\label{th:spat_avg}
+			\label{th:spat_avg}
 	\end{equation}
 \end{theorem}
 
@@ -78,6 +78,7 @@ Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, the
 	The vector form of the spatial averaging theorem is given by:
 	\begin{equation}
 	\means{\nabla \cdot \boldsymbol{\psi_{\beta}}} = \nabla \cdot \means{  \boldsymbol{\psi_{\beta}}} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \boldsymbol{n_{\beta \sigma}} \cdot \boldsymbol{\psi_{\beta}} dA
+			\label{th:vec_spat_avg}
 	\end{equation}
 \end{corollary}
 
@@ -99,13 +100,6 @@ Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, the
 	where $\mathbf{w}$ is the point velocity of the solid-liquid interface $A_{\beta \sigma}$.
 \end{theorem}
 
-
-\subsection{Length scale decomposition}
-
-\begin{equation}
-	\psi_{\beta} = \means{\psi_{\beta}} + \tilde{\psi}_{\beta}
- \end{equation}
- 
 
 \subsection{Averaged continuity equations}
 
@@ -148,13 +142,118 @@ Adding the hypothesis of incompressible fluid:
 
 
 \begin{equation}
-\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}
-\label{eq:mom_vans}
+\dfrac{\partial \vb}{\partial t} + \nabla \cdot (\vb\vb) = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb
+\label{eq:mom}
+\end{equation}
+
+\subsubsection{first term}
+
+Using theorem \ref{th:transport}:
+\begin{equation}
+\means{\derp{\vb}{t}} = \derp{\means{\vb}}{t} -\dfrac{1}{V} \int_{A_{\beta \sigma}(t)} (\mathbf{n}_{\sigma \beta} \cdot w) \vb dA,
+\end{equation}
+
+\subsubsection{second term}
+
+Using theorem \ref{th:vec_spat_avg}:
+\begin{equation}
+\means{\nabla \cdot (\vb\vb)} = \nabla \cdot \means{\vb \vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot (\vb \vb) dA,
 \end{equation}
 
 
+The boundary condition at the interface $\mathbf{w} = \vb$ imply that the integrals in the last two equations are equals so we end up with the total left end side of the momentum equation:
+$$
+\derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb}
+$$
 
-\subsubsection{Interface condition}
+\subsubsection{third term}
+
+Using theorem \ref{th:spat_avg}:
+
+\begin{equation}
+\means{-\dfrac{1}{\rho_{\beta}} \nabla \pb } = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} -\dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pb}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} dA,
+\end{equation}
+
+\subsubsection{fourth term}
+Expressing the $\nabla^2$ operator with the identity $\nabla^2 = \nabla \cdot (\nabla)$ (laplacian = div ( grad)), and applying the theorem \ref{th:vec_spat_avg}:
+
+
+\begin{equation}
+\means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA,
+	\label{eq:4_1}
+\end{equation}
+
+Now re-using the theorem \ref{th:vec_spat_avg} on the term $\means{\nabla \vb}$ we get:
+
+\begin{eqnarray}
+	&&\eqref{eq:4_1} = \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \vb dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA = \nonumber \\
+	&& = \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \vb dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA
+\end{eqnarray}
+
+Before continue the development lets put all the pieces together:
+
+\begin{eqnarray}
+&& \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
+&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} + \nub \nabla \vb \cdot \mathbf{n}_{\sigma \beta} \right) dA  +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \vb dA \right)
+	\label{eq:vans_2}
+\end{eqnarray}
+
+
+\subsection{Length scale decomposition}
+
+To further simplify the equations we use the decomposition proposed by \citet{gray1975derivation}:
+\begin{equation}
+\psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
+\end{equation}
+
+The non-homogeneous terms in equation \ref{eq:vans_2}:
+
+\begin{equation}
+\means{\vb\vb} = \means{\means{\vb}\means{\vb}} +2\means{\means{\vb}\tilde{\vb}} +\means{\tilde{\vb} \tilde{\vb}}
+\label{eq:dec_1}
+\end{equation}
+
+Applying the superficial average to the perturbation term is possible to demonstrate that it has null mean:
+$$
+\means{\tilde{\psi}_{\beta}} = \means{\psi_{\beta}} - \means{\meani{\psi_{\beta}}} = \means{\psi_{\beta}} -\varepsilon \meani{\psi_{\beta}} = 0
+$$
+
+Using this results to equation \eqref{eq:dec_1}:
+
+\begin{equation}
+\means{\vb\vb} = \varepsilon \meani{\vb}\meani{\vb} +\means{\tilde{\vb} \tilde{\vb}}
+\end{equation}
+
+Now expressing the time derivative in the intrinsic form:
+$$
+\derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}
+$$
+
+For each integral term of \ref{eq:vans_2} we first apply the decomposition:
+
+\begin{eqnarray}
+\dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{\pb}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb}  + \tilde{\pb}\right) \mathbf{n}_{\sigma \beta} dA = \nonumber \\
+&=& -\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} dA
+\end{eqnarray}
+
+The same for the other two terms:
+\begin{eqnarray}
+\dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \mathbf{n}_{\sigma \beta} dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\tilde{\vb}) \cdot \mathbf{n}_{\sigma \beta} dA =  \nonumber \\
+&=& - \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta} dA
+\end{eqnarray}
+
+\begin{eqnarray}
+&&\nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \vb dA \right) = \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub (\meani{\vb} +\tilde{\vb}) dA \right) =  \nonumber \\
+&=& -\nabla \cdot \left( \nub \meani{\vb} \nabla \varepsilon \right) + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \mathbf{n}_{\sigma \beta} \tilde{\vb} dA \right) =  \nonumber \\
+&=& -\nub  \nabla  \meani{\vb} \nabla \varepsilon -\nub \meani{\vb} \nabla^2 \varepsilon + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \mathbf{n}_{\sigma \beta} \tilde{\vb} dA \right)
+\end{eqnarray}
+
+The crucial difference between the superficial and the intrinsic quantities can be found in the averaged version of the continuity equations; in case of porosity that vary spatially only the superficial velocity field is solenoidal.
+
+
+\section{Closure problems}
+
+\section{Interface condition}
 
 Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
 
