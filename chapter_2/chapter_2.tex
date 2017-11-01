@@ -283,6 +283,8 @@ After the proper simplification we have the final versions of the equations usin
 
 The crucial difference between the superficial and the intrinsic quantities can be found in the averaged version of the continuity equations; in case of porosity that vary spatially (great advantage for using penalization methods) only the superficial velocity field is solenoidal.
 
+The superficial version represent the force per unit volume of the porous medium, instead the intrinsic one the force per unit volume of the fluid volume (so it depends on the porosity of the medium). 
+
 The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities $ $ and surface integrals.
 One should notice that at this stages the equations are not closed; because in \eqref{eq:vans_mom_1} there are still two terms that depends on the perturbations of the pressure and velocity field.
 We will call it \textit{sub-filter stresses} and \textit{microscopic force} at the fluid-solid interface:
@@ -298,10 +300,82 @@ $$
 
 \section{Closure problems}
 
+\subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
+
+Its a volume filter.
+
+\subsection{Microscopic force $\mathbf{F}^m$}
+Its a surface filter.
+
+In theory there is no simple representation for the $\mathbf{F}^m$ term when the terms that includes the terms including the gradient of $\nabla \varepsilon$.
+
+Although since we are interested in developing a \textbf{local} closure problem that will depend on the geometry of one REV is possible to simply these terms.
+This means that the closure problems are not correct in the interface between a porous medium and a free fluid; but in the last chapter we show that even though we are committing an error we can still use the same closure problems and obtain good results.
+
+In order to develop a closure problem we recall the decomposition by \citet{gray1975derivation}:
+\begin{equation}
+\psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
+\end{equation}
+
+From the continuity equation valid at the microscopic scale of the fluid phase we subtract the continuity equation valid for the intrinsic average velocity:
+\begin{eqnarray}
+\nabla \cdot \left( \vb \right) &=& 0 \nonumber \\
+\nabla \cdot \left( \meani{\vb} \right) &=& 0 \nonumber \\
+\end{eqnarray}
+
+we obtain the continuity equation for the perturbations:
+$$
+\nabla \cdot \left( \tilde{\vb} \right) = 0 
+$$
+
+Than we move to the momentum equation, as said above simplifying the equations \eqref{eq:vans_mom_1}, neglecting the terms including the porosity gradient:
+
+\begin{eqnarray}
+& &  \derp{\meani{\vb}}{t} + \nabla \cdot \left(\meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\tilde{\vb} \tilde{\vb}}\right) = \nonumber \\
+&=& -\nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \meani{\vb}  \nonumber \\
+&+& \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA
+\label{eq:vans_mom_2}
+\end{eqnarray}
+
+With the same procedure we subtract the above equations to the point equations obtaining:
+\begin{eqnarray}
+& &  \derp{\tilde{\vb}}{t} + \vb \cdot \nabla \tilde{\vb} + \tilde{\vb} \cdot \nabla \meani{\vb}  = \nonumber \\
+&=& -\nabla \left(\dfrac{\tilde{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \tilde{\vb} - \nabla \cdot \left(\means{\tilde{\vb} \tilde{\vb}}\right) \nonumber \\
+&-& \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA
+\label{eq:vans_mom_3}
+\end{eqnarray}
+
+Now based on some length scale consideration we can state that:
+$$ 
+\vb \cdot \nabla \tilde{\vb} \ll \tilde{\vb} \cdot \nabla \meani{\vb}
+$$
+
+$$
+\nabla \cdot \left(\means{\tilde{\vb} \tilde{\vb}}\right) \ll \tilde{\vb} \cdot \nabla \meani{\vb}
+$$
+
+$$
+\derp{\tilde{\vb}}{t} \ll \nub \nabla^2 \tilde{\vb}
+$$
+
+Obtaining:
+\begin{eqnarray}
+&& \vb \cdot \nabla \tilde{\vb} = -\nabla \left(\dfrac{\tilde{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \tilde{\vb} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA  \\
+&& \nabla \cdot \tilde{\vb} = 0  \\
+&& \tilde{\vb} = \meani{\vb} \quad at \; A_{\beta \sigma} \\
+&& \tilde{\pb}(\mathbf{x} +\ell_i) = \tilde{\pb}(\mathbf{x}), \qquad \tilde{\vb}(\mathbf{x} +\ell_i) = \tilde{\vb}(\mathbf{x}), \qquad i=1,2,3 \\
+&& \meani{\tilde{\vb}} = 0
+\label{eq:vans_mom_}
+\end{eqnarray}
+
+that is the transport equations system for the perturbation fields.
 
 
 
-\section{Interface condition}
+\citet{barrere1992closure}
+
+\citet{kozeny} talk about some of this simplified version.
+\section{Interface treatment}
 
 Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
 
