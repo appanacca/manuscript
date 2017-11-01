@@ -370,11 +370,106 @@ Obtaining:
 
 that is the transport equations system for the perturbation fields.
 
+We made the hypothesis that:
+\begin{eqnarray}
+&& \tilde{\vb} = \mathbf{R} \cdot \meani{\vb} + \boldsymbol{\varsigma} \\
+&& \tilde{\pb} = \mub \mathbf{r} \cdot \meani{\vb} + \gamma
+\end{eqnarray}
 
+since we are free to define the tensor $\mathbf{R}$  and the vector $\mathbf{r}$ as we wish we chose to define it by means of the closur problems:
+\begin{eqnarray}
+&& \dfrac{\vb}{\nub} \cdot  \nabla \mathbf{R} = -\nabla \mathbf{r} + \nabla^2 \mathbf{R} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) dA  \\
+&& \nabla \cdot \mathbf{R} = 0  \\
+&&\mathbf{R} = \mathbf{I} \quad at \; A_{\beta \sigma} \\
+&& \mathbf{r}(\mathbf{x} +\ell_i) = \mathbf{r}(\mathbf{x}), \qquad \mathbf{R}(\mathbf{x} +\ell_i) = \mathbf{R}(\mathbf{x}), \qquad i=1,2,3 \\
+&& \meani{\mathbf{R}} = 0
+\label{eq:R_problem}
+\end{eqnarray}
 
-\citet{barrere1992closure}
+With  $\mathbf{R}$ and $\mathbf{r}$ specified as above we can prove that $\boldsymbol{\varsigma}$ is zero and $\gamma$ a constant.
+The above problem is a closed formulation for the two fields  $\mathbf{R}$ and $\mathbf{r}$ but it is difficult to solve computationally since it is an integral-differential equation.
+In order to simplify it we can decompose the problem in two parts, the first one give us the \textit{permeability tensor} and the second one the \textit{Forchheimer tensor}.
+
+We represent $\mathbf{R}$ and $\mathbf{r}$ as:
+$$
+ \mathbf{R} = \mathbf{B} + \mathbf{C}, \qquad \mathbf{r} = \mathbf{b} + \mathbf{c}
+$$
+
+So the previous decomposition became:
+\begin{eqnarray}
+	&& \tilde{\vb} = \mathbf{B} \cdot \meani{\vb} + \mathbf{C} \cdot \meani{\vb}  \\
+	&& \tilde{\pb} = \mub \mathbf{b} \cdot \meani{\vb} + \mub \mathbf{c} \cdot \meani{\vb} 
+\end{eqnarray}
+
+so the first problem became:
+\begin{eqnarray}
+&& \dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) dA  \\
+&& \nabla \cdot \mathbf{B} = 0  \\
+&&\mathbf{B} = -\mathbf{I} \quad at \; A_{\beta \sigma} \\
+&& \mathbf{b}(\mathbf{x} +\ell_i) = \mathbf{b}(\mathbf{x}), \qquad \mathbf{B}(\mathbf{x} +\ell_i) = \mathbf{B}(\mathbf{x}), \qquad i=1,2,3 \\
+&& \meani{\mathbf{B}} = 0
+\label{eq:B_problem}
+\end{eqnarray}
+
+and the second one:
+\begin{eqnarray}
+&&\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} +\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{C} = -\nabla \mathbf{c} +  \nabla^2 \mathbf{C} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) dA  \\
+&& \nabla \cdot \mathbf{C} = 0  \\
+&&\mathbf{C} = 0 \quad at \; A_{\beta \sigma} \\
+&& \mathbf{c}(\mathbf{x} +\ell_i) = \mathbf{c}(\mathbf{x}), \qquad \mathbf{C}(\mathbf{x} +\ell_i) = \mathbf{C}(\mathbf{x}), \qquad i=1,2,3 \\
+&& \meani{\mathbf{C}} = 0
+\label{eq:C_problem}
+\end{eqnarray}
+
+Now is possible to define the \textit{permeability tensor} $\mathbf{K}$:
+$$
+ \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) dA = -\varepsilon \mathbf{K}^{-1}
+$$
+
+and the \textit{Forchheimer tensor} $\mathbf{F}$:
+$$
+\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) dA = -\varepsilon \mathbf{K}^{-1} \cdot \mathbf{F}
+$$
+
+using this definition to make the changing of variables proposed by \citet{barrere1992closure}:
+$$
+\mathbf{d} = \varepsilon^{-1} \mathbf{b} \cdot \mathbf{K}, \qquad \mathbf{D} = \varepsilon^{-1} \left(\mathbf{B} + \mathbf{I} \right)\cdot \mathbf{K}
+$$
+
+ making the problem \eqref{eq:B_problem}:
+ \begin{eqnarray}
+ && 0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I}\\
+ && \nabla \cdot \mathbf{D} = 0  \\
+ &&\mathbf{D} = 0 \quad at \; A_{\beta \sigma} \\
+ && \mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 \\
+ && \meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}
+ \label{eq:D_problem}
+ \end{eqnarray}
+
+and the following for the second problem:
+$$
+\mathbf{m} = \varepsilon^{-1} \mathbf{n} \cdot \mathbf{H}, \qquad \mathbf{M} = \varepsilon^{-1} \left(\mathbf{N} + \mathbf{I} \right)\cdot \mathbf{H}
+$$
+
+where $\mathbf{H}$ is called \textit{effective permeability tensor} and is so defined:
+$$
+\mathbf{H}^{-1} = \mathbf{K}^{-1} \left(\mathbf{I} +\mathbf{F}\right)
+$$
+
+so the problem became:
+
+ \begin{eqnarray}
+&& \dfrac{\vb}{\nub} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
+&& \nabla \cdot \mathbf{M} = 0  \\
+&&\mathbf{M} = 0 \quad at \; A_{\beta \sigma} \\
+&& \mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 \\
+&& \meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}
+\label{eq:M_problem}
+\end{eqnarray}
 
 \citet{kozeny} talk about some of this simplified version.
+
+
 \section{Interface treatment}
 
 Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
