@@ -5,25 +5,30 @@
 
 \section{Introduction}
 
-Maximum 10 lines recalling some of the things said in the previous chapter.
+As the previous chapter as introduced we are interested in the volume averaging method to scale up the fluid equations valid in the microscopic spaces of the porous medium and find a macroscopic description that is valid everywhere in the porous medium domain (not only in the fluid phase).
+Theoretical aspect of the volume averaging method applied to fluid in porous media can be found in \citet{whitaker2013method}, \citet{whitaker1986flow}, \citet{whitaker1996forchheimer} CONTINUE THE LIST.
+The following chapter describe the most important stages necessary to find the average version of equations \eqref{eq:NS}.
 
 \section{Derivation of VANS equations for 3D incompressible fluids}
-%The dynamic of the liquid phase indicated with the subscript $\beta$ is governed by the Navier-Stokes equation for incompressible Newtonian fluid, in presence of a porous medium solid; the equation valid inside the liquid phase are:
-%
-%\begin{equation}
-%\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}, 
-%\label{eq:mom}
-%\end{equation}
-%\begin{equation}
-%\nabla \cdot \vb = 0,
-%\label{eq:cont}
-%\end{equation}
-%where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
+The dynamic of the fluid phase, indicated with the subscript $\beta$, is governed by the Navier-Stokes equation for incompressible Newtonian fluid; which in presence of a porous medium solid reads:
+
+\begin{eqnarray}
+	\begin{cases}
+		\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  \\
+		\nabla \cdot \ws = 0 \\
+		\vb = \ws \qquad \text{at} \; A_{\beta\sigma}
+	\end{cases}
+\label{eq:NS}
+\end{eqnarray}\\
+
+where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid, although  $\ws$ is velocity of the solid phase
+The interface between the fluid and the solid is indicated as $A_{\beta\sigma}$, in which the no-slip condition for the velocity apply.
+In the above equation we also need to specify initial condition in order to solve them, but the initial conditions do not take part in the homogenization procedure.
 
 \subsection{Definition of the averaging filter}
 
-In the figure \ref{fig:rev} is an illustration of our porous problem; in the same figure we show all the main definition that we need to introduce in order to develop our mathematical approach.
-
+In the figure \ref{fig:rev} a \textit{reference elementary volume} (or REV) of a fibrous porous medium is depicted.
+Inside the same figure we indicate all the quantities that we need to introduce in order to develop our mathematical approach.
 
 \begin{figure}[h]
 	\centering
@@ -32,76 +37,98 @@ In the figure \ref{fig:rev} is an illustration of our porous problem; in the sam
 	\label{fig:rev}
 \end{figure}
 
-Let $\psi_{\beta}$ be an arbitrary vector or scalar field defined on the volume $V$ where $x$ is its centroid, we can define two different spacing average operator.
+The REV concept is needed in developing the averaged equation since is the volume on which the average is defined.
+Let $\psi_{\beta}$ be a scalar field (the same operator can be defined on an arbitrary order tensors) defined on the volume $V$ where $x$ is its centroid coordinates, we define two different spacing average operator.
 
+The first one is called the \textit{intrinsic average} and is indicated as $\meani{.}$:
 \begin{equation}
 \meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \, \volb,
 \label{eq:avg_intrinsic}
 \end{equation}
 
+where $m$ is a weight function on V and $\mathbf{y}$ is the relative position vector with respect to the centroid $\mathbf{x}$ of the averaging volume $\volb$.
+
+The second one is the \textit{superficial average} indicated with $\means{}$:
 \begin{equation}
-\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \, \volb,
+\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \, \volb,
 \label{eq:avg_superficial}
 \end{equation}
 
-$\meani{\psi_{\beta}}$ is called the \textit{intrinsic average} and $\means{\psi_{\beta}}$ is the \textit{superficial average}.
-For the sake of a less heavy notation the $|_{\mathbf{x}}$ has been dropped in the following, within mind that the volume averaged quantities are intended to be computed in the center of the REV.
-The filter $m$ act as a ... it is required that
+In order to use a less heavy notation, the subscript $|_{\mathbf{x}}$ is dropped in the following procedure, but we keep in mind that the volume averaged quantities are explicitly dependent on the REV center.
+Either averaging operators are defined as a volume integral over a the REV volume; the size of the REV should be chosen carefully in order to be sure to capture all the phenomena that take place at this scale (scale $\ell$).
+If the REV size is the correct one, increasing the REV volume over which we make the average ($\volb$) the average quantity itself should not change.
+
+Inside the average operators we can further use a weight function ($m$); it can be shown that the formulation of this function can help to attenuate spacial variation due to geometrical fluctuations of the porous medium.
+Some recommendation in the choice of the function shape can be found in \citet{quintard1994transport1}, \citet{quintard1994transport2} and \citet{davit2017technical}.
+
+Whichever is the choice on the $m$ shape, it is required that it has a unit volume integral:
 $$
-\int_{\volb(\mathbf{x})}  m(\mathbf{y}) d \, \volb = 1
+\int_{\volb}  m(\mathbf{y}) \; d\volb = 1
 $$
 
-Also for the sake of simplicity we will consider a filter $m$ to be rectangular and wi will not maintain it in the formulation...
+For the sake of simplicity we will consider a filter $m$ to be rectangular and we drop it in the formulation of the average operators.
+This choice is supported by the fact that fibrous porous media are periodic ordered structures and we formally do not need special forms of filters.
 
 The porosity is defined as:
+
 \begin{equation}
 	\varepsilon = \dfrac{\volb}{V}
 	\label{eq:porosity}
 \end{equation}
 
-So we can defy the relationship:
+which represent the ratio between the volume occupied by the fluid and the total elementary volume.
+
+So we can defy the relationship between the two averaging operators:
+
 \begin{equation}
 	\means{\psi_{\beta}} =  \varepsilon \meani{\psi_{\beta}}
 \end{equation}
 
 \subsection{Theorems involving derivatives of spatial averaging}
 
+In this paragraph we report some the theorems related to the volume averaging technique. The purpose to these theorems is to establish relations between volume averaged derivatives to derivatives of volume averaged quantities.
+
 \begin{theorem}[Spatial averaging theorem]
-Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, then:
+Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then:
+
 	\begin{equation}
-		\means{\nabla \psi_{\beta}} = \nabla \means{\psi_{\beta}} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \psi_{\beta} \mathbf{n}_{\beta \sigma}  dA
+		\means{\nabla \psi_{\beta}} = \nabla \means{\psi_{\beta}} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \psi_{\beta} \nbs   \;dA
 			\label{th:spat_avg}
 	\end{equation}
 \end{theorem}
 
 \begin{corollary}[Vector form of \ref{th:spat_avg}]
 	The vector form of the spatial averaging theorem is given by:
+	
 	\begin{equation}
-	\means{\nabla \cdot \boldsymbol{\psi_{\beta}}} = \nabla \cdot \means{  \boldsymbol{\psi_{\beta}}} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \boldsymbol{n_{\beta \sigma}} \cdot \boldsymbol{\psi_{\beta}} dA
+	\means{\nabla \cdot \boldsymbol{\psi}_{\beta}} = \nabla \cdot \means{ \boldsymbol{\psi}_{\beta}} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \boldsymbol{\psi}_{\beta} \cdot \nbs \;dA
 			\label{th:vec_spat_avg}
 	\end{equation}
 \end{corollary}
 
 \begin{corollary}
 	Applying the theorem \ref{th:spat_avg} to a constant field $\psi_{\beta} = 1$ we obtain:
+	
 	\begin{equation}
-		\nabla \varepsilon = - \int_{A_{\sigma \beta}} \mathbf{n_{\sigma \beta}} d \, A,
+		\nabla \varepsilon = - \int_{A_{\sigma \beta}} \nbs d \, A,
 	\end{equation}
 \end{corollary}
 
 
-\begin{theorem}[General transport theorem]
-	Let $\psi_{\beta}$ be a scalar quantity defined in the liquid phase $\beta$, then:
+\begin{theorem}[Reynold's transport theorem]
+	Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then:
+	
 	\begin{equation}
-	\dfrac{\partial}{\partial t} \int_{\volb(t)} \psi_{\beta} dV =  \int_{\volb(t)} \dfrac{\partial \psi_{\beta}}{\partial t} dV + \int_{A_{\beta \sigma}(t)} \psi_{\beta} (\mathbf{n}_{\beta \sigma} \cdot \mathbf{w} ) dA,
+	\dfrac{\partial}{\partial t} \int_{\volb(t)} \psi_{\beta} \; dV =  \int_{\volb(t)} \dfrac{\partial \psi_{\beta}}{\partial t} \; dV + \int_{A_{\beta \sigma}(t)} \psi_{\beta} (\ws \cdot \mathbf{n}_{\beta \sigma} ) \;dA,
 	\label{th:transport}
 	\end{equation}
 	
-	where $\mathbf{w}$ is the point velocity of the solid-liquid interface $A_{\beta \sigma}$.
+	where $\ws$ is the point velocity of the solid-fluid interface $A_{\beta \sigma}$.
 \end{theorem}
 
 
 \subsection{Averaged continuity equations}
+
 
 The continuity equation for a Newtonian ... reads:
 
@@ -111,27 +138,28 @@ The continuity equation for a Newtonian ... reads:
 \end{equation}
 
 Applying \ref{th:spat_avg} to the second term we get:
+
 \begin{equation}
- \means{\nabla \cdot (\rho_{\beta}\vb)} = \nabla \cdot \means{ (\rho_{\beta}\vb)} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \boldsymbol{n_{\beta \sigma}} \cdot \boldsymbol{\rho_{\beta} \vb} dA
+ \means{\nabla \cdot (\rho_{\beta}\vb)} = \nabla \cdot \means{ (\rho_{\beta}\vb)} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \rho_{\beta}  \vb \cdot \nbs \;dA
  \label{eq:avg_1}
 \end{equation}
 
 and applying fist the definition of superficial average, than \ref{th:transport} to the first one:
 
 \begin{eqnarray}
-&&\means{\dfrac{\partial \rho_{\beta}}{\partial t}} = \dfrac{1}{V} \int_{V} \dfrac{\partial \rho_{\beta}}{\partial t} dV = \\
-&& = \dfrac{1}{V} \left[  \dfrac{\partial}{\partial t} \int_{V} \rho_{\beta} dV -  \int_{A_{\beta \sigma}} \rho_{\beta} (\mathbf{n}_{\beta \sigma} \cdot \mathbf{w} ) dA   \right] \\
-&& = \dfrac{\partial \means{\rho_{\beta}}}{\partial t} -\dfrac{1}{V}  \int_{A_{\beta \sigma}} \rho_{\beta} (\mathbf{n}_{\beta \sigma} \cdot \mathbf{w} ) dA 
+&&\means{\dfrac{\partial \rho_{\beta}}{\partial t}} = \dfrac{1}{V} \int_{V} \dfrac{\partial \rho_{\beta}}{\partial t} \; dV = \dfrac{1}{V} \left[  \dfrac{\partial}{\partial t} \int_{V} \rho_{\beta} \; dV -  \int_{A_{\beta \sigma}} \rho_{\beta} (\ws \cdot \nbs ) \;dA   \right]  \nonumber \\
+&& = \dfrac{\partial \means{\rho_{\beta}}}{\partial t} -\dfrac{1}{V}  \int_{A_{\beta \sigma}} \rho_{\beta} ( \ws\cdot  \nbs) \;dA 
 \label{eq:avg_2}
 \end{eqnarray}
 
-The boundary condition at the interface $\mathbf{w} = \vb$ imply that the integrals in \ref{eq:avg_1} is equal to the integral in \ref{eq:avg_2} so we end up with:
+The boundary condition at the interface $\ws = \vb$ imply that the integrals in \ref{eq:avg_1} is equal to the integral in \ref{eq:avg_2} so we end up with:
 
 \begin{equation}
 \derp{\means{\rho_{\beta}}}{t} + \nabla \cdot \means{\rho_{\beta}\vb} = 0
 \end{equation}
 
 Adding the hypothesis of incompressible fluid:
+
 \begin{equation}
 \derp{\varepsilon}{t} + \nabla \cdot \means{\vb} = 0
 \end{equation}
@@ -149,49 +177,50 @@ Adding the hypothesis of incompressible fluid:
 \subsubsection{first term}
 
 Using theorem \ref{th:transport}:
+
 \begin{equation}
-\means{\derp{\vb}{t}} = \derp{\means{\vb}}{t} -\dfrac{1}{V} \int_{A_{\beta \sigma}(t)} (\mathbf{n}_{\sigma \beta} \cdot w) \vb dA,
+\means{\derp{\vb}{t}} = \derp{\means{\vb}}{t} -\dfrac{1}{V} \int_{A_{\beta \sigma}(t)} (\ws \cdot \nbs ) \vb \;dA,
 \end{equation}
 
 \subsubsection{second term}
 
 Using theorem \ref{th:vec_spat_avg}:
+
 \begin{equation}
-\means{\nabla \cdot (\vb\vb)} = \nabla \cdot \means{\vb \vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot (\vb \vb) dA,
+\means{\nabla \cdot (\vb\vb)} = \nabla \cdot \means{\vb \vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\vb \vb) \cdot \nbs \;dA,
 \end{equation}
 
 
-The boundary condition at the interface $\mathbf{w} = \vb$ imply that the integrals in the last two equations are equals so we end up with the total left end side of the momentum equation:
+The boundary condition at the interface $\ws = \vb$ imply that the integrals in the last two equations are equals so we end up with the total left end side of the momentum equation:
+
 $$
 \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb}
 $$
 
 \subsubsection{third term}
-
 Using theorem \ref{th:spat_avg}:
 
 \begin{equation}
-\means{-\dfrac{1}{\rho_{\beta}} \nabla \pb } = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} -\dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pb}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} dA,
+\means{-\dfrac{1}{\rho_{\beta}} \nabla \pb } = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} -\dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pb}{\rho_{\beta}} \nbs \;dA,
 \end{equation}
 
 \subsubsection{fourth term}
 Expressing the $\nabla^2$ operator with the identity $\nabla^2 = \nabla \cdot (\nabla)$ (laplacian = div ( grad)), and applying the theorem \ref{th:vec_spat_avg}:
 
-
 \begin{equation}
-\means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA,
+\means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nabla \vb \cdot \nbs \;dA,
 	\label{eq:4_1}
 \end{equation}
 
 Now re-using the theorem \ref{th:vec_spat_avg} on the term $\means{\nabla \vb}$ we get:
 
 \begin{eqnarray}
-	&&\eqref{eq:4_1} = \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \vb dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA = \nonumber \\
-	&& = \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \vb dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA  = \nonumber \\
+	\eqref{eq:4_1} &=& \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \vb \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA = \nonumber \\
+	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \vb \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA  = \nonumber \\
 	&& \text{and using Gauss theorem on the second term} \nonumber \\
-	&& = \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{\volb} \nabla \cdot \nub \vb d\volb \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA = \nonumber \\
+	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{\volb} \nabla \cdot \nub \vb d\volb \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA = \nonumber \\
 	&& \text{which is zero due to the continuity equation} \nonumber \\
-	&& = \nub\nabla^2 \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \nabla \vb dA
+	&=& \nub\nabla^2 \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA
 \end{eqnarray}
 
 \Red{The above use of the Gauss theorem, to prove that the first integral term is zero, can be bypassed in case of rigid porous media. Which due to the b.c. at the fluid-solid is zero.}
@@ -200,7 +229,7 @@ Before continue the development lets put all the pieces together:
 
 \begin{eqnarray}
 && \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
-&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} + \nub \nabla \vb \cdot \mathbf{n}_{\sigma \beta} \right) dA
+&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA
 	\label{eq:vans_2}
 \end{eqnarray}
 
@@ -208,6 +237,7 @@ Before continue the development lets put all the pieces together:
 \subsection{Length scale decomposition}
 
 To further simplify the equations we use the decomposition proposed by \citet{gray1975derivation}:
+
 \begin{equation}
 \psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
 \end{equation}
@@ -215,11 +245,12 @@ To further simplify the equations we use the decomposition proposed by \citet{gr
 The non-homogeneous terms in equation \ref{eq:vans_2}:
 
 \begin{equation}
-\means{\vb\vb} = \means{\means{\vb}\means{\vb}} +2\means{\means{\vb}\tilde{\vb}} +\means{\tilde{\vb} \tilde{\vb}}
+\means{\vb\vb} = \means{\means{\vb}\means{\vb}} +2\means{\means{\vb}\vbt} +\means{\vbt \vbt}
 \label{eq:dec_1}
 \end{equation}
 
 Applying the superficial average to the perturbation term is possible to demonstrate that it has null mean:
+
 $$
 \means{\tilde{\psi}_{\beta}} = \means{\psi_{\beta}} - \means{\meani{\psi_{\beta}}} = \means{\psi_{\beta}} -\varepsilon \meani{\psi_{\beta}} = 0
 $$
@@ -227,10 +258,11 @@ $$
 Using this results to equation \eqref{eq:dec_1}:
 
 \begin{equation}
-\means{\vb\vb} = \varepsilon \meani{\vb}\meani{\vb} +\means{\tilde{\vb} \tilde{\vb}}
+\means{\vb\vb} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt \vbt}
 \end{equation}
 
 Now expressing the time derivative in the intrinsic form:
+
 $$
 \derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}
 $$
@@ -238,45 +270,50 @@ $$
 For each integral term of \ref{eq:vans_2} we first apply the decomposition:
 
 \begin{eqnarray}
-\dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{\pb}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb}  + \tilde{\pb}\right) \mathbf{n}_{\sigma \beta} dA = \nonumber \\
-&=& +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} dA
+\dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{\pb}{\rho_{\beta}} \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb}  + \pbt\right) \nbs \;dA = \nonumber \\
+&=& +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pbt}{\rho_{\beta}} \nbs \;dA
 \end{eqnarray}
 
 The same for the other two terms:
+
 \begin{eqnarray}
-\dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \mathbf{n}_{\sigma \beta} dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\tilde{\vb}) \cdot \mathbf{n}_{\sigma \beta} dA =  \nonumber \\
-&=& - \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta} dA
+\dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\vbt) \cdot \nbs \;dA =  \nonumber \\
+&=& - \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
 \end{eqnarray}
 
 %\begin{eqnarray}
-%&&\nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub \vb dA \right) = \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \nub (\meani{\vb} +\tilde{\vb}) dA \right) =  \nonumber \\
-%&=& -\nabla \cdot \left( \nub \meani{\vb} \nabla \varepsilon \right) + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \mathbf{n}_{\sigma \beta} \tilde{\vb} dA \right) =  \nonumber \\
-%&=& -\nub  \nabla  \meani{\vb} \nabla \varepsilon -\nub \meani{\vb} \nabla^2 \varepsilon + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \mathbf{n}_{\sigma \beta} \tilde{\vb} dA \right)
+%&&\nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \vb \;dA \right) = \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub (\meani{\vb} +\vbt) \;dA \right) =  \nonumber \\
+%&=& -\nabla \cdot \left( \nub \meani{\vb} \nabla \varepsilon \right) + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \nbs \vbt \;dA \right) =  \nonumber \\
+%&=& -\nub  \nabla  \meani{\vb} \nabla \varepsilon -\nub \meani{\vb} \nabla^2 \varepsilon + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \nbs \vbt \;dA \right)
 %\end{eqnarray}
 
 Now we need to further develop the remaining terms, the viscous one became:
+
 \begin{equation}
 	\nabla^2 \means{\vb} = \nabla^2 \left( \varepsilon \meani{\vb} \right) = \varepsilon \nabla^2 \meani{\vb} + \meani{\vb} \nabla^2 \varepsilon +2 \nabla \varepsilon \nabla \meani{\vb}
 \end{equation}
 
 the pressure one:
+
 \begin{equation}
 \nabla \means{\pb} = \nabla \left( \varepsilon \meani{\pb} \right) = \varepsilon \nabla \meani{\pb} + \meani{\pb} \nabla \varepsilon
 \end{equation}
 
 Putting now altogether:
+
 \begin{eqnarray}
-& & \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\varepsilon\means{\tilde{\vb} \tilde{\vb}}\right) = \nonumber \\
-&=& -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) - \dfrac{\meani{\pb}}{\rho_{\beta}} \nabla \varepsilon + \nub \varepsilon \nabla^2 \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon + 2 \nabla \varepsilon \nabla \meani{\vb} \nonumber \\
-&+&\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta} dA \nonumber \\
-&-& \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta} dA
+&& \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\varepsilon\means{\vbt \vbt}\right) = \nonumber \\
+&&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) - \dfrac{\meani{\pb}}{\rho_{\beta}} \nabla \varepsilon + \nub \varepsilon \nabla^2 \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon + 2 \nabla \varepsilon \nabla \meani{\vb} \nonumber \\
+&&+\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pbt}{\rho_{\beta}} \nbs \;dA \nonumber \\
+&&- \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
 \end{eqnarray}
 
 After the proper simplification we have the final versions of the equations using only intrinsic quantities:
+
 \begin{eqnarray}
-& & \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\varepsilon\means{\tilde{\vb} \tilde{\vb}}\right) = \nonumber \\
-&=& -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nabla \varepsilon \nabla \meani{\vb} \nonumber \\
-&+& \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA
+&& \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\varepsilon\means{\vbt \vbt}\right) = \nonumber \\
+&&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nabla \varepsilon \nabla \meani{\vb} \nonumber \\
+&&+ \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA
 \label{eq:vans_mom_1}
 \end{eqnarray}
 
@@ -288,12 +325,13 @@ The superficial version represent the force per unit volume of the porous medium
 The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities $ $ and surface integrals.
 One should notice that at this stages the equations are not closed; because in \eqref{eq:vans_mom_1} there are still two terms that depends on the perturbations of the pressure and velocity field.
 We will call it \textit{sub-filter stresses} and \textit{microscopic force} at the fluid-solid interface:
+
 $$
-\boldsymbol{\zeta} = \nabla \cdot \left(\varepsilon\means{\tilde{\vb} \tilde{\vb}}\right)
+\boldsymbol{\zeta} = \nabla \cdot \left(\varepsilon\means{\vbt \vbt}\right)
 $$
 
 $$
-\mathbf{F}^m = \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA
+\mathbf{F}^m =  \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA
 $$
 
 
@@ -313,157 +351,190 @@ Although since we are interested in developing a \textbf{local} closure problem 
 This means that the closure problems are not correct in the interface between a porous medium and a free fluid; but in the last chapter we show that even though we are committing an error we can still use the same closure problems and obtain good results.
 
 In order to develop a closure problem we recall the decomposition by \citet{gray1975derivation}:
+
 \begin{equation}
 \psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
 \end{equation}
 
 From the continuity equation valid at the microscopic scale of the fluid phase we subtract the continuity equation valid for the intrinsic average velocity:
-\begin{eqnarray}
-\nabla \cdot \left( \vb \right) &=& 0 \nonumber \\
-\nabla \cdot \left( \meani{\vb} \right) &=& 0 \nonumber \\
-\end{eqnarray}
+
+$$
+\nabla \cdot  \vb  = 0
+$$
+
+$$
+\nabla \cdot  \meani{\vb}  = 0 
+$$
 
 we obtain the continuity equation for the perturbations:
-$$
-\nabla \cdot \left( \tilde{\vb} \right) = 0 
-$$
+
+\begin{equation}
+\nabla \cdot \vbt = 0 
+\end{equation}
+
 
 Than we move to the momentum equation, as said above simplifying the equations \eqref{eq:vans_mom_1}, neglecting the terms including the porosity gradient:
 
 \begin{eqnarray}
-& &  \derp{\meani{\vb}}{t} + \nabla \cdot \left(\meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\tilde{\vb} \tilde{\vb}}\right) = \nonumber \\
-&=& -\nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \meani{\vb}  \nonumber \\
-&+& \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA
+&& \derp{\meani{\vb}}{t} + \nabla \cdot \left(\meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right) = \nonumber \\
+&&= -\nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \meani{\vb}  \nonumber \\
+&&+ \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
 \label{eq:vans_mom_2}
 \end{eqnarray}
 
 With the same procedure we subtract the above equations to the point equations obtaining:
+
 \begin{eqnarray}
-& &  \derp{\tilde{\vb}}{t} + \vb \cdot \nabla \tilde{\vb} + \tilde{\vb} \cdot \nabla \meani{\vb}  = \nonumber \\
-&=& -\nabla \left(\dfrac{\tilde{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \tilde{\vb} - \nabla \cdot \left(\means{\tilde{\vb} \tilde{\vb}}\right) \nonumber \\
-&-& \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA
+&&  \derp{\vbt}{t} + \vb \cdot \nabla \vbt + \vbt \cdot \nabla \meani{\vb}  = \nonumber \\
+&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \nabla \cdot \left(\means{\vbt \vbt}\right) \nonumber \\
+&&- \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
 \label{eq:vans_mom_3}
 \end{eqnarray}
 
 Now based on some length scale consideration we can state that:
+
 $$ 
-\vb \cdot \nabla \tilde{\vb} \ll \tilde{\vb} \cdot \nabla \meani{\vb}
+\vb \cdot \nabla \vbt \ll \vbt \cdot \nabla \meani{\vb}
 $$
 
 $$
-\nabla \cdot \left(\means{\tilde{\vb} \tilde{\vb}}\right) \ll \tilde{\vb} \cdot \nabla \meani{\vb}
+\nabla \cdot \left(\means{\vbt \vbt}\right) \ll \vbt \cdot \nabla \meani{\vb}
 $$
 
 $$
-\derp{\tilde{\vb}}{t} \ll \nub \nabla^2 \tilde{\vb}
+\derp{\vbt}{t} \ll \nub \nabla^2 \vbt
 $$
 
 Obtaining:
+
 \begin{eqnarray}
-&& \vb \cdot \nabla \tilde{\vb} = -\nabla \left(\dfrac{\tilde{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \tilde{\vb} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\tilde{\pb}}{\rho_{\beta}} \mathbf{n}_{\sigma \beta}  + \nub \nabla \tilde{\vb} \cdot \mathbf{n}_{\sigma \beta}\right) dA  \\
-&& \nabla \cdot \tilde{\vb} = 0  \\
-&& \tilde{\vb} = \meani{\vb} \quad at \; A_{\beta \sigma} \\
-&& \tilde{\pb}(\mathbf{x} +\ell_i) = \tilde{\pb}(\mathbf{x}), \qquad \tilde{\vb}(\mathbf{x} +\ell_i) = \tilde{\vb}(\mathbf{x}), \qquad i=1,2,3 \\
-&& \meani{\tilde{\vb}} = 0
+	\begin{cases}
+		\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA  \\
+		\nabla \cdot \vbt = 0  \\
+		\vbt = \meani{\vb} \quad at \; A_{\beta \sigma} \\
+		\pbt(\mathbf{x} +\ell_i) = \pbt(\mathbf{x}), \qquad \vbt(\mathbf{x} +\ell_i) = \vbt(\mathbf{x}), \qquad i=1,2,3 \\
+		\meani{\vbt} = 0
+	\end{cases}
 \label{eq:vans_mom_}
 \end{eqnarray}
 
 that is the transport equations system for the perturbation fields.
 
 We made the hypothesis that:
+
 \begin{eqnarray}
-&& \tilde{\vb} = \mathbf{R} \cdot \meani{\vb} + \boldsymbol{\varsigma} \\
-&& \tilde{\pb} = \mub \mathbf{r} \cdot \meani{\vb} + \gamma
+&& \vbt = \mathbf{R} \cdot \meani{\vb} +\boldsymbol{\xi}  \\
+&& \pbt = \mub \mathbf{r} \cdot \meani{\vb} + \gamma
 \end{eqnarray}
 
 since we are free to define the tensor $\mathbf{R}$  and the vector $\mathbf{r}$ as we wish we chose to define it by means of the closur problems:
+
 \begin{eqnarray}
-&& \dfrac{\vb}{\nub} \cdot  \nabla \mathbf{R} = -\nabla \mathbf{r} + \nabla^2 \mathbf{R} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) dA  \\
-&& \nabla \cdot \mathbf{R} = 0  \\
-&&\mathbf{R} = \mathbf{I} \quad at \; A_{\beta \sigma} \\
-&& \mathbf{r}(\mathbf{x} +\ell_i) = \mathbf{r}(\mathbf{x}), \qquad \mathbf{R}(\mathbf{x} +\ell_i) = \mathbf{R}(\mathbf{x}), \qquad i=1,2,3 \\
-&& \meani{\mathbf{R}} = 0
+	\begin{cases}
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{R} = -\nabla \mathbf{r} + \nabla^2 \mathbf{R} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) \cdot \nbs \;dA  \\
+		\nabla \cdot \mathbf{R} = 0  \\
+		\mathbf{R} = \mathbf{I} \quad at \; A_{\beta \sigma} \\
+		\mathbf{r}(\mathbf{x} +\ell_i) = \mathbf{r}(\mathbf{x}), \qquad \mathbf{R}(\mathbf{x} +\ell_i) = \mathbf{R}(\mathbf{x}), \qquad i=1,2,3 \\
+		\meani{\mathbf{R}} = 0
+	\end{cases}
 \label{eq:R_problem}
 \end{eqnarray}
 
-With  $\mathbf{R}$ and $\mathbf{r}$ specified as above we can prove that $\boldsymbol{\varsigma}$ is zero and $\gamma$ a constant.
+With  $\mathbf{R}$ and $\mathbf{r}$ specified as above we can prove that $\boldsymbol{\xi}$ is zero and $\gamma$ a constant.
 The above problem is a closed formulation for the two fields  $\mathbf{R}$ and $\mathbf{r}$ but it is difficult to solve computationally since it is an integral-differential equation.
 In order to simplify it we can decompose the problem in two parts, the first one give us the \textit{permeability tensor} and the second one the \textit{Forchheimer tensor}.
 
 We represent $\mathbf{R}$ and $\mathbf{r}$ as:
+
 $$
  \mathbf{R} = \mathbf{B} + \mathbf{C}, \qquad \mathbf{r} = \mathbf{b} + \mathbf{c}
 $$
 
 So the previous decomposition became:
+
 \begin{eqnarray}
-	&& \tilde{\vb} = \mathbf{B} \cdot \meani{\vb} + \mathbf{C} \cdot \meani{\vb}  \\
-	&& \tilde{\pb} = \mub \mathbf{b} \cdot \meani{\vb} + \mub \mathbf{c} \cdot \meani{\vb} 
+	&& \vbt = \mathbf{B} \cdot \meani{\vb} + \mathbf{C} \cdot \meani{\vb}  \\
+	&& \pbt = \mub \mathbf{b} \cdot \meani{\vb} + \mub \mathbf{c} \cdot \meani{\vb} 
 \end{eqnarray}
 
 so the first problem became:
+
 \begin{eqnarray}
-&& \dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) dA  \\
-&& \nabla \cdot \mathbf{B} = 0  \\
-&&\mathbf{B} = -\mathbf{I} \quad at \; A_{\beta \sigma} \\
-&& \mathbf{b}(\mathbf{x} +\ell_i) = \mathbf{b}(\mathbf{x}), \qquad \mathbf{B}(\mathbf{x} +\ell_i) = \mathbf{B}(\mathbf{x}), \qquad i=1,2,3 \\
-&& \meani{\mathbf{B}} = 0
+	\begin{cases}
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA  \\
+		\nabla \cdot \mathbf{B} = 0  \\
+		\mathbf{B} = -\mathbf{I} \quad at \; A_{\beta \sigma} \\
+		\mathbf{b}(\mathbf{x} +\ell_i) = \mathbf{b}(\mathbf{x}), \qquad \mathbf{B}(\mathbf{x} +\ell_i) = \mathbf{B}(\mathbf{x}), \qquad i=1,2,3 \\
+		\meani{\mathbf{B}} = 0
+	\end{cases}
 \label{eq:B_problem}
 \end{eqnarray}
 
 and the second one:
+
 \begin{eqnarray}
-&&\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} +\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{C} = -\nabla \mathbf{c} +  \nabla^2 \mathbf{C} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) dA  \\
-&& \nabla \cdot \mathbf{C} = 0  \\
-&&\mathbf{C} = 0 \quad at \; A_{\beta \sigma} \\
-&& \mathbf{c}(\mathbf{x} +\ell_i) = \mathbf{c}(\mathbf{x}), \qquad \mathbf{C}(\mathbf{x} +\ell_i) = \mathbf{C}(\mathbf{x}), \qquad i=1,2,3 \\
-&& \meani{\mathbf{C}} = 0
+	\begin{cases}
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} +\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{C} = -\nabla \mathbf{c} +  \nabla^2 \mathbf{C} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA  \\
+		\nabla \cdot \mathbf{C} = 0  \\
+		\mathbf{C} = 0 \quad at \; A_{\beta \sigma} \\
+		\mathbf{c}(\mathbf{x} +\ell_i) = \mathbf{c}(\mathbf{x}), \qquad \mathbf{C}(\mathbf{x} +\ell_i) = \mathbf{C}(\mathbf{x}), \qquad i=1,2,3 \\
+		\meani{\mathbf{C}} = 0
+	\end{cases}
 \label{eq:C_problem}
 \end{eqnarray}
 
 Now is possible to define the \textit{permeability tensor} $\mathbf{K}$:
+
 $$
- \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) dA = -\varepsilon \mathbf{K}^{-1}
+ \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1}
 $$
 
 and the \textit{Forchheimer tensor} $\mathbf{F}$:
+
 $$
-\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \mathbf{n}_{\sigma \beta} \cdot \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) dA = -\varepsilon \mathbf{K}^{-1} \cdot \mathbf{F}
+\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1} \cdot \mathbf{F}
 $$
 
 using this definition to make the changing of variables proposed by \citet{barrere1992closure}:
+
 $$
 \mathbf{d} = \varepsilon^{-1} \mathbf{b} \cdot \mathbf{K}, \qquad \mathbf{D} = \varepsilon^{-1} \left(\mathbf{B} + \mathbf{I} \right)\cdot \mathbf{K}
 $$
 
- making the problem \eqref{eq:B_problem}:
- \begin{eqnarray}
- && 0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I}\\
- && \nabla \cdot \mathbf{D} = 0  \\
- &&\mathbf{D} = 0 \quad at \; A_{\beta \sigma} \\
- && \mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 \\
- && \meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}
- \label{eq:D_problem}
- \end{eqnarray}
+making the problem \eqref{eq:B_problem}:
+\begin{eqnarray}
+	\begin{cases}
+		0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I}\\
+		\nabla \cdot \mathbf{D} = 0  \\
+		\mathbf{D} = 0 \quad at \; A_{\beta \sigma} \\
+		\mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 \\
+		\meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}
+	\end{cases}
+\label{eq:D_problem}
+\end{eqnarray}
 
 and the following for the second problem:
+
 $$
 \mathbf{m} = \varepsilon^{-1} \mathbf{n} \cdot \mathbf{H}, \qquad \mathbf{M} = \varepsilon^{-1} \left(\mathbf{N} + \mathbf{I} \right)\cdot \mathbf{H}
 $$
 
 where $\mathbf{H}$ is called \textit{effective permeability tensor} and is so defined:
+
 $$
 \mathbf{H}^{-1} = \mathbf{K}^{-1} \left(\mathbf{I} +\mathbf{F}\right)
 $$
 
 so the problem became:
 
- \begin{eqnarray}
-&& \dfrac{\vb}{\nub} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
-&& \nabla \cdot \mathbf{M} = 0  \\
-&&\mathbf{M} = 0 \quad at \; A_{\beta \sigma} \\
-&& \mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 \\
-&& \meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}
+\begin{eqnarray}
+	\begin{cases}
+		\dfrac{\vb}{\nub} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
+		\nabla \cdot \mathbf{M} = 0  \\
+		\mathbf{M} = 0 \quad at \; A_{\beta \sigma} \\
+		\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 \\
+		\meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}
+	\end{cases}
 \label{eq:M_problem}
 \end{eqnarray}
 
