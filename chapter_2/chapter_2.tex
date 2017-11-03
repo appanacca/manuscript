@@ -115,7 +115,7 @@ Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then
 \end{corollary}
 
 
-\begin{theorem}[Reynold's transport theorem]
+\begin{theorem}[Reynolds transport theorem]
 	Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then:
 	
 	\begin{equation}
@@ -130,94 +130,84 @@ Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then
 \subsection{Averaged continuity equations}
 
 
-The continuity equation for a Newtonian ... reads:
+We start by finding the averaged version of the continuity equation in \eqref{eq:NS}:
 
 \begin{equation}
-\means{\dfrac{\partial \rho_{\beta}}{\partial t}} + \means{\nabla \cdot (\rho_{\beta}\vb)}   = 0
+\means{\nabla \cdot \vb}   = 0
 \label{eq:superf_avg_cont}
 \end{equation}
+Applying \ref{th:spat_avg} to the previous equation we get:
 
-Applying \ref{th:spat_avg} to the second term we get:
-
-\begin{equation}
- \means{\nabla \cdot (\rho_{\beta}\vb)} = \nabla \cdot \means{ (\rho_{\beta}\vb)} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \rho_{\beta}  \vb \cdot \nbs \;dA
- \label{eq:avg_1}
-\end{equation}
-
-and applying fist the definition of superficial average, than \ref{th:transport} to the first one:
-
-\begin{eqnarray}
-&&\means{\dfrac{\partial \rho_{\beta}}{\partial t}} = \dfrac{1}{V} \int_{V} \dfrac{\partial \rho_{\beta}}{\partial t} \; dV = \dfrac{1}{V} \left[  \dfrac{\partial}{\partial t} \int_{V} \rho_{\beta} \; dV -  \int_{A_{\beta \sigma}} \rho_{\beta} (\ws \cdot \nbs ) \;dA   \right]  \nonumber \\
-&& = \dfrac{\partial \means{\rho_{\beta}}}{\partial t} -\dfrac{1}{V}  \int_{A_{\beta \sigma}} \rho_{\beta} ( \ws\cdot  \nbs) \;dA 
-\label{eq:avg_2}
-\end{eqnarray}
-
-The boundary condition at the interface $\ws = \vb$ imply that the integrals in \ref{eq:avg_1} is equal to the integral in \ref{eq:avg_2} so we end up with:
+$$
+\means{\nabla \cdot \vb} = \nabla \cdot \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \vb \cdot \nbs \;dA
+$$
+The boundary condition at the interface ($\ws = \vb$) imply that the integral above can be modified: 
+$$=\nabla \cdot \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \ws \cdot \nbs \;dA$$
+Now we rewrite the last term as if it was a result of the Reynolds transport theorem applied to a constant unitary scalar field:
+$$=\nabla \cdot \means{\vb} + \derp{}{t} \dfrac{1}{V} \int_{\volb} \;dV  - \dfrac{1}{V} \int_{\volb} \derp{1}{t} \;dV $$
+This results can be simplified; in fact the last integral is zero due to the time derivation of a constant field and the first term can be further developed, obtainig finally the averaged continuity equation \eqref{eq:avg_1}.
 
 \begin{equation}
-\derp{\means{\rho_{\beta}}}{t} + \nabla \cdot \means{\rho_{\beta}\vb} = 0
+\nabla \cdot \means{\vb} + \derp{\varepsilon}{t} =0
+\label{eq:avg_1}
 \end{equation}
-
-Adding the hypothesis of incompressible fluid:
-
-\begin{equation}
-\derp{\varepsilon}{t} + \nabla \cdot \means{\vb} = 0
-\end{equation}
-
 
 
 \subsection{Averaged momentum equations}
 
+In this paragraph we compute the average version of the momentum equation in \eqref{eq:NS}:
 
 \begin{equation}
 \dfrac{\partial \vb}{\partial t} + \nabla \cdot (\vb\vb) = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb
-\label{eq:mom}
+\label{eq:mom_1}
 \end{equation}
 
-\subsubsection{first term}
+In order to keep the procedure readable we show the development of each singular term separately in the same order as they appear in \eqref{eq:mom_1}.
 
-Using theorem \ref{th:transport}:
+\subsubsection{Temporal derivative term}
+
+Using theorem \ref{th:transport} we can rewrite the first term of the equation as:
 
 \begin{equation}
 \means{\derp{\vb}{t}} = \derp{\means{\vb}}{t} -\dfrac{1}{V} \int_{A_{\beta \sigma}(t)} (\ws \cdot \nbs ) \vb \;dA,
 \end{equation}
 
-\subsubsection{second term}
+\subsubsection{Convective term}
 
-Using theorem \ref{th:vec_spat_avg}:
+Theorem \ref{th:vec_spat_avg} applied to the convective term gives us:
 
 \begin{equation}
 \means{\nabla \cdot (\vb\vb)} = \nabla \cdot \means{\vb \vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\vb \vb) \cdot \nbs \;dA,
 \end{equation}
 
+The boundary condition at the interface ($\ws = \vb$) imply that the integrals in the last two equations are equals so the total left end side of the momentum equation became:
 
-The boundary condition at the interface $\ws = \vb$ imply that the integrals in the last two equations are equals so we end up with the total left end side of the momentum equation:
-
-$$
+\begin{equation}
 \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb}
-$$
+\label{eq:lhs}
+\end{equation}
 
-\subsubsection{third term}
-Using theorem \ref{th:spat_avg}:
+\subsubsection{Pressure term}
+The pressure term is also expanded using theorem \ref{th:spat_avg}:
 
 \begin{equation}
 \means{-\dfrac{1}{\rho_{\beta}} \nabla \pb } = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} -\dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pb}{\rho_{\beta}} \nbs \;dA,
 \end{equation}
 
-\subsubsection{fourth term}
-Expressing the $\nabla^2$ operator with the identity $\nabla^2 = \nabla \cdot (\nabla)$ (laplacian = div ( grad)), and applying the theorem \ref{th:vec_spat_avg}:
+\subsubsection{Diffusion term}
+Here we fist use the identity $\nabla^2 = \nabla \cdot (\nabla)$ (laplacian = div(grad)), and apply the theorem \ref{th:vec_spat_avg} directly to this expansion we get:
 
 \begin{equation}
 \means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nabla \vb \cdot \nbs \;dA,
-	\label{eq:4_1}
+\label{eq:4_1}
 \end{equation}
 
-Now re-using the theorem \ref{th:vec_spat_avg} on the term $\means{\nabla \vb}$ we get:
+Now re-using the theorem \ref{th:vec_spat_avg} on $\means{\nabla \vb}$:
 
 \begin{eqnarray}
 	\eqref{eq:4_1} &=& \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \vb \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA = \nonumber \\
 	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \vb \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA  = \nonumber \\
-	&& \text{and using Gauss theorem on the second term} \nonumber \\
+	&& \text{using Gauss theorem on the second term} \nonumber \\
 	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{\volb} \nabla \cdot \nub \vb d\volb \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA = \nonumber \\
 	&& \text{which is zero due to the continuity equation} \nonumber \\
 	&=& \nub\nabla^2 \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \nub \nabla \vb \;dA
@@ -225,42 +215,56 @@ Now re-using the theorem \ref{th:vec_spat_avg} on the term $\means{\nabla \vb}$ 
 
 \Red{The above use of the Gauss theorem, to prove that the first integral term is zero, can be bypassed in case of rigid porous media. Which due to the b.c. at the fluid-solid is zero.}
 
-Before continue the development lets put all the pieces together:
+Before continue the development lets display all the various terms together:
 
 \begin{eqnarray}
 && \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
-&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA
-	\label{eq:vans_2}
+&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA \nonumber \\
+\label{eq:mom_2}
 \end{eqnarray}
+
+This is still not the superficial averaged version of the momentum equation, since it has the presence of the non-homogeneous term $\means{\vb\vb}$.
 
 
 \subsection{Length scale decomposition}
-
-To further simplify the equations we use the decomposition proposed by \citet{gray1975derivation}:
+In order to finally get the superficial average version of the problem \eqref{eq:NS} we make use of the decomposition proposed by \citet{gray1975derivation}:
 
 \begin{equation}
 \psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
 \end{equation}
 
-The non-homogeneous terms in equation \ref{eq:vans_2}:
+where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution to add at the intrinsic volume average quantity $ \meani{\psi_{\beta}}$ (that is representative of the macro-scale $L$) to obtain the point value of the considered quantity $\psi_{\beta}$.
 
-\begin{equation}
-\means{\vb\vb} = \means{\means{\vb}\means{\vb}} +2\means{\means{\vb}\vbt} +\means{\vbt \vbt}
-\label{eq:dec_1}
-\end{equation}
-
-Applying the superficial average to the perturbation term is possible to demonstrate that it has null mean:
-
+Applying the superficial average to the perturbation term is possible to demonstrate that its average value is null:
 $$
 \means{\tilde{\psi}_{\beta}} = \means{\psi_{\beta}} - \means{\meani{\psi_{\beta}}} = \means{\psi_{\beta}} -\varepsilon \meani{\psi_{\beta}} = 0
 $$
 
-Using this results to equation \eqref{eq:dec_1}:
+This results is important because it uses just the operator definitions and the hypothesis that the volume of the REV is bigger than the limit for which changes of the volume $V$ are important.
+
+Using the above results we can modify the non-homogeneous term in equation \ref{eq:mom_2}:
 
 \begin{equation}
-\means{\vb\vb} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt \vbt}
+\means{\vb\vb} = \means{\means{\vb}\means{\vb}} +2\means{\means{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}
+\label{eq:dec_1}
 \end{equation}
 
+Now we can display the superficial average Navier-Stokes system:
+
+\begin{eqnarray}
+\begin{cases}
+\derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon^{-1} \means{\vb}\means{\vb}) + \nabla \cdot (\means{\vbt\vbt}) = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
+\qquad \qquad \qquad \qquad +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA \nonumber \\
+ \nabla \cdot \means{\vb} + \derp{\varepsilon}{t} =0
+\end{cases}
+\label{eq:NS_2}
+\end{eqnarray}
+
+It is not closed since it has the presence of the point fields in the integral term and the perturbation fields in one of the convective terms.
+In order to overcome this problems in the next section the intrinsic version of these equation is computed. 
+
+\subsection{Intrinsic average form}
+We can also write the above problem using the intrinsic average.
 Now expressing the time derivative in the intrinsic form:
 
 $$
