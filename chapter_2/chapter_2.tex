@@ -82,6 +82,7 @@ So we can defy the relationship between the two averaging operators:
 
 \begin{equation}
 	\means{\psi_{\beta}} =  \varepsilon \meani{\psi_{\beta}}
+	\label{eq:means_vs_meani}
 \end{equation}
 
 \subsection{Theorems involving derivatives of spatial averaging}
@@ -145,7 +146,7 @@ The boundary condition at the interface ($\ws = \vb$) imply that the integral ab
 $$=\nabla \cdot \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \ws \cdot \nbs \;dA$$
 Now we rewrite the last term as if it was a result of the Reynolds transport theorem applied to a constant unitary scalar field:
 $$=\nabla \cdot \means{\vb} + \derp{}{t} \dfrac{1}{V} \int_{\volb} \;dV  - \dfrac{1}{V} \int_{\volb} \derp{1}{t} \;dV $$
-This results can be simplified; in fact the last integral is zero due to the time derivation of a constant field and the first term can be further developed, obtainig finally the averaged continuity equation \eqref{eq:avg_1}.
+This results can be simplified; in fact the last integral is zero due to the time derivation of a constant field and the first term can be further developed, obtaining finally the averaged continuity equation \eqref{eq:avg_1}.
 
 \begin{equation}
 \nabla \cdot \means{\vb} + \derp{\varepsilon}{t} =0
@@ -223,11 +224,11 @@ Before continue the development lets display all the various terms together:
 \label{eq:mom_2}
 \end{eqnarray}
 
-This is still not the superficial averaged version of the momentum equation, since it has the presence of the non-homogeneous term $\means{\vb\vb}$.
-
+This is still not the averaged version of the momentum equation, since it has the presence of the non-homogeneous term $\means{\vb\vb}$ and the integral term still has the point variables.
+In the next section these two terms are threated in order to make them function of only averaged quantities.
 
 \subsection{Length scale decomposition}
-In order to finally get the superficial average version of the problem \eqref{eq:NS} we make use of the decomposition proposed by \citet{gray1975derivation}:
+In order to finally get the average version of the problem \eqref{eq:NS} we make use of the decomposition proposed by \citet{gray1975derivation}:
 
 \begin{equation}
 \psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
@@ -245,40 +246,17 @@ This results is important because it uses just the operator definitions and the 
 Using the above results we can modify the non-homogeneous term in equation \ref{eq:mom_2}:
 
 \begin{equation}
-\means{\vb\vb} = \means{\means{\vb}\means{\vb}} +2\means{\means{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}
+\means{\vb\vb} = \meani{\means{\vb}\meani{\vb}} +2\means{\meani{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}
 \label{eq:dec_1}
 \end{equation}
 
-Now we can display the superficial average Navier-Stokes system:
-
-\begin{eqnarray}
-\begin{cases}
-\derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon^{-1} \means{\vb}\means{\vb}) + \nabla \cdot (\means{\vbt\vbt}) = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
-\qquad \qquad \qquad \qquad +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA \nonumber \\
- \nabla \cdot \means{\vb} + \derp{\varepsilon}{t} =0
-\end{cases}
-\label{eq:NS_2}
-\end{eqnarray}
-
-It is not closed since it has the presence of the point fields in the integral term and the perturbation fields in one of the convective terms.
-In order to overcome this problems in the next section the intrinsic version of these equation is computed. 
-
-\subsection{Intrinsic average form}
-We can also write the above problem using the intrinsic average.
-Now expressing the time derivative in the intrinsic form:
-
-$$
-\derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}
-$$
-
-For each integral term of \ref{eq:vans_2} we first apply the decomposition:
+For each integral term of \ref{eq:mom_2} we also apply the decomposition:
 
 \begin{eqnarray}
 \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{\pb}{\rho_{\beta}} \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb}  + \pbt\right) \nbs \;dA = \nonumber \\
 &=& +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pbt}{\rho_{\beta}} \nbs \;dA
 \end{eqnarray}
 
-The same for the other two terms:
 
 \begin{eqnarray}
 \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\vbt) \cdot \nbs \;dA =  \nonumber \\
@@ -291,13 +269,38 @@ The same for the other two terms:
 %&=& -\nub  \nabla  \meani{\vb} \nabla \varepsilon -\nub \meani{\vb} \nabla^2 \varepsilon + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \nbs \vbt \;dA \right)
 %\end{eqnarray}
 
-Now we need to further develop the remaining terms, the viscous one became:
+The momentum equation now reads:
+
+\begin{eqnarray}
+\derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon \meani{\vb}\meani{\vb}) + \nabla \cdot (\means{\vbt\vbt}) = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
+\qquad \qquad - \nub \nabla \varepsilon \nabla \meani{\vb} +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pbt}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vbt  \right)\cdot \nbs \;dA
+\label{eq:NS_2}
+\end{eqnarray}
+
+At this stage the momentum equation is not closed since it has the mixed presence of surface and intrinsic averaged quantities, and also perturbation fields.
+In order to overcome this problems in the next section the intrinsic version of these equation is finally computed. 
+
+\subsection{Intrinsic average form}
+
+In order to get the intrinsic average formulation we use the relation \eqref{eq:means_vs_meani} to expressing surface averaged quantities as intrinsic ones.
+
+We first start withe the continuity equation:
+$$
+\nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0
+$$
+
+After that we retake the momentum equation. starting from the temporal derivative term that became:
+$$
+\derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}
+$$
+
+Applying the same relation to the viscous term we get:
 
 \begin{equation}
 	\nabla^2 \means{\vb} = \nabla^2 \left( \varepsilon \meani{\vb} \right) = \varepsilon \nabla^2 \meani{\vb} + \meani{\vb} \nabla^2 \varepsilon +2 \nabla \varepsilon \nabla \meani{\vb}
 \end{equation}
 
-the pressure one:
+and the pressure one also transform into:
 
 \begin{equation}
 \nabla \means{\pb} = \nabla \left( \varepsilon \meani{\pb} \right) = \varepsilon \nabla \meani{\pb} + \meani{\pb} \nabla \varepsilon
@@ -306,32 +309,36 @@ the pressure one:
 Putting now altogether:
 
 \begin{eqnarray}
-&& \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\varepsilon\means{\vbt \vbt}\right) = \nonumber \\
+&& \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right) = \nonumber \\
 &&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) - \dfrac{\meani{\pb}}{\rho_{\beta}} \nabla \varepsilon + \nub \varepsilon \nabla^2 \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon + 2 \nabla \varepsilon \nabla \meani{\vb} \nonumber \\
 &&+\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pbt}{\rho_{\beta}} \nbs \;dA \nonumber \\
 &&- \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
 \end{eqnarray}
 
-After the proper simplification we have the final versions of the equations using only intrinsic quantities:
+After the proper simplification we have the final versions of the Navier-Stokes system of equations using intrinsic quantities:
 
 \begin{eqnarray}
-&& \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\varepsilon\means{\vbt \vbt}\right) = \nonumber \\
-&&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nabla \varepsilon \nabla \meani{\vb} \nonumber \\
-&&+ \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA
+\begin{cases}
+ \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right) =  \\
+\qquad \qquad = -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nabla \varepsilon \nabla \meani{\vb}  \\
+\qquad \qquad + \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \\
+ \nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0 
+\end{cases}
 \label{eq:vans_mom_1}
 \end{eqnarray}
 
 
-The crucial difference between the superficial and the intrinsic quantities can be found in the averaged version of the continuity equations; in case of porosity that vary spatially (great advantage for using penalization methods) only the superficial velocity field is solenoidal.
+First of all is important to pinpoint that the intrinsic momentum equation represent the force per unit volume of the fluid volume, so it depends on the porosity of the medium (this is why it has terms involving gradients of the porosity).
+In application where porosity can vary spatially (like the interface of a porous medium) this formulation has the great advantage to be used together with the penalization methods to treat the interface non-homogeneities (further explenation of the interface problem are in paragraph \ref{ch:interface}  ).
 
-The superficial version represent the force per unit volume of the porous medium, instead the intrinsic one the force per unit volume of the fluid volume (so it depends on the porosity of the medium). 
+One crucial difference between the superficial and the intrinsic equations is in the continuity equations; in fact only the superficial velocity field is solenoidal.
 
 The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities $ $ and surface integrals.
 One should notice that at this stages the equations are not closed; because in \eqref{eq:vans_mom_1} there are still two terms that depends on the perturbations of the pressure and velocity field.
 We will call it \textit{sub-filter stresses} and \textit{microscopic force} at the fluid-solid interface:
 
 $$
-\boldsymbol{\zeta} = \nabla \cdot \left(\varepsilon\means{\vbt \vbt}\right)
+\boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)
 $$
 
 $$
@@ -546,7 +553,7 @@ so the problem became:
 
 
 \section{Interface treatment}
-
+\label{ch:interface}
 Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
 
 
