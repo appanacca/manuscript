@@ -9,6 +9,10 @@ As the previous chapter as introduced we are interested in the volume averaging 
 Theoretical aspect of the volume averaging method applied to fluid in porous media can be found in \citet{whitaker2013method}, \citet{whitaker1986flow}, \citet{whitaker1996forchheimer} CONTINUE THE LIST.
 The following chapter describe the most important stages necessary to find the average version of equations \eqref{eq:NS}.
 
+\section{SCHEMA HOMOGENIZATION}
+Do a graphic schema like in \citet{paez2017macroscopic} fig2 o in \citet{davit2013homogenization} fig ?.
+
+
 \section{Derivation of VANS equations for 3D incompressible fluids}
 The dynamic of the fluid phase, indicated with the subscript $\beta$, is governed by the Navier-Stokes equation for incompressible Newtonian fluid; which in presence of a porous medium solid reads:
 
@@ -315,12 +319,12 @@ Putting now altogether:
 &&- \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
 \end{eqnarray}
 
-After the proper simplification we have the final versions of the Navier-Stokes system of equations using intrinsic quantities:
+After the proper simplification we have the final versions of the Navier-Stokes system of equations \eqref{eq:NS} using intrinsic quantities:
 
 \begin{eqnarray}
 \begin{cases}
  \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right) =  \\
-\qquad \qquad = -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nabla \varepsilon \nabla \meani{\vb}  \\
+\qquad \qquad = -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon  \\
 \qquad \qquad + \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \\
  \nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0 
 \end{cases}
@@ -331,11 +335,11 @@ After the proper simplification we have the final versions of the Navier-Stokes 
 First of all is important to pinpoint that the intrinsic momentum equation represent the force per unit volume of the fluid volume, so it depends on the porosity of the medium (this is why it has terms involving gradients of the porosity).
 In application where porosity can vary spatially (like the interface of a porous medium) this formulation has the great advantage to be used together with the penalization methods to treat the interface non-homogeneities (further explenation of the interface problem are in paragraph \ref{ch:interface}  ).
 
-One crucial difference between the superficial and the intrinsic equations is in the continuity equations; in fact only the superficial velocity field is solenoidal.
+One difference between the superficial and the intrinsic equations is in the continuity equations; in fact only the superficial velocity field is solenoidal.
 
-The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities $ $ and surface integrals.
-One should notice that at this stages the equations are not closed; because in \eqref{eq:vans_mom_1} there are still two terms that depends on the perturbations of the pressure and velocity field.
-We will call it \textit{sub-filter stresses} and \textit{microscopic force} at the fluid-solid interface:
+The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities and surface integrals.
+This very terms are the cause that at this stages the equations are not closed.
+In the next paragraphs we develop closure formulations of these terms, in order to do be clear we name it \textit{sub-filter stresses} $\boldsymbol{\zeta}$ and \textit{microscopic force} at the fluid-solid interface $\mathbf{F}^m$:
 
 $$
 \boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)
@@ -348,6 +352,8 @@ $$
 
 
 \section{Closure problems}
+
+
 
 \subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
 
@@ -384,20 +390,11 @@ we obtain the continuity equation for the perturbations:
 \end{equation}
 
 
-Than we move to the momentum equation, as said above simplifying the equations \eqref{eq:vans_mom_1}, neglecting the terms including the porosity gradient:
-
-\begin{eqnarray}
-&& \derp{\meani{\vb}}{t} + \nabla \cdot \left(\meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right) = \nonumber \\
-&&= -\nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \nabla^2 \meani{\vb}  \nonumber \\
-&&+ \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
-\label{eq:vans_mom_2}
-\end{eqnarray}
-
 With the same procedure we subtract the above equations to the point equations obtaining:
 
 \begin{eqnarray}
 &&  \derp{\vbt}{t} + \vb \cdot \nabla \vbt + \vbt \cdot \nabla \meani{\vb}  = \nonumber \\
-&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \nabla \cdot \left(\means{\vbt \vbt}\right) \nonumber \\
+&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \nabla \cdot \left(\means{\vbt \vbt}\right) +  \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon \nonumber \\
 &&- \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
 \label{eq:vans_mom_3}
 \end{eqnarray}
