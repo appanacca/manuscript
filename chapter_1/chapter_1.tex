@@ -10,7 +10,7 @@ In fact most of the surfaces in Nature are not at all smooth, they almost always
 Since Nature have had a very large time-span to optimize this kind of surfaces we can be very certain that they are the best possible options.
 One should pinpoint that the non smoothness of these surfaces can be connected to some other biological functions rather than pure fluid dynamic performance, and of course it can be the case.
 
-With that in mind we want to show the reader some of the most notable examples of "natural" aerodynamic surfaces.
+With that in mind we want to show the reader some of the most notable examples of "natural" surfaces applied in aerodynamic problems.
 
 Probably the most notable example is the shark skin, in figure \ref{fig:shark} a segment of the skin is depicted, as if appears to be, under the microscope.
 
@@ -212,15 +212,18 @@ In the next section we introduce another class of solutions that try to act most
 
 
 \subsection{Permeable surfaces}
+As permeable surfaces we indicate permeable coatings that usually have an important thickness; in contrast to riblets, in which the vertical extension outside the wall is limited.
+In this case the flow can penetrate deep into the porous surface and generate complex interaction mechanism.
+The next sections presents an overview of the most notable applications of such permeable surfaces.
 
 \subsection{Bluff bodies}
 
-There is some experimental evidence that in laminar cases the generation of some \textit{slip velocity}, at the interface between the permeable surface with a fluid, can decrease the friction drag (\citet{beavers1967boundary}).
+There is some experimental evidence that, in laminar regime, generation of some \textit{slip velocity} at the interface between the permeable surface and a fluid, can decrease the skin friction (\citet{beavers1967boundary}).
 However, in the turbulent case it seems that the instabilities developing at the interface can cause an increase in drag up to $40\%$ (\citet{jimenez2001turbulent} and  \citet{breugem2006influence}); these instabilities mechanism is further explained in the section \ref{sec:stability}.
 It is important to precise that the permeable surfaces cited in the above references are all rigid.
 
 The pressure contribution to the resistance is usually the most significant one in bluff bodies applications, and even in highly streamlined body it is around $10\%$ of the total drag.
-Researchers have tried to find a way to modify the pressure distribution around a bluff body to reduce the associated resistance, and also dump the force oscillation on the body (drag and/or lift).
+Researchers tried to find a way to modify the pressure distribution around a bluff body to reduce the associated resistance, and also dump the force oscillation on the body (drag and/or lift).
 
 The pressure drag on a bluff body depends mostly on the difference between the low pressure on the rear part of the body, where there is usually a separated flow region, and the high pressure in the forward part.
 This idea is sketched in figure \ref{fig:pressure_dist} where two different pressure distributions are shown; the black one represents the classical solid body, and the green one is the one with a porous layer at the back of the body.
@@ -232,10 +235,10 @@ This idea is sketched in figure \ref{fig:pressure_dist} where two different pres
 	\label{fig:pressure_dist}
 \end{figure}
 
-The favorable increase in the back pressure is due to the low speed laminar flow in the porous media that is ejected in the back region where the separation take place.
+The favorable increase of the pressure in the rear point is due to the low speed laminar flow in the porous media that is ejected in the back region where separation takes place.
 Even in very high speed turbulent flow, the fluid inside permeable surface exhibits a very high energy loss due to the strong dissipation that the medium provides, resulting in a low speed flow ejected downstream of the body.
 
-The permeable interface, producing a slip velocity, can modify the boundary layer that develops above it and with which produces less shear and vorticity; it can also modify the stability characteristics of the flow.
+The permeable interface, producing a slip velocity, can modify the boundary layer that develops above it producing less shear and vorticity, so, it can also modify the stability characteristics of the flow.
 The instability around a cylinder is due to the shear layer that forms in the top part of the body, when the flow starts to decelerate.
 This shear layer exhibits a Kelvin–Helmholtz type instability that develops in the classical Von-Karman wake.
 
@@ -262,29 +265,29 @@ These works lead to very optimistic results, but they should be taken with some 
 Sometimes they also use the equations outside their field of validity (there is some discussion in the scientific community in using the previous version of VANS equations for highly turbulent flows).
 
 The lack of validation reflects the fact that reliable experiments of such porous coatings are almost non existent in literature.
-There is also some confusion in the community on how to compute the forces on such bodies surrounded by a porous coating. These differences led some authors (as \citet{naito2012numerical}) to over-estimate the forces and their predictions are not inline with the literature.
-Moreover \citet{caltagirone1994interaction}, with some theoretical bases, establishes that the approach used by \citet{bruneau2004passive} is the correct one for that specific version of the VANS used by all the previous authors, REFERENCE TO SECTION IN THE VANS CHAPTER WHERE THERE IS THE FORMULA TO COMPUTE FORCES.
+There is also some confusion in the community on how to compute forces on such bodies surrounded by a porous coating. These differences led some authors (as \citet{naito2012numerical}) to over-estimate the forces and their predictions are not inline with the literature.
+Moreover \citet{caltagirone1994interaction}, with some theoretical bases, establishes that the approach used by \citet{bruneau2004passive} is the correct one for that specific version of the VANS used by all the previous authors. \Red{INSERT A REFERENCE TO THE SECTION IN CHAPTER 2 WHERE THERE IS THE FORMULA TO COMPUTE FORCES}
 
 The approach of \citet{favier2009passive} differentiates itself from the previous works; the authors use a numerical method that includes the dynamic of a moving porous medium made of fibers at the back of a cylinder.
 Their results in a laminar flow case agree with the prediction of a stabilization of the wake and show some more realistic values of drag reduction, about $15\%$.
 However the difficulties in this approach lies in the medium dynamic; it introduce many mechanical parameters that are not easily identifiable for natural surfaces.
 
-A similar model has been used by \citet{venkataraman2012numerical}; they applied a movable porous coating in the top part of NACA airfoil.
+A similar model has been used by \citet{venkataraman2012numerical}, in which they applied a movable porous coating in the top part of NACA airfoil.
 In this case the synchronization between the oscillations of the structures and the natural frequency of the fluid is responsible for the pressure distribution modification.
 They have shown the robustness of this solution in a wide range of angle of attack, in the best case they have found some lift enhancement and a drag reduction around $10\%$.
 
 Later on \citet{rosti2017pelskin} worked on a similar configuration with only one movable flap on the low pressure side of the airfoil; the results both numerical and experimental qualitatively agree (on the flow mechanism) with the results in the complete porous case.
 
-WHEN IT WILL BE PUBLISHED SHOW SOME RESULTS ON THE 3D SPHERE USING HOMOGENIZATION \citet{zampogna2017new}
+\Red{SHOW SOME RESULTS ON THE 3D SPHERE USING HOMOGENIZATION WHEN IT WILL BE PUBLISHED \citet{zampogna2017new} }
 
 The very few experiments in literature on this porous coatings show less promising results associated to drag reduction.
 
 For example, \citet{heenan1998passive} perform an experiment in which they take a backward facing step with a porous insert in the re-circulation region.
-His measurement show a $13\%$ decrease of the peak of pressure at the wall and a relocation of the detachment point further downstream.
+Their measurement shows a $13\%$ decrease of the peak of pressure at the wall and a relocation of the detachment point further downstream.
 A maximum of $9\%$ of drag reduction was observed.
 The effect of adding a porous surface in this case was to limit the pressure fluctuations that cause the re-circulation bubble unsteadiness.
 
-Later on \citet{klausmann2017drag} study a 3D cylinder with a porous insert in the back (as in figure \ref{fig:pressure_dist}); the authors use a wind tunnel testing with pressure measurements around the body and particle image velocimetry (PIV) flow capture.
+Later on \citet{klausmann2017drag} studied a 3D cylinder with a porous insert in the back (as in figure \ref{fig:pressure_dist}); the authors use a wind tunnel testing with pressure measurements around the body and particle image velocimetry (PIV) flow capture.
 Their results confirm that the porous layer on the leeward side increases the pressure in that zone, causing the reduction of drag.
 The drag reduction measured was around $10\%$ over various Reynolds number (in turbulence range); this value was sensible to the geometrical parameters of the medium as the position and its size.
 At our knowledge this is the first example of actual measurements of flow quantities using PIV, that can later be used to perform some validation on different numerical models.
@@ -323,7 +326,7 @@ The first one is the \textit{mass ratio}, the second is called \textit{Cauchy nu
 The mass ratio $m^*$ is a measure of the added mass effects caused by the solid inertia, however these effects are usually negligible in case of fibrous permeable media.
 The Cauchy number $C_Y$ defines the static deformation of a fiber caused by the fluid flow ($E$ is the modulus of elasticity of the solid material); when Cauchy number is greater than unity, important deformations are expected.
 This last parameter is extremely important since it controls a phenomenon called \textit{reconfiguration} that leads to drag reduction (\citet{gosselin2011drag} and \citet{alvarado2017nature}).
-The reconfiguration can be defined as the capability of the structure to adopt a new shape when forced by a flow, it can become more streamlined to reduce its exposed frontal area with the aim to reduce the total drag.
+The reconfiguration can be defined as the capability of the structure to adopt a new shape when forced by a flow, usually it become more streamlined to reduce its exposed frontal area with the aim to reduce the total drag.
 When dealing with this phenomenon one should take into account of the frontal area $A$ and the drag coefficient $C_D$ as an ensemble, in order to avoid misinterpretation of the drag reduction; in figure \ref{fig:cycd} the ratio of the couple $AC_D$ has been represented for different natural structures against the Cauchy number and it's evident that for a $C_Y>1$ a drastic drag reduction can be observed.
 
 \begin{figure}[h]
@@ -335,9 +338,9 @@ When dealing with this phenomenon one should take into account of the frontal ar
 
 The overall reconfiguration of the permeable medium can lead to pressure recovery and a wake regularization applied when applied to a bluff body, as the experiments by \citet{gosselin2011drag} show.
 
-Another non-dimensional number to mention is the \textit{reduced velocity}, it can be derived from the previous ones:
-$$ U_R = \sqrt{C_Y s / m^*},$$
-this number is used dealing with vortex induced vibration of slender structures; when it is near to one, dynamical coupling between the fluid and the structure is expected, such as resonance or lock-in phenomena.
+Another non-dimensional number to mention is the \textit{reduced velocity}, that can be derived from the previous ones:
+$$ U_R = \sqrt{C_Y s / m^*}$$
+This number is used dealing with vortex induced vibration of slender structures; when it is near to one, dynamical coupling between the fluid and the structure is expected, such as resonance or lock-in phenomena.
 
 Canopies can also help to prevent separation in presence of adverse pressure gradients, \citet{belcher2012wind} show an analysis of the flow over an hill covered with canopies using either numerical and experimental data; the authors show how the permeable layer can present a re-circulation region inside the canopy in the decreasing slope side of the hill, this zone move the separation away from the flow over the hill to the internal structure of the canopy.
 %In this sense when we look at the "global" hill (ground and canopy layer) the reversed flow typical of this geometry is not present.
@@ -372,16 +375,16 @@ In order to computationally solve this problem there are some key points to addr
 	How to deal with such small scale dynamic and/or find a model is not an easy task.
 	
 	\item Compliance (fluid structure interaction): if the filaments are flexible, they can bend and swing due to the fluid impact on them.
-	We have to take into account a mechanical solid model for the filaments (for example the Bernoulli beam), including also the computation of energy that the swing motion re-inject inside the fluid.
+	We have to take into account a mechanical solid model for the filaments (for example Bernoulli beam), including also the computation of energy that the swing motion re-inject inside the fluid.
 	This two-way coupling could also be really computational expensive in presence of a large number of filaments, and also, if the flexibility is important, one should in principle take into account the contact and repulsion between the fibers.
-	If the porous medium has more complicated shapes (like the scales in the butterfly wing) to come out with a simplified model for the solid dynamic is even harder and the use of a general FEA discretization is probably a necessity (increasing also the computational cost of the problem).
+	If the porous medium has more complicated shapes (like the scales in the butterfly wing) to come out with a simplified model for the solid dynamic is even harder and the use of a general finite elements discretization is probably a necessity (increasing also the computational cost of the problem).
 	Another approach consists of considering a "rheology" model for the medium, for example treating it like a porous medium that has elastic properties as an ensemble.
 	Such models are applicable only to porous media where the solid inclusions are connected to each other; in principle they are convenient, computational speaking, but their mathematical description can be difficult.
 	
 	\item Anisotropy: the model used should be capable of treat permeable surfaces that have different responses when stressed in different directions. For instance the geometrical disposition and/or the mechanical properties of the medium can be non-homogeneous, so it appear more permeable in one direction and show a preferential flow path.
 \end{itemize}
 
-\citet{dupont2010modelling} had performed a LES simulation introducing a two way coupling for the fluid-structure interaction problem, they validate their code with video recording of a similar experiment and the frequency measurements of the Kelvin–Helmholtz instabilities at the interface agrees very well.
+\citet{dupont2010modelling} performed a LES simulation introducing a two way coupling for the fluid-structure interaction problem, they validate their code with video recording of a similar experiment and the frequency measurements of the Kelvin–Helmholtz instabilities at the interface agrees very well.
 They have not specified the computational configuration used, but they have mentioned an important high performance computing center in the acknowledgment which made us suppose that the computational power involved was substantial.
 Recently also in \citet{marjoribanks2017does} a similar approach has been used.
 
@@ -412,12 +415,13 @@ However since these models are mostly applied in channel problems where the mean
 The drag resistance is included in the Navier-Stokes equations as a sink:
 
 \begin{equation}
-\derp{\vb}{t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2 -C_D a |\vb| \vb, 
+\derp{\vb}{t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2 \vb -C_D a |\vb| \vb, 
 \label{eq:mom_cd}
 \end{equation}
 
+Where the subscript $\beta$ indicate the fluid phase, and $C_D$ the drag coefficient of the isolated fiber.
+The parameter $a$ is the frontal area per unit volume of the vegetation, it is an expression of the porosity of the medium.
 The sink term is quadratic in the velocity, but there is some evidence that the reconfiguration phenomena can change this relationship as a consequence of the drag reduction (\citet{gosselin2011drag} and \citet{alvarado2017nature}).
-It also includes the parameter $a$ that is the frontal area per unit volume of the vegetation, this parameter is an expression of the porosity of the medium.
 
 From our point of view this approach lack of strong mathematical formalism, on the basis of which one should be able to derive all the additional terms of the equations; as a consequence, this method heavily relies on empirical relations.
 The other issue is that the isotropic hypothesis rules out the possibility to model the anisotropic nature of most surfaces in which we are interested (as equation \eqref{eq:max_dr} suggest the difference in the permeability along each direction can be important for drag reduction).
@@ -487,7 +491,7 @@ The multiple scales method is similar to the previous one; and it has also been 
 
 In this method we start with the assumption of scale separation between $\ell$, the micro-scale, and $L$, the macro-scale.
 The scale separation factor can be defined as $\epsilon = \ell/L \ll 1$.
-Using the same examples as before we show how to compute the homogenized version of the Stokes equation for fluid flow through porous media.
+Using the same examples as the previous section, we show how to compute the homogenized version of the Stokes equation for fluid flow through porous media.
 We introduce the micro-scale and the macro-scale coordinates defined respectively as:
 $$
  X_i = \dfrac{\tilde{x_i}}{L}, \quad   x_i = \dfrac{\tilde{x_i}}{\ell},
@@ -498,7 +502,7 @@ $$
 \psi(X_i, x_i) = \psi^{(0)}(X_i, x_i)  +\epsilon \psi^{(1)}(X_i, x_i) +\epsilon^2 \psi^{(2)}(X_i, x_i) +O(\epsilon^3),
 $$
 
-Injecting this decomposition inside the equation \eqref{eq:stokes} it is possible to derive a set of system of equations for each order of the expansion.
+Injecting this decomposition inside the equation \eqref{eq:stokes} it is possible to derive a set of hierarchical equations, one for each order of the expansion.
 It can be shown that analyzing each equation in the set lead to the homogenized equation:
 
 \begin{equation}
@@ -516,7 +520,7 @@ A full analysis of the dualism of the two approaches can be found in the work by
 The multiple scales method has also been used to study many other problems: inertial effects (\citet{mei1991effect}, \citet{skjetne1999new}), coupling between a free fluid and a porous media (\citet{mikelic2000interface}), porous media with small deformations (\citet{auriault1977etude}), heat conduction in composites (\citet{auriault1983effective}), rigid and moving permeable layers (\citet{zampogna2016fluid}, \citet{ugis} and \citet{zampogna2017pelskin}).
 
 There is also another homogenization based method called \textit{Mixture Theory} that is also worth a mention.
-It is based on a similar approach as the previous ones and \citet{rajagopal2007hierarchy} have shown that it is possible to retrieve the same equation as the previous two methods in case of porous media flow.
+It is based on a similar approach as the previous ones and \citet{rajagopal2007hierarchy} showed that it is possible to retrieve the same equation as the previous two methods in case of porous media flow.
 
 
 \section{Stability of flows over permeable surfaces}
@@ -557,9 +561,10 @@ The linear stability relies on the decomposition of the flow variables $\mathbf{
 
 $$ \mathbf{q} (\mathbf{x},t)= \overline{\mathbf{q}} (\mathbf{x}) + \eta \widetilde{\mathbf{q}} (\mathbf{x},t) $$
 Here $\eta$ is a small amplitude parameter. Than the unsteady part is simplified by the hypothesis to have a general wave form
-$$  \widetilde{\mathbf{q}} =  \widehat{\mathbf{q}} e^{i\Theta}, $$
+$$  \widetilde{\mathbf{q}} =  \widehat{\mathbf{q}}(\mathbf{x}) e^{i\Theta(\mathbf{x},t)}, $$
 where $\widehat{\mathbf{q}}$ is the amplitude and $\Theta$ is the phase of the perturbation.
-The choice made to determine the time and space dependence of either the phase function and the amplitude determine a certain hierarchy inside the stability theories; figure \ref{fig:table} below show the main choice made in literature and the theory that derives from it:
+The choice made to determine the time and space dependence of either the phase function and the amplitude determine a certain hierarchy inside the stability theories; for example based on the number of directions not supposed periodic in the amplitude function, we move from a local approach ($1$ direction non-periodic) to a global one (all the $3$ direction are non-periodic).
+Figure \ref{fig:table} below present each possible choice in literature and the theory that derives from it:
 
 \begin{figure}[h]
 	\centering
@@ -568,17 +573,16 @@ The choice made to determine the time and space dependence of either the phase f
 	\label{fig:table}
 \end{figure}
  
-In our case we have limited our study to the linear stability theory (LST), a local approach build on mode decomposition.
+In our case we have limited our study to a local approach build on mode decomposition, \textit{local stability theory} (LST, also known as \textit{ordinary stability equations} OSE in the denomination of figure \ref{fig:table}).
 In the LST we make the hypothesis that the amplitude and the base flow depend only on the wall normal spatial coordinate (parallel flow) and the phase function take into account the periodicity in time and in the stream-wise and cross-flow directions.
+The last hypothesis should not be seen as a simplification since there are some class of problems (such as canopy flows) in which two of the three directions are really homogeneous.
 The complete formulation is in the following equation:
  $$  \widetilde{\mathbf{q}}(\mathbf{x},t) =  \widehat{\mathbf{q}}(x_2) e^{i(\alpha x_1 + \beta x_3 - \omega t)}  $$ 
 where $\alpha$ is the stream-wise wave-number, $\beta$ is the cross-flow wave-number and $\omega$ is the wave phase.
 
-Casting this form for the pressure and velocity inside the Navier-Stokes equation and neglecting the second order terms ($\eta^2$), the equations became linear and  describe the evolution of the perturbations, taking the base flow as an input of the problem.
-If we make the choice to impose that $\alpha$ and $\beta$ are real and $\omega$ is complex the problem became a generalized eigenvalue one.
-The above choice is made in order to study the stability of the perturbations in their time evolution and it is know as \textit{temporal stability}.
-The generalized eigenvalue problem for the wave phase has the form
-
+Casting this form for the pressure and velocity inside the Navier-Stokes equation and neglecting second order terms ($\eta^2$) or higher, the equations at order one are linear and  describe the evolution of the perturbations, taking the base flow as an input of the problem.
+In order to study the stability of the perturbations in their time evolution, problem known as \textit{temporal stability}, we fix the space perturbation form imposing $\alpha$ and $\beta$ as real numbers (inputs of the problem) and solving for $\omega$ as a complex number.
+With such choices the problem became a generalized eigenvalue one for the wave phase:
 $$ A \widehat{\mathbf{q}} =  \omega B\widehat{\mathbf{q}} $$
 The solution gives the frequency (real part of the eigenvalues) and the growth-rate (imaginary part) of the perturbation modes (eigenvectors) of the flow.
 
