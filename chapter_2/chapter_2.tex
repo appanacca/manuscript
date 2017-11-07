@@ -9,13 +9,23 @@ As the previous chapter as introduced we are interested in the volume averaging 
 Theoretical aspect of the volume averaging method applied to fluid in porous media can be found in \citet{whitaker2013method}, \citet{whitaker1986flow}, \citet{whitaker1996forchheimer} CONTINUE THE LIST.
 The following chapter describe the most important stages necessary to find the average version of equations \eqref{eq:NS}.
 
-\section{SCHEMA HOMOGENIZATION}
-Do a graphic schema like in \citet{paez2017macroscopic} fig2 o in \citet{davit2013homogenization} fig ?.
+\section{Homogenization procedure}
+The mathematical method of volume averaging is based on some fundamental stages that one should follow in order to retrieve the homogenized version of the equations.
+We can resume the step as:
+\begin{itemize}
+\item Definition of the averaging operator
+\item Use of theorems that permits to interchange the derivation and averaging operations
+\item Decompose the fields in an "average plus perturbation" manner
+\item Assume (based on the problem characteristics) some length-scales constraint that help to simplify the problem
+\item Compute a final closed form of the homogenized equations
+\end{itemize}
+
+Such schema is graphically resumed in \citet{paez2017macroscopic} and \citet{davit2013homogenization}; a similar flowchart of the overall procedure is showed in figure \ref{fig:schema_vans_homo}.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{chapter_2/figure/schema_vans_homo}
-	\caption{Illustration of the homogenization procedure. Image from \citet{davit2013homogenization}}
+	\includegraphics[width=0.8\linewidth]{chapter_2/figure/schema_vans_homo}
+	\caption{Illustration of the volume average homogenization procedure. Image derived from \citet{davit2013homogenization}}
 	\label{fig:schema_vans_homo}
 \end{figure}
 
@@ -35,36 +45,36 @@ where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velo
 The interface between the fluid and the solid is indicated as $A_{\beta\sigma}$, in which the no-slip condition for the velocity apply.
 In the above equation we also need to specify initial condition in order to solve them, but the initial conditions do not take part in the homogenization procedure.
 
-\subsection{Definition of the averaging filter}
+\subsection{Definition of the averaging operators}
 
 \Red{show some support of averaging filters, talk a little bit on his hypothesis and meaning as a convolution product}
 
 \Red{equation 1.6 in \citet{quintard1994transport4}}
 
-In the figure \ref{fig:rev} a \textit{reference elementary volume} (or REV) of a fibrous porous medium is depicted.
-Inside the same figure we indicate all the quantities that we need to introduce in order to develop our mathematical approach.
+Figure \ref{fig:rev} show a fibrous porous medium; all the quantities needed in order to develop our mathematical approach are also indicated.
+The dotted lines in the figure are used to indicate the shape of the volume used in the average operators, $V|_{\mathbf{x}}$ indicate the overall volume with centroid $\mathbf{x}$ and $V_{\beta}|_{\mathbf{x}}$ indicate the volume occupied of the only fluid phase inside the same volume.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_2/figure/REV}
-	\caption{Illustration of the REV concept.}
+	\caption{A graphic representation of the averaging volume and interface in case of ordered porous media. In this example a fibrous  porous media in staggered arranged is depicted. In dotted lines the edges of the averaged volume are showed for two different centroid position ($\mathbf{x}$ and $\mathbf{r}$).}
 	\label{fig:rev}
 \end{figure}
 
-The REV concept is needed in developing the averaged equation since is the volume on which the average is defined.
-Let $\psi_{\beta}$ be a scalar field (the same operator can be defined on an arbitrary order tensors) defined on the volume $V$ where $x$ is its centroid coordinates, we define two different spacing average operator.
+The size and shape is very important in the developing of the averaged equation, however its definition (\textit{reference elementary volume} REV) is presented in the following paragraph when needed.
+Let $\psi_{\beta}$ be a an arbitrary order tensors (scalar, vector or second order tensor) defined on the volume $V$ with $x$ as centroid coordinates, we define two different spacing average operator.
 
 The first one is called the \textit{intrinsic average} and is indicated as $\meani{.}$:
 \begin{equation}
-\meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \, \volb,
+\meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) \; d\volb,
 \label{eq:avg_intrinsic}
 \end{equation}
 
 where $m$ is a weight function on V and $\mathbf{y}$ is the relative position vector with respect to the centroid $\mathbf{x}$ of the averaging volume $\volb$.
 
-The second one is the \textit{superficial average} indicated with $\means{}$:
+The second one is the \textit{superficial average} indicated with $\means{.}$:
 \begin{equation}
-\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}-\mathbf{y}, t) d \, \volb,
+\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t)  \; d\volb,
 \label{eq:avg_superficial}
 \end{equation}
 
@@ -72,7 +82,7 @@ In order to use a less heavy notation, the subscript $|_{\mathbf{x}}$ is dropped
 Either averaging operators are defined as a volume integral over a the REV volume; the size of the REV should be chosen carefully in order to be sure to capture all the phenomena that take place at this scale (scale $\ell$).
 If the REV size is the correct one, increasing the REV volume over which we make the average ($\volb$) the average quantity itself should not change.
 
-Inside the average operators we can further use a weight function ($m$); it can be shown that the formulation of this function can help to attenuate spacial variation due to geometrical fluctuations of the porous medium.
+Inside the average operators we can further use a weight function ($m$); it can be shown that the formulation of this function can help to attenuate spacial variation due to geometrical fluctuations of the porous medium \citet{quintard1994transport4}, \cite{quintard1994transport2}.
 Some recommendation in the choice of the function shape can be found in \citet{quintard1994transport1}, \citet{quintard1994transport2} and \citet{davit2017technical}.
 
 Whichever is the choice on the $m$ shape, it is required that it has a unit volume integral:
@@ -99,7 +109,7 @@ So we can defy the relationship between the two averaging operators:
 	\label{eq:means_vs_meani}
 \end{equation}
 
-\subsection{Theorems involving derivatives of spatial averaging}
+\subsection{Theorems involving derivatives of spatial averaged quantities}
 
 In this paragraph we report some the theorems related to the volume averaging technique. The purpose to these theorems is to establish relations between volume averaged derivatives to derivatives of volume averaged quantities.
 
