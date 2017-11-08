@@ -53,6 +53,7 @@ In the above equation we also need to specify initial condition in order to solv
 
 Figure \ref{fig:rev} show a fibrous porous medium; all the quantities needed in order to develop our mathematical approach are also indicated.
 The dotted lines in the figure are used to indicate the shape of the volume used in the average operators, $V|_{\mathbf{x}}$ indicate the overall volume with centroid $\mathbf{x}$ and $V_{\beta}|_{\mathbf{x}}$ indicate the volume occupied of the only fluid phase inside the same volume.
+The coordinate $\mathbf{r} = \mathbf{x} +\mathbf{y}$ represent the centroid of a possible volume in which one can compute the average quantities.
 
 \begin{figure}[h]
 	\centering
@@ -66,17 +67,21 @@ Let $\psi_{\beta}$ be a an arbitrary order tensors (scalar, vector or second ord
 
 The first one is called the \textit{intrinsic average} and is indicated as $\meani{.}$:
 \begin{equation}
-\meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) \; d\volb,
-\label{eq:avg_intrinsic}
+	\meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb(\mathbf{x})} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) d \, \volb,
+	\label{eq:avg_intrinsic}
 \end{equation}
 
 where $m$ is a weight function on V and $\mathbf{y}$ is the relative position vector with respect to the centroid $\mathbf{x}$ of the averaging volume $\volb$.
 
-The second one is the \textit{superficial average} indicated with $\means{.}$:
+The second one is the \textit{superficial average} indicated with $\means{}$:
 \begin{equation}
-\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t)  \; d\volb,
-\label{eq:avg_superficial}
+	\means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) d \, \volb,
+	\label{eq:avg_superficial}
 \end{equation}
+
+Is important to highlight that in the above integrals the total volume $V$ does not depend on the position in the space $\mathbf{x}$ as $\volb$ does in porous media with porosity that vary spatially.
+Although the volume $V$ of the REV is subject to other length-scales constraints that are presented in the next paragraph.
+
 
 In order to use a less heavy notation, the subscript $|_{\mathbf{x}}$ is dropped in the following procedure, but we keep in mind that the volume averaged quantities are explicitly dependent on the REV center.
 Either averaging operators are defined as a volume integral over a the REV volume; the size of the REV should be chosen carefully in order to be sure to capture all the phenomena that take place at this scale (scale $\ell$).
@@ -84,11 +89,21 @@ If the REV size is the correct one, increasing the REV volume over which we make
 
 Inside the average operators we can further use a weight function ($m$); it can be shown that the formulation of this function can help to attenuate spacial variation due to geometrical fluctuations of the porous medium \citet{quintard1994transport4}, \cite{quintard1994transport2}.
 Some recommendation in the choice of the function shape can be found in \citet{quintard1994transport1}, \citet{quintard1994transport2} and \citet{davit2017technical}.
-
-Whichever is the choice on the $m$ shape, it is required that it has a unit volume integral:
+If $m$ has the form:
+\begin{eqnarray}
+m(\mathbf{y}) 
+\begin{cases}
+\dfrac{1}{V} \qquad |\mathbf{y}| \leqslant r_0\\
+0 \qquad |\mathbf{y}|> r_0
+\end{cases}
+\end{eqnarray}
+the same function can be dropped from the averaged definition with no changes.
+Whichever is the choice on the $m$ shape, it is required that it satisfy 3 hypotesis:
 $$
 \int_{\volb}  m(\mathbf{y}) \; d\volb = 1
 $$
+
+Also the above wheigtho integral can be seen as convolution....
 
 For the sake of simplicity we will consider a filter $m$ to be rectangular and we drop it in the formulation of the average operators.
 This choice is supported by the fact that fibrous porous media are periodic ordered structures and we formally do not need special forms of filters.
@@ -121,6 +136,8 @@ Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then
 			\label{th:spat_avg}
 	\end{equation}
 \end{theorem}
+
+In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operator $\nabla$ express the differentiation operation in respect to $\mathbf{x}$ also.
 
 \begin{corollary}[Vector form of \ref{th:spat_avg}]
 	The vector form of the spatial averaging theorem is given by:
