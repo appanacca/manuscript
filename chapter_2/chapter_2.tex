@@ -120,15 +120,23 @@ O(\ell_{\beta}) = \ell_V \ll L
 $$
 that can be reinterpreted as the separation of scale parameter in multiple scale analysis $\epsilon = \dfrac{\ell_{\beta}}{L} \ll 1$.
 
+\citet{ochoa1995momentum} confirm the same length-scales constraints even in case of an interface between a free fluid and a porous medium.
+
+
+
+
 The size of it ($\ell_v$) should be chosen with the above specifications, the length scales constraint assure that the volume is large enough that periodic boundary condition can be applied in the exterior of the volume and, on the contrary it should be small enough to be sure to capture all the phenomena that take place at the micro-scale (scale $\ell_{\beta}$).
 If the REV size is the correct one, increasing or decreasing its size, of a certain amount, should not change the averages quantities.
 
 We have already said that the function can help to attenuate variation of the averaged fields due to geometrical fluctuations of the porous medium.
 It has in fact the property of a low-pass filter for the perturbations fields.
 The filter function plays an important role also in the development of the equation in fact (as showed later) in order to retrieve a local form of the VANS equations we have to be able to make the statements:
-$$
+\begin{equation}
 \means{\means{\psi_{\beta}}} = \means{\psi_{\beta}}
-$$
+\label{eq:well_behaved}
+\end{equation}
+
+
 that is equivalent to say that the averaged fields contains small variations of at the micro-scale (inside the averaging volume $V$).
 In order to satisfy this requirement certain filter choices can perform better than others, although also the size of the REV plays a role.
 
@@ -164,7 +172,13 @@ $$
 \means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) d \, \volb = m*\psi_{\beta}
 $$
 
-Also has a critical in..
+Even though we have shown the importance of the filter function shape it should be clear that oder works in literature that had implicitly used the $m^{\sqcap}$ are not wrong even in case of periodic ordered porous media.
+In fact if we assume that the field are well behaved (even without checking if the filter or the REV size are the good one) we assume that the equation \eqref{eq:well_behaved} olds and so some simplifications of the averaging operators are permitted.
+This permits us to finally find a closed local form of the equation and possibly use the good filter a posteriori to smooth the fields.
+However neglecting the use of the proper filter can translate in some problem interpretations of the averaged fields (as \citet{quintard1994transport1} show for the example case of hydrostatic pressure) so particular care should be used especially when making comparison to experiments.
+
+In the following derivation of the equation we do not formally include any filter function inside the averaged operators in order to not make the notation heavier.
+However in each passage in which hypothesis on the filter of on the REV sizes are needed to formally derive the equation it will be stated.
 
 \subsection{Theorems involving derivatives of spatial averaged quantities}
 
