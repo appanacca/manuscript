@@ -130,15 +130,17 @@ If the REV size is the correct one, increasing or decreasing its size, of a cert
 
 We have already said that the function can help to attenuate variation of the averaged fields due to geometrical fluctuations of the porous medium.
 It has in fact the property of a low-pass filter for the perturbations fields.
+
+
 The filter function plays an important role also in the development of the equation in fact (as showed later) in order to retrieve a local form of the VANS equations we have to be able to make the statements:
 \begin{equation}
-\means{\means{\psi_{\beta}}} = \means{\psi_{\beta}}
+\means{\means{\psi_{\beta}}|_{\mathbf{r}}}|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}}
 \label{eq:well_behaved}
 \end{equation}
 
-
 that is equivalent to say that the averaged fields contains small variations of at the micro-scale (inside the averaging volume $V$).
 In order to satisfy this requirement certain filter choices can perform better than others, although also the size of the REV plays a role.
+In appendix \ref{ch:appendix_a} at the end of this chapter we furter explain the details in the approximation needed in equation \ref{eq:well_behaved}.
 
 For disordered porous medium the \textit{hat function} filter $m^{\sqcap}$ which has the form:
 \begin{eqnarray}
@@ -329,18 +331,16 @@ In order to finally get the average version of the problem \eqref{eq:NS} we make
 
 \begin{equation}
 \psi_{\beta}(\mathbf{r},t) = \meani{\psi_{\beta}}|_{(\mathbf{r},t)} + \tilde{\psi}_{\beta}(\mathbf{r},t)
+\label{eq:gray}
 \end{equation}
 
 where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution to add at the intrinsic volume average quantity $ \meani{\psi_{\beta}}$ (that is representative of the macro-scale $L$) to obtain the point value of the considered quantity $\psi_{\beta}$.
+This decomposition has been introduced in order to separate the different scales of the spatial variation of the fields, and so separate the low-high frequencies.
 
-Applying the superficial average to the perturbation term is possible to demonstrate that its average value is null:
+If the hypothesis of this division holds it is possible to demonstrate that the average value of the perturbation field is null:
 $$
 \means{\tilde{\psi}_{\beta}} = \means{\psi_{\beta}} - \means{\meani{\psi_{\beta}}} \approx \means{\psi_{\beta}} -\varepsilon \meani{\psi_{\beta}} = 0
 $$
-
-\Red{talk about why the above equation is almost exact, two papers of quintard e lasseux and notes on you booknotes}
-
-This results is important because it uses just the operator definitions and the hypothesis that the volume of the REV is bigger than the limit for which changes of the volume $V$ are important.
 
 Using the above results we can modify the non-homogeneous term in equation \ref{eq:mom_2}:
 
@@ -655,3 +655,38 @@ Using penalization method the slip velocity at the interface can be computed as 
 Also in case of very low Reynolds number the boundary condition can be a necessity since the Stokes equations, for the free fluid, and the Darcy one for the porous media are not mathematically compatible; but for $Re>10$ when the Brinkmann model for the porous media is applicable the two set of equations are of the same order and the continuity of pressure and velocity can be imposed directly.
 
 Also there is evidence in literature through numerical and computational experiments \citet{ochoa2017fluid} that exist a transition zone with the size of the pore scale in which the velocity and pressure have a continuous variation.
+
+\section{Elastic porous media: hybrid approach}
+
+DISCUSS HOW THE ABOVE EQUATIONS CHANGES (THE VELOCITY TERM IN THE CLOSURE), AND TALK A LITTLE BIT ABOUT HYBRID MODEL (LIKE FLUID HOMOGENIZED AND NOT THE SOLID)
+
+Discuss the point equation for the solid and the a-posteriori homogenization of the solid equation are beyond the scope of this section.
+The idea that we want to express is that with just some sligth modification in the fluid equation is possible to take into account moving fibrous media.
+
+\section{Note on the average of an average field}
+\label{ch:appendix_a}
+
+In the above sections have briefly talked about the results in equation \ref{eq:well_behaved} that we recall here:
+$$\means{\means{\psi_{\beta}}|_{\mathbf{r}}}|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}}$$
+
+And introducing the decomposition \ref{eq:gray} the above results can be used to state that the perturbation fields has null averaged:
+$$  \means{\tilde{\psi}_{\beta}} = 0 $$
+
+But let's recall what the average operator really does when applied to an averaged quantities:
+$$  \Big< \means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}}  = \dfrac{1}{V} \int_{\volb(\mathbf{x})} \means{\psi_{\beta}}|_{\mathbf{r}}(\mathbf{r}) \; dV $$
+
+The above equation can be described as the average computed over the volume $V$ with centroid $\mathbf{x}$, of the averaged field $\means{\psi_{\beta}}|_{\mathbf{r}}$ that can vary, because of the change of $\mathbf{r}$.
+
+In order to show how the above expression can be simplified we expand the averaged quantity $\means{\psi_{\beta}}|_{\mathbf{r}}$ over the centroid $\mathbf{x}$ using Taylor's polynomial:
+$$
+\means{\psi_{\beta}}|_{\mathbf{r}} = \means{\psi_{\beta}}|_{\mathbf{x}} + \mathbf{y} \cdot \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + \dfrac{1}{2} \mathbf{y}\mathbf{y} : \cdot \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + O(\mathbf{y}^3)
+$$
+
+Now if we put this expansion inside the averaging operator we get:
+$$
+\Big< \means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}} + \means{\mathbf{y}}|_{\mathbf{x}} \cdot \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + \dfrac{1}{2} \means{\mathbf{y}\mathbf{y}}|_{\mathbf{x}} : \cdot \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + O(\mathbf{y}^3)
+$$
+
+And the term $\means{\mathbf{y}}$ is zero for the REV used in ordered porous media for symmetric reasons and the second term can be shown either to be small with the argument that is order $\epsilon^2$ or the filter function can be chosen in order that $m*\mathbf{y}\mathbf{y} =0$ strictly.
+
+As we recall from section ??? the triagòe shaped filter satisfy this hypotesis.
