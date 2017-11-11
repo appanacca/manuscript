@@ -104,6 +104,7 @@ Using the above definition is possible to defy the relationship between the two 
 \end{equation}
 
 \subsection{Choice of shape and size of averaging volume and filter function}
+\label{ch:filter}
 
 The problem of choice of the filter has been extensively studied by the series of works \citet{quintard1994transport1}, \citet{quintard1994transport2}, \citet{quintard1994transport3}, \citet{quintard1994transport4}, \citet{quintard1994transport5} and more recently by \citet{davit2017technical}.
 
@@ -121,8 +122,6 @@ $$
 that can be reinterpreted as the separation of scale parameter in multiple scale analysis $\epsilon = \dfrac{\ell_{\beta}}{L} \ll 1$.
 
 \citet{ochoa1995momentum} confirm the same length-scales constraints even in case of an interface between a free fluid and a porous medium.
-
-
 
 
 The size of it ($\ell_v$) should be chosen with the above specifications, the length scales constraint assure that the volume is large enough that periodic boundary condition can be applied in the exterior of the volume and, on the contrary it should be small enough to be sure to capture all the phenomena that take place at the micro-scale (scale $\ell_{\beta}$).
@@ -166,6 +165,7 @@ Whichever is the choice on the $m$ shape, \citet{davit2017technical} has re-form
 	\item be normalized in as: $\int_{\volb}  m(\mathbf{y}) \; d\volb = 1$
 	\item have compact support 
 	\item $m*\psi_{\beta} \in C^{k}$ where $k$ represent the order of the closure \Red{explain better}, where the operator $*$ express a convolution
+	\item 
 \end{itemize}
 
 
@@ -449,16 +449,10 @@ $$
 \section{Closure problems}
 
 
-
-\subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
-
-Its a volume filter.
-
 \subsection{Microscopic force $\mathbf{F}^m$}
-Its a surface filter.
+Its a surface filter.The term $\mathbf{F}^m$ is referred as \textit{surface filter} since it act as a filter for the micro-scale fields that that even if they were available that are going to be filtered by the integral over the fluid-solid interface.
 
-In theory there is no simple representation for the $\mathbf{F}^m$ term when the terms that includes the terms including the gradient of $\nabla \varepsilon$.
-
+In theory there is no simple representation for $\mathbf{F}^m$ when the terms that includes the terms including the gradient of $\nabla \varepsilon$.
 Although since we are interested in developing a \textbf{local} closure problem that will depend on the geometry of one REV is possible to simply these terms.
 This means that the closure problems are not correct in the interface between a porous medium and a free fluid; but in the last chapter we show that even though we are committing an error we can still use the same closure problems and obtain good results.
 
@@ -490,7 +484,7 @@ With the same procedure we subtract the above equations to the point equations o
 \begin{eqnarray}
 &&  \derp{\vbt}{t} + \vb \cdot \nabla \vbt + \vbt \cdot \nabla \meani{\vb}  = \nonumber \\
 &&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \nabla \cdot \left(\means{\vbt \vbt}\right) +  \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon \nonumber \\
-&&- \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
+&&- \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
 \label{eq:vans_mom_3}
 \end{eqnarray}
 
@@ -514,23 +508,43 @@ Obtaining:
 	\begin{cases}
 		\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA  \\
 		\nabla \cdot \vbt = 0  \\
-		\vbt = \meani{\vb} \quad at \; A_{\beta \sigma} \\
-		\pbt(\mathbf{x} +\ell_i) = \pbt(\mathbf{x}), \qquad \vbt(\mathbf{x} +\ell_i) = \vbt(\mathbf{x}), \qquad i=1,2,3 \\
-		\meani{\vbt} = 0
+		\vbt = -\meani{\vb} \quad at \; A_{\beta \sigma}
 	\end{cases}
 \label{eq:vans_mom_}
 \end{eqnarray}
-
 that is the transport equations system for the perturbation fields.
+The problem of the above system is that it is defined on all the macroscopic porous region and so we would like to find a way to reduce the size of the domain and still obtain the same results.
+The problem above is also depend on macroscopic terms that act as source terms, and because if not this micro-macro scale couplings would constraint use to solve on the overall domain for either the averaged and the fluctuations field we no practical advantage over the point equations.
+Although is possible to use Green function to solve the problem in this form \citet{wood2013volume}, we are interested in a \textit{local} closure problem.
 
-We made the hypothesis that:
+This can be done restricting the solution region to a single REV, enforcing periodic boundary condition at the exterior of such volume.
+Such hypothesis is consistent with periodic order porous media because we have already stated that the variations connected to mean averaged quantities can be neglected inside the REV (see paragraph \ref{ch:appendix_a}).
+The problem stated in these manner became:
 
 \begin{eqnarray}
-&& \vbt = \mathbf{R} \cdot \meani{\vb} +\boldsymbol{\xi}  \\
-&& \pbt = \mub \mathbf{r} \cdot \meani{\vb} + \gamma
+\begin{cases}
+\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA  \\
+\nabla \cdot \vbt = 0  \\
+\vbt = -\meani{\vb} \quad at \; A_{\beta \sigma} \\
+\pbt(\mathbf{x} +\ell_i) = \pbt(\mathbf{x}), \qquad \vbt(\mathbf{x} +\ell_i) = \vbt(\mathbf{x}), \qquad i=1,2,3 \\
+\meani{\vbt} = 0
+\end{cases}
+\label{eq:vans_mom_2}
 \end{eqnarray}
 
-since we are free to define the tensor $\mathbf{R}$  and the vector $\mathbf{r}$ as we wish we chose to define it by means of the closur problems:
+In the above problem the averaged condition $\meani{\vbt} = 0$ is used to fix te above problem that otherwise will be defined up to a constant.
+
+Now we introduce the closure variables $\mathbf{R}$, $\mathbf{r}$, for which we made the hypothesis that:
+\begin{eqnarray}
+&& \vbt(\mathbf{x}) = \mathbf{R}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  +\boldsymbol{\xi}(\mathbf{x})   \\
+&& \pbt(\mathbf{x})  = \mub \mathbf{r}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  + \gamma(\mathbf{x})
+	\label{eq:closure_viab_hp}
+\end{eqnarray}
+the above choice is just dictate from convenience.
+Is very important to pinpoint that the above one is a crucial assumption since we imply that exist a linear correlation between the micro and macro-scale fields.
+Even if the closure variables can be space dependent.
+
+Since we are free to define the tensor $\mathbf{R}$  and the vector $\mathbf{r}$ as we wish we chose to define it by means of the closure problems:
 
 \begin{eqnarray}
 	\begin{cases}
@@ -557,14 +571,15 @@ So the previous decomposition became:
 
 \begin{eqnarray}
 	&& \vbt = \mathbf{B} \cdot \meani{\vb} + \mathbf{C} \cdot \meani{\vb}  \\
-	&& \pbt = \mub \mathbf{b} \cdot \meani{\vb} + \mub \mathbf{c} \cdot \meani{\vb} 
+	&& \pbt = \mub \mathbf{b} \cdot \meani{\vb} + \mub \mathbf{c} \cdot \meani{\vb}
+	\label{eq:closure_viab_divison}
 \end{eqnarray}
 
 so the first problem became:
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA  \\
+		0 = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA  \\
 		\nabla \cdot \mathbf{B} = 0  \\
 		\mathbf{B} = -\mathbf{I} \quad at \; A_{\beta \sigma} \\
 		\mathbf{b}(\mathbf{x} +\ell_i) = \mathbf{b}(\mathbf{x}), \qquad \mathbf{B}(\mathbf{x} +\ell_i) = \mathbf{B}(\mathbf{x}), \qquad i=1,2,3 \\
@@ -586,7 +601,13 @@ and the second one:
 \label{eq:C_problem}
 \end{eqnarray}
 
-Now is possible to define the \textit{permeability tensor} $\mathbf{K}$:
+Injecting the decompositions \ref{eq:closure_viab_hp} inside the surface filter $\mathbf{F}^m$ we get:
+
+$$
+\mathbf{F}^m = \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) \cdot \nbs \;dA
+$$
+
+Diving then the closure variable as in \ref{eq:closure_viab_divison} is possible to define the \textit{permeability tensor} $\mathbf{K}$:
 
 $$
  \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1}
@@ -632,7 +653,7 @@ so the problem became:
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
+		\dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
 		\nabla \cdot \mathbf{M} = 0  \\
 		\mathbf{M} = 0 \quad at \; A_{\beta \sigma} \\
 		\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 \\
@@ -642,6 +663,12 @@ so the problem became:
 \end{eqnarray}
 
 \citet{kozeny} talk about some of this simplified version.
+
+
+
+\subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
+
+Its a volume filter.
 
 
 \section{Interface treatment}
@@ -687,6 +714,7 @@ $$
 \Big< \means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}} + \means{\mathbf{y}}|_{\mathbf{x}} \cdot \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + \dfrac{1}{2} \means{\mathbf{y}\mathbf{y}}|_{\mathbf{x}} : \cdot \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + O(\mathbf{y}^3)
 $$
 
-And the term $\means{\mathbf{y}}$ is zero for the REV used in ordered porous media for symmetric reasons and the second term can be shown either to be small with the argument that is order $\epsilon^2$ or the filter function can be chosen in order that $m*\mathbf{y}\mathbf{y} =0$ strictly.
-
-As we recall from section ??? the triagòe shaped filter satisfy this hypotesis.
+The term $\means{\mathbf{y}}$ is zero for REV used in ordered porous media since they are always chosen to be symmetric around the REV centroid.
+The second term can be shown to be negligible either with the same length-scale constraint used in the REV definition, in fact \citet{ochoa1995momentum}, \citet{paez2017macroscopic} showed that this term is order $O(\epsilon^2)$.
+Although there is possible to choose an appropriate filter function that  enforce $m*\mathbf{y}\mathbf{y} =0$ strictly, these function are impractical \citet{davit2017technical}.
+As we recall from section \ref{ch:filter} the triangle shaped filter almost satisfy this hypothesis, if fact the triangle function guarantee a second order closure and it means that doing the second term convolution product only the constant part of the periodic function is kept and this is also negligible since it is $O(\epsilon^2)$.
