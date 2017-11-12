@@ -1,0 +1,17 @@
+\chapter*{Abstract}
+
+Almost all the surfaces existing in Nature are not at all smooth, they present a more or less regular arrangement of rugosities and/or solid structures at various length scales.
+The effectiveness of these surfaces in increasing the aerodynamic performances (drag reduction, lift enhancement, separation control…) has been proved in numerous cases such as boundary layers and bluff bodies.
+The microscopic computation of the flow around such multi-scale surfaces is practically unfeasible, so the ideas that we want to exploit in this work is to find a way to model the apparent slip over these surfaces (modeled as porous layers) using the Volume-Average theory \citet{whitaker2013method}.
+This mathematical method allows to average out the details of the micro-scale structures on such surfaces and still have a good description of the phenomenon involved.
+The first chapter of this manuscript gives a panoramic of the previous efforts in the modellization of such surfaces, and present the main indication that we can extract from the results in literature.
+The second chapter presents the mathematical derivation of the Volume-Averaged Navier-Stokes equation (VANS) for a flow over and through a porous medium saturated by a fluid.
+In the third chapter we study the stability of the flow over the interface of a free fluid and a porous media, made of an array of rigid cylindrical pillars.
+The presence of such porous layer has been treated adding a drag term in the fluid equations. 
+We show that this term reduces the amplification factor of the Kelvin-Helmholtz instability throughout the whole range of wave-numbers and increases slightly the wavelength of the fastest growing mode.
+In the same context we have computed the difference between the isotropic drag model and the tensorial approach for the drag term, in order to understand which is the most robust approach for stability computations; concluding that the tensorial approach, that use the apparent permeability tensor, is the best choice.
+Based on this result, in chapter four we have computed numerically the apparent permeability tensor for a 3D porous medium constituted by rigid cylinder, by means of the closure problems arising from the VANS equations. Such a tensor varies with the Reynolds number, the mean pressure gradient orientation and the porosity. A database has been created to explore the space of the above parameters. The two Euler angles that define the mean pressure gradient orientation are included in order to well capture possible 3D effects. Based on the database, a kriging interpolation metamodel is used to obtain an estimate of all the tensor components for any input parameters. 
+In the last chapter we show some results based on the metamodel; the use of such a reduced order model together with a numerical code based on the VANS equations at the macroscopic scale permits to maintain the computational times within reasonable levels.
+To validate the macroscopic description we compare the VANS computation, of a closed cavity flow with a porous bottom layer, against the DNS results homogenized a posteriori. The comparison shows that there is a good agreement between the two models.
+Using the same macroscopic description we further exploit the possibility of using the VANS model in order to compute the effectiveness of such porous layer to passively control flow separation in some classical geometry.
+The last chapter includes the main conclusion of the work and the possible research direction to further develop the topic.
