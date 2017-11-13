@@ -479,31 +479,34 @@ we obtain the continuity equation for the perturbations:
 \end{equation}
 
 
-With the same procedure we subtract the above equations to the point equations obtaining:
+With the same procedure we first dived the momentum equation in system \ref{eq:vans_mom_1} by the permeability $\varepsilon$ and then subtract them from the point equations obtaining:
 
 \begin{eqnarray}
 &&  \derp{\vbt}{t} + \vb \cdot \nabla \vbt + \vbt \cdot \nabla \meani{\vb}  = \nonumber \\
-&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \nabla \cdot \left(\means{\vbt \vbt}\right) +  \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon \nonumber \\
+&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \varepsilon^{-1}\nabla \cdot  \means{\vbt \vbt} +  \varepsilon^{-1} \nabla \varepsilon \nabla \meani{\vb} + \varepsilon^{-1} \nub \meani{\vb} \nabla^2 \varepsilon \nonumber \\
 &&- \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
 \label{eq:vans_mom_3}
 \end{eqnarray}
 
-Now based on some length scale consideration we can state that:
+Now in order to simplify the above equations we introduce these length-scale estimates:
+$$ \vbt = O(\meani{\vb}), \qquad \nabla\vbt = O(\dfrac{\meani{\vb}}{\ell}), \qquad  \nabla \meani{\vb} = O(\dfrac{\meani{\vb}}{L}), \qquad \varepsilon = O(\delta) $$
 
-$$ 
-\vb \cdot \nabla \vbt \ll \vbt \cdot \nabla \meani{\vb}
-$$
+the last length scale estimates is based on the fact that the porosity varies on scale $\delta$ that is much greater than $\ell$, this means $\ell \ll \delta$. \citet{valdes2013velocity} and \citet{ochoa1995momentum} make this argument considering that $\delta$ in their case is the size of the zone in which the porosity change because we have an interface between a porous medium and a free fluid.
+However is important to state that this assumption does not holds at the interface of all the porous media geometry (for ordered porous media $\varepsilon = O(\ell)$) but even in these cases eliminate the terms containing the gradient of the porosity is a necessity to formulate a closure problem.
+\citet{whitaker1996forchheimer} state clearly that there is no easy way to define a \textit{local} closure problem when the above approximations does not holds, here we drop these terms to fulfill the derivation of the closure problem although we keep in mind this problem holds only far from region where the porosity field change (even if in the last chapter we relax this hypothesis).
 
-$$
-\nabla \cdot \left(\means{\vbt \vbt}\right) \ll \vbt \cdot \nabla \meani{\vb}
-$$
+Continuing with the order estimates we can neglect some of the terms in which the order of magnitude is order :
+\begin{eqnarray}
+\vb \cdot \nabla \vbt \gg \vbt \cdot \nabla \meani{\vb} \quad &\Rightarrow&  \quad O\left(\dfrac{\meani{\vb}}{\ell}\right) \gg O\left(\dfrac{\meani{\vb}}{L} \right) \\
+\vb \cdot \nabla \meani{\vbt} \gg  \varepsilon^{-1} \nabla \cdot \left(\means{\vbt \vbt}\right)  \quad &\Rightarrow& \quad O\left(\dfrac{(\meani{\vb})^2}{\ell}\right) \gg O\left(\dfrac{(\meani{\vb})^2}{\delta} \right) \\
+\derp{\vbt}{t} \ll \nub \nabla^2 \vbt  \quad &\Rightarrow&  \quad O\left(\dfrac{(\meani{\vb})^2}{\ell}\right) \gg O\left(\dfrac{(\meani{\vb})^2}{L} \right) 
+\end{eqnarray}
 
-$$
-\derp{\vbt}{t} \ll \nub \nabla^2 \vbt
-$$
+In the last estimation we have assumed that the time scale associated respectively with the micro and macro-scale are $t = \dfrac{\ell}{\meani{\vb}}$ and $T =\dfrac{L}{\meani{\vb}}$.
+This assumption imply the \textit{quasi-stationary} of the perturbation problem, and it is physically held by the fact that the perturbation problem can be considered steady from the macroscopic evolution perspective \citet{davit2013homogenization} and \citet{zhu2014study}.
+The readers familiars with the multiples scales methods can notice that the above simplification we have neglected terms of order $\epsilon$ or bigger, that is coherent with the same theory in which only zero order terms are used in the local closure formulation.
 
-Obtaining:
-
+The order of magnitude estimation leave use with:
 \begin{eqnarray}
 	\begin{cases}
 		\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA  \\
@@ -662,14 +665,29 @@ so the problem became:
 \label{eq:M_problem}
 \end{eqnarray}
 
-\citet{kozeny} talk about some of this simplified version.
-
+However exist in literature simplified regression that permits to by-pass the \textit{local} closure problem computation and get directly the tensors $\mathbf{K}$ and $\mathbf{F}$.
+One of the most famous is the Kozeny-Carman \citet{kozeny} relation and the modified Ergun equation \cite{transport2002bird}.
+Extended version of this empirical formulation can be found in \citet{zampogna2016fluid} and \cite{yazdchi2012towards}.
+The above relationship are always based on some regression from experiments or computation, and they are parameterized usually with the porosity and some geometrical characteristic of the medium.
+Using this formulation has the downsize that range of application can be restricted to very small Reynolds number and that the geometry assumed is most of the time very simple (spheres, or 2D regular arranged cylinders); this is why the closure problem rest the main reliable source of computation of the two tensor.
 
 
 \subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
 
-Its a volume filter.
+We have already seen that another term that needs a closure came out from the VANS equation and it is the \textit{sub-filter stresses} term.
+$$\boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)$$
+This term act as a volume filter for the perturbation fields product that appear inside the volume averaging operator.
+Although we have already seen in the previous paragraph that this term can be neglected, based on some length-scale argument, here we want to explain briefly what this term represent and possibly when it can be important.
 
+
+%%%%  JUST A REMAINDER FOR THE REVIEWER
+%\citet{paez2017macroscopic} proposed a closure formulation based from the back substitution of \eqref{eq:closure_viab_hp} inside the term $\boldsymbol{\zeta}$ giving:
+%$$
+%\nabla \cdot ( \meani{\vb} \meani{\mathbf{R}^T\mathbf{R}} \meani{\vb})
+%$$
+%
+%introducing the fourth order tensor $\mathbf{J} = \meani{\mathbf{R}^T\mathbf{R}}$, which if we recall that for our computation M, H are minor than 1 so their product is smaller and so J is negligible compared to H.
+%However is that correct to back substitute the closure formulation using R where the closure term $\boldsymbol{\zeta}$ was neglected in the closure problem formulation for R ??
 
 \section{Interface treatment}
 \label{ch:interface}
