@@ -671,6 +671,9 @@ Extended version of this empirical formulation can be found in \citet{zampogna20
 The above relationship are always based on some regression from experiments or computation, and they are parameterized usually with the porosity and some geometrical characteristic of the medium.
 Using this formulation has the downsize that range of application can be restricted to very small Reynolds number and that the geometry assumed is most of the time very simple (spheres, or 2D regular arranged cylinders); this is why the closure problem rest the main reliable source of computation of the two tensor.
 
+\Red{explain that tis is the fermature}
+$$\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \meani{\vb}$$
+
 
 \subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
 
@@ -734,14 +737,49 @@ Our final decision on the interface treatment is to adopt the penalization appro
 
 
 
-\section{Elastic porous media: hybrid approach}
+\section{Elastic porous media: hybrid homogenization approach}
 
-DISCUSS HOW THE ABOVE EQUATIONS CHANGES (THE VELOCITY TERM IN THE CLOSURE), AND TALK A LITTLE BIT ABOUT HYBRID MODEL (LIKE FLUID HOMOGENIZED AND NOT THE SOLID)
+Elastic porous media has been firstly studied by \citet{biot1956theory} which developed a model for the stresses wave propagation inside the solid matrix of a porous medium.
+His model was used in porous media with almost the same density as the solid, as for the case of saturated soil.
 
-Discuss the point equation for the solid and the a posteriori homogenization of the solid equation are beyond the scope of this section.
-The idea that we want to express is that with just some slight modification in the fluid equation is possible to take into account moving fibrous media.
+\citet{whitaker1986deformable} has also approached the problem using the volume average method tho homogenize either the solid and the fluid part, however the closure problems for the tensor that came out from the averaging of the solid equation are very difficult to solve and there are no following studies that neither clarify the problem nor confirm the formulation.
 
+In our derivation of the VANS the only term that has to be changed in order to account to the porous media that can move if the microscopic force $\mathbf{F}^m$, in any of the others development we have used the hypothesis of rigid porous media.
+This term should be modified to take into account that the force that the fluid exert on the solid part has to take into account the solid velocity:
+$$
+\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \left[ \meani{\vb} - \meani{\ws} \right]
+$$
 
+This same closure was also adopted in the works of \citet{hussong2011continuum} and \citet{wang2015volume}.
+Now we want to present what we can an \textit{hybrid homogenization approach}; as indicated in paragraph \ref{ch:model_porous} in order to describe the dynamic of a poroelastic layer we need an fluid model, a solid model and an interface condition.
+In the above sections we have presented the fluid model (VANS equations) and the interface treatment; here we propose an approach that is transparent to whatever solid model one want to use.
+The pseudo-code fo the macroscopic algorithm can be sketched like the one in \ref{algo:vans_elastic}.
+
+\begin{algorithm}[H]
+	\KwData{$(\meani{\vb})^n$, ($\meani{\ws})^n$, ($\meani{\pb})^n$}
+	%\KwResult{how to write algorithm with \LaTeX2e }
+	initialization\;
+	\While{t<T}{
+	$n \longrightarrow 0$\;
+		\While{$n < n_{max}$}{
+			Fluid solver VANS: $(\meani{\vb})^{n+1}$, $(\meani{\pb})^{n+1}$
+			Solid solver: $\ws^{n+1}$
+			Solid averaging: $\varepsilon^{n+1}(x)$, $(\meani{\ws})^{n+1}$
+			Relaxation ??
+			\eIf{$|| (\meani{\vb})^{n+1} - (\meani{\vb})^n || < \epsilon$}{
+				break\;
+			}{
+				$n+1 \longrightarrow n$\;
+			}
+		}
+		$t \longrightarrow t+\Delta t$\;
+	}
+	\caption{Macroscopic algorithm for fluid-structure interaction of homogenized poroelastic medium}
+	\label{algo:vans_elastic}
+\end{algorithm}
+
+Discuss the solid model equation and the a posteriori homogenization of the same are beyond the scope of this section.
+The only idea that we want to express is that with just some slight modification in the fluid equation is possible to integrate them in a macroscopic algorithm that can take into account moving fibrous media.
 
 
 \section{Note on the average of an average field}
