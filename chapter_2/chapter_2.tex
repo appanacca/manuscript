@@ -679,6 +679,13 @@ $$\boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)$$
 This term act as a volume filter for the perturbation fields product that appear inside the volume averaging operator.
 Although we have already seen in the previous paragraph that this term can be neglected, based on some length-scale argument, here we want to explain briefly what this term represent and possibly when it can be important.
 
+\citet{breugem2006influence} and \citet{nepf1999drag} divides the nature of sub-filter stresses in two different components:
+\begin{itemize}
+	\item \textit{mechanical diffusion:} inside the pore the fluid has to move around the solid structure (for examples fibers) causing an augmentation of diffusion inside the VANS momentum equations. This mechanism is so caused by the tortuosity of the flow path of the different particles.
+	\item \textit{turbulent dispersion:} is caused by the subfilter scales eddies that creates at the pore scale. This type of additional diffusivity can be anisotropic reflecting the anisotropicity of the medium; for example in fibers case the vertical penetration and breakdown of eddies is much higher than the horizontal one.
+\end{itemize}
+
+However comparing some simple formulation of such terms to the VANS equations shows that even if the two different components are equally important they are negligible for the volume averaged field equations.
 
 %%%%  JUST A REMAINDER FOR THE REVIEWER
 %\citet{paez2017macroscopic} proposed a closure formulation based from the back substitution of \eqref{eq:closure_viab_hp} inside the term $\boldsymbol{\zeta}$ giving:
@@ -689,24 +696,53 @@ Although we have already seen in the previous paragraph that this term can be ne
 %introducing the fourth order tensor $\mathbf{J} = \meani{\mathbf{R}^T\mathbf{R}}$, which if we recall that for our computation M, H are minor than 1 so their product is smaller and so J is negligible compared to H.
 %However is that correct to back substitute the closure formulation using R where the closure term $\boldsymbol{\zeta}$ was neglected in the closure problem formulation for R ??
 
+Although we speculate that this term can become important in situations involving elastic porous media such as canopy flow where when the interface experience sweep and injection of fluid at the interface.
+In fact \citet{finnigan2000turbulence} and \citet{de2008effects} have shown that the turbulence spectrum is modified in the above cases and we argue that the sub-filter stresses term can, probably, model this high frequency vorticies.
+
+In order to better study this term we need reliable full DNS inside the porous media at high pore Reynolds number, but such simulations are very expensive and almost un-existent in literature.
+Experimental measurements inside the porous structure can be another way to study this volume filter even though such measurements are very hard to perform even with the latest technique.
+
 \section{Interface treatment}
 \label{ch:interface}
-Penalization method \citet{angot1999penalization} used in\cite{bruneau2004passive} \cite{bruneau2008numerical} \cite{bruneau2010coupling}...
 
+The problem of the interface condition between a porous medium and a free fluid has been approached by many different methods; \citet{ehrhardt2010interface} has given a concise but very clear introduction on the problem, however the field is still evolving and in the last couple of years many new works has been presented \citet{minale2014momentum}, \citet{angot2017asymptotic}, \citet{lacis2017framework} and \Red{cite new work of Giuseppe}.
+The problem is per se very complex and our work was not focused on developing a new condition; besides in this paragraph we want to explain our choice for the interface treatment over the many possible ones.
+The interface conditions can be classified in two groups, the \textit{one domain approach} (ODA) and the \textit{two domain approach} (TDA).
+In the TDA the porous domain is splitted from the free fluid domain and a boundary condition at the interface is specified; the necessity to do so was mainly caused by the fact that the first fluid model to coupled were the Stokes equations and the Darcy ones that have different orders so were incompatible at the interface.
+Some later work introduce the Brinkmann model to adjust the order of the porous media equations but the validity of this correction deep inside the porous medium was questionable.
+The principal works that follow this approach are \citet{beavers1967boundary}, \citet{mikelic2000interface}, \citet{ochoa1995momentum} and \citet{le2006interfacial}.
+These works all have in common a formulation in which a certain slip in specified at the interface, for example the condition specified in the first of the above references reads:
+$$
+\meani{\vb}(x,\Gamma^+) = \dfrac{\sqrt{\mathbf{K}}}{\alpha} \derp{\meani{\vb}(x, \Gamma^-)}{y}
+$$
+where $\Gamma^+$ and $\Gamma^-$ represent vertical coordinate above and below the interface, $\mathbf{K}$ is the permeability tensor and $\alpha$ is a coefficient based on the porous medium geometry.
+The other cited proposition change and extend this formulation but basically the all impose a velocity jump at the interface that is function of a parameter (here $\alpha$) that is basically a fit to experimental data.
 
+On the contrary the ODA approach presume that the final averaged equation are valid in all the domain (porous and free fluid) but the quantities that define the presence of the porous media (porosity and permeability) vanished in the free fluid region.
+This method is also know as \textit{penalization method}, one of the first porous media application was \citet{caltagirone1994interaction} after that it was used by many other authors, like \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bruneau2010coupling}, \citet{hussong2011continuum}.
 We think that using a boundary condition at the interface is not a superior approach nor physically neither mathematically.
-Using penalization method the slip velocity at the interface can be computed as well as using a boundary condition, and either methods require a parameter to close the formulation, with the advantage using penalization method that the parameter is the spatial distribution of the porosity field that is trivial to compute known the geometry of the medium.
+As a matter of fact either methods require a parameter to close the formulation; with the advantage, using penalization method, that the parameter is the spatial distribution of the porosity field that is trivial to compute known the geometry of the medium.
+Although how to vary the permeability in the transition zone is not clear, in fact for most of the authors the jump from the porous media value and the free fluid one is sharp; so neglecting the variation of permeability at the transition zone appear to be acceptable, even though example of linear variation of this terms exists \citet{caltagirone1994interaction}.
+\citet{hussong2011continuum} made a direct comparison (with a DNS simulation) for the porosity treatment concluding that the variation of the permeability so the VANS terms that include the gradient of the porosity are very important to have a good comparison with high fidelity computation.
 
-Also in case of very low Reynolds number the boundary condition can be a necessity since the Stokes equations, for the free fluid, and the Darcy one for the porous media are not mathematically compatible; but for $Re>10$ when the Brinkmann model for the porous media is applicable the two set of equations are of the same order and the continuity of pressure and velocity can be imposed directly.
+Direct comparison between the ODA and TDA is presented in \citet{cimolin2013navier} concluding that the macroscopic description of the interface provided by the two different methods is similar and the penalization method has the advantage to be easily implemented in a Navier-Stokes solver and it does not present sensible convergence properties of the TDA.
 
-Also there is evidence in literature through numerical and computational experiments \citet{ochoa2017fluid} that exist a transition zone with the size of the pore scale in which the velocity and pressure have a continuous variation.
+
+Also there is evidence in literature (\citet{ochoa2017fluid}) that exist a transition zone with the size of the pore scale in which the velocity and pressure have a continuous variation and not a steep one, also it has been demonstrated, by the same author, that the same transition zone is physical and not a results of the averaging procedure.
+
+Our final decision on the interface treatment is to adopt the penalization approach with the porosity variation computed directly from the geometry of our fibrous medium and a steep variation of the effective permeability at the interface; even if in chapter 5 \Red{(add actual reference to the chapter)} we have tried a variation based on an hyperbolic function smoothing that has not given better results.
+
+
 
 \section{Elastic porous media: hybrid approach}
 
 DISCUSS HOW THE ABOVE EQUATIONS CHANGES (THE VELOCITY TERM IN THE CLOSURE), AND TALK A LITTLE BIT ABOUT HYBRID MODEL (LIKE FLUID HOMOGENIZED AND NOT THE SOLID)
 
-Discuss the point equation for the solid and the a-posteriori homogenization of the solid equation are beyond the scope of this section.
-The idea that we want to express is that with just some sligth modification in the fluid equation is possible to take into account moving fibrous media.
+Discuss the point equation for the solid and the a posteriori homogenization of the solid equation are beyond the scope of this section.
+The idea that we want to express is that with just some slight modification in the fluid equation is possible to take into account moving fibrous media.
+
+
+
 
 \section{Note on the average of an average field}
 \label{ch:appendix_a}
@@ -736,3 +772,7 @@ The term $\means{\mathbf{y}}$ is zero for REV used in ordered porous media since
 The second term can be shown to be negligible either with the same length-scale constraint used in the REV definition, in fact \citet{ochoa1995momentum}, \citet{paez2017macroscopic} showed that this term is order $O(\epsilon^2)$.
 Although there is possible to choose an appropriate filter function that  enforce $m*\mathbf{y}\mathbf{y} =0$ strictly, these function are impractical \citet{davit2017technical}.
 As we recall from section \ref{ch:filter} the triangle shaped filter almost satisfy this hypothesis, if fact the triangle function guarantee a second order closure and it means that doing the second term convolution product only the constant part of the periodic function is kept and this is also negligible since it is $O(\epsilon^2)$.
+
+\section{Conclusions}
+
+Recall the adopted equations and the interface treatment.
