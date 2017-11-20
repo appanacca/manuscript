@@ -5,26 +5,25 @@
 
 \section{Introduction}
 
-As the previous chapter as introduced we are interested in the volume averaging method to scale up the fluid equations valid in the microscopic spaces of the porous medium and find a macroscopic description that is valid everywhere in the porous medium domain (not only in the fluid phase).
-Theoretical aspect of the volume averaging method applied to fluid in porous media can be found in \citet{whitaker2013method}, \citet{whitaker1986flow}, \citet{whitaker1996forchheimer} CONTINUE THE LIST.
-The following chapter describe the most important stages necessary to find the average version of equations \eqref{eq:NS}.
+We have already said in the previous chapter that we use the volume averaging method to scale up the fluid equations, valid in the microscopic spaces of the porous medium, in order to find a macroscopic description that is valid everywhere in the porous medium domain (not only in the fluid phase).
+Theoretical aspect of the volume averaging method applied to fluid in porous media can be found in \citet{whitaker2013method}, \citet{whitaker1986flow}, \citet{whitaker1996forchheimer}, \citet{quintard1994transport1}, \citet{quintard1994transport2}, \citet{quintard1994transport3}, \citet{quintard1994transport4}, \citet{quintard1994transport5} and many others contributions that are introduced in the next chapter.
+In the following paragraph we describe the various stages necessary in calculating the local average version of equations \eqref{eq:NS}.
 
 \section{Homogenization procedure}
 The mathematical method of volume averaging is based on some fundamental stages that one should follow in order to retrieve the homogenized version of the equations.
-We can resume the step as:
+The main steps are:
 \begin{itemize}
 \item Definition of the averaging operator
 \item Use of theorems that permits to interchange the derivation and averaging operations
 \item Decompose the fields in an "average plus perturbation" manner
-\item Assume (based on the problem characteristics) some length-scales constraint that help to simplify the problem
-\item Compute a final closed form of the homogenized equations
+\item Assume (based on the problem characteristics) some length-scales constraint that help to simplify and define a local closure  problem
 \end{itemize}
 
-Such schema is graphically resumed in \citet{paez2017macroscopic} and \citet{davit2013homogenization}; a similar flowchart of the overall procedure is showed in figure \ref{fig:schema_vans_homo}.
+Such schema is graphically resumed in \citet{paez2017macroscopic} and \citet{davit2013homogenization}; a similar flowchart of the complete overall procedure is showed in figure \ref{fig:schema_vans_homo}.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{chapter_2/figure/schema}
+	\includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{chapter_2/figure/schema}
 	\caption{Illustration of the volume average homogenization procedure. Image adapted from \citet{davit2013homogenization}}
 	\label{fig:schema_vans_homo}
 \end{figure}
