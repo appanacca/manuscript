@@ -29,7 +29,7 @@ Such schema is graphically resumed in \citet{paez2017macroscopic} and \citet{dav
 \end{figure}
 
 \section{Derivation of VANS equations for 3D incompressible fluids}
-The dynamic of the fluid phase, indicated with the subscript $\beta$, is governed by the Navier-Stokes equation for incompressible Newtonian fluid; which in presence of a porous medium solid reads:
+The dynamic of the fluid phase (indicated with the subscript $\beta$), inside and above the porous medium, is governed by the Navier-Stokes equation for incompressible Newtonian fluid:
 
 \begin{eqnarray}
 	\begin{cases}
@@ -40,36 +40,33 @@ The dynamic of the fluid phase, indicated with the subscript $\beta$, is governe
 \label{eq:NS}
 \end{eqnarray}\\
 
-where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid, although  $\ws$ is velocity of the solid phase
+where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
 The interface between the fluid and the solid is indicated as $A_{\beta\sigma}$, in which the no-slip condition for the velocity apply.
-In the above equation we also need to specify initial condition in order to solve them, but the initial conditions do not take part in the homogenization procedure.
+In the above boundary condition $\ws$ is velocity of the solid phase.
+Initial condition should also be specified in order to solve the system, but they do not take active part in the homogenization procedure.
+The next sections shows how to average this equations using the volume average method.
 
 \subsection{Definition of the averaging operators}
-
-\Red{show some support of averaging filters, talk a little bit on his hypothesis and meaning as a convolution product}
-
-\Red{equation 1.6 in \citet{quintard1994transport4}}
-
-Figure \ref{fig:rev} show a fibrous porous medium; all the quantities needed in order to develop our mathematical approach are also indicated.
-The dotted lines in the figure are used to indicate the shape of the volume used in the average operators, $V|_{\mathbf{x}}$ indicate the overall volume with centroid $\mathbf{x}$ and $V_{\beta}|_{\mathbf{x}}$ indicate the volume occupied of the only fluid phase inside the same volume.
-The coordinate $\mathbf{r} = \mathbf{x} +\mathbf{y}$ represent the centroid of a possible volume in which one can compute the average quantities.
+Figure \ref{fig:rev} show the schematics of the internal structure of a fibrous porous medium; all the quantities needed in order to develop our mathematical approach are also indicated.
+The continuous lines in the figure are used to indicate the shape of the volume used in the average operators, $V|_{\mathbf{x}}$ indicate the overall volume with centroid $\mathbf{x}$ and $V_{\beta}|_{\mathbf{x}}$ indicate the volume occupied of the only fluid phase inside the same volume.
+The coordinate $\mathbf{r} = \mathbf{x} +\mathbf{y}$ represent the centroid of a possible volume in which one can compute the average quantities, the boundaries of the same volume are indicated with dotted lines.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_2/figure/REV}
-	\caption{A graphic representation of the averaging volume and interface in case of ordered porous media. In this example a fibrous  porous media in staggered arranged is depicted. In dotted lines the edges of the averaged volume are showed for two different centroid position ($\mathbf{x}$ and $\mathbf{r}$).}
+	\caption{A graphic representation of the averaging volumes and interfaces in case of fibrous (ordered) porous media. In this example the fibers are in staggered arrangement. The edges of the volumes that have centroid position $\mathbf{x}$ are shown in continuous lines and the ones with centroid $\mathbf{r}$ are shown in dotted lines.}
 	\label{fig:rev}
 \end{figure}
 
-Let $\psi_{\beta}$ be a an arbitrary order tensors (scalar, vector or second order tensor) defined on the volume $V$ with $x$ as centroid coordinates, we define two different spacing average operator.
+Let $\psi_{\beta}$ be a an arbitrary order tensors (scalar, vector or second order tensor) defined in the fluid phase of the volume $V$ with $x$ as centroid coordinates.
+We define two different volume averaging operators; the \textit{intrinsic average} indicated as $\meani{.}$ reads:
 
-The first one is called the \textit{intrinsic average} and is indicated as $\meani{.}$:
 \begin{equation}
 	\meani{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{\volb(\mathbf{x})} \int_{\volb(\mathbf{x})}  m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) d \, \volb,
 	\label{eq:avg_intrinsic}
 \end{equation}
 
-where $m$ is a weight function defined on V and $\mathbf{y}$ is the relative position vector with respect to the centroid $\mathbf{x}$ of the averaging volume $\volb$.
+where $m$ is a weight function defined on $V$ and $\mathbf{y}$ is the relative position vector with respect to the centroid $\mathbf{x}$ of the averaging volume $\volb$.
 
 The second one is the \textit{superficial average} indicated with $\means{}$:
 \begin{equation}
@@ -77,26 +74,25 @@ The second one is the \textit{superficial average} indicated with $\means{}$:
 	\label{eq:avg_superficial}
 \end{equation}
 
-In order to use a less heavy notation, the subscript $|_{\mathbf{x}}$ is dropped in the following procedure, but we keep in mind that the volume averaged quantities are explicitly dependent on the volume center.
-Either averaging operators are defined as a volume integral over a certain volume of which size and shape should be chosen differently in each application; some more details on this choice are presented in the next paragraph.
+The difference between the two formulation is that the former takes into account the actual fluid phase in averaging the filed instead of the pure size of the total volume.
 
-Inside the average operators we can further use a weight function ($m$); that has the aim to guarantee smooth volume averaged fields.
-However the choice of the shape of the filter depends on the porous media geometry, and its size is connected to the volume one.
+In order to use a less heavy notation, the subscript $|_{\mathbf{x}}$ is dropped in the following procedure, but we keep in mind that the volume averaged quantities are explicitly dependent on the center position of the volume.
+Either averaging operators are defined as a volume integral in which the integration domain size and shape should be chosen carefully in each different application; some more details on this choice are presented in the next paragraphs.
 
-For the sake of simplify the notation we will consider a filter $m$ to be constant and we drop it from the formulation of the average operators.
+Inside the average operators we can further use a weight function ($m$), that has the aim to guarantee smooth volume averaged fields.
+However the choice of its shape depends on the porous media geometry, and its size is connected to the chosen average volume.
+
+In the sake of simplify the notation we consider the filter $m$ to be constant ($1/V$) inside the volume so we could drop it from the formulation of the average operators.
 However any shape of the function $m$ can be used without formally change the final form of the averaged equation.
 
 The porosity of a porous medium cell is defined as:
-
 \begin{equation}
 	\varepsilon = \dfrac{\volb}{V}
 	\label{eq:porosity}
 \end{equation}
+which represent of how much fluid is actually present inside the averaging volume, and it also gives an indication of how packed are the fibers of our porous media.
 
-which represent the ratio between the volume occupied by the fluid and the total elementary volume.
-
-Using the above definition is possible to defy the relationship between the two averaging operators:
-
+Using the above definition is possible to express a relationship between the two averaging operators:
 \begin{equation}
 	\means{\psi_{\beta}} =  \varepsilon \meani{\psi_{\beta}}
 	\label{eq:means_vs_meani}
@@ -105,16 +101,16 @@ Using the above definition is possible to defy the relationship between the two 
 \subsection{Choice of shape and size of averaging volume and filter function}
 \label{ch:filter}
 
-The problem of choice of the filter has been extensively studied by the series of works \citet{quintard1994transport1}, \citet{quintard1994transport2}, \citet{quintard1994transport3}, \citet{quintard1994transport4}, \citet{quintard1994transport5} and more recently by \citet{davit2017technical}.
+The problem of choosing the right filter, for a give geometry of the porous medium, has been extensively studied by the series of works \citet{quintard1994transport1}, \citet{quintard1994transport2}, \citet{quintard1994transport3}, \citet{quintard1994transport4}, \citet{quintard1994transport5} and more recently generalized by \citet{davit2017technical}.
 
-The authors above differentiate their results for ordered and disordered porous medium; and they show that for each cases a specific size of the filter/volume and their shape is needed.
-Sometimes in the following text we refer to the volume in which the average procedure is applyed as REV, \textit{reference elementary volume}.
-For disordered porous media a spherical volume is more appropriate, and the size of the REV ($\ell_V$) should satisfy the length scale constraint:
+The authors above differentiate their results for ordered and disordered porous medium; and they show that in each case a specific size and shape of the filter (and the volume) is needed.
+Sometimes in the following text we refer to the volume in which the average procedure is applied as REV, \textit{reference elementary volume}.
+For disordered porous media a spherical volume is the most appropriate, and the REV size ($\ell_V$) should satisfy the length scale constraint:
 $$
 \ell_{\beta} \ll \ell_v \ll L
 $$
 
-Instead for ordered porous media the volume shape most appropriate is a cubic one with the length of its side:
+Instead for ordered porous media the most appropriate shape is a cube with side:
 $$
 O(\ell_{\beta}) = \ell_V \ll L
 $$
@@ -122,23 +118,20 @@ that can be reinterpreted as the separation of scale parameter in multiple scale
 
 \citet{ochoa1995momentum} confirm the same length-scales constraints even in case of an interface between a free fluid and a porous medium.
 
-
-The size of it ($\ell_v$) should be chosen with the above specifications, the length scales constraint assure that the volume is large enough that periodic boundary condition can be applied in the exterior of the volume and, on the contrary it should be small enough to be sure to capture all the phenomena that take place at the micro-scale (scale $\ell_{\beta}$).
+The size of it ($\ell_v$) should be chosen with the above specifications, these length scales constraints assure that the volume is large enough that periodic boundary condition can be applied in the exterior of the volume but still be able to capture all the phenomena that take place at the micro-scale (scale $\ell_{\beta}$).
 If the REV size is the correct one, increasing or decreasing its size, of a certain amount, should not change the averages quantities.
 
 We have already said that the function can help to attenuate variation of the averaged fields due to geometrical fluctuations of the porous medium.
 It has in fact the property of a low-pass filter for the perturbations fields.
 
-
-The filter function plays an important role also in the development of the equation in fact (as showed later) in order to retrieve a local form of the VANS equations we have to be able to make the statements:
+The filter function can plays an important role also in the interpretation of the averaged equation in fact (as showed later) in order to retrieve a local form of the VANS equations we have to be able to make the statements:
 \begin{equation}
 \means{\means{\psi_{\beta}}|_{\mathbf{r}}}|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}}
 \label{eq:well_behaved}
 \end{equation}
-
 that is equivalent to say that the averaged fields contains small variations of at the micro-scale (inside the averaging volume $V$).
-In order to satisfy this requirement certain filter choices can perform better than others, although also the size of the REV plays a role.
-In appendix \ref{ch:appendix_a} at the end of this chapter we furter explain the details in the approximation needed in equation \ref{eq:well_behaved}.
+In order to satisfy this requirement certain filter choices can perform better than others, although the same conclusion can be derived from the length-scales constraints.
+In appendix \ref{ch:appendix_a} at the end of this chapter we further explain the details of the approximation needed to derive equations \ref{eq:well_behaved}.
 
 For disordered porous medium the \textit{hat function} filter $m^{\sqcap}$ which has the form:
 \begin{eqnarray}
@@ -159,31 +152,34 @@ m^{\bigtriangleup}(\mathbf{y})
 \end{cases}
 \end{eqnarray}
 
-Whichever is the choice on the $m$ shape, \citet{davit2017technical} has re-formulated recently the required hypothesis that a $m$ function should satisfy; without entry in the details of the study (that is beyond the aim of this paragraph) we present some of the most important hypothesis:
+Whichever is the choice on the $m$ shape, \citet{davit2017technical} has re-formulated recently the required hypothesis that a $m$ function should satisfy; without entry in the details (that is beyond the aim of this paragraph) we present some of the most important generalizations from the above works that should apply to any choice of the function $m$:
 \begin{itemize}
 	\item be normalized in as: $\int_{\volb}  m(\mathbf{y}) \; d\volb = 1$
 	\item have compact support 
-	\item $m*\psi_{\beta} \in C^{k}$ where $k$ represent the order of the closure \Red{explain better}, where the operator $*$ express a convolution
-	\item 
+	\item $m*\psi_{\beta} \in C^{k}$ where $k$ represent the order of the closure
+	\item $(m \, y^j)*\psi_{\beta}
+	\begin{cases}
+	0 \qquad if \quad j \; odd\\
+	const  \qquad if \quad j \; even
+	\end{cases}$
 \end{itemize}
 
-
-As introduced above the average operation can be view as a convolution product between the filter function and the flow field quantities, \citet{marle1982macroscopic}:
+In the last requirement we have used the fact that the average operation can also be defined as a convolution product between the filter function and the flow field quantities, \citet{marle1982macroscopic}:
 $$
 \means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) d \, \volb = m*\psi_{\beta}
 $$
 
-Even though we have shown the importance of the filter function shape it should be clear that oder works in literature that had implicitly used the $m^{\sqcap}$ are not wrong even in case of periodic ordered porous media.
-In fact if we assume that the field are well behaved (even without checking if the filter or the REV size are the good one) we assume that the equation \eqref{eq:well_behaved} olds and so some simplifications of the averaging operators are permitted.
+Even though we have shown the importance of the filter function shape, it should be clear that older literature works that had implicitly used the $m^{\sqcap}$ are not wrong, even in case of periodic ordered porous media.
+In fact if we assume that the field are well behaved (even without checking if the filter or the REV size are the good one) we assume that the equation \eqref{eq:well_behaved} olds and that some simplifications of the averaging operators are permitted.
 This permits us to finally find a closed local form of the equation and possibly use the good filter a posteriori to smooth the fields.
-However neglecting the use of the proper filter can translate in some problem interpretations of the averaged fields (as \citet{quintard1994transport1} show for the example case of hydrostatic pressure) so particular care should be used especially when making comparison to experiments.
+However neglecting the use of the proper filter can induce some problem on the interpretations of the averaged fields (as \citet{quintard1994transport1} show for the example case of hydrostatic pressure); so particular care should be used especially when making comparison to experiments.
 
 In the following derivation of the equation we do not formally include any filter function inside the averaged operators in order to not make the notation heavier.
-However in each passage in which hypothesis on the filter of on the REV sizes are needed to formally derive the equation it will be stated.
+However we indicate in the following text where this hypothesis on the filter is formally needed to derive the equation.
 
 \subsection{Theorems involving derivatives of spatial averaged quantities}
 
-In this paragraph we report some the theorems related to the volume averaging technique. The purpose to these theorems is to establish relations between volume averaged derivatives to derivatives of volume averaged quantities.
+In this paragraph we report some the theorems related to the volume averaging technique. The purpose to these theorems is to invert the sequence of the  derivative and volume average operation.
 
 \begin{theorem}[Spatial averaging theorem]
 Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then:
@@ -225,6 +221,7 @@ In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operato
 	where $\ws$ is the point velocity of the solid-fluid interface $A_{\beta \sigma}$.
 \end{theorem}
 
+\Red{make some comments on the above}
 
 \subsection{Averaged continuity equations}
 
@@ -809,7 +806,3 @@ The term $\means{\mathbf{y}}$ is zero for REV used in ordered porous media since
 The second term can be shown to be negligible either with the same length-scale constraint used in the REV definition, in fact \citet{ochoa1995momentum}, \citet{paez2017macroscopic} showed that this term is order $O(\epsilon^2)$.
 Although there is possible to choose an appropriate filter function that  enforce $m*\mathbf{y}\mathbf{y} =0$ strictly, these function are impractical \citet{davit2017technical}.
 As we recall from section \ref{ch:filter} the triangle shaped filter almost satisfy this hypothesis, if fact the triangle function guarantee a second order closure and it means that doing the second term convolution product only the constant part of the periodic function is kept and this is also negligible since it is $O(\epsilon^2)$.
-
-\section{Conclusions}
-
-Recall the adopted equations and the interface treatment.
