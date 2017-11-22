@@ -192,7 +192,7 @@ Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then
 
 In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operator $\nabla$ express the differentiation operation in respect to $\mathbf{x}$ also.
 
-\begin{corollary}[Vector form of \ref{th:spat_avg}]
+\begin{corollary}[Vector form of \eqref{th:spat_avg}]
 	The vector form of the spatial averaging theorem is given by:
 	
 	\begin{equation}
@@ -202,7 +202,7 @@ In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operato
 \end{corollary}
 
 \begin{corollary}
-	Applying the theorem \ref{th:spat_avg} to a constant field $\psi_{\beta} = 1$ we obtain:
+	Applying the theorem \eqref{th:spat_avg} to a constant field $\psi_{\beta} = 1$ we obtain:
 	
 	\begin{equation}
 		\nabla \varepsilon = - \int_{A_{\sigma \beta}} \nbs d \, A,
@@ -221,19 +221,18 @@ In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operato
 	where $\ws$ is the point velocity of the solid-fluid interface $A_{\beta \sigma}$.
 \end{theorem}
 
-\Red{make some comments on the above}
+The three theorems and the corollary are indispensable to develop the closed form of the equations.
+One interesting thing to pay attention is that the theorems switch the average and derivative operation but always introduces a non local integral term.
 
 \subsection{Averaged continuity equations}
-
-
 We start by finding the averaged version of the continuity equation in \eqref{eq:NS}:
 
 \begin{equation}
 \means{\nabla \cdot \vb}   = 0
 \label{eq:superf_avg_cont}
 \end{equation}
-Applying \ref{th:spat_avg} to the previous equation we get:
 
+Applying theorem \eqref{th:spat_avg} to the previous equation we get:
 $$
 \means{\nabla \cdot \vb} = \nabla \cdot \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \vb \cdot \nbs \;dA
 $$
@@ -241,7 +240,7 @@ The boundary condition at the interface ($\ws = \vb$) imply that the integral ab
 $$=\nabla \cdot \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \ws \cdot \nbs \;dA$$
 Now we rewrite the last term as if it was a result of the Reynolds transport theorem applied to a constant unitary scalar field:
 $$=\nabla \cdot \means{\vb} + \derp{}{t} \dfrac{1}{V} \int_{\volb} \;dV  - \dfrac{1}{V} \int_{\volb} \derp{1}{t} \;dV $$
-This results can be simplified; in fact the last integral is zero due to the time derivation of a constant field and the first term can be further developed, obtaining finally the averaged continuity equation \eqref{eq:avg_1}.
+This results can be simplified; in fact the last integral is zero due to the time derivation of a constant field. The first term can be further developed, obtaining finally the averaged continuity equation \eqref{eq:avg_1}.
 
 \begin{equation}
 \nabla \cdot \means{\vb} + \derp{\varepsilon}{t} =0
@@ -250,7 +249,6 @@ This results can be simplified; in fact the last integral is zero due to the tim
 
 
 \subsection{Averaged momentum equations}
-
 In this paragraph we compute the average version of the momentum equation in \eqref{eq:NS}:
 
 \begin{equation}
@@ -258,25 +256,23 @@ In this paragraph we compute the average version of the momentum equation in \eq
 \label{eq:mom_1}
 \end{equation}
 
-In order to keep the procedure readable we show the development of each singular term separately in the same order as they appear in \eqref{eq:mom_1}.
+In order to keep the procedure readable we show the development of each term separately, in the same order as they appear in equation \eqref{eq:mom_1}.
 
 \subsubsection{Temporal derivative term}
-
-Using theorem \ref{th:transport} we can rewrite the first term of the equation as:
+Using theorem \eqref{th:transport} we can rewrite the first term of the equation as:
 
 \begin{equation}
 \means{\derp{\vb}{t}} = \derp{\means{\vb}}{t} -\dfrac{1}{V} \int_{A_{\beta \sigma}(t)} (\ws \cdot \nbs ) \vb \;dA,
 \end{equation}
 
 \subsubsection{Convective term}
-
-Theorem \ref{th:vec_spat_avg} applied to the convective term gives us:
+Theorem \eqref{th:vec_spat_avg} applied to the convective term gives us:
 
 \begin{equation}
 \means{\nabla \cdot (\vb\vb)} = \nabla \cdot \means{\vb \vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\vb \vb) \cdot \nbs \;dA,
 \end{equation}
 
-The boundary condition at the interface ($\ws = \vb$) imply that the integrals in the last two equations are equals so the total left end side of the momentum equation became:
+The boundary condition at the interface ($\ws = \vb$) imply that the integrals inside the convective and temporal part are equals, so the total left end side of the momentum equation became:
 
 \begin{equation}
 \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb}
@@ -291,7 +287,7 @@ The pressure term is also expanded using theorem \ref{th:spat_avg}:
 \end{equation}
 
 \subsubsection{Diffusion term}
-Here we fist use the identity $\nabla^2 = \nabla \cdot (\nabla)$ (laplacian = div(grad)), and apply the theorem \ref{th:vec_spat_avg} directly to this expansion we get:
+Here we fist use the identity $\nabla^2 = \nabla \cdot (\nabla)$ (laplacian = div(grad)), then we apply the theorem \ref{th:vec_spat_avg} directly to this expansion to get:
 
 \begin{equation}
 \means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nabla \vb \cdot \nbs \;dA,
@@ -311,7 +307,7 @@ Now re-using the theorem \ref{th:vec_spat_avg} on $\means{\nabla \vb}$:
 
 \Red{The above use of the Gauss theorem, to prove that the first integral term is zero, can be bypassed in case of rigid porous media. Which due to the b.c. at the fluid-solid is zero.}
 
-Before continue the development lets display all the various terms together:
+Before continue the development we group all the various terms together:
 
 \begin{eqnarray}
 && \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
@@ -319,8 +315,8 @@ Before continue the development lets display all the various terms together:
 \label{eq:mom_2}
 \end{eqnarray}
 
-This is still not the averaged version of the momentum equation, since it has the presence of the non-homogeneous term $\means{\vb\vb}$ and the integral term still has the point variables.
-In the next section these two terms are threated in order to make them function of only averaged quantities.
+This is still not the averaged version of the momentum equation, since it has the presence of the non-homogeneous term $\means{\vb\vb}$ and the integral term still has the point variables inside.
+In the next section these we show how to thereat these two terms in order make them function of the only averaged quantities.
 
 \subsection{Length scale decomposition}
 In order to finally get the average version of the problem \eqref{eq:NS} we make use of the decomposition proposed by \citet{gray1975derivation}:
@@ -331,21 +327,22 @@ In order to finally get the average version of the problem \eqref{eq:NS} we make
 \end{equation}
 
 where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution to add at the intrinsic volume average quantity $ \meani{\psi_{\beta}}$ (that is representative of the macro-scale $L$) to obtain the point value of the considered quantity $\psi_{\beta}$.
-This decomposition has been introduced in order to separate the different scales of the spatial variation of the fields, and so separate the low-high frequencies.
+This decomposition has been introduced in order to separate the different scales of the spatial variation of the fields, and so separate the low frequencies from the high one.
 
-If the hypothesis of this division holds it is possible to demonstrate that the average value of the perturbation field is null:
+If the hypothesis of that this division holds, it is possible to demonstrate that the average value of the perturbation field is null (the paragraph \ref{ch:appendix_a} specifically address the hypothesis behind this result):
 $$
 \means{\tilde{\psi}_{\beta}} = \means{\psi_{\beta}} - \means{\meani{\psi_{\beta}}} \approx \means{\psi_{\beta}} -\varepsilon \meani{\psi_{\beta}} = 0
 $$
 
-Using the above results we can modify the non-homogeneous term in equation \ref{eq:mom_2}:
+
+Using the above results we can modify the non-homogeneous term in equation \eqref{eq:mom_2}:
 
 \begin{equation}
 \means{\vb\vb} = \meani{\means{\vb}\meani{\vb}} +2\means{\meani{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}
 \label{eq:dec_1}
 \end{equation}
 
-For each integral term of \ref{eq:mom_2} we also apply the decomposition:
+For each integral term of \ref{eq:mom_2} we also apply the same field decomposition:
 
 \begin{eqnarray}
 \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{\pb}{\rho_{\beta}} \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb}  + \pbt\right) \nbs \;dA = \nonumber \\
@@ -376,15 +373,14 @@ At this stage the momentum equation is not closed since it has the mixed presenc
 In order to overcome this problems in the next section the intrinsic version of these equation is finally computed. 
 
 \subsection{Intrinsic average form}
+In order to get the intrinsic average formulation we use the relation \eqref{eq:means_vs_meani} to express surface averaged quantities in terms of intrinsic ones.
 
-In order to get the intrinsic average formulation we use the relation \eqref{eq:means_vs_meani} to expressing surface averaged quantities as intrinsic ones.
-
-We first start withe the continuity equation:
+We first start withe the continuity equation that became:
 $$
 \nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0
 $$
 
-After that we retake the momentum equation. starting from the temporal derivative term that became:
+For the momentum equation we start from the temporal derivative term that became:
 $$
 \derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}
 $$
@@ -423,14 +419,14 @@ After the proper simplification we have the final versions of the Navier-Stokes 
 \end{eqnarray}
 
 
-First of all is important to pinpoint that the intrinsic momentum equation represent the force per unit volume of the fluid volume, so it depends on the porosity of the medium (this is why it has terms involving gradients of the porosity).
-In application where porosity can vary spatially (like the interface of a porous medium) this formulation has the great advantage to be used together with the penalization methods to treat the interface non-homogeneities (further explenation of the interface problem are in paragraph \ref{ch:interface}  ).
+First of all is important to pinpoint that the intrinsic momentum equation represent the force per unit volume, so it explicitly depends on the porosity of the medium that can change the unit volume size (this is why it has terms involving gradients of the porosity).
+In application where porosity can vary spatially (like the interface of a porous medium) this formulation has the advantage to treat explicitly the interface non-homogeneities (further discussion of the interface treatment is presented in paragraph \ref{ch:interface}).
 
-One difference between the superficial and the intrinsic equations is in the continuity equations; in fact only the superficial velocity field is solenoidal.
+%Another difference between the superficial and the intrinsic formulation is in the continuity equation; we can observe that even in case of steady problem only the superficial velocity field is solenoidal.
 
 The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities and surface integrals.
-This very terms are the cause that at this stages the equations are not closed.
-In the next paragraphs we develop closure formulations of these terms, in order to do be clear we name it \textit{sub-filter stresses} $\boldsymbol{\zeta}$ and \textit{microscopic force} at the fluid-solid interface $\mathbf{F}^m$:
+This very terms need some explicit manipulation in order to get a close formulation of the above system.
+In the next paragraphs we develop closure formulations of these terms. In order to do be clear we name these terms as \textit{sub-filter stresses} $\boldsymbol{\zeta}$ and \textit{microscopic force} at the fluid-solid interface $\mathbf{F}^m$:
 
 $$
 \boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)
@@ -439,8 +435,6 @@ $$
 $$
 \mathbf{F}^m =  \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA
 $$
-
-
 
 \section{Closure problems}
 
