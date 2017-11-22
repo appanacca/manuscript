@@ -438,38 +438,33 @@ $$
 
 \section{Closure problems}
 
-
 \subsection{Microscopic force $\mathbf{F}^m$}
-Its a surface filter.The term $\mathbf{F}^m$ is referred as \textit{surface filter} since it act as a filter for the micro-scale fields that that even if they were available that are going to be filtered by the integral over the fluid-solid interface.
+The term $\mathbf{F}^m$ is referred as \textit{surface filter} since it is defined as an integral over the fluid-solid interface for the micro-scale fields; in this manner the perturbation fields are filtered out.
 
-In theory there is no simple representation for $\mathbf{F}^m$ when the terms that includes the terms including the gradient of $\nabla \varepsilon$.
-Although since we are interested in developing a \textbf{local} closure problem that will depend on the geometry of one REV is possible to simply these terms.
-This means that the closure problems are not correct in the interface between a porous medium and a free fluid; but in the last chapter we show that even though we are committing an error we can still use the same closure problems and obtain good results.
+There is no simple representation for $\mathbf{F}^m$ if we include the terms that presents gradients of the porosity ($\nabla \varepsilon$).
+Although since we are interested in developing a \textbf{local} closure problem, that will depend on the geometry of each REV, is possible to simplify these terms.
+This means that the closure problems are not correct at the interface between a porous medium and a free fluid; but in the last chapter we show that even though we are indeed committing an error, we can still use the same closure problems and, still obtain good results.
 
 In order to develop a closure problem we recall the decomposition by \citet{gray1975derivation}:
-
 \begin{equation}
 \psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
 \end{equation}
 
-From the continuity equation valid at the microscopic scale of the fluid phase we subtract the continuity equation valid for the intrinsic average velocity:
+From the continuity equation valid at the microscopic scale, we subtract the continuity equation valid for the intrinsic average velocity:
 
 $$
-\nabla \cdot  \vb  = 0
+\nabla \cdot  \vb - \nabla \cdot  \meani{\vb} = 0
 $$
 
-$$
-\nabla \cdot  \meani{\vb}  = 0 
-$$
 
-we obtain the continuity equation for the perturbations:
+expanding the first velocity with the decomposition above, and making the evident simplification, we obtain the continuity equation for the perturbations:
 
 \begin{equation}
 \nabla \cdot \vbt = 0 
 \end{equation}
 
 
-With the same procedure we first dived the momentum equation in system \ref{eq:vans_mom_1} by the permeability $\varepsilon$ and then subtract them from the point equations obtaining:
+With the same procedure, we first dived the momentum equation in system \ref{eq:vans_mom_1} by the permeability $\varepsilon$, and then subtract them from the point equations obtaining:
 
 \begin{eqnarray}
 &&  \derp{\vbt}{t} + \vb \cdot \nabla \vbt + \vbt \cdot \nabla \meani{\vb}  = \nonumber \\
@@ -481,11 +476,11 @@ With the same procedure we first dived the momentum equation in system \ref{eq:v
 Now in order to simplify the above equations we introduce these length-scale estimates:
 $$ \vbt = O(\meani{\vb}), \qquad \nabla\vbt = O(\dfrac{\meani{\vb}}{\ell}), \qquad  \nabla \meani{\vb} = O(\dfrac{\meani{\vb}}{L}), \qquad \varepsilon = O(\delta) $$
 
-the last length scale estimates is based on the fact that the porosity varies on scale $\delta$ that is much greater than $\ell$, this means $\ell \ll \delta$. \citet{valdes2013velocity} and \citet{ochoa1995momentum} make this argument considering that $\delta$ in their case is the size of the zone in which the porosity change because we have an interface between a porous medium and a free fluid.
-However is important to state that this assumption does not holds at the interface of all the porous media geometry (for ordered porous media $\varepsilon = O(\ell)$) but even in these cases eliminate the terms containing the gradient of the porosity is a necessity to formulate a closure problem.
-\citet{whitaker1996forchheimer} state clearly that there is no easy way to define a \textit{local} closure problem when the above approximations does not holds, here we drop these terms to fulfill the derivation of the closure problem although we keep in mind this problem holds only far from region where the porosity field change (even if in the last chapter we relax this hypothesis).
+where the last length scale estimates is based on the fact that the porosity varies on scale $\delta$ that is much greater than $\ell$, this means $\ell \ll \delta$. \citet{valdes2013velocity} and \citet{ochoa1995momentum} make this argument considering that $\delta$, in the case of an interface between a porous medium and a free fluid, is the size of the zone in which the porosity varies.
+However is important to state that this assumption does not holds at the interface of all the porous media geometry (for ordered porous media $\varepsilon = O(\ell)$).
+\citet{whitaker1996forchheimer} state clearly that there is no easy way to define a \textit{local} closure problem when the relation $\ell \ll \delta$ does not holds; in any case here we suppose it correct to fulfill the derivation of the local closure problem although we keep in mind this problem holds only far from region where the porosity field change (even if in the last chapter we show that relaxing this hypothesis still produce good results).
 
-Continuing with the order estimates we can neglect some of the terms in which the order of magnitude is order :
+Continuing with the order estimates we can neglect some of the terms based on the estimation of different order of magnitude:
 \begin{eqnarray}
 \vb \cdot \nabla \vbt \gg \vbt \cdot \nabla \meani{\vb} \quad &\Rightarrow&  \quad O\left(\dfrac{\meani{\vb}}{\ell}\right) \gg O\left(\dfrac{\meani{\vb}}{L} \right) \\
 \vb \cdot \nabla \meani{\vbt} \gg  \varepsilon^{-1} \nabla \cdot \left(\means{\vbt \vbt}\right)  \quad &\Rightarrow& \quad O\left(\dfrac{(\meani{\vb})^2}{\ell}\right) \gg O\left(\dfrac{(\meani{\vb})^2}{\delta} \right) \\
@@ -494,7 +489,7 @@ Continuing with the order estimates we can neglect some of the terms in which th
 
 In the last estimation we have assumed that the time scale associated respectively with the micro and macro-scale are $t = \dfrac{\ell}{\meani{\vb}}$ and $T =\dfrac{L}{\meani{\vb}}$.
 This assumption imply the \textit{quasi-stationary} of the perturbation problem, and it is physically held by the fact that the perturbation problem can be considered steady from the macroscopic evolution perspective \citet{davit2013homogenization} and \citet{zhu2014study}.
-The readers familiars with the multiples scales methods can notice that the above simplification we have neglected terms of order $\epsilon$ or bigger, that is coherent with the same theory in which only zero order terms are used in the local closure formulation.
+The readers familiars with the multiples scales methods can notice that in the above simplifications we have neglected terms that contains the small parameter $\epsilon$ (or powers of this term), that is coherent with the theory in which only zero order terms are used in the local closure problem formulation.
 
 The order of magnitude estimation leave use with:
 \begin{eqnarray}
@@ -505,9 +500,10 @@ The order of magnitude estimation leave use with:
 	\end{cases}
 \label{eq:vans_mom_}
 \end{eqnarray}
-that is the transport equations system for the perturbation fields.
-The problem of the above system is that it is defined on all the macroscopic porous region and so we would like to find a way to reduce the size of the domain and still obtain the same results.
-The problem above is also depend on macroscopic terms that act as source terms, and because if not this micro-macro scale couplings would constraint use to solve on the overall domain for either the averaged and the fluctuations field we no practical advantage over the point equations.
+that is indeed the transport equations system for the perturbation fields.
+
+The above system is still defined on all the porous domain and so we would like to find a way to reduce its size and still obtain the same results.
+Another issue with the above system is that it still contain some macroscopic terms that act as source; this micro-macro scale couplings would constrain us to solve the system on the overall domain for either the averaged and the fluctuations field, with no practical advantage over the point equations.
 Although is possible to use Green function to solve the problem in this form \citet{wood2013volume}, we are interested in a \textit{local} closure problem.
 
 This can be done restricting the solution region to a single REV, enforcing periodic boundary condition at the exterior of such volume.
@@ -525,7 +521,7 @@ The problem stated in these manner became:
 \label{eq:vans_mom_2}
 \end{eqnarray}
 
-In the above problem the averaged condition $\meani{\vbt} = 0$ is used to fix te above problem that otherwise will be defined up to a constant.
+In the above problem the averaged condition $\meani{\vbt} = 0$ is used to make the solution unique, that otherwise will be defined up to a constant.
 
 Now we introduce the closure variables $\mathbf{R}$, $\mathbf{r}$, for which we made the hypothesis that:
 \begin{eqnarray}
@@ -534,10 +530,11 @@ Now we introduce the closure variables $\mathbf{R}$, $\mathbf{r}$, for which we 
 	\label{eq:closure_viab_hp}
 \end{eqnarray}
 the above choice is just dictate from convenience.
-Is very important to pinpoint that the above one is a crucial assumption since we imply that exist a linear correlation between the micro and macro-scale fields.
-Even if the closure variables can be space dependent.
+Is very important to pinpoint that the last assumption is crucial since we imply a linear correlation between the micro and macro-scale fields.
+Even if this dependence can be space dependent, it means that can vary in each point $x$ of the macroscopic space (this functional dependence will be further explored in chapter \ref{ch:4}).
 
-Since we are free to define the tensor $\mathbf{R}$  and the vector $\mathbf{r}$ as we wish we chose to define it by means of the closure problems:
+
+Since we are free to define the tensor $\mathbf{R}$  and the vector $\mathbf{r}$ as we wish, we chose to define it by means of the following problem:
 
 \begin{eqnarray}
 	\begin{cases}
@@ -550,17 +547,17 @@ Since we are free to define the tensor $\mathbf{R}$  and the vector $\mathbf{r}$
 \label{eq:R_problem}
 \end{eqnarray}
 
-With  $\mathbf{R}$ and $\mathbf{r}$ specified as above we can prove that $\boldsymbol{\xi}$ is zero and $\gamma$ a constant.
+With  $\mathbf{R}$ and $\mathbf{r}$ specified as above we can prove that $\boldsymbol{\xi}$ is zero and $\gamma$ a constant \cite{whitaker1996forchheimer}.
 The above problem is a closed formulation for the two fields  $\mathbf{R}$ and $\mathbf{r}$ but it is difficult to solve computationally since it is an integral-differential equation.
-In order to simplify it we can decompose the problem in two parts, the first one give us the \textit{permeability tensor} and the second one the \textit{Forchheimer tensor}.
+In order to simplify it we decompose the problem in two parts, the first one gives us the \textit{permeability tensor} and the second one the \textit{Forchheimer tensor}.
 
-We represent $\mathbf{R}$ and $\mathbf{r}$ as:
+We decompose $\mathbf{R}$ and $\mathbf{r}$ as:
 
 $$
  \mathbf{R} = \mathbf{B} + \mathbf{C}, \qquad \mathbf{r} = \mathbf{b} + \mathbf{c}
 $$
 
-So the previous decomposition became:
+In this manner the micro-macro field relationship can be written as:
 
 \begin{eqnarray}
 	&& \vbt = \mathbf{B} \cdot \meani{\vb} + \mathbf{C} \cdot \meani{\vb}  \\
@@ -568,7 +565,7 @@ So the previous decomposition became:
 	\label{eq:closure_viab_divison}
 \end{eqnarray}
 
-so the first problem became:
+Now substituting this relationship in the last problem, we can first derive the system for $\mathbf{B}$:
 
 \begin{eqnarray}
 	\begin{cases}
@@ -581,7 +578,7 @@ so the first problem became:
 \label{eq:B_problem}
 \end{eqnarray}
 
-and the second one:
+and the second one for $\mathbf{C}$:
 
 \begin{eqnarray}
 	\begin{cases}
@@ -618,7 +615,7 @@ $$
 \mathbf{d} = \varepsilon^{-1} \mathbf{b} \cdot \mathbf{K}, \qquad \mathbf{D} = \varepsilon^{-1} \left(\mathbf{B} + \mathbf{I} \right)\cdot \mathbf{K}
 $$
 
-making the problem \eqref{eq:B_problem}:
+making the problem \eqref{eq:B_problem} became:
 \begin{eqnarray}
 	\begin{cases}
 		0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I}\\
@@ -630,13 +627,14 @@ making the problem \eqref{eq:B_problem}:
 \label{eq:D_problem}
 \end{eqnarray}
 
-and the following for the second problem:
+and the problem for \ref{eq:C_problem}:
 
 $$
 \mathbf{m} = \varepsilon^{-1} \mathbf{n} \cdot \mathbf{H}, \qquad \mathbf{M} = \varepsilon^{-1} \left(\mathbf{N} + \mathbf{I} \right)\cdot \mathbf{H}
 $$
 
-where $\mathbf{H}$ is called \textit{effective permeability tensor} and is so defined:
+where $\mathbf{H}$ is called \textit{effective permeability tensor} and it represent a generalization of the permeability tensor in the inertia regime.
+The relation between the Forchheimer tensor and the effective permeability is the following:
 
 $$
 \mathbf{H}^{-1} = \mathbf{K}^{-1} \left(\mathbf{I} +\mathbf{F}\right)
@@ -656,12 +654,12 @@ so the problem became:
 \end{eqnarray}
 
 However exist in literature simplified regression that permits to by-pass the \textit{local} closure problem computation and get directly the tensors $\mathbf{K}$ and $\mathbf{F}$.
-One of the most famous is the Kozeny-Carman \citet{kozeny} relation and the modified Ergun equation \cite{transport2002bird}.
+One of the most famous is the Kozeny-Carman relation \citet{kozeny} and the modified Ergun equation \cite{transport2002bird}.
 Extended version of this empirical formulation can be found in \citet{zampogna2016fluid} and \cite{yazdchi2012towards}.
 The above relationship are always based on some regression from experiments or computation, and they are parameterized usually with the porosity and some geometrical characteristic of the medium.
-Using this formulation has the downsize that range of application can be restricted to very small Reynolds number and that the geometry assumed is most of the time very simple (spheres, or 2D regular arranged cylinders); this is why the closure problem rest the main reliable source of computation of the two tensor.
+The downsizes in using these simplified formulas is that their range of application can be restricted to very small Reynolds number and that the geometry assumed is most of the time very simple (spheres, or 2D regular arranged cylinders); this is why the local closure problem remain the main reliable source of computation of the two tensor.
 
-\Red{explain that tis is the fermature}
+\Red{explain that this is the fermature}
 $$\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \meani{\vb}$$
 
 
