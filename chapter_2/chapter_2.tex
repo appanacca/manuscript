@@ -732,20 +732,22 @@ Our final decision on the interface treatment is to adopt the penalization appro
 \section{Elastic porous media: hybrid homogenization approach}
 
 Elastic porous media has been firstly studied by \citet{biot1956theory} which developed a model for the stresses wave propagation inside the solid matrix of a porous medium.
-His model was used in porous media with almost the same density as the solid, as for the case of saturated soil.
+His model has been a reference for elastic porous media with a close to unity density ratio ($\rho_{\beta}/\rho_{\sigma}$), as for the case of saturated soil.
 
-\citet{whitaker1986deformable} has also approached the problem using the volume average method tho homogenize either the solid and the fluid part, however the closure problems for the tensor that came out from the averaging of the solid equation are very difficult to solve and there are no following studies that neither clarify the problem nor confirm the formulation.
+\citet{whitaker1986deformable} has also approached the problem using the volume average method tho homogenize either the solid and the fluid part.
+Furthermore the closure problems that came out from the averaging procedure of the solid equation are very difficult to solve and; there are no following studies that neither clarify the problem nor confirm the formulation.
 
-In our derivation of the VANS the only term that has to be changed in order to account to the porous media that can move if the microscopic force $\mathbf{F}^m$, in any of the others development we have used the hypothesis of rigid porous media.
-This term should be modified to take into account that the force that the fluid exert on the solid part has to take into account the solid velocity:
+Following works by \citet{hussong2011continuum} and \citet{wang2015volume} showed how to extend the rigid case formulation of the VANS in case of elastic medium.
+The only term that has to be changed is the closure for the microscopic force \eqref{eq:closure_final}, as a matter of fact the hypothesis of rigid porous media has been used in this only term.
+They proposed a modification based on the physical interpretation of this term. In reality the force exerted by the fluid on the solid part has to take into account the solid velocity:
 $$
 \mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \left[ \meani{\vb} - \meani{\ws} \right]
 $$
+but the physics behind the force generation is the same and so it should be the formulation of the closure.
 
-This same closure was also adopted in the works of \citet{hussong2011continuum} and \citet{wang2015volume}.
-Now we want to present what we can an \textit{hybrid homogenization approach}; as indicated in paragraph \ref{ch:model_porous} in order to describe the dynamic of a poroelastic layer we need an fluid model, a solid model and an interface condition.
-In the above sections we have presented the fluid model (VANS equations) and the interface treatment; here we propose an approach that is transparent to whatever solid model one want to use.
-The pseudo-code fo the macroscopic algorithm can be sketched like the one in \ref{algo:vans_elastic}.
+This simple modification can be included in an \textit{hybrid homogenization approach}. As presented in paragraph \ref{ch:model_porous} to describe the dynamic of a poroelastic layer we need a model for the fluid part, and one for the solid plus an interface condition; but since the dynamic of the solid is usually computationally cheap there is no need to use an homogenized model for this part.
+Here we propose an approach that is transparent to whatever solid model one want to use.
+The pseudo-code fo the macroscopic algorithm is the one in \ref{algo:vans_elastic}.
 
 \begin{algorithm}[H]
 	\KwData{$(\meani{\vb})^n$, ($\meani{\ws})^n$, ($\meani{\pb})^n$}
@@ -757,6 +759,7 @@ The pseudo-code fo the macroscopic algorithm can be sketched like the one in \re
 			Fluid solver VANS: $(\meani{\vb})^{n+1}$, $(\meani{\pb})^{n+1}$
 			Solid solver: $\ws^{n+1}$
 			Solid averaging: $\varepsilon^{n+1}(x)$, $(\meani{\ws})^{n+1}$
+			Effective permeability metamodel:
 			Relaxation ??
 			\eIf{$|| (\meani{\vb})^{n+1} - (\meani{\vb})^n || < \epsilon$}{
 				break\;
@@ -770,14 +773,24 @@ The pseudo-code fo the macroscopic algorithm can be sketched like the one in \re
 	\label{algo:vans_elastic}
 \end{algorithm}
 
-Discuss the solid model equation and the a posteriori homogenization of the same are beyond the scope of this section.
-The only idea that we want to express is that with just some slight modification in the fluid equation is possible to integrate them in a macroscopic algorithm that can take into account moving fibrous media.
+Any solid model can be used in the model (for example Bernulli beam) and when solved a new porosity field and homogenized solid field can be computed in this manner.
 
+$$
+\varepsilon = \dfrac{1}{V} \int_{\volb} \; dV
+$$
+
+$$
+\meani{\ws} = \dfrac{1}{V} \int_{V_{\sigma}} \ws \; dV
+$$
+where $V_{\sigma}$ is the solid part of the REV.
+The idea that we want to express is that with just some slight modification in the fluid equations is possible to easily develop a macroscopic algorithm that can take into account moving fibrous media.
+In the above we also introduce (in line 7??) the idea of a metamodel for the apparent permeability, this is needed because in chapter \ref{ch:4} we will show how $\mathbf{H}$ is affected by the direction and intensity of the mean velocity field.
+It is also worth noting that with the use of the penalization method (paragraph \ref{ch:interface}) the interface condition is implicitly treated in the above algorithm and it is very simple to implement even for moving porous media.
 
 \section{Note on the average of an average field}
 \label{ch:appendix_a}
 
-In the above sections have briefly talked about the results in equation \ref{eq:well_behaved} that we recall here:
+In the above sections we have briefly talked about the results in equation \ref{eq:well_behaved} that we recall here:
 $$\means{\means{\psi_{\beta}}|_{\mathbf{r}}}|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}}$$
 
 And introducing the decomposition \ref{eq:gray} the above results can be used to state that the perturbation fields has null averaged:
