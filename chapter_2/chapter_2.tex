@@ -659,21 +659,25 @@ Extended version of this empirical formulation can be found in \citet{zampogna20
 The above relationship are always based on some regression from experiments or computation, and they are parameterized usually with the porosity and some geometrical characteristic of the medium.
 The downsizes in using these simplified formulas is that their range of application can be restricted to very small Reynolds number and that the geometry assumed is most of the time very simple (spheres, or 2D regular arranged cylinders); this is why the local closure problem remain the main reliable source of computation of the two tensor.
 
-\Red{explain that this is the fermature}
-$$\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \meani{\vb}$$
+With the help of the above closure problem the final closed formulation for the microscopic force became:
+\begin{equation}
+\mathbf{F}^m \approx \mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \meani{\vb}
+\label{eq:closure_final}
+\end{equation}
+in which is clear the equivalence between the description by means of the perturbation fields and the one that uses only the macroscopic  fields, we refer to this equivalence as closure formulation.
 
 
 \subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
 
-We have already seen that another term that needs a closure came out from the VANS equation and it is the \textit{sub-filter stresses} term.
+We have already seen that yet another term need to be closed.
+The \textit{sub-filter stresses} act as a volume filter for the perturbation velocity that appear inside the volume averaging operator:
 $$\boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)$$
-This term act as a volume filter for the perturbation fields product that appear inside the volume averaging operator.
 Although we have already seen in the previous paragraph that this term can be neglected, based on some length-scale argument, here we want to explain briefly what this term represent and possibly when it can be important.
 
 \citet{breugem2006influence} and \citet{nepf1999drag} divides the nature of sub-filter stresses in two different components:
 \begin{itemize}
-	\item \textit{mechanical diffusion:} inside the pore the fluid has to move around the solid structure (for examples fibers) causing an augmentation of diffusion inside the VANS momentum equations. This mechanism is so caused by the tortuosity of the flow path of the different particles.
-	\item \textit{turbulent dispersion:} is caused by the subfilter scales eddies that creates at the pore scale. This type of additional diffusivity can be anisotropic reflecting the anisotropicity of the medium; for example in fibers case the vertical penetration and breakdown of eddies is much higher than the horizontal one.
+	\item \textit{mechanical diffusion:} when the fluid is forced to flow inside the pore, it has to pass around the solid structure (for examples fibers) causing an augmentation of diffusion inside the VANS momentum equations. This mechanism is usually studied by means of the flow path tortuosity for each different particle.
+	\item \textit{turbulent dispersion:} is caused by the subfilter scales eddies that creates at the pore scale. This type of additional diffusivity can be anisotropic reflecting the anisotropicity of the medium; for example in case of fibrous porous media the vertical penetration (and breakdown of eddies) is much higher than the horizontal one.
 \end{itemize}
 
 However comparing some simple formulation of such terms to the VANS equations shows that even if the two different components are equally important they are negligible for the volume averaged field equations.
@@ -687,27 +691,27 @@ However comparing some simple formulation of such terms to the VANS equations sh
 %introducing the fourth order tensor $\mathbf{J} = \meani{\mathbf{R}^T\mathbf{R}}$, which if we recall that for our computation M, H are minor than 1 so their product is smaller and so J is negligible compared to H.
 %However is that correct to back substitute the closure formulation using R where the closure term $\boldsymbol{\zeta}$ was neglected in the closure problem formulation for R ??
 
-Although we speculate that this term can become important in situations involving elastic porous media such as canopy flow where when the interface experience sweep and injection of fluid at the interface.
+Although, we speculate that this term can become important in situations involving elastic porous media such as canopy flow where when the interface experience sweep and injection of fluid at the interface.
 In fact \citet{finnigan2000turbulence} and \citet{de2008effects} have shown that the turbulence spectrum is modified in the above cases and we argue that the sub-filter stresses term can, probably, model this high frequency vorticies.
 
 In order to better study this term we need reliable full DNS inside the porous media at high pore Reynolds number, but such simulations are very expensive and almost un-existent in literature.
-Experimental measurements inside the porous structure can be another way to study this volume filter even though such measurements are very hard to perform even with the latest technique.
+Experimental measurements inside the porous structure can be another way to study this volume filter even though such measurements can be very difficult to perform even with the latest technique.
 
 \section{Interface treatment}
 \label{ch:interface}
 
-The problem of the interface condition between a porous medium and a free fluid has been approached by many different methods; \citet{ehrhardt2010interface} has given a concise but very clear introduction on the problem, however the field is still evolving and in the last couple of years many new works has been presented \citet{minale2014momentum}, \citet{angot2017asymptotic}, \citet{lacis2017framework} and \Red{cite new work of Giuseppe}.
-The problem is per se very complex and our work was not focused on developing a new condition; besides in this paragraph we want to explain our choice for the interface treatment over the many possible ones.
+The problem of the interface condition between a porous medium and a free fluid has been approached by many different authors using many methods, of which \citet{ehrhardt2010interface} has given a concise but very clear introduction on the problem; however the field is still evolving and in the last couple of years many new works has been presented \citet{minale2014momentum}, \citet{angot2017asymptotic}, \citet{lacis2017framework} and \Red{cite new work of Giuseppe}.
+The problem is very complex and our work is not focused on the development of a new condition; besides, in this paragraph, we want to explain our choice for the interface treatment over the many possible ones.
 The interface conditions can be classified in two groups, the \textit{one domain approach} (ODA) and the \textit{two domain approach} (TDA).
-In the TDA the porous domain is splitted from the free fluid domain and a boundary condition at the interface is specified; the necessity to do so was mainly caused by the fact that the first fluid model to coupled were the Stokes equations and the Darcy ones that have different orders so were incompatible at the interface.
+In the TDA the porous domain is splitted in two and a boundary condition at the interface is specified; hysterically the necessity to such a treatment was mainly due by the fact that the early works try to couple the Stokes equations and the Darcy ones, and the equation have different orders so were incompatible at the interface.
 Some later work introduce the Brinkmann model to adjust the order of the porous media equations but the validity of this correction deep inside the porous medium was questionable.
 The principal works that follow this approach are \citet{beavers1967boundary}, \citet{mikelic2000interface}, \citet{ochoa1995momentum} and \citet{le2006interfacial}.
-These works all have in common a formulation in which a certain slip in specified at the interface, for example the condition specified in the first of the above references reads:
+These works have all in common the fact that a certain slip in specified at the interface, for example the condition\citet{beavers1967boundary} reads:
 $$
 \meani{\vb}(x,\Gamma^+) = \dfrac{\sqrt{\mathbf{K}}}{\alpha} \derp{\meani{\vb}(x, \Gamma^-)}{y}
 $$
 where $\Gamma^+$ and $\Gamma^-$ represent vertical coordinate above and below the interface, $\mathbf{K}$ is the permeability tensor and $\alpha$ is a coefficient based on the porous medium geometry.
-The other cited proposition change and extend this formulation but basically the all impose a velocity jump at the interface that is function of a parameter (here $\alpha$) that is basically a fit to experimental data.
+The other cited proposition change and extend this formulation but basically they still impose a velocity jump at the interface as a function of a parameter (here $\alpha$) needed to fit the experimental data.
 
 On the contrary the ODA approach presume that the final averaged equation are valid in all the domain (porous and free fluid) but the quantities that define the presence of the porous media (porosity and permeability) vanished in the free fluid region.
 This method is also know as \textit{penalization method}, one of the first porous media application was \citet{caltagirone1994interaction} after that it was used by many other authors, like \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bruneau2010coupling}, \citet{hussong2011continuum}.
