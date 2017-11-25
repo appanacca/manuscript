@@ -1,0 +1,1605 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Title: spectrum_darcy.eps
+%%Creator: matplotlib version 2.0.0, http://matplotlib.org/
+%%CreationDate: Sat Nov 25 14:51:18 2017
+%%Orientation: portrait
+%%BoundingBox: -45 118 657 673
+%%EndComments
+%%BeginProlog
+/mpldict 9 dict def
+mpldict begin
+/m { moveto } bind def
+/l { lineto } bind def
+/r { rlineto } bind def
+/c { curveto } bind def
+/cl { closepath } bind def
+/box {
+m
+1 index 0 r
+0 exch r
+neg 0 r
+cl
+} bind def
+/clipbox {
+box
+clip
+newpath
+} bind def
+%!PS-Adobe-3.0 Resource-Font
+%%Title: DejaVu Sans
+%%Copyright: Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Copyright (c) 2006 by Tavmjong Bah. All Rights Reserved. DejaVu changes are in public domain 
+%%Creator: Converted from TrueType to type 3 by PPR
+25 dict begin
+/_d{bind def}bind def
+/_m{moveto}_d
+/_l{lineto}_d
+/_cl{closepath eofill}_d
+/_c{curveto}_d
+/_sc{7 -1 roll{setcachedevice}{pop pop pop pop pop pop}ifelse}_d
+/_e{exec}_d
+/FontName /DejaVuSans def
+/PaintType 0 def
+/FontMatrix[.001 0 0 .001 0 0]def
+/FontBBox[-1021 -463 1793 1232]def
+/FontType 3 def
+/Encoding [ /period /zero /one /two /four /six /eight /minus ] def
+/FontInfo 10 dict dup begin
+/FamilyName (DejaVu Sans) def
+/FullName (DejaVu Sans) def
+/Notice (Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Copyright (c) 2006 by Tavmjong Bah. All Rights Reserved. DejaVu changes are in public domain ) def
+/Weight (Book) def
+/Version (Version 2.35) def
+/ItalicAngle 0.0 def
+/isFixedPitch false def
+/UnderlinePosition -130 def
+/UnderlineThickness 90 def
+end readonly def
+/CharStrings 8 dict dup begin
+/period{318 0 107 0 210 124 _sc
+107 124 _m
+210 124 _l
+210 0 _l
+107 0 _l
+107 124 _l
+_cl}_d
+/zero{636 0 66 -13 570 742 _sc
+318 664 _m
+267 664 229 639 203 589 _c
+177 539 165 464 165 364 _c
+165 264 177 189 203 139 _c
+229 89 267 64 318 64 _c
+369 64 407 89 433 139 _c
+458 189 471 264 471 364 _c
+471 464 458 539 433 589 _c
+407 639 369 664 318 664 _c
+318 742 _m
+399 742 461 709 505 645 _c
+548 580 570 486 570 364 _c
+570 241 548 147 505 83 _c
+461 19 399 -13 318 -13 _c
+236 -13 173 19 130 83 _c
+87 147 66 241 66 364 _c
+66 486 87 580 130 645 _c
+173 709 236 742 318 742 _c
+_cl}_d
+/one{636 0 110 0 544 729 _sc
+124 83 _m
+285 83 _l
+285 639 _l
+110 604 _l
+110 694 _l
+284 729 _l
+383 729 _l
+383 83 _l
+544 83 _l
+544 0 _l
+124 0 _l
+124 83 _l
+_cl}_d
+/two{{636 0 73 0 536 742 _sc
+192 83 _m
+536 83 _l
+536 0 _l
+73 0 _l
+73 83 _l
+110 121 161 173 226 239 _c
+290 304 331 346 348 365 _c
+380 400 402 430 414 455 _c
+426 479 433 504 433 528 _c
+433 566 419 598 392 622 _c
+365 646 330 659 286 659 _c
+255 659 222 653 188 643 _c
+154 632 117 616 78 594 _c
+78 694 _l
+118 710 155 722 189 730 _c
+223 738 255 742 284 742 _c
+}_e{359 742 419 723 464 685 _c
+509 647 532 597 532 534 _c
+532 504 526 475 515 449 _c
+504 422 484 390 454 354 _c
+446 344 420 317 376 272 _c
+332 227 271 164 192 83 _c
+_cl}_e}_d
+/four{636 0 49 0 580 729 _sc
+378 643 _m
+129 254 _l
+378 254 _l
+378 643 _l
+352 729 _m
+476 729 _l
+476 254 _l
+580 254 _l
+580 172 _l
+476 172 _l
+476 0 _l
+378 0 _l
+378 172 _l
+49 172 _l
+49 267 _l
+352 729 _l
+_cl}_d
+/six{{636 0 70 -13 573 742 _sc
+330 404 _m
+286 404 251 388 225 358 _c
+199 328 186 286 186 234 _c
+186 181 199 139 225 109 _c
+251 79 286 64 330 64 _c
+374 64 409 79 435 109 _c
+461 139 474 181 474 234 _c
+474 286 461 328 435 358 _c
+409 388 374 404 330 404 _c
+526 713 _m
+526 623 _l
+501 635 476 644 451 650 _c
+425 656 400 659 376 659 _c
+310 659 260 637 226 593 _c
+}_e{192 549 172 482 168 394 _c
+187 422 211 444 240 459 _c
+269 474 301 482 336 482 _c
+409 482 467 459 509 415 _c
+551 371 573 310 573 234 _c
+573 159 550 99 506 54 _c
+462 9 403 -13 330 -13 _c
+246 -13 181 19 137 83 _c
+92 147 70 241 70 364 _c
+70 479 97 571 152 639 _c
+206 707 280 742 372 742 _c
+396 742 421 739 447 735 _c
+472 730 498 723 526 713 _c
+_cl}_e}_d
+/eight{{636 0 68 -13 568 742 _sc
+318 346 _m
+271 346 234 333 207 308 _c
+180 283 167 249 167 205 _c
+167 161 180 126 207 101 _c
+234 76 271 64 318 64 _c
+364 64 401 76 428 102 _c
+455 127 469 161 469 205 _c
+469 249 455 283 429 308 _c
+402 333 365 346 318 346 _c
+219 388 _m
+177 398 144 418 120 447 _c
+96 476 85 511 85 553 _c
+85 611 105 657 147 691 _c
+188 725 245 742 318 742 _c
+}_e{390 742 447 725 489 691 _c
+530 657 551 611 551 553 _c
+551 511 539 476 515 447 _c
+491 418 459 398 417 388 _c
+464 377 501 355 528 323 _c
+554 291 568 251 568 205 _c
+568 134 546 80 503 43 _c
+459 5 398 -13 318 -13 _c
+237 -13 175 5 132 43 _c
+89 80 68 134 68 205 _c
+68 251 81 291 108 323 _c
+134 355 171 377 219 388 _c
+183 544 _m
+183 506 194 476 218 455 _c
+}_e{242 434 275 424 318 424 _c
+360 424 393 434 417 455 _c
+441 476 453 506 453 544 _c
+453 582 441 611 417 632 _c
+393 653 360 664 318 664 _c
+275 664 242 653 218 632 _c
+194 611 183 582 183 544 _c
+_cl}_e}_d
+/minus{838 0 106 272 732 355 _sc
+106 355 _m
+732 355 _l
+732 272 _l
+106 272 _l
+106 355 _l
+_cl}_d
+end readonly def
+
+/BuildGlyph
+ {exch begin
+ CharStrings exch
+ 2 copy known not{pop /.notdef}if
+ true 3 1 roll get exec
+ end}_d
+
+/BuildChar {
+ 1 index /Encoding get exch get
+ 1 index /BuildGlyph get exec
+}_d
+
+FontName currentdict end definefont pop
+%!PS-Adobe-3.0 Resource-Font
+%%Title: DejaVu Sans Oblique
+%%Copyright: Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Copyright (c) 2006 by Tavmjong Bah. All Rights Reserved. DejaVu changes are in public domain 
+%%Creator: Converted from TrueType to type 3 by PPR
+25 dict begin
+/_d{bind def}bind def
+/_m{moveto}_d
+/_l{lineto}_d
+/_cl{closepath eofill}_d
+/_c{curveto}_d
+/_sc{7 -1 roll{setcachedevice}{pop pop pop pop pop pop}ifelse}_d
+/_e{exec}_d
+/FontName /DejaVuSans-Oblique def
+/PaintType 0 def
+/FontMatrix[.001 0 0 .001 0 0]def
+/FontBBox[-1016 -350 1659 1068]def
+/FontType 3 def
+/Encoding [ /i /r /omega ] def
+/FontInfo 10 dict dup begin
+/FamilyName (DejaVu Sans) def
+/FullName (DejaVu Sans Oblique) def
+/Notice (Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Copyright (c) 2006 by Tavmjong Bah. All Rights Reserved. DejaVu changes are in public domain ) def
+/Weight (Oblique) def
+/Version (Version 2.35) def
+/ItalicAngle -11.0 def
+/isFixedPitch false def
+/UnderlinePosition -130 def
+/UnderlineThickness 90 def
+end readonly def
+/CharStrings 3 dict dup begin
+/i{278 0 35 0 273 760 _sc
+183 760 _m
+273 760 _l
+251 646 _l
+161 646 _l
+183 760 _l
+142 547 _m
+232 547 _l
+125 0 _l
+35 0 _l
+142 547 _l
+_cl}_d
+/r{411 0 35 0 463 560 _sc
+446 464 _m
+436 468 426 472 414 475 _c
+402 477 390 479 377 479 _c
+329 479 287 460 251 424 _c
+215 388 192 339 180 279 _c
+125 0 _l
+35 0 _l
+142 547 _l
+232 547 _l
+215 462 _l
+238 493 266 517 300 534 _c
+333 551 368 560 406 560 _c
+415 560 424 559 434 558 _c
+444 557 453 555 463 553 _c
+446 464 _l
+_cl}_d
+/omega{{837 0 68 -13 771 547 _sc
+214 -13 _m
+78 -13 30 83 68 276 _c
+82 352 125 443 196 547 _c
+293 547 _l
+225 443 184 351 170 273 _c
+142 132 164 62 237 62 _c
+304 62 354 149 387 325 _c
+470 325 _l
+434 149 450 61 518 62 _c
+590 62 640 133 668 273 _c
+682 351 677 443 651 547 _c
+748 547 _l
+778 443 785 352 771 276 _c
+733 82 647 -13 512 -13 _c
+423 -13 383 35 391 132 _c
+}_e{359 35 300 -13 214 -13 _c
+_cl}_e}_d
+end readonly def
+
+/BuildGlyph
+ {exch begin
+ CharStrings exch
+ 2 copy known not{pop /.notdef}if
+ true 3 1 roll get exec
+ end}_d
+
+/BuildChar {
+ 1 index /Encoding get exch get
+ 1 index /BuildGlyph get exec
+}_d
+
+FontName currentdict end definefont pop
+end
+%%EndProlog
+mpldict begin
+-45.294 118.022 translate
+702.588 555.955 0 0 clipbox
+gsave
+0 0 m
+702.58775 0 l
+702.58775 555.95525 l
+0 555.95525 l
+cl
+1.000 setgray
+fill
+grestore
+gsave
+88.04375 64.653125 m
+691.88775 64.653125 l
+691.88775 542.677125 l
+88.04375 542.677125 l
+cl
+1.000 setgray
+fill
+grestore
+0.800 setlinewidth
+1 setlinejoin
+2 setlinecap
+[] 0 setdash
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+87.63902 64.653125 m
+87.63902 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+0 -3.5 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+87.639 64.6531 o
+grestore
+/DejaVuSans findfont
+16.000 scalefont
+setfont
+gsave
+74.904645 45.496875 translate
+0.000000 rotate
+0.000000 0.000000 m /zero glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /four glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+182.514181 64.653125 m
+182.514181 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+0 -3.5 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+182.514 64.6531 o
+grestore
+gsave
+169.779806 45.496875 translate
+0.000000 rotate
+0.000000 0.000000 m /zero glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /six glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+277.389342 64.653125 m
+277.389342 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+0 -3.5 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+277.389 64.6531 o
+grestore
+gsave
+264.654967 45.496875 translate
+0.000000 rotate
+0.000000 0.000000 m /zero glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /eight glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+372.264503 64.653125 m
+372.264503 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+0 -3.5 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+372.265 64.6531 o
+grestore
+gsave
+359.530128 45.496875 translate
+0.000000 rotate
+0.000000 0.000000 m /one glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /zero glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+467.139664 64.653125 m
+467.139664 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+0 -3.5 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+467.14 64.6531 o
+grestore
+gsave
+454.405289 45.496875 translate
+0.000000 rotate
+0.000000 0.000000 m /one glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /two glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+562.014825 64.653125 m
+562.014825 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+0 -3.5 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+562.015 64.6531 o
+grestore
+gsave
+549.280450 45.496875 translate
+0.000000 rotate
+0.000000 0.000000 m /one glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /four glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+656.889986 64.653125 m
+656.889986 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+0 -3.5 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+656.89 64.6531 o
+grestore
+gsave
+644.155611 45.496875 translate
+0.000000 rotate
+0.000000 0.000000 m /one glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /six glyphshow
+grestore
+gsave
+371.465750 13.856250 translate
+0.000000 rotate
+/DejaVuSans-Oblique findfont
+32.0 scalefont
+setfont
+0.000000 0.500000 moveto
+/omega glyphshow
+
+/DejaVuSans-Oblique findfont
+22.4 scalefont
+setfont
+26.796875 -4.750000 moveto
+/r glyphshow
+
+
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+88.04375 64.653125 m
+691.88775 64.653125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+-3.5 0 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+88.0438 64.6531 o
+grestore
+gsave
+42.168750 58.575000 translate
+0.000000 rotate
+0.000000 0.000000 m /minus glyphshow
+13.406250 0.000000 m /one glyphshow
+23.585938 0.000000 m /period glyphshow
+28.671875 0.000000 m /zero glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+88.04375 144.323792 m
+691.88775 144.323792 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+-3.5 0 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+88.0438 144.324 o
+grestore
+gsave
+42.168750 138.245667 translate
+0.000000 rotate
+0.000000 0.000000 m /minus glyphshow
+13.406250 0.000000 m /zero glyphshow
+23.585938 0.000000 m /period glyphshow
+28.671875 0.000000 m /eight glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+88.04375 223.994458 m
+691.88775 223.994458 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+-3.5 0 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+88.0438 223.994 o
+grestore
+gsave
+42.168750 217.916333 translate
+0.000000 rotate
+0.000000 0.000000 m /minus glyphshow
+13.406250 0.000000 m /zero glyphshow
+23.585938 0.000000 m /period glyphshow
+28.671875 0.000000 m /six glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+88.04375 303.665125 m
+691.88775 303.665125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+-3.5 0 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+88.0438 303.665 o
+grestore
+gsave
+42.168750 297.587000 translate
+0.000000 rotate
+0.000000 0.000000 m /minus glyphshow
+13.406250 0.000000 m /zero glyphshow
+23.585938 0.000000 m /period glyphshow
+28.671875 0.000000 m /four glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+88.04375 383.335792 m
+691.88775 383.335792 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+-3.5 0 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+88.0438 383.336 o
+grestore
+gsave
+42.168750 377.257667 translate
+0.000000 rotate
+0.000000 0.000000 m /minus glyphshow
+13.406250 0.000000 m /zero glyphshow
+23.585938 0.000000 m /period glyphshow
+28.671875 0.000000 m /two glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+88.04375 463.006458 m
+691.88775 463.006458 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+-3.5 0 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+88.0438 463.006 o
+grestore
+gsave
+55.575000 456.928333 translate
+0.000000 rotate
+0.000000 0.000000 m /zero glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /zero glyphshow
+grestore
+2 setlinecap
+0.690 setgray
+gsave
+603.8 478 88.04 64.65 clipbox
+88.04375 542.677125 m
+691.88775 542.677125 l
+stroke
+grestore
+0 setlinecap
+0.000 setgray
+gsave
+/o {
+gsave
+newpath
+translate
+0.8 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 0 m
+-3.5 0 l
+
+gsave
+0.000 setgray
+fill
+grestore
+stroke
+grestore
+} bind def
+88.0438 542.677 o
+grestore
+gsave
+55.575000 536.599000 translate
+0.000000 rotate
+0.000000 0.000000 m /zero glyphshow
+10.179688 0.000000 m /period glyphshow
+15.265625 0.000000 m /two glyphshow
+grestore
+gsave
+31.512500 286.665125 translate
+90.000000 rotate
+/DejaVuSans-Oblique findfont
+32.0 scalefont
+setfont
+0.000000 0.500000 moveto
+/omega glyphshow
+
+/DejaVuSans-Oblique findfont
+22.4 scalefont
+setfont
+26.796875 -4.750000 moveto
+/i glyphshow
+
+
+grestore
+1.000 setlinewidth
+1.000 0.000 0.000 setrgbcolor
+gsave
+603.8 478 88.04 64.65 clipbox
+/o {
+gsave
+newpath
+translate
+1.0 setlinewidth
+1 setlinejoin
+0 setlinecap
+0 -5 m
+1.326016 -5 2.597899 -4.473168 3.535534 -3.535534 c
+4.473168 -2.597899 5 -1.326016 5 0 c
+5 1.326016 4.473168 2.597899 3.535534 3.535534 c
+2.597899 4.473168 1.326016 5 0 5 c
+-1.326016 5 -2.597899 4.473168 -3.535534 3.535534 c
+-4.473168 2.597899 -5 1.326016 -5 0 c
+-5 -1.326016 -4.473168 -2.597899 -3.535534 -3.535534 c
+-2.597899 -4.473168 -1.326016 -5 0 -5 c
+cl
+
+gsave
+1.000 0.000 0.000 setrgbcolor
+fill
+grestore
+stroke
+grestore
+} bind def
+615.568 190.971 o
+660.491 463.006 o
+657.026 463.006 o
+653.106 463.006 o
+648.593 463.006 o
+663.07 463.006 o
+643.758 463.006 o
+638.479 463.006 o
+632.948 463.006 o
+627.065 463.005 o
+620.979 463.005 o
+614.607 463.005 o
+608.066 463.006 o
+601.29 463.006 o
+594.374 463.008 o
+587.262 463.009 o
+580.035 463.013 o
+572.644 463.017 o
+565.158 463.024 o
+424.78 529.379 o
+557.536 463.032 o
+664.44 463.006 o
+549.836 463.044 o
+542.024 463.057 o
+534.149 463.076 o
+526.182 463.097 o
+518.165 463.125 o
+510.073 463.154 o
+501.941 463.192 o
+493.749 463.231 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+485.525 463.278 o
+477.256 463.325 o
+468.962 463.377 o
+460.635 463.426 o
+452.292 463.476 o
+443.93 463.518 o
+435.563 463.557 o
+427.194 463.583 o
+418.834 463.602 o
+410.491 463.609 o
+402.172 463.607 o
+393.886 463.596 o
+385.638 463.579 o
+377.435 463.556 o
+369.28 463.531 o
+361.178 463.503 o
+353.132 463.474 o
+345.148 463.445 o
+337.226 463.416 o
+329.372 463.389 o
+321.587 463.362 o
+313.878 463.337 o
+306.244 463.312 o
+298.692 463.29 o
+291.22 463.267 o
+283.838 463.249 o
+276.543 463.227 o
+269.344 463.215 o
+262.234 463.183 o
+255.23 463.316 o
+248.316 463.245 o
+241.477 463.165 o
+234.737 463.079 o
+228.12 463.003 o
+221.647 462.934 o
+215.338 462.876 o
+209.209 462.826 o
+203.275 462.785 o
+197.548 462.751 o
+192.037 462.723 o
+186.751 462.7 o
+181.695 462.682 o
+176.874 462.668 o
+172.292 462.657 o
+167.95 462.65 o
+163.849 462.645 o
+159.988 462.648 o
+156.353 462.679 o
+152.936 462.711 o
+149.727 462.74 o
+146.719 462.768 o
+143.9 462.794 o
+141.263 462.818 o
+138.797 462.84 o
+136.495 462.861 o
+134.348 462.879 o
+132.35 462.896 o
+130.493 462.912 o
+128.77 462.926 o
+127.175 462.938 o
+125.702 462.949 o
+124.347 462.959 o
+123.104 462.968 o
+121.968 462.976 o
+120.936 462.982 o
+120.003 462.988 o
+119.165 462.992 o
+118.421 462.996 o
+117.766 462.999 o
+117.198 463.002 o
+116.716 463.004 o
+116.317 463.005 o
+115.515 463.006 o
+115.601 463.006 o
+115.762 463.006 o
+115.999 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+grestore
+0.000 0.000 1.000 setrgbcolor
+gsave
+603.8 478 88.04 64.65 clipbox
+/o {
+gsave
+newpath
+translate
+1.0 setlinewidth
+1 setlinejoin
+0 setlinecap
+-5 -5 m
+5 5 l
+-5 5 m
+5 -5 l
+
+gsave
+0.000 0.000 1.000 setrgbcolor
+fill
+grestore
+stroke
+grestore
+} bind def
+615.569 190.971 o
+660.49 463.006 o
+663.068 463.006 o
+657.022 463.008 o
+653.106 463.003 o
+648.585 463.013 o
+643.763 462.994 o
+638.462 463.026 o
+632.963 462.975 o
+627.033 463.051 o
+621.013 462.942 o
+614.549 463.094 o
+608.13 462.889 o
+601.196 463.161 o
+594.483 462.812 o
+587.116 463.26 o
+580.207 462.708 o
+572.426 463.398 o
+565.418 462.574 o
+424.78 529.379 o
+557.219 463.584 o
+550.217 462.411 o
+541.575 463.822 o
+534.689 462.224 o
+664.44 463.006 o
+525.56 464.115 o
+518.908 462.022 o
+509.23 464.461 o
+502.934 461.814 o
+492.634 464.848 o
+486.814 461.614 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+475.817 465.258 o
+470.588 461.432 o
+458.821 465.657 o
+454.286 461.277 o
+441.702 465.996 o
+437.941 461.153 o
+424.538 466.227 o
+421.588 461.062 o
+407.438 466.325 o
+405.264 461.002 o
+390.505 466.305 o
+389.009 460.97 o
+373.808 466.205 o
+372.863 460.962 o
+357.382 466.062 o
+356.864 460.974 o
+341.247 465.9 o
+341.051 461.004 o
+325.46 461.049 o
+325.418 465.732 o
+310.125 461.106 o
+309.911 465.563 o
+295.077 461.174 o
+294.747 465.395 o
+280.349 461.254 o
+279.943 465.229 o
+265.974 461.345 o
+265.513 465.067 o
+251.837 461.517 o
+251.616 464.976 o
+238.107 464.682 o
+238.008 461.544 o
+224.899 464.404 o
+224.773 461.538 o
+212.22 461.531 o
+212.235 464.185 o
+200.439 461.531 o
+200.292 464.021 o
+189.502 461.54 o
+189.195 463.9 o
+179.465 461.559 o
+179.015 463.809 o
+170.365 461.588 o
+169.788 463.738 o
+162.229 461.637 o
+161.513 463.682 o
+155.024 461.749 o
+154.171 463.653 o
+148.614 461.887 o
+147.746 463.624 o
+142.959 462.019 o
+142.125 463.59 o
+137.997 462.142 o
+137.222 463.552 o
+133.667 462.255 o
+132.964 463.512 o
+129.913 462.359 o
+129.287 463.468 o
+126.682 462.453 o
+126.137 463.423 o
+123.93 462.54 o
+123.466 463.376 o
+121.619 462.619 o
+121.232 463.328 o
+119.715 462.692 o
+119.403 463.277 o
+118.189 462.76 o
+117.948 463.224 o
+117.021 462.825 o
+116.845 463.17 o
+116.191 462.886 o
+116.077 463.113 o
+115.491 463.002 o
+115.63 463.055 o
+115.686 462.947 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+664.44 463.006 o
+grestore
+0.800 setlinewidth
+0 setlinejoin
+2 setlinecap
+[] 0 setdash
+0.000 setgray
+gsave
+88.04375 64.653125 m
+88.04375 542.677125 l
+stroke
+grestore
+gsave
+691.88775 64.653125 m
+691.88775 542.677125 l
+stroke
+grestore
+gsave
+88.04375 64.653125 m
+691.88775 64.653125 l
+stroke
+grestore
+gsave
+88.04375 542.677125 m
+691.88775 542.677125 l
+stroke
+grestore
+
+end
+showpage
