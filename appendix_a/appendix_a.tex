@@ -1,0 +1,19 @@
+\chapter*{Appendix A: Kriging meta model}
+
+The Kriging metamodel has already been briefly introduced in chapter \ref{ch:4} but here we want to talk a little bit more on the numerical procedure behind it and also present some implementation example.
+
+The Kriging method was first derived in for make prediction of missing geostatics data (\citet{krige1951statistical}). However this methodology has been further generalized and applied extensively in recent literature as meta model.
+The method can treat highly non linear output and can be used to either interpolate or extrapolate response.
+
+After a exploration of the design of the experiment the data produced is usually organized as $(\mathbf{x_i}, y(\mathbf{x_i}))$  $i=1,...,n$ where
+\begin{itemize}
+	\item $\mathbf{x_i}$ is the i-th element of the input of the experiment. It can contain multiple parameters, of length $k$
+	\item $y_i$ is the scalar response of the experiment for the vector of inputs $\mathbf{x_i}$
+\end{itemize}
+
+The Kriging response for a new generic set of input $\boldsymbol{\chi}$ is given by:
+\begin{equation}
+	\hat{f}(\boldsymbol{\chi}) = \sum_{i=1}^{N} \lambda_i(\mathbf{x}) f(\mathbf{x_i}) =  \sum_{i=1}^{N} \lambda_i(\mathbf{x}) y_i
+\end{equation}
+
+The weights $\lambda_i$ are chosen to ...
