@@ -8,15 +8,15 @@
 In the previous chapter we have already introduced the volume averaging method and how it can be used to derive a macroscopic description of the microscopic system of equations.
 The homogenized version of the system is valid everywhere in the porous medium domain, and not only in the fluid phase.
 Theoretical aspect of the volume averaging method can be found in \citet{whitaker2013method}, \citet{whitaker1986flow}, \citet{whitaker1996forchheimer}, \citet{quintard1994transport1}, \citet{quintard1994transport2}, \citet{quintard1994transport3}, \citet{quintard1994transport4}, \citet{quintard1994transport5} and many others contributions that are introduced in the next chapter.
-The various stages necessary to derive the local average version of the fluid dynamic equations are listed in the following text.
+The various steps necessary to derive the local average version of the fluid dynamic equations are listed in the following.
 
 \section{Homogenization procedure}
-The mathematical method of volume averaging is based on some fundamental stages that one should follow in order to retrieve the homogenized version of the equations.
+The mathematical method of volume averaging is based on some fundamental steps that one should follow in order to retrieve the homogenized version of the equations.
 The main steps are:
 \begin{itemize}
 \item Definition of the averaging operator
 \item Use of theorems that permits to interchange the derivation and the averaging operation
-\item Decomposition of fields in an "average plus perturbation" manner
+\item Decomposition of fields as a sum of mean field and a perturbed field
 \item Assumption of length-scales constraints (based on the problem definition) that help to simplify and define a local closure  problem
 \end{itemize}
 
@@ -30,6 +30,7 @@ Such schema is graphically resumed in \citet{paez2017macroscopic} and \citet{dav
 \end{figure}
 
 \section{Derivation of VANS equations for 3D incompressible fluids}
+\subsection{Navier-Stokes equations}
 The dynamic of the fluid phase (indicated with the subscript $\beta$), inside and above the porous medium, is governed by the Navier-Stokes equation for incompressible Newtonian fluid:
 
 \begin{eqnarray}
@@ -59,7 +60,7 @@ The coordinate $\mathbf{r} = \mathbf{x} +\mathbf{y}$ represent the centroid of a
 	\label{fig:rev}
 \end{figure}
 
-Let $\psi_{\beta}$ be a an arbitrary order tensors (scalar, vector or second order tensor) defined in the fluid phase of the volume $V$ with $x$ as centroid.
+Let $\psi_{\beta}$ be a an arbitrary order tensors (scalar, vector or second order tensor) defined in the fluid phase of the volume $V$ with $\mathbf{x}$ as centroid.
 
 \newpage 
 
@@ -82,6 +83,7 @@ The second one is the \textit{superficial average} indicated with $\means{}$:
 	\label{eq:avg_superficial}
 \end{equation}
 
+In the two definition $\mathbf{y}$ is the integration variable.
 The difference between the two formulations is that the former takes into account the actual fluid fraction in averaging the filed instead of the pure size of the total volume.
 
 In order to use a less heavy notation, the subscript $|_{\mathbf{x}}$ is dropped in the following procedure, but should be kept in mind that the volume averaged quantities are explicitly dependents on the center position of the volume as both averaging operators are defined as a volume integral.
@@ -112,7 +114,7 @@ Using the above definition, it is possible to express a relationship between the
 The problem of choosing the right weight function, for a give geometry of the porous medium, has been extensively studied by the series of works \citet{quintard1994transport1}, \citet{quintard1994transport2}, \citet{quintard1994transport3}, \citet{quintard1994transport4}, \citet{quintard1994transport5} and more recently generalized by \citet{davit2017technical}.
 
 The authors above differentiate their results for ordered and disordered porous medium. They show that in each case a specific size and shape of the weight function (and the volume) is needed.
-Is common to refer to the volume in which the average procedure is applied as REV, meaning \textit{reference elementary volume}.
+The volume in which the average procedure is applied is called \textit{reference elementary volume} (REV).
 Usually for disordered porous media a spherical volume is the most appropriate, and the REV size ($\ell$) should satisfy the length scale constraint:
 $$
 \ell_{\beta} \ll \ell \ll L
@@ -124,12 +126,12 @@ O(\ell_{\beta}) = \ell \ll L
 $$
 The above constraint can be reinterpreted as the separation of scale parameter in the multiple scale method $\epsilon = \ell/L \ll 1$.
 
-\citet{ochoa1995momentum} confirm the same length-scales constraints even in case of an interface between a free fluid and a porous medium.
+\citet{ochoa1995momentum} confirm the same length-scale constraints even in case of an interface between a free fluid and a porous medium.
 
-The size of the REV ($\ell$) should be chosen with the above specifications. These length scales constraints assure that the volume is large enough that periodic boundary condition can be applied in the exterior of the volume. Anyhow the REV size should also capture all the phenomena that take place at the micro-scale ($\ell_{\beta}$).
-If the REV size is the correct one, increasing or decreasing its size, of a certain amount, should not change the averages quantities. The weight function can also help to attenuate variation of the averaged fields due to geometrical fluctuations of the porous medium. As a matter of fact, it acts as a low-pass filter for the perturbations fields.
+The size of the REV ($\ell$) should be chosen with the above specifications. These length scale constraints ensure that the volume is large enough that periodic boundary condition can be applied in the exterior of the volume. Anyhow the REV size should also capture all the phenomena that take place at the micro-scale ($\ell_{\beta}$).
+If the REV size is the correct one, increasing or decreasing its size should not change the averages quantities. The weight function can also help to attenuate variation of the averaged fields due to geometrical inhomogenities of the porous medium. As a matter of fact, it acts as a low-pass filter for the perturbations fields.
 
-The weight function can play an important role also in the interpretation of the averaged equation. As showed later on, in order to retrieve a local form of the VANS equations, the following statement should in principle has to be true:
+The weight function can  also play an important role in the interpretation of the averaged equation. As showed later on, in order to retrieve a local form of the VANS equations, the following statement should in principle has to be true:
 \begin{equation}
 \Big\langle \means{\psi_{\beta}}|_{\mathbf{r}}  \Big\rangle  |_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}}
 \label{eq:well_behaved}
@@ -142,8 +144,8 @@ For disordered porous medium the \textit{hat function} $m^{\sqcap}$ which has th
 \begin{eqnarray}
 	m^{\sqcap}(\mathbf{y}) 
 	\begin{cases}
-		\dfrac{1}{V} \qquad |\mathbf{y}| \leqslant r_0\\
-		0 \qquad |\mathbf{y}|> r_0
+		\dfrac{1}{V} \quad &|\mathbf{y}| \leqslant r_0\\
+		0 \quad &|\mathbf{y}|> r_0
 	\end{cases}
 \end{eqnarray}
 can be used to produce smooth averaged fields.
@@ -152,31 +154,31 @@ Instead for ordered porous medium the literature shows that triangle shaped func
 \begin{eqnarray}
 m^{\bigtriangleup}(\mathbf{y}) 
 \begin{cases}
-(\ell/2 - |\mathbf{y}|) \qquad |\mathbf{y}| \leqslant r_0\\
-0 \qquad |\mathbf{y}|> r_0
+(\ell/2 - |\mathbf{y}|) \quad &|\mathbf{y}| \leqslant r_0\\
+0 \quad &|\mathbf{y}|> r_0
 \end{cases}
 \end{eqnarray}
 
 \citet{davit2017technical} had recently expanded the required hypothesis that a $m$ function should satisfy. In general the weight function $m$ should:
 \begin{itemize}
-	\item be normalized in as: $\int_{\volb}  m(\mathbf{y}) \; d\volb = 1$
+	\item be normalized in as: $\displaystyle\int_{\volb}  m(\mathbf{y}) \; d\volb = 1$
 	\item have compact support 
 	\item satisfy: $m*\psi_{\beta} \in C^{k}$, where $k$ represent the order of the closure
-	\item satisfy: $(m \, \mathcal{P}^j(y))*\psi_{\beta}
+	\item satisfy: $(m \, \mathcal{P}^j(\mathbf{y}))*\psi_{\beta}
 	\begin{cases}
-	0 \qquad if \quad j \; odd\\
-	const  \qquad if \quad j \; even
+	0 \quad &\textrm{if}\quad \textrm{j} \; \textrm{odd}\\
+	const  \quad &\textrm{if}\quad \textrm{j} \; \textrm{even}
 	\end{cases}$
 \end{itemize}
 
-Where $\mathcal{P}^j(y)$ is a polynomial of order $j$ in the variable $y$.
+Where $\mathcal{P}^j(\mathbf{y})$ is a polynomial of order $j$.
 The last requirement uses the fact that the average operation can also be defined as a convolution product between the weight function and the flow field quantities (\citet{marle1982macroscopic}):
 $$
 \means{\psi_{\beta}}|_{\mathbf{x}} = \dfrac{1}{V} \int_{\volb(\mathbf{x})} m(\mathbf{y}) \psi_{\beta}(\mathbf{x}+\mathbf{y}, t) d \, \volb = m*\psi_{\beta}
 $$
 
-The importance of the weight function shape is clear, however older works in which the authors had implicitly used $m^{\sqcap}$ are not wrong.
-As a matter of fact, if the assumption of well behaved fields hold \footnote{it means that the equation \eqref{eq:well_behaved} can be verified a posteriori} than the homogenized equations are the correct one.
+The choice of the weight function shape is very important, however previous works in which the authors had implicitly used $m^{\sqcap}$ are not wrong.
+As a matter of fact, if the assumption of well behaved fields hold \footnote{it means that the equation \eqref{eq:well_behaved} can be verified a posteriori} then the homogenized equations are the correct one.
 However neglecting the use of the proper weight function can induce some problem on the interpretations of the averaged fields \footnote{as \citet{quintard1994transport1} show for the example case of hydrostatic pressure}, as a consequence particular care should be used especially when making comparison to experiments.
 
 In the following derivation of the equation no weight function is used inside the averaged operators, in order to not make the notation heavier.
@@ -184,7 +186,7 @@ In any case in the following text is indicated whenever this special hypothesis 
 
 \subsection{Theorems involving derivatives of spatial averaged quantities}
 
-The purpose of these theorems is to be able to invert the derivative and the volume average operation.
+The purpose of these theorems is to be able to swap the derivative and the volume average operation.
 
 \begin{theorem}[Spatial averaging theorem]
 Let $\psi_{\beta}$ be a scalar quantity defined in the fluid phase $\beta$, then:
@@ -207,7 +209,7 @@ In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operato
 \end{corollary}
 
 \begin{corollary}
-	Applying the theorem \eqref{th:spat_avg} to a constant field $\psi_{\beta} = 1$ the following relation can be retrieved:
+	Applying the theorem \eqref{th:spat_avg} to a constant field $\psi_{\beta} = 1$ the following relation can be found:
 	
 	\begin{equation}
 		\nabla \varepsilon = - \int_{A_{\sigma \beta}} \nbs d \, A,
@@ -268,14 +270,14 @@ In order to keep the procedure readable the development of each term is performe
 Using theorem \eqref{th:transport} we can rewrite the first term of the equation as:
 
 \begin{equation}
-\means{\derp{\vb}{t}} = \derp{\means{\vb}}{t} -\dfrac{1}{V} \int_{A_{\beta \sigma}}  \vb (\ws \cdot \nbs )\;dA,
+\means{\derp{\vb}{t}} = \derp{\means{\vb}}{t} -\dfrac{1}{V} \int_{A_{\beta \sigma}}  \vb (\ws \cdot \nbs )\;dA
 \end{equation}
 
 \subsubsection{Convective term}
 Theorem \eqref{th:vec_spat_avg} applied to the convective term gives us:
 
 \begin{equation}
-\means{\nabla \cdot (\vb\vb)} = \nabla \cdot \means{\vb \vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\vb \vb) \cdot \nbs \;dA,
+\means{\nabla \cdot (\vb\vb)} = \nabla \cdot \means{\vb \vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\vb \vb) \cdot \nbs \;dA
 \end{equation}
 
 The boundary condition at the interface ($\ws = \vb$) implies that the integrals inside the convective and temporal part are equal, so the total left end side of the momentum equation became:
@@ -289,31 +291,35 @@ The boundary condition at the interface ($\ws = \vb$) implies that the integrals
 The pressure term is also expanded using theorem \ref{th:spat_avg}:
 
 \begin{equation}
-\means{-\dfrac{1}{\rho_{\beta}} \nabla \pb } = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} -\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \dfrac{\pb}{\rho_{\beta}} \mathbf{I} \right) \cdot \nbs \;dA,
+\means{-\dfrac{1}{\rho_{\beta}} \nabla \pb } = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} -\dfrac{1}{V} \int_{A_{\beta \sigma}}  \dfrac{\pb}{\rho_{\beta}}  \cdot \nbs \;dA
 \end{equation}
 
 \subsubsection{Diffusion term}
 Here we fist use the identity $\nabla^2 = \nabla \cdot (\nabla)$ \footnote{laplacian = div(grad)}, then we apply the theorem \ref{th:vec_spat_avg} directly to this expansion to get:
 
 \begin{equation}
-\means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nabla \vb \cdot \nbs \;dA,
+\means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nabla \vb \cdot \nbs \;dA
 \label{eq:4_1}
 \end{equation}
 
-Now re-using the theorem \ref{th:vec_spat_avg} on $\means{\nabla \vb}$:
+Now using the theorem \ref{th:vec_spat_avg} on $\means{\nabla \vb}$ we get:
 
 \begin{eqnarray}
-	\eqref{eq:4_1} &=& \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\nub \vb) \cdot \nbs \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA = \nonumber \\
-	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\nub \vb) \cdot \nbs \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA  = \nonumber \\
-	&& \text{using Gauss theorem on the second term} \nonumber \\
-	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{\volb} \nabla \cdot \left( \nub \vb \right) dV \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA = \nonumber \\
-	&& \text{which is zero due to the continuity equation} \nonumber \\
-	&=& \nub\nabla^2 \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA
+	\means{\nub\nabla^2 \vb} &=& \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\nub \vb) \cdot \nbs \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA  \nonumber \\
+	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  (\nub \vb) \cdot \nbs \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA,   \nonumber
 \end{eqnarray}
+using Gauss theorem on the second term we get:
+\begin{equation*}
+	\means{\nub\nabla^2 \vb} = \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{\volb} \nabla \cdot \left( \nub \vb \right) dV \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA,  
+\end{equation*}
+the second term is zero due to the continuity equation, so the viscous term yields:
+\begin{equation}
+	\means{\nub\nabla^2 \vb} = \nub\nabla^2 \means{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA
+\end{equation}
 
 %\Red{The above use of the Gauss theorem, to prove that the first integral term is zero, can be bypassed in case of rigid porous media. Which due to the b.c. at the fluid-solid is zero.}
 
-Before continue the development we add all the various terms together:
+Before continuing the development, by summing all the terms together we get:
 
 \begin{eqnarray}
 && \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
@@ -321,18 +327,19 @@ Before continue the development we add all the various terms together:
 \label{eq:mom_2}
 \end{eqnarray}
 
-This is still not the averaged version of the momentum equation, since it has the presence of the non-homogeneous term $\means{\vb\vb}$ and the integral term still has the point variables inside.
+This is still not the averaged version of the momentum equation, since it has the presence of the non-homogeneous term $\means{\vb\vb}$ and the integral term still has the local (microscopic) variables inside.
 In the next section these two terms are treated in order to make them function of the only averaged quantities.
 
 \subsection{Length scale decomposition}
-In order to finally get the average version of the problem \eqref{eq:NS} we make use of the decomposition proposed by \citet{gray1975derivation}:
+
+The decomposition proposed by \citet{gray1975derivation} is now used to get the average version of the problem \eqref{eq:NS}:
 
 \begin{equation}
-\psi_{\beta}(\mathbf{r},t) = \meani{\psi_{\beta}}|_{(\mathbf{r},t)} + \tilde{\psi}_{\beta}(\mathbf{r},t)
+\psi_{\beta}(\mathbf{r},t) = \meani{\psi_{\beta}}|_{(\mathbf{r},t)} + \tilde{\psi}_{\beta}(\mathbf{r},t),
 \label{eq:gray}
 \end{equation}
 
-where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution to add at the intrinsic volume average quantity $ \meani{\psi_{\beta}}$ to obtain the point value of the considered quantity $\psi_{\beta}$.
+where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution and $ \meani{\psi_{\beta}}$ the volume average one.  The two contributions should be added together to obtain the local filed value for the considered quantity $\psi_{\beta}$.
 This decomposition has been introduced in order to separate the different scales of the spatial variation of the fields, and so separate the low frequencies from the high one.
 
 If the hypothesis of that this division holds, it is possible to demonstrate that the average value of the perturbation field is null \footnote{the paragraph \ref{ch:appendix_a} specifically addresses the hypothesis behind this result}:
@@ -341,24 +348,24 @@ $$
 $$
 
 
-Using the above results, we can modify the non-homogeneous term in equation \eqref{eq:mom_2}:
+Using the above results, the non-homogeneous term in equation \eqref{eq:mom_2} can be converted in:
 
 \begin{equation}
 \means{\vb\vb} = \means{\means{\vb}\meani{\vb}} +2\means{\meani{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}
 \label{eq:dec_1}
 \end{equation}
 
-For each integral term of \ref{eq:mom_2} we also apply the same field decomposition:
+For each integral term of \eqref{eq:mom_2} the same field decomposition should be applied:
 
 \begin{eqnarray}
-\dfrac{1}{V} \int_{A_{\beta \sigma}}  - \left( \dfrac{\pb}{\rho_{\beta}} \mathbf{I} \right) \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb} \mathbf{I}  + \pbt \mathbf{I}\right) \cdot \nbs \;dA = \nonumber \\
-&=& +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \dfrac{\pbt}{\rho_{\beta}} \mathbf{I} \right) \cdot \nbs \;dA
+\dfrac{1}{V} \int_{A_{\beta \sigma}}  - \left( \dfrac{\pb}{\rho_{\beta}} \mathbf{I} \right) \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb}   + \pbt \right)  \nbs \;dA  \nonumber \\
+&=& +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}}  \dfrac{\pbt}{\rho_{\beta}}  \nbs \;dA
 \end{eqnarray}
 
 
 \begin{eqnarray}
-\dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\vbt) \cdot \nbs \;dA =  \nonumber \\
-&=& - \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
+\dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\vbt) \cdot \nbs \;dA   \nonumber \\
+&=& - \nub \nabla \varepsilon \; \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
 \end{eqnarray}
 
 %\begin{eqnarray}
@@ -371,43 +378,43 @@ The momentum equation now reads:
 
 \begin{eqnarray}
 \derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon \meani{\vb}\meani{\vb}) + \nabla \cdot (\means{\vbt\vbt}) = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
-\qquad \qquad - \nub \nabla \varepsilon \nabla \meani{\vb} +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pbt}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vbt  \right)\cdot \nbs \;dA
+\qquad \qquad - \nub \nabla \varepsilon \; \nabla \meani{\vb} +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pbt}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vbt  \right)\cdot \nbs \;dA
 \label{eq:NS_2}
 \end{eqnarray}
 
-At this stage the momentum equation is not closed since it has the mixed presence of surface and intrinsic averaged quantities, and also perturbation fields.
-In order to overcome this problem in the next section the intrinsic version of these equations is finally computed. 
+At this step the momentum equation is not closed since either the averaged quantities and the perturbation fields are present.
+In order to overcome this problem in the next section the intrinsic version of these equations will be computed. 
 
 \subsection{Intrinsic average form}
-In order to get the intrinsic average formulation we use the relation \eqref{eq:means_vs_meani} to express surface averaged quantities in terms of intrinsic ones.
+In order to get the intrinsic average formulation the relation \eqref{eq:means_vs_meani} is used to express surface averaged quantities in terms of intrinsic ones.
 
-We first start with the continuity equation that became:
+First, the continuity equation becomes:
 $$
 \nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0
 $$
 
-For the momentum equation we start from the temporal derivative term that becomes:
+The temporal derivative term of the momentum equation becomes:
 $$
 \derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}
 $$
 
-Applying the same relation to the viscous term we get:
+Applying the same relation to the viscous term it yields:
 
 \begin{equation}
 	\nabla^2 \means{\vb} = \nabla^2 \left( \varepsilon \meani{\vb} \right) = \varepsilon \nabla^2 \meani{\vb} + \meani{\vb} \nabla^2 \varepsilon +2 \nabla \varepsilon \nabla \meani{\vb}
 \end{equation}
 
-and the pressure one also transform into:
+and the pressure term is also transformed into:
 
 \begin{equation}
 \nabla \means{\pb} = \nabla \left( \varepsilon \meani{\pb} \right) = \varepsilon \nabla \meani{\pb} + \meani{\pb} \nabla \varepsilon
 \end{equation}
 
-Summing up all the terms:
+Summing up all the terms, we get:
 
 \begin{eqnarray}
-&& \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right) = \nonumber \\
-&&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) - \nabla \varepsilon\dfrac{1}{\rho_{\beta}} \meani{\pb}  + \nub \varepsilon \nabla^2 \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon + 2 \nub \nabla \varepsilon \nabla \meani{\vb} \nonumber \\
+&& \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right)  \nonumber \\
+&&= -\varepsilon \; \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) - \nabla \varepsilon \; \dfrac{1}{\rho_{\beta}} \meani{\pb}  + \nub \varepsilon \; \nabla^2 \meani{\vb} + \nub \meani{\vb} \; \nabla^2 \varepsilon + 2 \nub \nabla \varepsilon \; \nabla \meani{\vb} \nonumber \\
 &&+\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pbt}{\rho_{\beta}} \nbs \;dA \nonumber \\
 &&- \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
 \end{eqnarray}
@@ -416,47 +423,46 @@ After the proper simplification we have the final versions of the Navier-Stokes 
 
 \begin{eqnarray}
 \begin{cases}
- \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right) =  \\
-\qquad \qquad = -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nub \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon  \\
-\qquad \qquad + \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \\
- \nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0 
+ \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} &+ \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right)   \\
+&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nub \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon  \\
+&+ \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \\
+\nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t} = &0 
 \end{cases}
 \label{eq:vans_mom_1}
 \end{eqnarray}
 
 
-First of all is important to pinpoint that the intrinsic momentum equation represents the force per unit volume. It means that it explicitly depends on the porosity of the medium. This is why the equation has terms involving gradients of the porosity field.
-In application where porosity can vary spatially, like the interface of a porous medium, this formulation has the advantage to treat explicitly the interface non-homogeneities \footnote{further discussion of the interface treatment is presented in paragraph \ref{ch:interface}}.
+It is important to pinpoint that the intrinsic momentum equation explicitly depends on the porosity of the medium, because of the terms involving gradients of the porosity field.
+In applications where the porosity can vary spatially, like the interface of a porous medium, this formulation has the advantage to treat explicitly the interface non-homogeneities \footnote{further discussion of the interface treatment is presented in paragraph \ref{ch:interface}}.
 
 %Another difference between the superficial and the intrinsic formulation is in the continuity equation; \Red{we }can observe that even in case of steady problem only the superficial velocity field is solenoidal.
 
 The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities and surface integrals.
 This terms need some explicit manipulation in order to get a close formulation of the above system.
-In the next paragraphs a closure formulation of these terms is presented. In order to do be clear these two terms are named as \textit{sub-filter stresses} $\boldsymbol{\zeta}$ and \textit{microscopic force} $\mathbf{F}^m$:
+In the next paragraphs a closure formulation of these terms is discussed. Usually these latter terms of the equations are named as \textit{sub-filter stresses} $\boldsymbol{\zeta}$ and \textit{microscopic force} $\mathbf{F}^m$:
 
-$$
-\boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)
-$$
+\begin{eqnarray}
+\boldsymbol{\zeta}&=& \nabla \cdot \left(\means{\vbt \vbt}\right) \nonumber \\
 
-$$
-\mathbf{F}^m =  \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA
-$$
+\mathbf{F}^m &=&  \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \nonumber
+\end{eqnarray}
+
+
 
 \section{Closure problems}
 
 \subsection{Microscopic force $\mathbf{F}^m$}
-The term $\mathbf{F}^m$ is referred as \textit{surface filter} since it is defined as an integral over the fluid-solid interface for the micro-scale fields, in this manner the perturbation fields are filtered out. It physically represent the force per unit mass that the fluid exerts on the solid porous media.
+The term $\mathbf{F}^m$ act as a surface filter in the momentum equation. The perturbation fields are filtered out by the integral operation over the fluid-solid interface. However is usually called microscopic force since it physically represent the force per unit mass that the fluid exerts on the solid inclusions.
 
-There is no simple representation for $\mathbf{F}^m$ if we include the terms that presents gradients of the porosity ($\nabla \varepsilon$).
-Although since we are interested in developing a \textbf{local} closure problem, that will depend on the geometry of each REV, is possible to neglect these terms.
-This means that the closure problems are not correct at the interface between a porous medium and a free fluid. However in the last chapter we show that good results can still be achieved using the same closure problems.
+There is no simple representation for $\mathbf{F}^m$ if we include the terms that contain gradients of the porosity ($\nabla \varepsilon$).
+Although since we are interested in developing a \textbf{local} closure problem, which will depend on the geometry of each REV, it is possible to neglect these terms.
+It means that the closure problems are not correct at the interface between a porous medium and a free fluid. 
+However even if the local closure problems are not formally correct at the interface
+However if the local formulation of the closure problem is used to solve the macroscopic equations in the interface region
+However in the last chapter we show that good results can still be achieved using the same closure problems.
 
-In order to develop a closure problem we start by recalling the decomposition by \citet{gray1975derivation}:
-\begin{equation}
-\psi_{\beta} = \meani{\psi_{\beta}} + \tilde{\psi}_{\beta}
-\end{equation}
 
-The continuity equation valid at the microscopic scale becomes $ \nabla \cdot  \meani{\vb}=0$ after in case of constant porosity.
+The continuity equation in the system \eqref{eq:vans_mom_1} becomes $ \nabla \cdot  \meani{\vb}=0$ after the assumption of constant porosity.
 We subtract this last equation from the continuity equation valid for the point velocity:
 
 $$
