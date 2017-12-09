@@ -2,18 +2,42 @@
 
 The Kriging metamodel has already been briefly introduced in chapter \ref{ch:4} but here we want to talk a little bit more on the numerical procedure behind it and also present some implementation example.
 
-The Kriging method was first derived in for make prediction of missing geostatics data (\citet{krige1951statistical}). However this methodology has been further generalized and applied extensively in recent literature as meta model.
-The method can treat highly non linear output and can be used to either interpolate or extrapolate response.
+The Kriging method was first aimed to make prediction of missing geostatics data (\citet{krige1951statistical}). However this methodology has been further generalized and applied extensively in recent literature as metamodel for large variety of experiments.
+The method can treat highly non linear output and can be used to either interpolate or extrapolate response from a sample design set.
 
-After a exploration of the design of the experiment the data produced is usually organized as $(\mathbf{x_i}, y(\mathbf{x_i}))$  $i=1,...,n$ where
+In this discussion the $\hat{f}(\boldsymbol{\chi})$ is a model for the function $f(\boldsymbol{\chi})$ and $\hat{y}$ is the model prediction of the true response $y = f(\boldsymbol{\chi})$ that is evaluated at the point $\chi$. $n$ is the number of point in the sample design set and $k$ is the number of input of the experiment.
+
+After the exploration of the design possibilities the database produced is usually organized as $(\mathbf{x_i}, y(\mathbf{x_i}))$  $i=1,...,n$ where
 \begin{itemize}
-	\item $\mathbf{x_i}$ is the i-th element of the input of the experiment. It can contain multiple parameters, of length $k$
-	\item $y_i$ is the scalar response of the experiment for the vector of inputs $\mathbf{x_i}$
+	\item $\mathbf{x_i}$ is the i-th vector element containing the $k$ input parameters for the i-th experiment run
+	\item $y_i$ is the scalar response of the experiment for the vector of inputs $\mathbf{x_i}$ \footnote{$y_i$ is always a scalar because even in case of multiple output for an experiment run they are supposed to be uncorrelated. It means that if we had $p$ elements in each $\mathbf{y_i}$ will have to build $p$ metamodels}
 \end{itemize}
 
-The Kriging response for a new generic set of input $\boldsymbol{\chi}$ is given by:
+The Kriging response for a new untried input point $\boldsymbol{\chi}$, containing $k$ elements, is given by the linear \textit{predictor}:
 \begin{equation}
-	\hat{f}(\boldsymbol{\chi}) = \sum_{i=1}^{N} \lambda_i(\mathbf{x}) f(\mathbf{x_i}) =  \sum_{i=1}^{N} \lambda_i(\mathbf{x}) y_i
+\hat{y} = \hat{f}(\boldsymbol{\chi}) = \sum_{i=1}^{N} \lambda_i(\mathbf{x}) f(\mathbf{x_i}) =  \sum_{i=1}^{N} \lambda_i(\mathbf{x}) y_i
 \end{equation}
 
-The weights $\lambda_i$ are chosen to ...
+$\hat{y}$ is considered to be a new realization of the random Gaussian process that has generated the set $S_y = [y_1,...,y_n]$.
+The weights $\lambda_i$ are the solution of a linear system obtained by minimizing the variance of the error between the predictor and the random process.
+The best \textit{linear unbiased predictor} BLUP is so obtained finding the weights $\lambda_i$ that minimize:
+
+\begin{equation}
+MSE[\hat{y}(\chi)] = E \left[\left(\lambda(\chi)y -y(\chi)\right)^2\right]
+\label{eq:var_err}
+\end{equation}
+
+under the unbiasedness condition:
+
+\begin{equation}
+E \left[ \lambda(\chi)y -y(\chi)  \right]
+\end{equation}
+
+fai tutta la procedura per calcolare lambda
+
+poi dici le varie scelte per la funzione di correlazione 
+
+ti conviene parlare del periodgramm ? NO aggiungeresti troppa carne al fuoco forse..?
+
+
+
