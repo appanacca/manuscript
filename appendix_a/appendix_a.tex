@@ -1,4 +1,4 @@
-\chapter*{Appendix A: Kriging meta model}
+\chapter*{Appendix A: Kriging metamodel}
 
 The Kriging metamodel has already been briefly introduced in chapter \ref{ch:4} but here we want to talk a little bit more on the numerical procedure behind it and also present some implementation example.
 
@@ -12,32 +12,174 @@ After the exploration of the design possibilities the database produced is usual
 	\item $\mathbf{x_i}$ is the i-th vector element containing the $k$ input parameters for the i-th experiment run
 	\item $y_i$ is the scalar response of the experiment for the vector of inputs $\mathbf{x_i}$ \footnote{$y_i$ is always a scalar because even in case of multiple output for an experiment run they are supposed to be uncorrelated. It means that if we had $p$ elements in each $\mathbf{y_i}$ will have to build $p$ metamodels}
 \end{itemize}
+Also the $n \times k$ matrix containing all the inputs is indicated with $\mathbf{X}$ and the $n \times 1$ vector containing all the responses is indicated as $\mathbf{Y}$
 
 The Kriging response for a new untried input point $\boldsymbol{\chi}$, containing $k$ elements, is given by the linear \textit{predictor}:
 \begin{equation}
 \hat{y} = \hat{f}(\boldsymbol{\chi}) = \sum_{i=1}^{N} \lambda_i(\mathbf{x}) f(\mathbf{x_i}) =  \sum_{i=1}^{N} \lambda_i(\mathbf{x}) y_i
 \end{equation}
 
-$\hat{y}$ is considered to be a new realization of the random Gaussian process that has generated the set $S_y = [y_1,...,y_n]$.
+$\hat{y}$ is considered to be a new realization of the random Gaussian process that has generated the set of responses $\mathbf{Y}$.
 The weights $\lambda_i$ are the solution of a linear system obtained by minimizing the variance of the error between the predictor and the random process.
 The best \textit{linear unbiased predictor} BLUP is so obtained finding the weights $\lambda_i$ that minimize:
 
 \begin{equation}
-MSE[\hat{y}(\chi)] = E \left[\left(\lambda(\chi)y -y(\chi)\right)^2\right]
+MSE[\hat{y}(\chi)] =  E \left[\left( \hat{f}(\boldsymbol{\chi})  -f(\boldsymbol{\chi}) \right)^2\right] = E \left[\left(\lambda(\chi)\mathbf{Y} -y(\chi)\right)^2\right]
 \label{eq:var_err}
 \end{equation}
 
 under the unbiasedness condition:
 
 \begin{equation}
-E \left[ \lambda(\chi)y -y(\chi)  \right]
+E \left[ \hat{f}(\chi)  -f(\chi)\right] =  E \left[ \boldsymbol{\lambda}(\boldsymbol{\chi})\mathbf{Y} -\mathbf{y}(\boldsymbol{\chi})  \right] = 0
+\label{eq:unb_cond}
+\end{equation}
+this relation means that the predictor and the Gaussian process have the same mean value for every new point $\boldsymbol{\chi}$.
+
+The equation \eqref{eq:unb_cond} is further developed yielding:
+\begin{equation}
+E \left[ \hat{f}(\chi)  -f(\chi)\right] = \boldsymbol{\lambda} E \left[ f(\mathbf{X})  \right] - E \left[ f(\boldsymbol{\chi})  \right] = \sum_{i=1}^{n} \lambda_i(\boldsymbol{\chi}) \mu(\mathbf{x_i}) - \mu(\boldsymbol{\chi}) = 0
+\label{eq:unb_cond2}
+\end{equation}
+where $\mu(\boldsymbol{\chi})$ is the mean value of the true function at the point $\chi$, instead $\mu(\mathbf{x_i})$ is the mean of all the realizations collected for the database.
+
+Different type of Kriging approximation exist accordingly on how $\mu(\boldsymbol{\chi})$ is evaluated:
+\begin{itemize}
+	\item \textit{simple Kriging} assume that the trend has null value: $\mu(\boldsymbol{\chi}) = 0$
+	\item \textit{ordinary Kriging} assume that the trend is an unknown constant: $\mu(\boldsymbol{\chi}) = \mu$
+	\item \textit{universal Kriging} assume that the trend is the solution of a generalized \textit{least squares model} in which is possible to decide the order ($n_{\beta}$) \footnote{It means that, for example, taking $n_{\beta}= 2$ the least squared model is quadratic} of the chosen base: $\mu(\boldsymbol{\chi}) = \mathbf{g}(\boldsymbol{\chi})^T \boldsymbol{\beta}$
+	Where $\mathbf{g}(\boldsymbol{\chi})$ is the base evaluation at the point $\boldsymbol{\chi}$ and the vector $\boldsymbol{\beta}$ contains the $n_{\beta}$ coefficients of the model.
+\end{itemize}
+
+The unbiased condition \eqref{eq:unb_cond2} can be so rewritten, without loss of generality, as:
+\begin{eqnarray}
+	&& \boldsymbol{ \lambda} (\boldsymbol{\chi}) \mathbf{G}(\mathbf{X}) \boldsymbol{\beta} - \mathbf{g}(\boldsymbol{\chi}) \boldsymbol{\beta} = 0 \nonumber \\
+	&& \boldsymbol{\lambda}(\boldsymbol{\chi}) \mathbf{G}(\mathbf{X}) = \mathbf{g}(\boldsymbol{\chi})
+\end{eqnarray}
+where $\mathbf{G}(\mathbf{X})$ is the $n \times n_{\beta}$ matrix containing the evaluation of the least squared basis functions at all points in $\mathbf{X}$
+
+Also the relation \eqref{eq:var_err} can be manipulated:
+\begin{eqnarray}
+E \left[\left( \hat{f}(\boldsymbol{\chi})  -f(\boldsymbol{\chi}) \right)^2\right] &=& var(  \hat{f}(\boldsymbol{\chi})  -f(\boldsymbol{\chi}) ) \nonumber \\
+&=& var(\hat{f}(\boldsymbol{\chi}))  +var(f(\boldsymbol{\chi})) -2 \; cov( \hat{f}(\boldsymbol{\chi}),f(\boldsymbol{\chi})) \nonumber \\
+&=& var( \sum_{i=1}^{n}\lambda_i(\boldsymbol{\chi}) f(\mathbf{x_i}) )  +var(f(\boldsymbol{\chi})) -2 \; cov( \sum_{i=1}^{n}\lambda_i(\boldsymbol{\chi}) f(\mathbf{x_i}),f(\boldsymbol{\chi})) \nonumber \\
+&=&  \sum_{i=1}^{n} \sum_{j=1}^{n} \lambda_i(\boldsymbol{\chi})\lambda_j(\boldsymbol{\chi}) cov(f(\mathbf{x_i}),   f(\mathbf{x_j})) +var(f(\boldsymbol{\chi})) -2 \;  \sum_{i=1}^{n}\lambda_i(\boldsymbol{\chi}) cov(f(\mathbf{x_i}),f(\boldsymbol{\chi})) \nonumber \\
+&=& \sum_{i=1}^{n} \sum_{j=1}^{n} \lambda_i(\boldsymbol{\chi})\lambda_j(\boldsymbol{\chi}) cov(\mathbf{x_i}, \mathbf{x_j}) +var(f(\boldsymbol{\chi})) -2 \;  \sum_{i=1}^{n}\lambda_i(\boldsymbol{\chi}) cov(\mathbf{x_i},\boldsymbol{\chi})
+\label{eq:BLURP}
+\end{eqnarray}
+where $\mathbf{c} = cov(\mathbf{X},\boldsymbol{\chi})$ is the vector containing the estimated covariance between each point in the input set $\mathbf{X}$ and the point for which we search the estimator $\boldsymbol{\chi}$. Similarly $\mathbf{C}_{ij} =  cov(\mathbf{x_i}, \mathbf{x_j})$ represent the elements in the $n \times n$ matrix containing the correlation estimates for each point in $\mathbf{X}$.
+
+Possible estimation functions for the covariance matrix are listed in the next section \ref{sec:cov}
+
+The derivative of the relation \eqref{eq:BLURP} in respect to $\boldsymbol{ \lambda}$ is posed equal to zero in order to minimize the Kriging error, yielding the final relation:
+\begin{equation}
+\boldsymbol{\lambda}(\boldsymbol{\chi})^T \mathbf{C} = \mathbf{c}
 \end{equation}
 
-fai tutta la procedura per calcolare lambda
+Introducing the Lagrangian multiplier $\phi$ for the unbiased constraint is possible to build the the partitioned matrix for the Kriging metamodel:
+\begin{equation}
+\left(
+\begin{array}{c c}
+\mathbf{0} & \mathbf{G}^T \\
+\mathbf{G} & \mathbf{C}
+\end{array}
+\right)  \left( 
+\begin{array}{c}
+\boldsymbol{\phi} \\
+\boldsymbol{\lambda}
+\end{array}
+\right) = \left( 
+\begin{array}{c}
+\mathbf{g} \\
+\mathbf{c}
+\end{array}
+\right)
+\end{equation}
 
-poi dici le varie scelte per la funzione di correlazione 
+Then by inverting the partitioned matrix the Kriging predictor can be written as:
+\begin{equation}
+\hat{y}(\boldsymbol{\chi}) = \mathbf{g}(\boldsymbol{\chi})^T \boldsymbol{\beta} + \mathbf{c}(\boldsymbol{\chi})^T \mathbf{R}^{-1} \left( \mathbf{Y} - \mathbf{G}\boldsymbol{\beta} \right)
+\end{equation}
 
-ti conviene parlare del periodgramm ? NO aggiungeresti troppa carne al fuoco forse..?
+The first term $\mathbf{g}(\boldsymbol{\chi})^T \boldsymbol{\beta}$ is usually called \textit{trend function} and the second term is the \textit{Gaussian error model} as a matter of fact $\left( \mathbf{Y} - \mathbf{G}\boldsymbol{\beta} \right)$ is the known vector of differences between the true outputs and the trend function at all the points $\mathbf{X}$ in the database.
 
 
+\subsubsection{Covariance matrix choice}
+\label{sec:cov}
 
+In order to give some indication on the choice of the proper covariance function let us first introduce the \textit{semivariogram} concept.
+The semivariogram $\gamma$ between two generics points, in the design space of your experiment $\mathbf{x_1}, \mathbf{x_1}$, is defined as:
+\begin{eqnarray}
+\gamma(\mathbf{x_1}, \mathbf{x_1}) &=& \dfrac{1}{2} E \left[  f(\mathbf{x_1}) -\mu(\mathbf{x_1}) -f(\mathbf{x_1} +\mu(\mathbf{x_2}))^2 \right] \label{eq_semvar1}\\
+&=& \dfrac{1}{2} var(f(\mathbf{x_1}) -f(\mathbf{x_1}) ) \nonumber \\
+&=& \dfrac{1}{2} var(f(\mathbf{x_1}))  +\dfrac{1}{2} var(f(\mathbf{x_2})) -cov(\mathbf{x_1}, \mathbf{x_2}) \label{eq_semvar2}
+\end{eqnarray}
+
+The semivariogram for each datapoint in the database can be directly computed from the \eqref{eq_semvar1} and afterwards the relation \eqref{eq_semvar2} can be used to fit the semivaiogram data with the covariance function.
+
+Lets us clarify the last statements with an example. We chose to replicate the example present in \citet{cavazzuti2012optimization} ....
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.5\linewidth]{appendix_a/DOE_data}
+	\caption{Design of experiment data points}
+	\label{fig:doedata}
+\end{figure}
+
+Usually the semivariogramm and the correlation functions are implement as a function of the eucledian distance between the two points $\mathbf{h}_{ij} = |\mathbf{x}_i - \mathbf{x}_j|$.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{appendix_a/sem2}
+	\caption{Left: semivariogram ....  Right: semivarigram.... }
+	\label{fig:semivariogram}
+\end{figure}
+
+The \textit{power exponential} correlation function read:
+\begin{equation}
+c(\mathbf{x}_{i} , \mathbf{x}_{j})  = \sigma \textrm{exp}\left( -\sum_{j=1}^{k} \theta_k {|\mathbf{x}_{ik} - \mathbf{x}_{jk} |}^\tau \right)
+\end{equation}
+
+The coefficient $\sigma$ is an amplitude parameter and $c(x^i, x^j)$ is a correlation function, based on the Mat\'ern covariance model that reads:
+\begin{equation}
+c(\mathbf{x}_{i} , \mathbf{x}_{j}) =  \dfrac{2^{1- \nu}}{\Gamma(\nu)} \  \left( \dfrac{\sqrt{2} \nu |\mathbf{x_i} - \mathbf{x_j}|}{|\bs{\lambda}|} \right)^{\nu} \ \mathcal{K}_{\nu}\left( \dfrac{\sqrt{2} \nu |\mathbf{x}_i - \mathbf{x}_j|}{|\bs{\lambda}|} \right),
+\label{eq:matern2}
+\end{equation}
+where $\mathcal{K}_{\nu}(.)$ is a modified Bessel function and $\Gamma(.)$ is the gamma function.
+The parameters that can be used to tune the metamodel are the amplitude parameter $\sigma$, the exponent $\nu$ and the scale vector $\bs{\lambda}$.
+The kriging metamodel outputs can show different behaviours for different selections of the above three parameters and their setting is thus crucial. 
+The amplitude parameter $\sigma$ is chosen to be equal to $1$; larger value lead to steeper gradients and undesirable local extrema around the data points.
+The vector $\bs{\lambda}=(\lambda_{\theta}, \lambda_{\phi}, \lambda_{Re_d}, \lambda_{\varepsilon} )$ is a scaling parameter for the distance $ |\mathbf{x_i} - \mathbf{x_j}|$.
+
+\subsubsection{Implementation example}
+
+
+%\begin{minted}[frame=lines, linenos=true]{c++}
+%#include <iostream>
+%int main() {
+%	std::cout << "Hello "
+%	<< "world"
+%	<< std::endl;
+%}
+%\end{minted}
+
+\begin{minted}[frame=lines, linenos=true]{python}
+	include numpy as np # import the generic verctor library
+	include openturns as ot # import the openTurns library
+	
+	# define the inputs as a n by k array
+	x = np.array([[1,0],[2,3 ],[4,6],[-2,0],[9,-3], [3,3],[1,-2],[4,7] ])
+	
+	# define the outputs as  a n by 1 array
+	y = np.array([[10],[2 ],[4],[-2],[9],[3] ,[0], [-1]])
+	
+	# tranform the array in OT samples
+	X = ot.Sample(x)
+	Y = ot.Sample(y)
+	
+	# explicit define the number of input i.e the k number
+	dimension = 2  # X.size[1] ??
+	
+	# distribution = ot.ComposedDistribution([ot.Uniform()]*dimension)
+	distribution = ot.ComposedDistribution([ot.Normal()]*dimension)
+\end{minted}

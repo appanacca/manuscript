@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{const} \PYG{n}{double} \PYG{n}{pi} \PYG{o}{=} \PYG{l+m+mf}{3.1415926535}
+	\PYG{n}{include} \PYG{n}{numpy} \PYG{k}{as} \PYG{n}{np}
+	\PYG{n}{include} \PYG{n}{openturns} \PYG{k}{as} \PYG{n}{ot}
+\end{Verbatim}
