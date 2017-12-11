@@ -131,10 +131,10 @@ Lets us clarify the last statements with an example. We chose to replicate the e
 The semivariogramm functions, as a function of the eucledian distance between the two points $\mathbf{h}_{ij} = |\mathbf{x}_i - \mathbf{x}_j|$, has been computed using the equation \eqref{eq_semvar1} and is represented in figure \ref{fig:semivariogram} on the left. The same semivariogram has been averaged using a step of distance equal to $0.25$ and the points are shown on the right of figure \ref{fig:semivariogram}.
 The correlation function should be be chosen to be the best fit for the averaged semivariogram, so in theory depending on the dataset one could formulate its own covariance model.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.9\linewidth]{appendix_a/sem}
-	\caption{Left: Semivariogram versus the eucledian distance computed for each data point against all the other.  Right: The blue dots represent the same semivarigram on the left but averaged over a step of distance equal to $0.25$. The red line correspond to the semivariogram computed using the relation \eqref{eq_semvar2} with the covariance model \textit{power exponential} with parameters $\nu=2$, $\theta=1.895$ and $\eta / \sigma=0$.}
+	\caption{Left: Semivariogram versus the eucledian distance computed for each data point against all the other.  Right: The blue dots represent the same semivarigram on the left but averaged over a step of distance equal to $0.25$. The red line correspond to the semivariogram computed using the relation \eqref{eq_semvar2} with the covariance model \textit{power exponential} with parameters $\nu=2$, $\theta=1.895$ and $\sigma=38.44$.}
 	\label{fig:semivariogram}
 \end{figure}
 
@@ -144,10 +144,9 @@ c(\mathbf{x}_{i} , \mathbf{x}_{j})  = \sigma^2 \textrm{exp}\left( -\sum_{j=1}^{k
 \end{equation}
 
 he kriging metamodel outputs can show different behaviors for different selections of the above three parameters and their setting is thus crucial.
-The coefficient $\sigma$ is an amplitude parameter for the correlation function, but it does not entry in the computational model if the nugget $\eta$ is null.
-In fact what is generally important is the fraction $\eta / \sigma$ and the exponent $\nu$, larger values of these parameters lead to steeper gradients around the data points. The vector $\bs{\theta}=(\theta_{x_1}, \theta_{x_2})$ is a scaling parameter for the distance $|\mathbf{x_i} - \mathbf{x_j}|$, in this manner the metamodel can include anisotropic effect for each variable of the experiment. If $\boldsymbol{\theta}$ is too small the metamodel surface will be almost equal to the trend function with narrow bumps near the data points. Too large values of $\boldsymbol{\theta}$ will make the surface explode outside the convex hull described by the data points.
+The coefficient $\sigma$ is an amplitude parameter for the correlation function, larger values of this parameter lead to steeper gradients around the data points. The vector $\bs{\theta}=(\theta_{x_1}, \theta_{x_2})$ is a scaling parameter for the distance $|\mathbf{x_i} - \mathbf{x_j}|$, in this manner the metamodel can include anisotropic effect for each variable of the experiment. If $\boldsymbol{\theta}$ is too small the metamodel surface will be almost equal to the trend function with narrow bumps near the data points. Too large values of $\boldsymbol{\theta}$ will make the surface explode outside the convex hull described by the data points.
 
-This model has been fitted in the previous semivariogram choosing $\nu=2$, $\theta=1.895$ and $\eta / \sigma=0$ and is depicted in the right figure \ref{fig:semivariogram} using a red line. Is possible to see that this model fit well the data points for this experiment.
+This model has been fitted in the previous semivariogram choosing $\nu=2$, $\theta=1.895$ and $\sigma=38.44$ and is depicted in the right figure \ref{fig:semivariogram} using a red line. Is possible to see that this model fit well the data points for this experiment.
 
 Another popular model for the covariance function is the \textit{Mat\'ern model}\footnote{the one used in chapter \ref{ch:4}} that reads:
 \begin{equation}
@@ -160,10 +159,14 @@ The parameters that can be used to tune the metamodel are the amplitude paramete
 To summarize, when choosing the correlation it should be kept in mind:
 \begin{itemize}
 	\item to well approximate the trend of the averaged semivariogram
-	\item that the scale parameter $\boldsymbol{\theta}$ highly change the presence of spurious minima and maxima in the metamodel. The others parameters $\nu$ and $\eta / \sigma$ control the gradient and the exactness of the model around the data points.
+	\item that the scale parameter $\boldsymbol{\theta}$ highly change the presence of spurious minima and maxima in the metamodel. The others parameters $\nu$ and $\sigma$ control the gradient and the exactness of the model around the data points.
 \end{itemize}
 
+Some examples of the surface built with the above parameters are presented in the next section, along with the actual implementation.
+
 \subsubsection{Implementation example}
+An example of the implementation of Kriging algorithm is presented in the following. To build the model we use the open source library openTURNS (\citet{openturns}) using its Python programming interface\footnote{although the crunching number computation is performed under the hood with C++}. This interface has been chosen because it is very expressive even to non programmers. 
+The code is shown in the listing below where each line is commented and is self explanatory. From line 1 through 22 the experiment database is created, in line 24 the trend function model is set to be constant but line 26 and 28 show how to set linear and quadratic least square trends. After the covariance model is set in line 31 is possible to build the actual metamodel (from line 35 to 42). At the end is possible to get a function callable with the desired new point, line 44-47.
 
 %\begin{minted}[frame=lines, linenos=true]{c++}
 %#include <iostream>
@@ -174,12 +177,20 @@ To summarize, when choosing the correlation it should be kept in mind:
 %}
 %\end{minted}
 
+
+%\begin{listing}[ht]
 \begin{minted}[frame=lines, linenos=true]{python}
-	include numpy as np # import the generic verctor library
-	include openturns as ot # import the openTurns library
+	import numpy as np # import the generic vector library
+	import openturns as ot # import the openTURNS library
 	
-	# define the inputs as a n by k array
-	x = np.array([[1,0],[2,3 ],[4,6],[-2,0],[9,-3], [3,3],[1,-2],[4,7] ])
+	# define the k input varibles as a n dimensional array
+	x1 = np.array([14.04, 14.33, 15.39, 13.76, 14.59,
+				   13.48, 15.86, 15.61, 13.29, 14.81])
+	x2 = np.array([18.76, 18.54, 17.05, 17.54, 17.84,
+	               17.21, 17.61, 18.85, 18.20, 18.15])
+	
+	# transform the inputs as a n by k array
+	x = np.column_stack((x1, x2))
 	
 	# define the outputs as  a n by 1 array
 	y = np.array([[10],[2 ],[4],[-2],[9],[3] ,[0], [-1]])
@@ -189,13 +200,69 @@ To summarize, when choosing the correlation it should be kept in mind:
 	Y = ot.Sample(y)
 	
 	# explicit define the number of input i.e the k number
-	dimension = 2  # X.size[1] ??
+	dimension = len(x[0])
 	
-	# distribution = ot.ComposedDistribution([ot.Uniform()]*dimension)
-	distribution = ot.ComposedDistribution([ot.Normal()]*dimension)
+	# define the constant trend function
+	basis = ot.ConstantBasisFactory(dimension).build()
+	# or the linear trend
+	# basis = ot.LinearBasisFactory(dimension).build()
+	# or the quadratic trend
+	# basis = ot.QuadraticBasisFactory(dimension).build()
+	
+	# select the covariance model squared exponential (sigma, theta)
+	covarianceModel = ot.SquaredExponential([38.44], [1.895])
+	# or define the Matern model
+	# covarianceModel = ot.MaternModel()
+	
+	algo = ot.KrigingAlgorithm(X, Y, covarianceModel, basis) # build the metamodel
+	
+	# eta = 0.2
+	# algo.setNoise([eta]*len(y)) # set the optional nugget
+	
+	algo.run() # run the metamodel tree computation
+	result = algo.getResult() # return a container for the results
+	metamodel = result.getMetaModel() # get a callable function
+	
+	# set the new point to compute
+	chi = np.array([13, 17])
+	# get the metamodel prediction for the point chi
+	y_chi = np.array(metamodel(chi))
 \end{minted}
+%\caption{Example of Kriging metamodel implementation using openTURNS library.}
+%\label{code}
+%\end{listing}
+
+\newpage
+
+However it is possible to pass directly a vector of new points to the function \textit{metamodel} in line 44. Figures \ref{fig:kriging_openturns}, \ref{fig:kriging_openturns2} and \ref{fig:kriging_openturns3} show some metamodel surfaces with different parameters setup.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{appendix_a/kriging_openturns}
+\caption{Kriging metamodel surface for using a constant trend function and the \textit{power exponential} covariance model with parameters $\nu=2$, $\theta=1.895$ and $\sigma=38.44$}
+\label{fig:kriging_openturns}
+\end{figure}
+
+Is possible to see that changing the parameters of the Kriging metamodel can change the shape of the response function, and some very bad choice of the parameters can lead to very exotic shapes like in figure \ref{fig:kriging_openturns3}. In any case it is possible to test the robustness of an certain setup using an error estimate like the one proposed in chapter \ref{ch:4}. In practical applications the choice of the optimal parameters is usually left to the experience of the user.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{appendix_a/kriging_openturns2}
+	\caption{Kriging metamodel surface for using a quadratic trend function and the \textit{Matern} covariance model with parameters $\nu=1.5$, $\theta=10$ and $\sigma=1$}
+	\label{fig:kriging_openturns2}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{appendix_a/kriging_openturns3}
+	\caption{Kriging metamodel surface for using a linear trend function and the \textit{power exponential} covariance model with parameters $\nu=2$, $\theta=0.8$ and $\sigma=10$}
+	\label{fig:kriging_openturns3}
+\end{figure}
+
 
 \subsubsection{Final observations}
 
-cita tutti i lavori e le librerie da qui hai preso il lavoro.
-Metti inoltre il link dal quale hai prodotto i grafici su github
+The above aspects are further detailed in either theoretical and computational aspects in \citet{cavazzuti2012optimization}, \citet{dakota}, \citet{sacks1989design} and \citet{openturns}.
+The above code snippet is public, in the GitHub repository of the author at the address: \url{https://github.com/appanacca/kriging_book.git}
+In the repository there are the implementation using the OpenTRUNS library and the equivalent simple Kriging implementation starting from zero.
+The final message that we want to share is that Kriginng metamodelling can be a good choice whenever a reduce order model is needed and it is easy to use with open source libraries.
