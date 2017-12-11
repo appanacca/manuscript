@@ -797,11 +797,34 @@ The above parameters have been chosen in order to avoid unphysical or unrealisti
 steep, spurious local maxima/minima.
 The method above is implemented in OpenTURNS and full details are provided by \citet{openturns}. 
 
-In order to prove the robustness of the metamodel we have performed a procedure called cross-validation.
-This s
 
- and that the number of points choose for the detabase are enough  
+A procedure called \textit{k}-fold, belonging to the class of cross-validation methods, has been used in order to prove the robustness of the metamodel.
+The \textit{k}-fold method starts with the full database $S_n = (\mathbf{x_i}, \mathbf{y}(\mathbf{x_i}))$,  for $i=1,...,n$, split into two complementary set of size $n_1$ and $n_2$, such that $S_n = S_{n_1} \cup S_{n_2}$.
+Then, a new metamodel is built using only the points present in the set $S_{n_1}$. 
+For the sake of clarity, the metamodel built with only the subset $S_{n_1}$ will be called from now on $\hat{f}^{n_1}$, and the metamodel build with all the database will be indicated as $\hat{f}^{n}$.
+The idea now is to use the points in the set $S_{n_2}$ as test, since they are essentially "new" for the metamodel $\hat{f}^{n_1}$.
+The division of the subset is performed picking points in a random way, and is repeated $k$ times in order to rule out any possible "lucky" combination.
 
+Thus, the metric used for the error computation is the following:
+$$
+\xi_{cv} = \dfrac{1}{k \; n_2}\sum_{i = 1}^{k} \sum_{j = 1}^{n_2} (\hat{f_{i}}(x_j)^{n} -\hat{f_{i}}(x_j)^{n_2} )^2 ,
+$$
+quantifying the quadratic error between the original metamodel and the one built each time with a different set that belongs to different folds.
+The metric is also averaged over all the test points $n_2$ present in all the \textit{k} folds. 
+The relative mean error can be computed as:
+$$
+E_{cv\%} = 100 \dfrac{\sqrt{\xi_{cv}}}{mean(|\hat{f_{i}}^{n}|)} .
+$$
+In our case the number of points used to test the model $n_2$ is equal to $\sqrt{N} \approx 12$ as recommended for kriging metamodels \cite{wang2007review}.
+The number of folds has been varied from $5$ to $25$ and in all the cases tested the $E_{cv\%}$ has been found to decrease below $6\%$ when we use at least 16 folds (which means leaving out 7 to 8 points from the metamodel construction), which is more than acceptable to prove that our kriging method is a robust approximation.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{chapter_4/figure/kfold_err}
+	\caption{Relative mean error computed using the \textit{k}-fold approach presented against the number of folds $k$ used to divide the
+		dataset}
+	\label{fig:kfold_err}
+\end{figure}
 
 
 The metamodel provides a scalar function (for each term of the $\mathbf{H}$ tensor) defined in a four-dimensional space.

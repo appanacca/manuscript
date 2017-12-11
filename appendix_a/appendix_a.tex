@@ -103,6 +103,8 @@ Then by inverting the partitioned matrix the Kriging predictor can be written as
 
 The first term $\mathbf{g}(\boldsymbol{\chi})^T \boldsymbol{\beta}$ is usually called \textit{trend function} and the second term is the \textit{Gaussian error model} as a matter of fact $\left( \mathbf{Y} - \mathbf{G}\boldsymbol{\beta} \right)$ is the known vector of differences between the true outputs and the trend function at all the points $\mathbf{X}$ in the database.
 
+We have already said that One of the Kriging metamodel benefits is that the model is exact at the data points. However if it is known that the database present some reliability issue and/or have noise\footnote{common in experimental data}, there is a technique that permits to take into account these effect.
+Adding a \textit{nugget} to all entries on the coveriance matrix $\mathbf{C}^* = \mathbf{C} + \eta \mathbf{I}$ the metamodel in no more exact at the data points and also the system condition number is increased.
 
 \subsubsection{Covariance matrix choice}
 \label{sec:cov}
@@ -117,42 +119,51 @@ The semivariogram $\gamma$ between two generics points, in the design space of y
 
 The semivariogram for each datapoint in the database can be directly computed from the \eqref{eq_semvar1} and afterwards the relation \eqref{eq_semvar2} can be used to fit the semivaiogram data with the covariance function.
 
-Lets us clarify the last statements with an example. We chose to replicate the example present in \citet{cavazzuti2012optimization} ....
+Lets us clarify the last statements with an example. We chose to replicate the example present in \citet{cavazzuti2012optimization} in which we have an experiment that depend on two variables $x_1$ and $x_2$ and $10$ realization of this experiment. The experiment database is shown in figure \ref{fig:doedata}.
 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.5\linewidth]{appendix_a/DOE_data}
-	\caption{Design of experiment data points}
+	\caption{Experiment data points for the $10$ realizations available. The color map represent the true output realizations of the experiment.}
 	\label{fig:doedata}
 \end{figure}
 
-Usually the semivariogramm and the correlation functions are implement as a function of the eucledian distance between the two points $\mathbf{h}_{ij} = |\mathbf{x}_i - \mathbf{x}_j|$.
+The semivariogramm functions, as a function of the eucledian distance between the two points $\mathbf{h}_{ij} = |\mathbf{x}_i - \mathbf{x}_j|$, has been computed using the equation \eqref{eq_semvar1} and is represented in figure \ref{fig:semivariogram} on the left. The same semivariogram has been averaged using a step of distance equal to $0.25$ and the points are shown on the right of figure \ref{fig:semivariogram}.
+The correlation function should be be chosen to be the best fit for the averaged semivariogram, so in theory depending on the dataset one could formulate its own covariance model.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\linewidth]{appendix_a/sem2}
-	\caption{Left: semivariogram ....  Right: semivarigram.... }
+	\includegraphics[width=0.9\linewidth]{appendix_a/sem}
+	\caption{Left: Semivariogram versus the eucledian distance computed for each data point against all the other.  Right: The blue dots represent the same semivarigram on the left but averaged over a step of distance equal to $0.25$. The red line correspond to the semivariogram computed using the relation \eqref{eq_semvar2} with the covariance model \textit{power exponential} with parameters $\nu=2$, $\theta=1.895$ and $\eta / \sigma=0$.}
 	\label{fig:semivariogram}
 \end{figure}
 
-The \textit{power exponential} correlation function read:
+What is done in practice is that some parametric families of correlation function has been proposed in literature, for example the \textit{power exponential} correlation function reads:
 \begin{equation}
-c(\mathbf{x}_{i} , \mathbf{x}_{j})  = \sigma \textrm{exp}\left( -\sum_{j=1}^{k} \theta_k {|\mathbf{x}_{ik} - \mathbf{x}_{jk} |}^\tau \right)
+c(\mathbf{x}_{i} , \mathbf{x}_{j})  = \sigma^2 \textrm{exp}\left( -\sum_{j=1}^{k} \theta_k {|\mathbf{x}_{ik} - \mathbf{x}_{jk} |}^\nu \right)
 \end{equation}
 
-The coefficient $\sigma$ is an amplitude parameter and $c(x^i, x^j)$ is a correlation function, based on the Mat\'ern covariance model that reads:
+he kriging metamodel outputs can show different behaviors for different selections of the above three parameters and their setting is thus crucial.
+The coefficient $\sigma$ is an amplitude parameter for the correlation function, but it does not entry in the computational model if the nugget $\eta$ is null.
+In fact what is generally important is the fraction $\eta / \sigma$ and the exponent $\nu$, larger values of these parameters lead to steeper gradients around the data points. The vector $\bs{\theta}=(\theta_{x_1}, \theta_{x_2})$ is a scaling parameter for the distance $|\mathbf{x_i} - \mathbf{x_j}|$, in this manner the metamodel can include anisotropic effect for each variable of the experiment. If $\boldsymbol{\theta}$ is too small the metamodel surface will be almost equal to the trend function with narrow bumps near the data points. Too large values of $\boldsymbol{\theta}$ will make the surface explode outside the convex hull described by the data points.
+
+This model has been fitted in the previous semivariogram choosing $\nu=2$, $\theta=1.895$ and $\eta / \sigma=0$ and is depicted in the right figure \ref{fig:semivariogram} using a red line. Is possible to see that this model fit well the data points for this experiment.
+
+Another popular model for the covariance function is the \textit{Mat\'ern model}\footnote{the one used in chapter \ref{ch:4}} that reads:
 \begin{equation}
-c(\mathbf{x}_{i} , \mathbf{x}_{j}) =  \dfrac{2^{1- \nu}}{\Gamma(\nu)} \  \left( \dfrac{\sqrt{2} \nu |\mathbf{x_i} - \mathbf{x_j}|}{|\bs{\lambda}|} \right)^{\nu} \ \mathcal{K}_{\nu}\left( \dfrac{\sqrt{2} \nu |\mathbf{x}_i - \mathbf{x}_j|}{|\bs{\lambda}|} \right),
+c(\mathbf{x}_{i} , \mathbf{x}_{j}) = \sigma^2 \dfrac{2^{1- \nu}}{\Gamma(\nu)} \ \sum_{j=1}^{k} \left( \dfrac{\sqrt{2} \nu |\mathbf{x}_{ik} - \mathbf{x}_{jk} |}{\theta_k} \right)^{\nu} \ \mathcal{K}_{\nu}\left( \dfrac{\sqrt{2} \nu |\mathbf{x}_{ik} - \mathbf{x}_{jk} |}{\theta_k} \right),
 \label{eq:matern2}
 \end{equation}
 where $\mathcal{K}_{\nu}(.)$ is a modified Bessel function and $\Gamma(.)$ is the gamma function.
-The parameters that can be used to tune the metamodel are the amplitude parameter $\sigma$, the exponent $\nu$ and the scale vector $\bs{\lambda}$.
-The kriging metamodel outputs can show different behaviours for different selections of the above three parameters and their setting is thus crucial. 
-The amplitude parameter $\sigma$ is chosen to be equal to $1$; larger value lead to steeper gradients and undesirable local extrema around the data points.
-The vector $\bs{\lambda}=(\lambda_{\theta}, \lambda_{\phi}, \lambda_{Re_d}, \lambda_{\varepsilon} )$ is a scaling parameter for the distance $ |\mathbf{x_i} - \mathbf{x_j}|$.
+The parameters that can be used to tune the metamodel are the amplitude parameter $\sigma$, the exponent $\nu$ and the scale vector $\bs{\theta}$ with the same meaning as in the previous correlation function.
+
+To summarize, when choosing the correlation it should be kept in mind:
+\begin{itemize}
+	\item to well approximate the trend of the averaged semivariogram
+	\item that the scale parameter $\boldsymbol{\theta}$ highly change the presence of spurious minima and maxima in the metamodel. The others parameters $\nu$ and $\eta / \sigma$ control the gradient and the exactness of the model around the data points.
+\end{itemize}
 
 \subsubsection{Implementation example}
-
 
 %\begin{minted}[frame=lines, linenos=true]{c++}
 %#include <iostream>
@@ -183,3 +194,8 @@ The vector $\bs{\lambda}=(\lambda_{\theta}, \lambda_{\phi}, \lambda_{Re_d}, \lam
 	# distribution = ot.ComposedDistribution([ot.Uniform()]*dimension)
 	distribution = ot.ComposedDistribution([ot.Normal()]*dimension)
 \end{minted}
+
+\subsubsection{Final observations}
+
+cita tutti i lavori e le librerie da qui hai preso il lavoro.
+Metti inoltre il link dal quale hai prodotto i grafici su github
