@@ -1,0 +1,49 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np} \PYG{c+c1}{\PYGZsh{} import the generic vector library}
+	\PYG{k+kn}{import} \PYG{n+nn}{openturns} \PYG{k+kn}{as} \PYG{n+nn}{ot} \PYG{c+c1}{\PYGZsh{} import the openTURNS library}
+
+	\PYG{c+c1}{\PYGZsh{} define the k input varibles as a n dimensional array}
+	\PYG{n}{x1} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mf}{14.04}\PYG{p}{,} \PYG{l+m+mf}{14.33}\PYG{p}{,} \PYG{l+m+mf}{15.39}\PYG{p}{,} \PYG{l+m+mf}{13.76}\PYG{p}{,} \PYG{l+m+mf}{14.59}\PYG{p}{,}
+				   \PYG{l+m+mf}{13.48}\PYG{p}{,} \PYG{l+m+mf}{15.86}\PYG{p}{,} \PYG{l+m+mf}{15.61}\PYG{p}{,} \PYG{l+m+mf}{13.29}\PYG{p}{,} \PYG{l+m+mf}{14.81}\PYG{p}{])}
+	\PYG{n}{x2} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mf}{18.76}\PYG{p}{,} \PYG{l+m+mf}{18.54}\PYG{p}{,} \PYG{l+m+mf}{17.05}\PYG{p}{,} \PYG{l+m+mf}{17.54}\PYG{p}{,} \PYG{l+m+mf}{17.84}\PYG{p}{,}
+	               \PYG{l+m+mf}{17.21}\PYG{p}{,} \PYG{l+m+mf}{17.61}\PYG{p}{,} \PYG{l+m+mf}{18.85}\PYG{p}{,} \PYG{l+m+mf}{18.20}\PYG{p}{,} \PYG{l+m+mf}{18.15}\PYG{p}{])}
+
+	\PYG{c+c1}{\PYGZsh{} transform the inputs as a n by k array}
+	\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{column\PYGZus{}stack}\PYG{p}{((}\PYG{n}{x1}\PYG{p}{,} \PYG{n}{x2}\PYG{p}{))}
+
+	\PYG{c+c1}{\PYGZsh{} define the outputs as  a n by 1 array}
+	\PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([[}\PYG{l+m+mi}{10}\PYG{p}{],[}\PYG{l+m+mi}{2} \PYG{p}{],[}\PYG{l+m+mi}{4}\PYG{p}{],[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{],[}\PYG{l+m+mi}{9}\PYG{p}{],[}\PYG{l+m+mi}{3}\PYG{p}{]} \PYG{p}{,[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]])}
+
+	\PYG{c+c1}{\PYGZsh{} tranform the array in OT samples}
+	\PYG{n}{X} \PYG{o}{=} \PYG{n}{ot}\PYG{o}{.}\PYG{n}{Sample}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+	\PYG{n}{Y} \PYG{o}{=} \PYG{n}{ot}\PYG{o}{.}\PYG{n}{Sample}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+
+	\PYG{c+c1}{\PYGZsh{} explicit define the number of input i.e the k number}
+	\PYG{n}{dimension} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+
+	\PYG{c+c1}{\PYGZsh{} define the constant trend function}
+	\PYG{n}{basis} \PYG{o}{=} \PYG{n}{ot}\PYG{o}{.}\PYG{n}{ConstantBasisFactory}\PYG{p}{(}\PYG{n}{dimension}\PYG{p}{)}\PYG{o}{.}\PYG{n}{build}\PYG{p}{()}
+	\PYG{c+c1}{\PYGZsh{} or the linear trend}
+	\PYG{c+c1}{\PYGZsh{} basis = ot.LinearBasisFactory(dimension).build()}
+	\PYG{c+c1}{\PYGZsh{} or the quadratic trend}
+	\PYG{c+c1}{\PYGZsh{} basis = ot.QuadraticBasisFactory(dimension).build()}
+
+	\PYG{c+c1}{\PYGZsh{} select the covariance model squared exponential (sigma, theta)}
+	\PYG{n}{covarianceModel} \PYG{o}{=} \PYG{n}{ot}\PYG{o}{.}\PYG{n}{SquaredExponential}\PYG{p}{([}\PYG{l+m+mf}{38.44}\PYG{p}{],} \PYG{p}{[}\PYG{l+m+mf}{1.895}\PYG{p}{])}
+	\PYG{c+c1}{\PYGZsh{} or define the Matern model}
+	\PYG{c+c1}{\PYGZsh{} covarianceModel = ot.MaternModel()}
+
+	\PYG{n}{algo} \PYG{o}{=} \PYG{n}{ot}\PYG{o}{.}\PYG{n}{KrigingAlgorithm}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{covarianceModel}\PYG{p}{,} \PYG{n}{basis}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} build the metamodel}
+
+	\PYG{c+c1}{\PYGZsh{} eta = 0.2}
+	\PYG{c+c1}{\PYGZsh{} algo.setNoise([eta]*len(y)) \PYGZsh{} set the optional nugget}
+
+	\PYG{n}{algo}\PYG{o}{.}\PYG{n}{run}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} run the metamodel tree computation}
+	\PYG{n}{result} \PYG{o}{=} \PYG{n}{algo}\PYG{o}{.}\PYG{n}{getResult}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} return a container for the results}
+	\PYG{n}{metamodel} \PYG{o}{=} \PYG{n}{result}\PYG{o}{.}\PYG{n}{getMetaModel}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} get a callable function}
+
+	\PYG{c+c1}{\PYGZsh{} set the new point to compute}
+	\PYG{n}{chi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{13}\PYG{p}{,} \PYG{l+m+mi}{17}\PYG{p}{])}
+	\PYG{c+c1}{\PYGZsh{} get the metamodel prediction for the point chi}
+	\PYG{n}{y\PYGZus{}chi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{metamodel}\PYG{p}{(}\PYG{n}{chi}\PYG{p}{))}
+\end{Verbatim}
