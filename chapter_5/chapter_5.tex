@@ -239,23 +239,23 @@ R_e = \dfrac{U_b h}{\nu}
 $$
 where $U_b$ is the velocity in the top left corner of the domain, just above the first hill.
 
-In the first case we study the the problem in the stable regime ($Re\leq200$). In this case the source term is equal to $\mathbf{g} = (1e-9 0 0)$ and it give a Reynolds number $Re=70$.
+In the first case we study the the problem in the stable regime ($Re\leq200$). In this case the source term is equal to $\mathbf{g} = (1e^{-9} \quad0 \quad0)$ and it result in a Reynolds number $Re=70$.
 The porous media layer is has the same geometry of the one described in \ref{ch:4}, it means a series of cylinders in staggered arrangement. The cylinders are then arranged on top of the leeward side of the hill and they are aligned with the wall normal direction. Although their extension is not uniform, the line that pass through all the cylinders lid describe the Gaussian:
 \begin{equation}
-	y_{itf}(x) = \dfrac{2.5}{\sqrt{2*\pi}} \textrm{exp}\left( -0.5 x^2 \right)
+	y_{itf}(x) = \dfrac{2.5}{\sqrt{2\pi}} \textrm{exp}\left( -0.5 x^2 \right)
 	\label{eq:gaussian}
 \end{equation}
 
-The treatment for the porosity is the same as equation \eqref{eq:porsitity_fun} where in this case the $y_itf$ id described by the Gaussian function \eqref{eq:gaussian}.
+The treatment for the porosity is the same as equation \eqref{eq:porsitity_fun} where in this case the $y_{itf}$ id described by the Gaussian function \eqref{eq:gaussian}.
 Instead the permeability tensor has a discontinuity through the same interface line.
 
 The porosity field is depicted in figure \ref{fig:por_gauss}. Where the porosity deep inside the medium, showed in blue, is equal to $0.8$ and the exterior is obviously equal to $1$ and is showed yellow.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\linewidth]{chapter_5/figure/por}
+\includegraphics[width=0.7\linewidth]{chapter_5/figure/por}
 \caption{Porosity field in the leeward side of the first hill.}
-\label{fig:por}
+\label{fig:por_gauss}
 \end{figure}
 
 
