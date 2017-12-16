@@ -127,18 +127,19 @@ With the above relationship is possible to define the porosity as a function of 
 \label{eq:porsitity_fun}
 \end{equation}
 
-In our simulations the effective permeability remains constant between each time-step, in the sense that the metamodel for the effective permeability has not been applied. Although it has been tested and any appreciable difference has been observed at these specific Reynolds number tested.
+In our simulations the effective permeability is constant, in the sense that the metamodel for the effective permeability has not been applied.  As a matter of fact the metamodel in chapter \ref{ch:4} was built for a porous medium made of staggered cylinders. So it would not be applicable in this case in which the porous medium is made by regular arranged cylinders.
+Although we have seen that at low pore Reynolds number the effective permeability is practically not sensitive in variation of flow direction and/or magnitude \footnote{see figures \ref{fig:08_H}, \ref{fig:08_H} and \ref{fig:08_H} in chapter \ref{ch:4}}.
+A direct comparison of the metamodel variation on the macroscopic field would be presented in the paragraph \ref{pr:mata_cav}.
 
 \subsection{Cavity $Re=100$ comparison}
 
-This section will present the comparison between the two different approach at $Re=100$. The pictures \ref{fig:100_u} and \ref{fig:100_p} show the pressure gradient and the velocity fields for the two different approaches.
+This section present the comparison between the microscopic and macroscopic different approach for the cavity at $Re=100$. Pictures \ref{fig:100_u} and \ref{fig:100_p} show the pressure gradient and the velocity fields for the two different approaches.
 Each field is made non-dimensional using the macroscopic length and the velocity on the top of the cavity:
 
 \begin{eqnarray}
 && u^* = u/U_{top}, \qquad v^* = v/U_{top} \nonumber \\
 && \derp{p}{x}^* = \derp{p}{x} / \left(0.5 \rho_{\beta} {U^2}_{top} /L  \right), \qquad \derp{p}{y}^* = \derp{p}{y} / \left(0.5 \rho_{\beta} {U^2}_{top} /L  \right) \nonumber
 \end{eqnarray}
-
 
 
 \begin{figure}[h]
@@ -180,7 +181,7 @@ For this case we can confirm the same conclusion as the previous one. Some of th
 
 
 \subsection{Cavity $Re=7000$ using $\mathbf{H}$ metamodel}
-
+\label{pr:mata_cav}
 
 
 \section{Separated flow between hills}
@@ -259,10 +260,22 @@ The porosity field is depicted in figure \ref{fig:por_gauss}. Where the porosity
 \end{figure}
 
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{chapter_5/figure/streamlines}
+	\caption{??}
+	\label{fig:streamlines}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{chapter_5/figure/cuts_hill}
+	\caption{???}
+	\label{fig:cuts_hill}
+\end{figure}
 
 
-
-\subsection{Comparison in unstable regime}
+\subsection{Comparison in the unstable regime}
 
 
 
