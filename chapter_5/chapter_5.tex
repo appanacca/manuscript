@@ -191,22 +191,16 @@ This test case has been studied with two two main objectives, either the modelin
 In our case we have tested smaller Reynolds number in the laminar regime. Although the problem has been chosen especially for the possibility to future extend the study in higher Reynolds number since a lot of data can be found in literature.
 
 \subsubsection{Geometry and condition}
-The geometry of the problem is depicted in figure \ref{fig:dom}. The geometry used is the 2D version of the problem since the flow is practically two dimensional in the Reynolds number considered. The dimension of the hill crest and extensions are also showed in the same pictures in their adimensinalized version. However, in our case the heigth of the crest is equal to 1 so the adimensional and dimensional coordinates are the same. The dimensions of the domain are: $L_x = 9.0 h$, $L_y = 3.036 h$ and $L_z = 4.5 h$ where $h$ denotes the hill height and $x,y,z$ are the streamwise, wall-normal and spanwise direction, respectively. It consists of a single streamwise periodic segment and thus covers solely one complete hill with an upstream and a downstream region. In the predictions reported here the domain starts and ends at the hill crest. 
+The geometry of the problem is depicted in figure \ref{fig:mesh_hill}. The geometry used is the 2D version of the problem since the flow is practically two dimensional in the Reynolds number considered. The dimension of the hill crest and extensions are also showed in the same pictures in their adimensinalized version. However, in our case the heigth of the crest is equal to 1 so the adimensional and dimensional coordinates are the same. The dimensions of the domain are: $L_x = 9.0 h$, $L_y = 3.036 h$ and $L_z = 4.5 h$ where $h$ denotes the hill height and $x,y,z$ are the streamwise, wall-normal and spanwise direction, respectively. It consists of a single streamwise periodic segment and thus covers solely one complete hill with an upstream and a downstream region. In the predictions reported here the domain starts and ends at the hill crest. 
 Between one hill and the next one there is a flat plate region of extension $5h$. The pressure induced separation takes place from the first hill curved surface and reattachment is observed at the flat plate part between the two hills.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{chapter_5/figure/domain}
-	\caption{Domain of the problem with an example of the generic streamlines pattern of the mean flow.}
-	\label{fig:dom}
-\end{figure}
 
 The problem is discretized using the finite volume method and the mesh used is showed in figure \ref{fig:mesh_hill}. The mesh is purely made of exahedral cell and counts 25000 elements in the two dimensional version. It is possible to download it at \url{https://turbmodels.larc.nasa.gov/Other_LES_Data/2dhill_periodic.html}. The resolution has been already validate in DNS and LES computations so it has not been further investigated here.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_5/figure/mesh}
-	\caption{Mesh used to discretize the problem. On the right side there is an enlargement of the zone on the hill curvature.}
+	\caption{Domain of the problem and mesh used to discretize it. On the right side there is an enlargement of the zone on the hill curvature.}
 	\label{fig:mesh_hill}
 \end{figure}
 
