@@ -192,8 +192,14 @@ For this case we can confirm the same conclusion as the previous one. Some of th
 \subsection{Cavity $Re=5000$ using $\mathbf{H}$ metamodel}
 \label{pr:mata_cav}
 
-include figure for the profiles
+The previous solutions of the cavity problem had shown that varying the permeability in a linear manner through the interface is the correct choice when using the penalization method. Also the flow path inside the porous domain is in good agreement with the DNS data. So for the two Reynolds number tested the Kriging metamodel 
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{chapter_5/figure/cav_5000}
+	\caption{Left: horizontal velocity component. Center: vertical velocity component. Right: Effective permeability component $11$ . The three fields has been sampled at the center of the cavity geometry, $x_1=0.5*L$. The blue line represent the solution for the system \eqref{eq:vans_cav} with the Kriging metamodel for the effective permeability, the read line is the solution wo the same system with the model switched off.}
+	\label{fig:cav5000}
+\end{figure}
 
 From the figures is possible to see also how the trend of the two differents treatment look like the same at the interface.
 The dots in the figure lines are used only to ease the read of the plots and do not correspond at the mesh nodes (that are too much to be represented clearly).
