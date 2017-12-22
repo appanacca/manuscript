@@ -125,7 +125,7 @@ $$
 
 With the above relationship is possible to define the porosity as a function of the vertical coordinate $x_2 = y$:
 \begin{equation}
-\varepsilon(z) = 
+\varepsilon(y) = 
 \begin{cases}
 1 & y\geqslant(y_{itf}+\ell) \\
 1 - \dfrac{1-\varepsilon}{\ell}|y_{itf} -y +\ell| &  (y_{itf}-\ell)<y<(y_{itf}+\ell)\\
@@ -134,11 +134,21 @@ With the above relationship is possible to define the porosity as a function of 
 \label{eq:porsitity_fun}
 \end{equation}
 
-The same expression has been used for the effective permeability field. We have seen in chapter 4 that the components of $\mathbf{H}$ are mostly driven by the porosity effect so, it is fair to suppose that the same variability should be used for either the porosity and the permeability fields.
+The same expression has been used for the effective permeability field. Although in the equation \eqref{eq:permeability_fun} the inverse of the effective permeability has been used because doing so the value of this term in the free fluid is equal to zero (instead of infinity). Asa matter of fact in the system \eqref{eq:vans_cav} only the inverse of the effective permeability is needed.
 
-In our simulations the metamodel for the effective permeability has not been applied.  As a matter of fact the metamodel in chapter \ref{ch:4} was built for a porous medium made of staggered cylinders. So it would not be applicable in this case in which the porous medium is made by regular arranged cylinders.
-Although we have seen that at low pore Reynolds number the effective permeability is practically not sensitive in variation of flow direction and/or magnitude \footnote{see figures \ref{fig:08_H}, \ref{fig:08_H} and \ref{fig:08_H} in chapter \ref{ch:4}}.
-However, a direct comparison of the metamodel variation on the macroscopic field would be presented in the paragraph \ref{pr:mata_cav}.
+The ${H_{ii}}^{*}$ term in the equation \eqref{eq:permeability_fun} refers to the effective permeability components of the deep medium, reported in table \ref{tab:H}.
+
+\begin{equation}
+{H_{ii}}^{-1}(y) = 
+\begin{cases}
+0 & y\geqslant(y_{itf}+\ell) \\
+1 - \dfrac{1-\varepsilon}{\ell}|y_{itf} -y +\ell| &  (y_{itf}-\ell)<y<(y_{itf}+\ell)\\
+1/{H_{ii}}^{*} &y\leqslant(y_{itf}-\ell) \\
+\end{cases}
+\label{eq:permeability_fun}
+\end{equation}
+
+The data analyzed in chapter 4 suggests that the components of $\mathbf{H}$ are mostly driven by the porosity effect so, it is fair to suppose that the same variability should be used for either the porosity and the permeability fields. This assumption justify the choice of the same formulation for the interface treatment for the two different fields.
 
 \subsection{Cavity $Re=100$ comparison}
 
@@ -151,17 +161,17 @@ Each field is made non-dimensional using the macroscopic length and the velocity
 \end{eqnarray}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_5/figure/re100/vans_u}
 	\caption{Left: VANS approach. Right: Homogenized DNS approach. The figure show, from top to bottom, the horizontal velocity the vertical velocity and the streamlines inside the porous domain $\Omega_p$}
 	\label{fig:100_u}
 \end{figure}
 
-The DNS approach is used as reference case for the comparison. At Reynolds number equal to $100$ we have a fair agreement in the velocities and pressure gradients fields. The contours and the location of the local minima and maxima are the same for the two approaches. If we look at the numerical values, for some fields the relative errors are not negligible however, they are always below $10\%$.
-In any case some differences between the two models has to expected since in the VANS approach the micro-scale flow behavior is modeled and of course some of the details that the full DNS is able to retain are lost in the macroscopic approach. 
+The DNS approach is used as reference case for the comparison. At Reynolds number equal to $100$ we have a fair agreement in the velocities and pressure gradients fields. The contours and the location of the local minima and maxima are the same for the two approaches. If we look at the numerical values, for some fields the relative errors are not negligible however, they are in mean always below $10\%$. Also the flow path inside the porous domain is in good agreement with the DNS data.
+Some differences between the two models has to expected since in the VANS approach the micro-scale flow behavior is modeled. This means that some of the details that the full DNS is able to retain, are lost in the macroscopic approach. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_5/figure/re100/vans_p}
 	\caption{Left: VANS approach. Right: Homogenized DNS approach. The figure show, from top to bottom, the horizontal and the vertical component of the pressure gradient inside the porous domain $\Omega_p$}
@@ -172,16 +182,17 @@ In any case some differences between the two models has to expected since in the
 \subsection{Cavity $Re=1000$ comparison}
 
 The same case and comparison has been done also for a Reynolds number equal to $Re=1000$.
-For this case we can confirm the same conclusion as the previous one. Some of the relative errors are even smaller compared to the lower Reynolds number case, this confirm that the model is robust in this range of Reynolds number.
+For this case the same conclusion as the previous case are confirmed. Some of the relative errors are even smaller compared to the previous Reynolds number case. This support the robustness of our model in this range of Reynolds number.
+These two solutions of the cavity problem shown that varying the permeability in a linear manner through the interface is the correct choice when using the penalization method.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_5/figure/re1000/vans_u}
 	\caption{Left: VANS approach. Right: Homogenized DNS approach. The figure show, from top to bottom, the horizontal velocity the vertical velocity and the streamlines inside the porous domain $\Omega_p$}
 	\label{fig:1000_u}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_5/figure/re1000/vans_p}
 	\caption{Left: VANS approach. Right: Homogenized DNS approach. The figure show, from top to bottom, the horizontal and the vertical component of the pressure gradient inside the porous domain $\Omega_p$}
@@ -191,21 +202,33 @@ For this case we can confirm the same conclusion as the previous one. Some of th
 
 \subsection{Cavity $Re=5000$ using $\mathbf{H}$ metamodel}
 \label{pr:mata_cav}
+In our previous simulations the metamodel for the effective permeability has not been applied.  As a matter of fact the metamodel in chapter \ref{ch:4} was built for a porous medium made of staggered cylinders. So it would not be applicable when the porous medium is made by regular arranged cylinders.
 
-The previous solutions of the cavity problem had shown that varying the permeability in a linear manner through the interface is the correct choice when using the penalization method. Also the flow path inside the porous domain is in good agreement with the DNS data. So for the two Reynolds number tested the Kriging metamodel 
+In order to test how the effective permeability variability would impact our model we show the solution for another test case. In the same cavity geometry as before the system \eqref{eq:vans_cav} is solved with or without the Kriging metamodel for the effective permeability.
+
+Although we have seen that at low pore Reynolds number the effective permeability is practically not sensitive in variation of flow direction and/or magnitude \footnote{see figures \ref{fig:08_H}, \ref{fig:08_H} and \ref{fig:08_H} in chapter \ref{ch:4}}.
+For this reason also the Reynolds number has been increased to $5000$, that is still in the stationary regime but is near the transition limit (\citet{peng2003transition}).
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{chapter_5/figure/cav_5000}
-	\caption{Left: horizontal velocity component. Center: vertical velocity component. Right: Effective permeability component $11$ . The three fields has been sampled at the center of the cavity geometry, $x_1=0.5*L$. The blue line represent the solution for the system \eqref{eq:vans_cav} with the Kriging metamodel for the effective permeability, the read line is the solution wo the same system with the model switched off.}
+	\caption{Left: horizontal velocity component. Center: vertical velocity component. Right: Effective permeability component $11$ . The three fields has been sampled at the center of the cavity geometry, $x_1=0.5 \,L$. The blue line represent the solution for the system \eqref{eq:vans_cav} with the Kriging metamodel for the effective permeability, the read line is the solution wo the same system with the model switched off.}
 	\label{fig:cav5000}
 \end{figure}
 
-From the figures is possible to see also how the trend of the two differents treatment look like the same at the interface.
-The dots in the figure lines are used only to ease the read of the plots and do not correspond at the mesh nodes (that are too much to be represented clearly).
+Figure shows \ref{fig:cav5000} the velocity and permeability profiles for a sample cut made at the center of the cavity at $x=0.5\,L$.
+It is clear that the macroscopic velocity is not affected by the different treatment of the permeability, as a matter of fact the two velocities can be superposed almost precisely.
+Although the inverse of the effective permeability component show some differences. At the interface the is possible to see also how the trend of the two different treatment look like the same at the interface. Although the permeability start to increase at a deeper vertical position then the case without metamodel. This is caused by the vertical angle $phi$ that is near to $90^\circ$ at that point because of the fluid penetration. The analysis made in chapter 4 shows that the permeability increase when the angle $\phi$ increase.
+However the value of the permeability deep in the medium is almost the same. 
+In any case even if there are some differences in the permeability profiles this seems not to effect the averaged velocities.
+
+The fact that with the Kriging metamodel the same linear profile as equation \ref{eq:permeability_fun} is retrieved is another confirmation that the linear variation is the right choice.
+
+
+\footnote{The dots in the figure \ref{fig:cav5000} lines are used only to ease the read of the plots and do not correspond at the mesh nodes (that are too much to be represented clearly).}
 
 \section{Separated flow between hills}
-In order to test the effectiveness of the porous media layer to reduce separation we have chose to tho solve the flow over periodically arranged hills. This problesm  has been already investigated experimentally and numerically and is a classical CFD bencmark problem now standardized by the ERCOFTAC. 
+In order to test the effectiveness of the porous media layer to reduce separation we have chose to tho solve the flow over periodically arranged hills. This problem  has been already investigated experimentally and numerically and is a classical CFD bencmark problem now standardized by the ERCOFTAC. 
 The flow experience separation caused by the curved surface of the hill and also recirculation and natural reattachment. The flow is supposed to be periodic and two dimensional, at the Reynolds number tested. Noumerous DNS and LES works can be found in literature with Reynolds numbers up to 10000 (\citet{chang2014simulations}, \citet{breuer2005issues}, \citet{breuer2009flow}, \cite{almeida1993wake} and \cite{temmerman2001large}).
 This test case has been studied with two two main objectives, either the modeling and simulation issue or the physical issue. Regarding the first, it is used as a benchmark case to investigate the ability of DNS, RANS and LES to resolve separation from a curved geometry. Furthermore, the flow is also an interesting case to study the physical mechanisms of separation on curved surfaces in more detail.
 In our case we have tested smaller Reynolds number in the laminar regime. Although the problem has been chosen especially for the possibility to future extend the study in higher Reynolds number since a lot of data can be found in literature.
@@ -291,7 +314,7 @@ The porosity field is depicted in figure \ref{fig:por_gauss}. Where the porosity
 \begin{table}
 \centering
 \begin{tabular}{c|c|c}
-	& $L_R$ & $h_{x=4.5}$ \\ 
+	geometry & $L_R$ & $h_{x=4.5}$ \\ 
 	\hline 
 	\hline 
 	not porous & 5.6 & 0.27 \\ 
