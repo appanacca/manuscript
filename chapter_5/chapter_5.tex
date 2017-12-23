@@ -207,7 +207,7 @@ In our previous simulations the metamodel for the effective permeability has not
 In order to test how the effective permeability variability would impact our model we show the solution for another test case. In the same cavity geometry as before the system \eqref{eq:vans_cav} is solved with or without the Kriging metamodel for the effective permeability.
 
 Although we have seen that at low pore Reynolds number the effective permeability is practically not sensitive in variation of flow direction and/or magnitude \footnote{see figures \ref{fig:08_H}, \ref{fig:08_H} and \ref{fig:08_H} in chapter \ref{ch:4}}.
-For this reason also the Reynolds number has been increased to $5000$, that is still in the stationary regime but is near the transition limit (\citet{peng2003transition}).
+For this reason also the Reynolds number has been increased to $5000$, that is still in the stationary regime but is near the transition limit (\citet{peng2003transition} ).
 
 \begin{figure}[h]
 	\centering
@@ -346,4 +346,6 @@ In figure \ref{fig:cuts_hill} the local velocity fields are analyzed. The sample
 
 \section{Conclusions}
 
-If it would be possible to obtain systematically the same results with a reduced information model \footnote{like a general metamodel or a macroscopic model for porous media or a turbulence model for turbulent flow} and a full physic simulation we would be in a paradox. Basically it would means that some of the input information are redundant. This statements should be kept in mind when making analysis on the macroscopic model against the DNS.
+In the chapter we have shown how the VANS equations derived in chapter 2 can be used to describe the averaged macroscopic field for rigid porous medium. We have also shown how the interface should be threated in order to retrieve good results. Direct comparison with DNS data show that the linear smoothing of either the porosity filed and the effective permeability filed are necessary. We have also shown that using the metamodel developed for $\mathbf{H}$ produce the same smoothing for the interface. Finally the periodic hill application show that our homogenized solver can be used easily as a tool to test and measure porous coating and their effectiveness.
+For the porous characteristic used in our test we have found that the porous medium has negative effects for separation. But our focus were posed on the validation of the correctness and easiness to use of our macroscopic model. With this tool is now possible to extensively study this porous media coating in order to find the optimal characteristics for different objectives.
+%If it would be possible to obtain systematically the same results with a reduced information model \footnote{like a general metamodel or a macroscopic model for porous media or a turbulence model for turbulent flow} and a full physic simulation we would be in a paradox. Basically it would means that some of the input information are redundant. This statements should be kept in mind when making analysis on the macroscopic model against the DNS.
