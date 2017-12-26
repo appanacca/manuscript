@@ -430,91 +430,9 @@ $\alpha \approx 0.3$) is more easily modified by acting on $\mathcal{K}_{11}$ (w
 rate of the wave); conversely, the growth rate of modes with large values of $\alpha$ is affected efficiently
 by variations in the first component of the permeability tensor.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Concluding remarks}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-We have considered two different models of the flow through a vegetated layer experienc-
-ing Kelvin-Helmholtz destabilization. One model is based on the use of a single drag coefficient
-to express the force exerted by the vegetation on the fluid, the second considers the canopy as
-an orthotropic porous medium and is based on Darcy’s equation with a tensorial permeability \citet{zampogna2016fluid}. 
-Both models have advantages and drawbacks. The main advantage of the first model is that the
-drag coefficient can be taken to vary across the canopy; whether this positive consideration, based
-on macroscopic experimental measurements \citet{ghisalberti2002mixing} \citet{ghisalberti2004limited} \citet{ghisalberti2005mass},  carries over to the stability problem remains to
-be established. The second model, applicable to dense porous media, considers two independent
-parameters to express the disturbance flow perpendicular and parallel to the rigid dowels forming
-the canopy. Such parameters and components of the transversely isotropic permeability tensor K i j
-arise from the solution of a local Oseen problem \citet{zampogna2016fluid}. The drawback of the second model is the
-fact that an interface (whether real or effective) appears, and adequate matching conditions must
-be enforced there. Despite much work since the seminal contribution by \citet{beaver}, a
-consensus on the “best” interface conditions between a pure fluid region and a porous medium has
-not yet emerged.
-The models have been put to test through a classical sensitivity analysis \citet{bottaro2003effect}. Beyond display-
-ing stability results which correspond better to those to be expected from available experimental
-correlations \citet{raupach1996coherent} \citet{zampogna2016instability}, the anisotropic model is less sensitive to variations in the base flow (with potentially
-larger variations in frequency and growth rate of the instability mode for the case of shorter waves).
-As far as a direct comparison between $G_{C_d}$ and $G_{\mathcal{K}_{ii}}$ is concerned, this can hardly be made since
-the variables represent different objects; in particular, the pressure drop through the canopy depends
-directly on $C_d$ and inversely on the permeability. The present results indicate that the anisotropic
-model depends significantly on the value of the apparent \citet{zampogna2016fluid} permeability component $\mathcal{K}_{11}$ , whose
-evaluation must thus be conducted carefully. This model is also of interest for further developments,
-in particular for the study of instabilities developing over waving canopies. Darcy’s law in this latter
-case would need to be modified, as described in \citet{mei2010homogenization} and \citet{zampognaMech}.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Acknowledgment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%The authors would like to thank the IDEX Foundation of the University of Toulouse for the
-%financial support granted to the last author under the project “Attractivity Chairs.” The computations
-%have been conducted at the CALMIP center, Grant No. P1540. The referees are gratefully acknowl-
-%edged for their comments leading, in particular, to the correct interpretation of the sensitivity of the
-%drag coefficient and to the material in Appendix A.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Appendix A: effect of $C_D$ on the mean flow}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-In \ref{sec:2ch3} of the paper it is described how the eigenvalue $\omega$ varies as an effect of indepen-
-dent variations of $U$ and $C_d$. However, since $C_d$ is not zero within the canopy and it is used to
-compute the mean flow profile $U$, we should in principle have expressed $\delta U$ as $\delta U = \dfrac{dU}{d C_d} \delta C_d$
-and considered a single sensitivity function ${G^*}_{C_d} = G_{C_d} + \dfrac{dU}{d C_d} G_U$, instead of the two sensitivities given
-in \ref{eq:GCD}. This would have certainly been the appropriate line of action if the mean flow equa-
-tion were issued from exact equations, in which case we should have considered also the adjoint
-of the base flow equation in our variational problem. However, the mean flow model by \citet{ghisalberti2004limited} contains empirical approximations and parameters, and alternative models \citet{singh2016linear}, \citet{zampogna2016instability} —including
-very different ones—have been used successfully in the past to predict the mean field; we have thus
-made the choice, in both \ref{sec:3} and \ref{sec:4}, of considering the mean flow as given, and to take
-independent variations of $U$ and $C_d$ in the stability analysis to assess the effect of modifications in
-either variable.
-If we were to find how much the base flow depends on the drag coefficient in this particular
-problem, we would need to determine the function $U(C_d)$ and take its derivative. Since both $U$
-and  $C_d$ are functions of the space coordinate $y$, the implicit dependence can be found, and we
-have plotted it for one case on the left frame of \ref{fig:9}. Clearly, the function $U = f(C_d)$ is not
-single-valued and therefore the derivative can be calculated only over two separate $U$ (or, equiva-
-lently, $y$) intervals. We have carried out the derivation numerically over each interval, within the
-range $0.3 \leq y \leq 1$, and the result is reported on the right frame of \ref{fig:9}. The filled triangle and
-circle symbols indicate the two y intervals within the canopy.
-We first observe that both the location where $C_d$ is maximum and the shape of the function 
-$U = f(C_d)$ are strongly correlated to the drag law $C_d(y)$, modeled by \citet{ghisalberti2004limited}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{chapter_3/figure/9}
-	\caption{Case G. Left: mean velocity profile, $U$ , versus the drag coefficient, $C_d$ . Right: first derivative, $dU / d C_d$ . The triangles denote the region $y \in [0.76, 1]$, the filled circles denote the region $y \in [0.3, 0.76]$.}
-	\label{fig:9}
-\end{figure}
-
-through their measurement data (cf. their Figure 7 and Equation (18)). We also notice that the deriv-
-ative $dU/dC_d$ is reasonably small except locally at the point where the derivative of the function is
-not continuous, where it is of order 1. The discontinuity there is however artificial since the function
-$C_d(y)$ given in Equation (18) of \citet{ghisalberti2004limited}, where $C_d$ is divided into a parabolic and a
-linear part, can be easily modified to yield a continuous first derivative at $y = 0.76$ if required, still
-maintaining a mean flow very close to the measured one.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Appendix B: a digression on spatial stability theory and group velocity}
+\section*{Digression on spatial stability theory and group velocity}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Stability problems such as the first one considered in this paper can be approached with the
@@ -630,81 +548,166 @@ computations of the adjoint stability equations.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Appendix C: comparison between continuous and discrete adjoint eigenfunctions}
+\section{Concluding remarks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-The discretization operation transform the operator $\mathcal{L}$ into a matrix $\mathbf{A}$ and of course do the same things to the unknown functions that becomes vectors.
-
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{|c|c|}
-			\hline 
-			continuous & discrete \\ 
-			\hline 
-			$\mathcal{L}$ & $\mathbf{A}$ \\ 
-			\hline 
-			$q$ & $\hat{q}$ \\ 
-			\hline 
-		\end{tabular} 
-	\end{center}
-\end{table}
-
-This has a serious and most often hidden repercussion in th approach to solve the adjoint equations.
-
-As above stated the derivation of the adjoint equation start with the enforcing of the Lagrange identity:
-
-\begin{equation}
-\langle q; \mathcal{L} q \rangle = \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle
-\end{equation}
-
-where the scalar product $ \langle ;\rangle$ is defined in our case as:
-
-\begin{equation}
-\langle a ; b\rangle = \int_{0}^{y_{\infty}} \overline{a} \cdot b dy \approx \sum_{i=1}^N \sum_{j=1}^N {\hat{\overline{a}}_i}^T w_{i,j} {\hat{b}_j} = {\hat{\overline{a}}_i}^T \mathbf{M} {\hat{b}_j} =  \langle a ; b\rangle_{\mathbf{M}}
-\label{eq:scalr_prod}
-\end{equation}
-
-Is it clear from equation \ref{eq:scalr_prod} that the scalar product takes two different forms in the continuous and in the discrete case.
-In fact in the discrete case is mandatory to introduce the quadrature rule weights $w_{i,j}$ of the chosen discretization.
-$\mathcal{M}$ is the matrix representation of the weights and is symmetric and positive defined.
-
-In order to compute and solve the adjoint equation one could proceed as follow:
-
-\begin{itemize}
-	\item The direct problem is defined in the continuous space as $\mathcal{L} q = 0$
-	\item Chose a discretization (FEM, FD, Chebychev polynomials...) and transform the above problem in a discrete one $\mathbf{A} \hat{q}$
-	\item Solve it to obtain the discrete version of the eigenfunctions $\hat{q}$
-	\label{continuous}
-\end{itemize}
-
-For the adjoint problem on should at first compute the adjoint operator, this can be done using the Lagrangian identity at a continuous level:
-
-\begin{equation}
-\begin{split}
-\langle q; \mathcal{L} q \rangle =& \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle \\
-\Rightarrow \int_{0}^{y_{\infty}} \overline{q^{\dagger}} \; \mathcal{L} q  \; dy =& \int_{0}^{y_{\infty}} \overline{ {\mathcal{L}}^{\dagger} q^{\dagger}}  \; q  \; dy 
-\end{split}
-\end{equation}
-
-From the last equation starting from the left part is it possible after some manipulation to retrieve the form on the right part and so find the formulation of the adjoint operator.
-
-It is important to pinpoint that in the above equation the  scalar product $ \langle a ; b\rangle$ is enforced at a continuous level.
-
-And now to solve the adjoint system the procedure \ref{continuous} can be used changing the direct system with the adjoint one.
-The above way of computing the adjoint and solve the system is called \textbf{continuous approach}.
-
-To summarize this approach one can straight forward solve th direct problem computationally, mathematically find the adjoint operator using the continuous scalar product and the Lagrange identity and then discretize the adjoint problem and solve it computationally.
-This is why the \textbf{continuous approach} is sometimes known as derive than discretize.
-And the stability and accuracy problems derive directly from the fact that we discretize the problem two times (the direct first and than the adjoint).
+We have considered two different models of the flow through a vegetated layer experienc-
+ing Kelvin-Helmholtz destabilization. One model is based on the use of a single drag coefficient
+to express the force exerted by the vegetation on the fluid, the second considers the canopy as
+an orthotropic porous medium and is based on Darcy’s equation with a tensorial permeability \citet{zampogna2016fluid}. 
+Both models have advantages and drawbacks. The main advantage of the first model is that the
+drag coefficient can be taken to vary across the canopy; whether this positive consideration, based
+on macroscopic experimental measurements \citet{ghisalberti2002mixing} \citet{ghisalberti2004limited} \citet{ghisalberti2005mass},  carries over to the stability problem remains to
+be established. The second model, applicable to dense porous media, considers two independent
+parameters to express the disturbance flow perpendicular and parallel to the rigid dowels forming
+the canopy. Such parameters and components of the transversely isotropic permeability tensor K i j
+arise from the solution of a local Oseen problem \citet{zampogna2016fluid}. The drawback of the second model is the
+fact that an interface (whether real or effective) appears, and adequate matching conditions must
+be enforced there. Despite much work since the seminal contribution by \citet{beaver}, a
+consensus on the “best” interface conditions between a pure fluid region and a porous medium has
+not yet emerged.
+The models have been put to test through a classical sensitivity analysis \citet{bottaro2003effect}. Beyond display-
+ing stability results which correspond better to those to be expected from available experimental
+correlations \citet{raupach1996coherent} \citet{zampogna2016instability}, the anisotropic model is less sensitive to variations in the base flow (with potentially
+larger variations in frequency and growth rate of the instability mode for the case of shorter waves).
+As far as a direct comparison between $G_{C_d}$ and $G_{\mathcal{K}_{ii}}$ is concerned, this can hardly be made since
+the variables represent different objects; in particular, the pressure drop through the canopy depends
+directly on $C_d$ and inversely on the permeability. The present results indicate that the anisotropic
+model depends significantly on the value of the apparent \citet{zampogna2016fluid} permeability component $\mathcal{K}_{11}$ , whose
+evaluation must thus be conducted carefully. This model is also of interest for further developments,
+in particular for the study of instabilities developing over waving canopies. Darcy’s law in this latter
+case would need to be modified, as described in \citet{mei2010homogenization} and \citet{zampognaMech}.
 
 
-On the contrary in the \textbf{discrete approach} the scalar product \ref{eq:scalr_prod} is enforced at the discrete level in order to use the already discretized direct equation to retrive the adjoint system at a discrete level, to limit the computational errors.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{Acknowledgment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%The authors would like to thank the IDEX Foundation of the University of Toulouse for the
+%financial support granted to the last author under the project “Attractivity Chairs.” The computations
+%have been conducted at the CALMIP center, Grant No. P1540. The referees are gratefully acknowl-
+%edged for their comments leading, in particular, to the correct interpretation of the sensitivity of the
+%drag coefficient and to the material in Appendix A.
 
-\begin{equation}
-\begin{split}
-\langle q^{\dagger}; \mathcal{L} q \rangle =& \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle \\
-\Rightarrow \overline{\hat{q}^{\dagger}}^T \mathbf{M} \mathbf{A} \hat{q}  =& \left( \overline{{\mathbf{A}}^{\dagger} \hat{q}^{\dagger}} \right)^{T} \mathbf{M} \hat{q} \\
-\Rightarrow \mathbf{M} \mathbf{A}  =&  {\overline{\mathbf{A}^{\dagger}}}^T \mathbf{M} \\
-\Rightarrow {\mathbf{A}}^{\dagger}  =&  \mathbf{M}^{-1} \mathbf{\overline{A}}^T \mathbf{M}
-\end{split}
-\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{Appendix A: effect of $C_D$ on the mean flow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%In \ref{sec:2ch3} of the paper it is described how the eigenvalue $\omega$ varies as an effect of indepen-
+%dent variations of $U$ and $C_d$. However, since $C_d$ is not zero within the canopy and it is used to
+%compute the mean flow profile $U$, we should in principle have expressed $\delta U$ as $\delta U = \dfrac{dU}{d C_d} \delta C_d$
+%and considered a single sensitivity function ${G^*}_{C_d} = G_{C_d} + \dfrac{dU}{d C_d} G_U$, instead of the two sensitivities given
+%in \ref{eq:GCD}. This would have certainly been the appropriate line of action if the mean flow equa-
+%tion were issued from exact equations, in which case we should have considered also the adjoint
+%of the base flow equation in our variational problem. However, the mean flow model by \citet{ghisalberti2004limited} contains empirical approximations and parameters, and alternative models \citet{singh2016linear}, \citet{zampogna2016instability} —including
+%very different ones—have been used successfully in the past to predict the mean field; we have thus
+%made the choice, in both \ref{sec:3} and \ref{sec:4}, of considering the mean flow as given, and to take
+%independent variations of $U$ and $C_d$ in the stability analysis to assess the effect of modifications in
+%either variable.
+%If we were to find how much the base flow depends on the drag coefficient in this particular
+%problem, we would need to determine the function $U(C_d)$ and take its derivative. Since both $U$
+%and  $C_d$ are functions of the space coordinate $y$, the implicit dependence can be found, and we
+%have plotted it for one case on the left frame of \ref{fig:9}. Clearly, the function $U = f(C_d)$ is not
+%single-valued and therefore the derivative can be calculated only over two separate $U$ (or, equiva-
+%lently, $y$) intervals. We have carried out the derivation numerically over each interval, within the
+%range $0.3 \leq y \leq 1$, and the result is reported on the right frame of \ref{fig:9}. The filled triangle and
+%circle symbols indicate the two y intervals within the canopy.
+%We first observe that both the location where $C_d$ is maximum and the shape of the function 
+%$U = f(C_d)$ are strongly correlated to the drag law $C_d(y)$, modeled by \citet{ghisalberti2004limited}
+%
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=1\linewidth]{chapter_3/figure/9}
+%	\caption{Case G. Left: mean velocity profile, $U$ , versus the drag coefficient, $C_d$ . Right: first derivative, $dU / d C_d$ . The triangles denote the region $y \in [0.76, 1]$, the filled circles denote the region $y \in [0.3, 0.76]$.}
+%	\label{fig:9}
+%\end{figure}
+%
+%through their measurement data (cf. their Figure 7 and Equation (18)). We also notice that the deriv-
+%ative $dU/dC_d$ is reasonably small except locally at the point where the derivative of the function is
+%not continuous, where it is of order 1. The discontinuity there is however artificial since the function
+%$C_d(y)$ given in Equation (18) of \citet{ghisalberti2004limited}, where $C_d$ is divided into a parabolic and a
+%linear part, can be easily modified to yield a continuous first derivative at $y = 0.76$ if required, still
+%maintaining a mean flow very close to the measured one.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{Appendix C: comparison between continuous and discrete adjoint eigenfunctions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%The discretization operation transform the operator $\mathcal{L}$ into a matrix $\mathbf{A}$ and of course do the same things to the unknown functions that becomes vectors.
+%
+%\begin{table}[H]
+%	\begin{center}
+%		\begin{tabular}{|c|c|}
+%			\hline 
+%			continuous & discrete \\ 
+%			\hline 
+%			$\mathcal{L}$ & $\mathbf{A}$ \\ 
+%			\hline 
+%			$q$ & $\hat{q}$ \\ 
+%			\hline 
+%		\end{tabular} 
+%	\end{center}
+%\end{table}
+%
+%This has a serious and most often hidden repercussion in th approach to solve the adjoint equations.
+%
+%As above stated the derivation of the adjoint equation start with the enforcing of the Lagrange identity:
+%
+%\begin{equation}
+%\langle q; \mathcal{L} q \rangle = \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle
+%\end{equation}
+%
+%where the scalar product $ \langle ;\rangle$ is defined in our case as:
+%
+%\begin{equation}
+%\langle a ; b\rangle = \int_{0}^{y_{\infty}} \overline{a} \cdot b dy \approx \sum_{i=1}^N \sum_{j=1}^N {\hat{\overline{a}}_i}^T w_{i,j} {\hat{b}_j} = {\hat{\overline{a}}_i}^T \mathbf{M} {\hat{b}_j} =  \langle a ; b\rangle_{\mathbf{M}}
+%\label{eq:scalr_prod}
+%\end{equation}
+%
+%Is it clear from equation \ref{eq:scalr_prod} that the scalar product takes two different forms in the continuous and in the discrete case.
+%In fact in the discrete case is mandatory to introduce the quadrature rule weights $w_{i,j}$ of the chosen discretization.
+%$\mathcal{M}$ is the matrix representation of the weights and is symmetric and positive defined.
+%
+%In order to compute and solve the adjoint equation one could proceed as follow:
+%
+%\begin{itemize}
+%	\item The direct problem is defined in the continuous space as $\mathcal{L} q = 0$
+%	\item Chose a discretization (FEM, FD, Chebychev polynomials...) and transform the above problem in a discrete one $\mathbf{A} \hat{q}$
+%	\item Solve it to obtain the discrete version of the eigenfunctions $\hat{q}$
+%	\label{continuous}
+%\end{itemize}
+%
+%For the adjoint problem on should at first compute the adjoint operator, this can be done using the Lagrangian identity at a continuous level:
+%
+%\begin{equation}
+%\begin{split}
+%\langle q; \mathcal{L} q \rangle =& \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle \\
+%\Rightarrow \int_{0}^{y_{\infty}} \overline{q^{\dagger}} \; \mathcal{L} q  \; dy =& \int_{0}^{y_{\infty}} \overline{ {\mathcal{L}}^{\dagger} q^{\dagger}}  \; q  \; dy 
+%\end{split}
+%\end{equation}
+%
+%From the last equation starting from the left part is it possible after some manipulation to retrieve the form on the right part and so find the formulation of the adjoint operator.
+%
+%It is important to pinpoint that in the above equation the  scalar product $ \langle a ; b\rangle$ is enforced at a continuous level.
+%
+%And now to solve the adjoint system the procedure \ref{continuous} can be used changing the direct system with the adjoint one.
+%The above way of computing the adjoint and solve the system is called \textbf{continuous approach}.
+%
+%To summarize this approach one can straight forward solve th direct problem computationally, mathematically find the adjoint operator using the continuous scalar product and the Lagrange identity and then discretize the adjoint problem and solve it computationally.
+%This is why the \textbf{continuous approach} is sometimes known as derive than discretize.
+%And the stability and accuracy problems derive directly from the fact that we discretize the problem two times (the direct first and than the adjoint).
+%
+%
+%On the contrary in the \textbf{discrete approach} the scalar product \ref{eq:scalr_prod} is enforced at the discrete level in order to use the already discretized direct equation to retrive the adjoint system at a discrete level, to limit the computational errors.
+%
+%\begin{equation}
+%\begin{split}
+%\langle q^{\dagger}; \mathcal{L} q \rangle =& \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle \\
+%\Rightarrow \overline{\hat{q}^{\dagger}}^T \mathbf{M} \mathbf{A} \hat{q}  =& \left( \overline{{\mathbf{A}}^{\dagger} \hat{q}^{\dagger}} \right)^{T} \mathbf{M} \hat{q} \\
+%\Rightarrow \mathbf{M} \mathbf{A}  =&  {\overline{\mathbf{A}^{\dagger}}}^T \mathbf{M} \\
+%\Rightarrow {\mathbf{A}}^{\dagger}  =&  \mathbf{M}^{-1} \mathbf{\overline{A}}^T \mathbf{M}
+%\end{split}
+%\end{equation}

@@ -4,36 +4,20 @@
 
 \chapquote{Before we work on artificial intelligence, why don’t we do something about natural stupidity?}{}{Steve Polyak}
 
-\Red{write clearly that you have taken Reynolds 100 max because after that the closure problems are not true. In fact the linear correlation hypothesis holds till 100. The check has been performed comparing H from iverting the DNS field and Darcy relation and the H from the closure problems, or comparing the latter  directly with the force}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Include this paper \citet{penha2011computing} and this one \citet{firdaouss1997nonlinear}
+Since Darcy's original formulation (\citet{darcy}), which relates the flow rate through a porous bed to the pressure drop across the bed's sides, many corrections have been made to account, for example, for viscous effects (\citet{brinkman}) or for the consequences of inertia (\citet{forchheimer}).  
+All of the cited works are of empirical nature, but the volume averaged methods (VANS) has been able to recover all of these
+formulations rigorously starting from the Navier-Stokes equations (\citet{whitaker2013method}).
 
-The flow through porous media is a problem of importance for several natural and technological applications. Since Darcy's original
-formulation \cite{darcy}, which relates the flow rate through a porous bed to the pressure drop across the bed's sides, many
-corrections have been made to account, for example, for viscous effects \cite{brinkman} or for the consequences of inertia \cite{forchheimer}.  
-All of the cited works are of empirical nature, but homogenisation has been able to recover all of these
-formulations rigorously starting from the Navier-Stokes equations \cite{whitaker2013method}. This latter approach is sometimes defined 
-VANS, for Volume-Averaged Navier-Stokes.
-
-The theory requires the knowledge of a number of terms, most notably, in the case of an isotropic porous bed, a permeability
-coefficient and a Forchheimer coefficient. Initial efforts in defining these terms were based on a combination of physical
-reasoning and measurements, leading to  expressions known as the Kozeny-Carman \cite{kozeny, carman} and the Ergun \cite{ergun}
-correlations. The first provides the permeability for the laminar flow of a single-phase fluid through a packed bed of sand grains, 
-as function of the porosity and the diameter of the grains, while the second extends Darcy's law to let the pressure drop depend on 
-two terms, one proportional to the velocity and the second to its square, thus accounting for inertia. These approaches do not consider 
-microstructural or geometrical features of the porous bed, which can render the permeability a tensorial quantity, and are often restricted 
-to simple unidirectional flows.  In the present work we are concerned with a transversely isotropic material composed by parallel
-fibers of circular cross-section, with one axis of symmetry, $(O,x_3)$; in such materials the permeability is a diagonal tensor
+As already seen in chapter 2, the VANS theory requires the knowledge of a number of terms, most notably, in the case of an isotropic porous bed, a permeability coefficient and a Forchheimer coefficient. Initial efforts in defining these terms were based on a combination of physical reasoning and measurements, leading to  expressions known as the Kozeny-Carman \cite{kozeny, carman} and the Ergun \cite{ergun} correlations. These approaches do not consider microstructural or geometrical features of the porous bed and are often restricted to simple unidirectional flows. In the present work we are concerned with a transversely isotropic material composed by parallel fibers of circular cross-section, with one axis of symmetry, $(O,x_3)$; in such materials the permeability is a diagonal tensor
 with the component in the direction parallel to the fibers greater than those along the transverse axes. For such an arrangement
-we will investigate the effects of both the direction of the forcing pressure gradient and inertia. When the latter effect is present,
+we will investigate, in this chapter, the effects of both the direction of the forcing pressure gradient and inertia. When the latter effect is present,
 embodied by a Reynolds number $Re_d$, based on mean velocity through the medium and fibers' diameter, exceeding an order one threshold, 
-the permeability is no more simply defined upon geometrical properties. This new permeability, which arises from a well-defined closure
-problem, is then called \emph{apparent permeability}.
+the permeability is no more simply defined upon geometrical properties. This extended permeability, which arises from a well-defined closure problem \eqref{eq:M_problem}, is then called \emph{apparent permeability}.
 
 The influence of the geometry of the solid inclusions has been addressed previously by \citet{yazdchi2011} for arrays of cylinders 
 in both square and hexagonal (or staggered) patterns, with the cylinders' section which can vary in shape. The results, in the 
@@ -45,8 +29,7 @@ for beds of medium-high porosity ($\varepsilon>0.7$) and a stronger dependence a
 
 %In \citet{lasseux} the authors study the problem of the inertia correction on the Darcy law (Forchheimer tensor), and its relation 
 %with the Reynolds number and the orientation of the mean pressure gredient.
-The influence of the Reynolds number on the permeability and on the Forchheimer correction has been presented in a number of papers.
-One of the contributions most relevant here is due to \citet{edwards1990}. These authors show that, for arrays of fibers, the apparent permeability decreases with the increase of the Reynolds number, and the rate of this decrease depends on the geometry of the array;
+The influence of the Reynolds number on the permeability and on the Forchheimer correction has been presented in a number of papers (\citet{firdaouss1997nonlinear}, \citet{penha2011computing} and \citet{edwards1990}). These authors show that, for arrays of fibers, the apparent permeability decreases with the increase of the Reynolds number, and the rate of this decrease depends on the geometry of the array;
 also, the Reynolds number is found to have a stronger influence on the apparent permeability when the medium is highly porous.
 The results of the work by \citet{edwards1990} agree with those by \citet{zampogna} and with our own work (as shown later), all for
 the case of cylindrical fibers, although some issues remain on the persistence of steady solutions in the simulations by \citet{edwards1990} 
@@ -55,7 +38,7 @@ has been considered by \citet{soulaine2014}, confirming the decreasing trend of 
 
 Another contribution which deserves mention is that by \citet{lasseux}; they have computed the permeability tensor 
 for various Reynolds numbers, in a two-dimensional geometry with cylinders of square cross-section.
-Forcing the flow along the main symmetric directions of the fiber, \citet{lasseux} have identified different regimes:
+Forcing the flow along the main symmetric directions of the fiber, the same authors have identified different regimes:
 \begin{itemize}
 	\item a creeping flow regime for $ 0 < Re_d < 10^{-3}$, without Forchheimer terms;
 	\item a weak inertia regime for $10^{-3} < Re_d < 1$, with the Forchheimer correction quadratic in $Re_d$; 
@@ -64,14 +47,14 @@ Forcing the flow along the main symmetric directions of the fiber, \citet{lasseu
 \end{itemize}  
 The boundaries between the different regimes are specific to the geometrical arrangements and to the porosities being considered; 
 a step forward in rendering (some of) these boundaries rigorous and independent of the arrangement of the pores, through the definition 
-of a Reynolds number which accounts for a ''topological" coefficient, has been recently made by \citet{pauthenet}. 
+of a Reynolds number which accounts for a "topological" coefficient, has been recently made by \citet{pauthenet}. 
 For the purposes of the present paper, we must retain that \citet{lasseux} have parametrized the Forchheimer correction with the Reynolds 
 number, and have found that the inertial correction is orders of magnitude smaller than the Darcy's term, at least before the turbulent 
 regime sets in. Moreover, \citet{lasseux} have studied how a Forchheimer tensor, $\mathbf{F}$, depends upon the direction of the
 macroscopic forcing term with respect to the orientation of the square cross-section of the fibers, for  $Re_d$ up to 30.
 It is concluded that a deviation angle, $\gamma$, exists between the direction of the pressure gradient and that of the mean flow,
 because of the fibers' geometry. Finally, the inertial correction is strongly influenced by the orientation
-of the driving pressure gradient, and the tensor $\mathbf{F}$ is not symmetric (in fact the off-diagonal components 
+of the driving pressure gradient, and the Forchheimer tensor $\mathbf{F}$ is not symmetric (in fact the off-diagonal components 
 are found to be inversely proportional to the diagonal terms, and symmetric with respect to rotations about the diagonal axis of 
 the square, i.e. the direction at $45^\circ$ in the $x_1 - x_2$ plane).
 
@@ -81,15 +64,14 @@ described further below. In all cases, the off-diagonal components of the appare
 components display but a small variation upon rotation of the driving pressure gradient.
 
 
-As already anticipated, this work investigates how thedirection of the macroscopic pressure gradient, the porosity and the Reynolds number can 
+Here we want to show how the direction of the macroscopic pressure gradient, the porosity and the Reynolds number can 
 modify the Darcy and Forchheimer closures arising from a VANS model of a fibrous porous medium. We will consider a three-dimensional 
-unit cell for the microscopic model (such a unit cell is sometimes denoted REV, for Representative Elementary Volume), with a generic forcing 
+unit cell for the microscopic model, with a generic forcing 
 whose direction is defined by two Euler angles. Given the formidable space of parameters, some representative results are first
-shown and discussed. Response surfaces in the space of parameters are then identified by the use of a metamodel based on kriging 
-interpolation. For the sake of space, only the first diagonal component of the apparent permeability tensor is discussed 
-in detail in the paper; however, all components have been computed.
-They represent an extremely useful data base which we are now in the process of using in macroscopic simulations of 
-flows through bundles of fibers of varying orientation and density.
+shown and discussed. Response surfaces in the space of parameters are then identified by the use of a metamodel based on Kriging 
+interpolation.
+They represent an extremely useful data base which can be afterward used in macroscopic simulations of 
+flows through bundles of fibers of varying orientation and porosity.
 
 
 
@@ -108,17 +90,17 @@ flows through bundles of fibers of varying orientation and density.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
-%The system under investigation consists of an incompressible Newtonian fluid which flows through a rigid porous medium. In the following, the subscript $\beta$ is used to indicate the fluid phase while $\sigma$ is adopted for  the solid phase. The governing equations  valid at the microscale are
-%\begin{equation}
-%\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}, 
-%\label{eq:mom}
-%\end{equation}
-%\begin{equation}
-%\nabla \cdot \vb = 0,
-%\label{eq:cont}
-%\end{equation}
+The system under investigation consists of an incompressible Newtonian fluid which flows through a rigid porous medium. The governing equations valid at the microscale \eqref{eq:NS}. 
+% which we recall:
+%$$
+%\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}
+%$$
+%
+%$$
+%\nabla \cdot \vb = 0
+%$$
 %where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
-%The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives the fluid motion and can be interpreted as the macroscopic pressure gradient acting on the system.
+The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives the fluid motion and can be interpreted as the macroscopic pressure gradient acting on the system.
 %
 %\begin{figure}[H]
 %	\centering
@@ -154,7 +136,14 @@ flows through bundles of fibers of varying orientation and density.
 %\end{equation}	
 %upon neglecting in equation \eqref{eq:darcy_forch} the sub-REV scale dispersion term (linked to the $\left< \vbt \vbt \right>^{\beta}$ term) which is often small in porous media flows \cite{brugem_phd}.
 %
-%The surface integral term in equation \eqref{eq:darcy_forch}  represents the drag (per unit mass) due to surface forces at the fluid-solid interface of the medium. It is called the Darcy-Forchheimer microscale force, $\mathbf{F}^{\textit{m}}$. The equations are however often to be solved at the macroscale, so that a macroscale force model, 
+In chapter 2 we have already shown how the above equations can be homogenized and a new set of equations, valid at the macroscale, can be retrieved.
+The macroscale system \eqref{eq:vans_mom_1} introduce the surface integral term:
+$$\mathbf{F}^{\textit{m}} = \dfrac{1}{V} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA, $$
+
+that we have discussed in chapter 2 section \ref{ch:closure_fm}. This term is close by means of the equation \eqref{eq:closure_final} that we recall here:
+$$
+\mathbf{F}^m \approx \mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \meani{\vb}
+$$
 %$\mathbf{F}^{\textit{M}}$, must be used to replace $\mathbf{F}^{\textit{m}}$ in the governing equation. Such a model is often based on a permeability tensor, $\mathbf{K}$, and a Forchheimer tensor, $\mathbf{F}$, and reads:
 %\begin{equation} 
 %\mathbf{F}^{\textit{M}} = - \nub \mathbf{K}^{-1} (\mathbf{I} + \mathbf{F})\vbmi,
@@ -165,13 +154,22 @@ flows through bundles of fibers of varying orientation and density.
 %\mathbf{F}^{\textit{m}} = \mathbf{F}^{\textit{M}}.
 %\label{eq:closure_KF} 
 %\end{equation}
-%
-%
-%\noindent The drag force $\mathbf{F}^{\textit{m}}$ computed by direct numerical simulations (DNS) with account of all individual pores will be later compared to the model based on the permeability and Forchheimer tensors (whose equations are given below).
-%This is just a useful exercise to demonstrate consistency of the approach and accuracy of the numerical simulations; it does nothing else since, as briefly described below, to derive the Forchheimer tensor the microscopic velocity field must be known anyhow.  Nonetheless, knowledge of the behaviour of these tensors (or, equivalently, of the related \emph{apparent} permeability) might prove both useful and instructive, in particular should one wish to extend the range of applicability of the model to cases for which the microscopic solution is not available.
-%
-%
-%
+
+
+The two terms $\mathbf{F}^m$ and $\mathbf{F}^M$ can be interpreted as the force that the fluid exert on the solid structure of the porous medium. The two formulations are different only in the way of computing the force, the former one uses the miscroscopic representation and the latter the macroscopic one.
+The drag force $\mathbf{F}^{\textit{m}}$ computed by direct numerical simulations (DNS) with account of all individual pores will be later compared to the model based on the permeability and Forchheimer tensors (whose equations are given below).
+This is just a useful exercise to demonstrate consistency of the approach and accuracy of the numerical simulations; it does nothing else since, as briefly described below, to derive the Forchheimer tensor the microscopic velocity field must be known anyhow.  Nonetheless, knowledge of the behavior of these tensors (or, equivalently, of the related apparent permeability) might prove both useful and instructive, in particular should one wish to extend the range of applicability of the model to cases for which the microscopic solution is not available.
+
+The core of the VANS approach consists in the identification of the permeability and Forchheimer tensors. This problem, referred to as the closure problem, is discussed at length in paragraph \ref{ch:closure_fm}.
+The two different tensors $\mathbf{K}$ and $\mathbf{F}$  can be computed by means by the two differential problems \eqref{eq:D_problem} and \eqref{eq:M_problem}.
+
+
+The second closure problem differs from the first only for the presence of a linearised convective term 
+in which the microscopic velocity obtained from the DNS, $\vb$, is used as an input.  This of course implies knowledge of the microscopic velocity field. A Oseen-like approximation which relaxes this constraint has been proposed by \citet{zampogna}.
+
+The closure problems reflect the structure of the solution of the two system \eqref{eq:D_problem} and \eqref{eq:M_problem}. In particular, the solution of the former depends only on the geometry of the porous medium so that the permeability tensor $\mathbf{K}$ is symmetric. This is not the case for $\mathbf{H}$, because of the effect of the microscopic velocity amplitude and direction.  Clearly, the solution of system \eqref{eq:M_problem} tends to that of \eqref{eq:D_problem} when $Re_d \rightarrow 0$. 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%\subsubsection{Closure problems for $\mathbf{K}$ and $\mathbf{F}$}
@@ -249,7 +247,7 @@ In this section the numerical methodology, the parameters, the setup and the val
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The geometry used for the base REV is shown in figure \ref{fig:cell_3d}: a cylindrical inclusion is present at the centre of the REV and four quarters of cylinders are situated at the corners. The lateral length of the cubic envelop is $\ell$, which is used as length scale for the microscopic problem; the diameter $d$ of the cylinders is adapted as a function of the desired porosity $\varepsilon$, ratio between the fluid volume over the total REV volume ($\ell^3$). 
+The geometry used for the base REV is shown in figure \ref{fig:cell_3d}: a cylindrical inclusion is present at the center of the REV and four quarters of cylinders are situated at the corners. The lateral length of the cubic envelop is $\ell$, which is used as length scale for the microscopic problem; the diameter $d$ of the cylinders is adapted as a function of the desired porosity $\varepsilon$, ratio between the fluid volume over the total REV volume ($\ell^3$). 
 
 The  forcing term $\mathbf{f}$ of the DNS  is a vector whose direction is defined by two Euler angles, with rotations of the form:  $\theta \ \mathbf{e_3} + \phi \ \mathbf{e_2}^{I}$ (cf. figure \ref{fig:cell_3d}). Its amplitude is set a priori and is connected to the Reynolds number, $Re_d$, defined with the mean velocity over the REV and the fiber diameter, $d$. $Re_d$ is a result of the calculations, once the mean velocity is evaluated.
 
@@ -269,11 +267,11 @@ The  forcing term $\mathbf{f}$ of the DNS  is a vector whose direction is define
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The simulations have been carried out with the open-source code OpenFOAM \cite{openfoam}, based on  a finite volume discretization with a colocated arrangement for the unknowns.
+The simulations have been carried out with the open-source code OpenFOAM \cite{openfoam}, based on  a finite volume discretization with a staggered arrangement for the unknowns.
 The standard solver icoFoam (incompressible Navier-Stokes) has been modified in order to include a constant pressure gradient acting as a forcing term $\mathbf{f}$  in equation \eqref{eq:mom}. 
 The coupling between  the velocity and the pressure equations is based on the pressure implicit split operator referred to as the PISO algorithm. 
 The time derivative term is discretized using the second order backward Euler scheme and all the spatial terms use a second-order central difference stencil  based on Gauss finite volume approach. The velocity system is solved with a preconditioned bi-conjugate gradient (PBiCG) iterative solver with the tolerance on the velocity residuals set to $10^{-8}$, associated to a   diagonal incomplete lower upper pre-conditioner (DILU).
-The pressure equation is solved with a  geometric-algebraic multigrid  (GAMG) algorithm associated to a Gauss-Seidel smoother and the tolerance on the pressure residuals is here equal to $10^{-6}$.  Cyclic boundary conditions are applied to all fields on all fluid
+The pressure equation is solved with a geometric-algebraic multigrid (GAMG) algorithm associated to a Gauss-Seidel smoother and the tolerance on the pressure residuals is here equal to $10^{-6}$.  Cyclic boundary conditions are applied to all fields on all fluid
 boundaries along the three directions, and the no-slip condition is imposed on the surface of the solid inclusions. 
 The time step $\Delta t$  is automatically determined to ensure  that the maximum Courant number, $Co$, respects the condition:
 $Co =  ||v_\beta||  \ \Delta t / \Delta x < 1/2 $, in which $||v_\beta||$ is the local velocity magnitude in the REV and $\Delta x$ is the local grid spacing. $Co$ 
@@ -292,11 +290,7 @@ The mesh has been computed using  the internal OpenFOAM mesher named \textit{sna
 The final grid is mainly composed by hexahedral cells with a refined regular grid in the boundary layer regions next to the solid surfaces.
 Three different mesh sizes, with $0.65 \times 10^6$, $10^6$ and $1.5 \times 10^6$ elements, have been tested in order to demonstrate spatial convergence. This has been assessed using the Grid Convergence Index ($GCI$) introduced by \citet{roache}.
 
-
-
 Details of the coarsest mesh used are shown in figure \ref{fig:mesh1}. On the  right frame a close up of the grid in the neighbourhood of the fiber's boundary is displayed: twenty points are used in the structured portion of the mesh along the wall-normal direction.
-
-
 
 \begin{figure}[h]
 	\centering
@@ -305,15 +299,12 @@ Details of the coarsest mesh used are shown in figure \ref{fig:mesh1}. On the  r
 	\label{fig:mesh1}
 \end{figure}
 
-
-
-
 The GCI method is based upon a grid refinement error estimator derived from the
 theory of generalized Richardson extrapolation. It measures the ratio between the computed value of a quantity over the asymptotic numerical value, thus indicating how far the solution is from the asymptotic ("exact") value.
 The procedure is simple and provides a method to estimate the order of the spatial
 convergence, based on two or three different grid sizes.
 First of all, the grids must be generated with the same algorithm and they must  have the same final quality.
-In each simulation   a physical scalar quantity representative of the physical phenomenon must be sampled.
+In each simulation  a physical scalar quantity representative of the physical phenomenon must be sampled.
 The method follows the following four steps:
 
 \begin{enumerate}
@@ -322,7 +313,6 @@ The method follows the following four steps:
 	where $r$ is the grid refinement ratio between each grid (it is computed as the ratio between the number of elements of two consecutive grids; the approach imposes that $r$ should remain constant between any couple of consecutive grids and be larger than $1.1$), and $f_i$
 	represents the quantity of interest in each grid (1=coarse, 2=medium and
 	3=fine).
-	
 	
 	\item Compute the relative error between grid $i$ and $j$:
 	${|\epsilon|}_{ij} = \dfrac{f_j - f_i}{f_i}$, for $(i,j)$
@@ -341,7 +331,7 @@ The method follows the following four steps:
 \begin{table}[t]
 	\begin{center}
 		\begin{tabular}{ l  |l   l   }
-			\vspace{-0.3cm}
+			%\vspace{0.1cm}
 			mesh   &	mesh   & average REV  \\
 			index  &	identifier  &  velocity \\ 
 			\hline \hline
@@ -351,7 +341,7 @@ The method follows the following four steps:
 			\hline
 		\end{tabular}
 		$\qquad$
-		\begin{tabular}{ l | l   }\vspace{0.35cm} 
+		\begin{tabular}{ l | l } %\vspace{0.35cm} 
 			metric & value \\ \hline \hline
 			${GCI}_{23}$ & 0.366\%  \\ 
 			${GCI}_{12}$ & 1.11\%  \\ 
@@ -460,9 +450,9 @@ the forcing is inclined by an angle $\phi$, since the tighter packing of the inc
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{chapter_4/figure/fig1}
-	\includegraphics[width=1\textwidth]{chapter_4/figure/fig2}
-	\includegraphics[width=1\textwidth]{chapter_4/figure/fig4}
+	\includegraphics[width=0.85\textwidth]{chapter_4/figure/fig1}
+	\includegraphics[width=0.85\textwidth]{chapter_4/figure/fig2}
+	\includegraphics[width=0.85\textwidth]{chapter_4/figure/fig4}
 	\caption{Top row: plane view of the dimensionless $x_1$ component of the local velocity field ${\vb}$ for the case $\theta=0,$ $\phi=0$, $\varepsilon=0.6$ and for three Reynolds numbers $Re_d$ = $0,10,50$, from left to right. Mid row: microscopic $M_{11}$ fields corresponding to the images in the top row. Bottom row: $M_{11}$ fields for the same Euler angles and Reynolds number as in the top two rows, and smaller porosity ($\varepsilon=0.4$).}
 	\label{fig:1ch4}
 \end{figure}
@@ -481,7 +471,7 @@ apparent permeability tensor is, to a good approximation, diagonal\footnote{In f
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8	\textwidth]{chapter_4/figure/fig3}
+	\includegraphics[width=0.8\textwidth]{chapter_4/figure/fig3}
 	\caption{right: Non-dimensional $M_{21}$ field for $\theta=0, \phi=0, Re_d=10, \varepsilon=0.8$, left: Non-dimensional $M_{12}$ field for $\theta=22.5^{\circ}, \phi=45^{\circ}, Re_d=50, \varepsilon=0.4$.}
 	\label{fig:3ch4}
 \end{figure}
@@ -498,7 +488,7 @@ represents the solution of the closure problem in a specific direction (first in
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\textwidth]{chapter_4/figure/fig5}
+	\includegraphics[width=0.6\textwidth]{chapter_4/figure/fig5}
 	\caption{Non-dimensional $\mathbf{M}$ components fields for the case $\theta=22.5^{\circ}, \phi=45^{\circ}, Re_d=50, \varepsilon=0.6$.}
 	\label{fig:5ch4}
 \end{figure}    
@@ -777,14 +767,14 @@ The trend function defined  here is  based on a second order least-square regres
 the solution of the associated linear system.
 The Gaussian process error model has zero-mean and its covariance between two generic data-points, $x_i$ and $x_j$, is written as 
 $$
-\textrm{Cov}(y(\mathbf{x_i}), y(\mathbf{x_j})) = \sigma^2 r(\mathbf{x_i}, \mathbf{x_j}).
+\textrm{Cov}(y(\mathbf{x_i}), y(\mathbf{x_j})) = c(\mathbf{x_i}, \mathbf{x_j})
 $$
-The coefficient $\sigma$ is an amplitude parameter and $r(x^i, x^j)$ is a correlation function, based on the Mat\'ern covariance model that reads:
+The function $c(x^i, x^j)$ is a correlation model, based on the Mat\'ern covariance model that reads:
 \begin{equation}
-r(\mathbf{x_i}, \mathbf{x_j}) =  \dfrac{2^{1- \nu}}{\Gamma(\nu)} \  \left( \dfrac{\sqrt{2} \nu |\mathbf{x_i} - \mathbf{x_j}|}{|\bs{\lambda}|} \right)^{\nu} \ K_{\nu}\left( \dfrac{\sqrt{2} \nu |\mathbf{x_i} - \mathbf{x_j}|}{|\bs{\lambda}|} \right),
+c(\mathbf{x_i}, \mathbf{x_j}) = \sigma^2 \dfrac{2^{1- \nu}}{\Gamma(\nu)} \  \left( \dfrac{\sqrt{2} \nu |\mathbf{x_i} - \mathbf{x_j}|}{|\bs{\lambda}|} \right)^{\nu} \ K_{\nu}\left( \dfrac{\sqrt{2} \nu |\mathbf{x_i} - \mathbf{x_j}|}{|\bs{\lambda}|} \right),
 \label{eq:matern}
 \end{equation}
-where $K_{\nu}(.)$ is a modified Bessel function and $\Gamma(.)$ is the gamma function.
+where $K_{\nu}(.)$ is a modified Bessel function, $\Gamma(.)$ is the gamma function and the coefficient $\sigma$ is an amplitude parameter.
 The parameters that can be used to tune the metamodel are the amplitude parameter $\sigma$, the exponent $\nu$ and the scale vector $\bs{\lambda}$.
 The kriging metamodel outputs can show different behaviours for different selections of the above three parameters and their setting is thus crucial. 
 The amplitude parameter $\sigma$ is chosen to be equal to $1$; larger value lead to steeper gradients and undesirable local extrema around the data points.
@@ -927,15 +917,15 @@ on configurations for which neither the porosity nor the local Reynolds number a
 	\label{fig:por}
 \end{figure}
 
+For the sake of space, only the first diagonal component of the apparent permeability tensor has been discussed 
+in detail; however, all components have been computed and the same conclusions can be drawn from the $H_{22}$ or $H_{33}$ component.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Concluding remarks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Tensors $\mathbf{K}$ and $\mathbf{F}$ by using the VANS system}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Red{write clearly that you have taken Reynolds 100 max because after that the closure problems are not true. In fact the linear correlation hypothesis holds till 100. The check has been performed comparing H from inverting the DNS field and Darcy relation and the H from the closure problems, or comparing the latter  directly with the force}
 
 The components of the permeability tensor are essential ingredients for any solution of flow
 through anisotropic porous media.  When the flow through the pores resents of significant
