@@ -298,12 +298,12 @@ permeability, as described by \citet{zampogna2016instability} Normalizing the di
 pressure and velocity in the inner region with the same scales as previously, we obtain
 
 \begin{equation}
-{u_i}' = -Re \dfrac{d}{ah^2} \mathcal{K}_{ij} \derp{p'}{{}x_j}',  \qquad (x_1, x_2) = (x,y)
+{u_i}' = -Re \dfrac{d}{ah^2} {H}_{ij} \derp{p'}{{}x_j}',  \qquad (x_1, x_2) = (x,y)
 \label{eq:darcy}
 \end{equation}
 
 
-with $\mathcal{K}_{ij}$ the dimensionless permeability. The effective interface between the inertial region and the
+with ${H}_{ij}$ the dimensionless apparent (or effective) permeability. The effective interface between the inertial region and the
 slow, viscosity dominated region does not coincide with the edge of the canopy; in fact, the rapid
 outer flow penetrates through the upper part of the vegetation and an effective matching between
 outer and inner flows must be enforced some distance $\delta$ below the canopy’s edge \citet{le2006interfacial}.  This distance,
@@ -323,13 +323,13 @@ v|_{itf} + B(\alpha) p|_{itf} = 0
 with
 
 $$
-B(\alpha) = Re \dfrac{d}{ah^2} \sqrt{\mathcal{K}_{11}\mathcal{K}_{22}} \alpha \tanh (\theta), \qquad \theta = \alpha \sqrt{\dfrac{\mathcal{K}_{11}}{\mathcal{K}_{22}}}  y_{itf}
+B(\alpha) = Re \dfrac{d}{ah^2} \sqrt{{H}_{11} {H}_{22}} \alpha \tanh (\theta), \qquad \theta = \alpha \sqrt{\dfrac{{H}_{11}}{{H}_{22}}}  y_{itf}
 $$
 
 The second boundary condition that the Rayleigh stability equation must satisfy at $y_{\infty}$ is simply $v = 0$. Thus, we solve only for the inviscid flow in the outer region, and the permeability
-of the inner domain enters the equations only through the interface condition \ref{eq:darcybc}. $\mathcal{K}_{ij}$ is a two by two diagonal tensor; $\mathcal{K}_{11}$ is the component of the dimensionless permeability along $x$ and
-$\mathcal{K}_{22}$ is the $y$ component. For case G considered here, the packing density of the elements is
-$a = 0.04 cm^{-1}$ ; it is also found that $\mathcal{K}_{11}= 0.0512$ and $\mathcal{K}_{22} = 0.0575$ \citet{zampognaprivate},  so that the function $B(\alpha)$
+of the inner domain enters the equations only through the interface condition \ref{eq:darcybc}. ${H}_{ij}$ is a two by two diagonal tensor; ${H}_{11}$ is the component of the dimensionless permeability along $x$ and
+${H}_{22}$ is the $y$ component. For case G considered here, the packing density of the elements is
+$a = 0.04 cm^{-1}$ ; it is also found that ${H}_{11}= 0.0512$ and ${H}_{22} = 0.0575$ \citet{zampognaprivate},  so that the function $B(\alpha)$
 reads $B = 15.727 \alpha \tanh (0.566 \alpha)$.
 
 
@@ -348,7 +348,7 @@ v^{\dagger}|_{itf} - B(\alpha) p^{\dagger}|_{itf} = 0, \qquad v^{\dagger}|_{y_{\
 The variation in the complex frequency is related to variations in the mean flow and in the permeability components through the equation
 
 $$
-\delta \omega = \int_{y_{itf}}^{y_{\infty}}  G_U(y) \delta U(y) dy + G_{\mathcal{K}_{11}} \delta \mathcal{K}_{11} + G_{\mathcal{K}_{22}} \delta \mathcal{K}_{22}
+\delta \omega = \int_{y_{itf}}^{y_{\infty}}  G_U(y) \delta U(y) dy + G_{{H}_{11}} \delta {H}_{11} + G_{{H}_{22}} \delta {H}_{22}
 $$
 
 \begin{figure}[H]
@@ -365,8 +365,8 @@ with
 \begin{equation}
 \begin{split}
 & G_U = \alpha  \left[  \overline{v^{\dagger}} v +  \overline{u^{\dagger}} u \right] + i ( \overline{u^{\dagger}} v)'  \vspace{0.3cm}\\
-& G_{\mathcal{K}_{11}} = -\dfrac{i}{2} \alpha Re \dfrac{d}{a h^2}  \left[  \overline{p^{\dagger}} p \right]|_{itf} \sqrt{\dfrac{\mathcal{K}_{22}}{\mathcal{K}_{11}}} \left\lbrace \tanh \theta + \dfrac{\theta}{\cosh^2 \theta}\right\rbrace	\vspace{0.3cm}\\
-& G_{\mathcal{K}_{22}} = -\dfrac{i}{2} \alpha Re \dfrac{d}{a h^2}  \left[  \overline{p^{\dagger}} p \right]|_{itf} \sqrt{\dfrac{\mathcal{K}_{11}}{\mathcal{K}_{22}}} \left\lbrace \tanh \theta - \dfrac{\theta}{\cosh^2 \theta}\right\rbrace
+& G_{{H}_{11}} = -\dfrac{i}{2} \alpha Re \dfrac{d}{a h^2}  \left[  \overline{p^{\dagger}} p \right]|_{itf} \sqrt{\dfrac{{H}_{22}}{{H}_{11}}} \left\lbrace \tanh \theta + \dfrac{\theta}{\cosh^2 \theta}\right\rbrace	\vspace{0.3cm}\\
+& G_{ {H}_{22}} = -\dfrac{i}{2} \alpha Re \dfrac{d}{a h^2}  \left[  \overline{p^{\dagger}} p \right]|_{itf} \sqrt{\dfrac{ {H}_{11}}{ {H}_{22}}} \left\lbrace \tanh \theta - \dfrac{\theta}{\cosh^2 \theta}\right\rbrace
 \end{split}
 \end{equation}
 
@@ -411,10 +411,10 @@ Furthermore, it is interesting to observe that both real and imaginary parts of 
 (cf.\ref{fig:7}, right), and this supports the statement made previously that a small shift in the position
 of the effective interface has but a minor influence on the most unstable mode.
 The sensitivity coefficients for the two components of the permeability tensors are displayed in
-\ref{fig:8} (center and right frames): the present model is more effective to variations in $\mathcal{K}_{11}$ than to $\mathcal{K}_{22}$
+\ref{fig:8} (center and right frames): the present model is more effective to variations in $ {H}_{11}$ than to $ {H}_{22}$
 as far as modifying the complex eigenfrequency. Significantly, different ranges of wavenumbers
 behave differently as far as the variation in $\omega$ is concerned. The frequency $\omega_r$ of long waves (around
-$\alpha \approx 0.3$) is more easily modified by acting on $\mathcal{K}_{11}$ (with an almost negligible effect on the growth
+$\alpha \approx 0.3$) is more easily modified by acting on $ {H}_{11}$ (with an almost negligible effect on the growth
 rate of the wave); conversely, the growth rate of modes with large values of $\alpha$ is affected efficiently
 by variations in the first component of the permeability tensor.
 
@@ -543,7 +543,7 @@ We have considered two different models of the flow through a vegetated layer ex
 Both models have advantages and drawbacks. The main advantage of the first model is that the
 drag coefficient can be taken to vary across the canopy; whether this positive consideration, based
 on macroscopic experimental measurements \citet{ghisalberti2002mixing}, \citet{ghisalberti2004limited} and \citet{ghisalberti2005mass},  carries over to the stability problem remains to be established. The second model, applicable to dense porous media, considers two independent parameters to express the disturbance flow perpendicular and parallel to the rigid dowels forming
-the canopy. Such parameters and components of the transversely isotropic permeability tensor $\mathbf{K}$
+the canopy. Such parameters and components of the transversely isotropic permeability tensor $\mathbf{H}$
 arise from the solution of a local Oseen problem \citet{zampogna2016fluid}. The drawback of the second model is the
 fact that an interface (whether real or effective) appears, and adequate matching conditions must
 be enforced there. Despite much work since the seminal contribution by \citet{beaver}, a
@@ -551,7 +551,7 @@ consensus on the "best" interface conditions between a pure fluid region and a p
 not yet emerged.
 The models have been put to test through a classical sensitivity analysis (\citet{bottaro2003effect}). Beyond displaying stability results which correspond better to those to be expected from available experimental correlations \citet{raupach1996coherent}, \citet{zampogna2016instability}, the anisotropic model is less sensitive to variations in the base flow (with potentially
 larger variations in frequency and growth rate of the instability mode for the case of shorter waves).
-As far as a direct comparison between $G_{C_d}$ and $G_{\mathcal{K}_{ii}}$ is concerned, this can hardly be made since
+As far as a direct comparison between $G_{C_d}$ and $G_{ {H}_{ii}}$ is concerned, this can hardly be made since
 the variables represent different objects; in particular, the pressure drop through the canopy depends
 directly on $C_d$ and inversely on the permeability. The present results indicate that the anisotropic
 model depends significantly on the value of the apparent \citet{zampogna2016fluid} permeability component $\mathbf{H}_{11}$, whose
@@ -619,7 +619,7 @@ It also worth mention that the results presented here has been the basis for som
 %\section*{Appendix C: comparison between continuous and discrete adjoint eigenfunctions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%The discretization operation transform the operator $\mathcal{L}$ into a matrix $\mathbf{A}$ and of course do the same things to the unknown functions that becomes vectors.
+%The discretization operation transform the operator $ {L}$ into a matrix $\mathbf{A}$ and of course do the same things to the unknown functions that becomes vectors.
 %
 %\begin{table}[H]
 %	\begin{center}
@@ -627,7 +627,7 @@ It also worth mention that the results presented here has been the basis for som
 %			\hline 
 %			continuous & discrete \\ 
 %			\hline 
-%			$\mathcal{L}$ & $\mathbf{A}$ \\ 
+%			$ {L}$ & $\mathbf{A}$ \\ 
 %			\hline 
 %			$q$ & $\hat{q}$ \\ 
 %			\hline 
@@ -640,7 +640,7 @@ It also worth mention that the results presented here has been the basis for som
 %As above stated the derivation of the adjoint equation start with the enforcing of the Lagrange identity:
 %
 %\begin{equation}
-%\langle q; \mathcal{L} q \rangle = \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle
+%\langle q;  {L} q \rangle = \langle { {L}}^{\dagger} q^{\dagger} ; q \rangle
 %\end{equation}
 %
 %where the scalar product $ \langle ;\rangle$ is defined in our case as:
@@ -652,12 +652,12 @@ It also worth mention that the results presented here has been the basis for som
 %
 %Is it clear from equation \ref{eq:scalr_prod} that the scalar product takes two different forms in the continuous and in the discrete case.
 %In fact in the discrete case is mandatory to introduce the quadrature rule weights $w_{i,j}$ of the chosen discretization.
-%$\mathcal{M}$ is the matrix representation of the weights and is symmetric and positive defined.
+%$ {M}$ is the matrix representation of the weights and is symmetric and positive defined.
 %
 %In order to compute and solve the adjoint equation one could proceed as follow:
 %
 %\begin{itemize}
-%	\item The direct problem is defined in the continuous space as $\mathcal{L} q = 0$
+%	\item The direct problem is defined in the continuous space as $ {L} q = 0$
 %	\item Chose a discretization (FEM, FD, Chebychev polynomials...) and transform the above problem in a discrete one $\mathbf{A} \hat{q}$
 %	\item Solve it to obtain the discrete version of the eigenfunctions $\hat{q}$
 %	\label{continuous}
@@ -667,8 +667,8 @@ It also worth mention that the results presented here has been the basis for som
 %
 %\begin{equation}
 %\begin{split}
-%\langle q; \mathcal{L} q \rangle =& \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle \\
-%\Rightarrow \int_{0}^{y_{\infty}} \overline{q^{\dagger}} \; \mathcal{L} q  \; dy =& \int_{0}^{y_{\infty}} \overline{ {\mathcal{L}}^{\dagger} q^{\dagger}}  \; q  \; dy 
+%\langle q;  {L} q \rangle =& \langle { {L}}^{\dagger} q^{\dagger} ; q \rangle \\
+%\Rightarrow \int_{0}^{y_{\infty}} \overline{q^{\dagger}} \;  {L} q  \; dy =& \int_{0}^{y_{\infty}} \overline{ { {L}}^{\dagger} q^{\dagger}}  \; q  \; dy 
 %\end{split}
 %\end{equation}
 %
@@ -688,7 +688,7 @@ It also worth mention that the results presented here has been the basis for som
 %
 %\begin{equation}
 %\begin{split}
-%\langle q^{\dagger}; \mathcal{L} q \rangle =& \langle {\mathcal{L}}^{\dagger} q^{\dagger} ; q \rangle \\
+%\langle q^{\dagger};  {L} q \rangle =& \langle { {L}}^{\dagger} q^{\dagger} ; q \rangle \\
 %\Rightarrow \overline{\hat{q}^{\dagger}}^T \mathbf{M} \mathbf{A} \hat{q}  =& \left( \overline{{\mathbf{A}}^{\dagger} \hat{q}^{\dagger}} \right)^{T} \mathbf{M} \hat{q} \\
 %\Rightarrow \mathbf{M} \mathbf{A}  =&  {\overline{\mathbf{A}^{\dagger}}}^T \mathbf{M} \\
 %\Rightarrow {\mathbf{A}}^{\dagger}  =&  \mathbf{M}^{-1} \mathbf{\overline{A}}^T \mathbf{M}
