@@ -13,7 +13,7 @@ Since Darcy's original formulation (\citet{darcy}), which relates the flow rate 
 All of the cited works are of empirical nature, but the volume averaged methods (VANS) has been able to recover all of these
 formulations rigorously starting from the Navier-Stokes equations (\citet{whitaker2013method}).
 
-As already seen in chapter 2, the VANS theory requires the knowledge of a number of terms, most notably, in the case of an isotropic porous bed, a permeability coefficient and a Forchheimer coefficient. Initial efforts in defining these terms were based on a combination of physical reasoning and measurements, leading to  expressions known as the Kozeny-Carman \cite{kozeny, carman} and the Ergun \cite{ergun} correlations. These approaches do not consider microstructural or geometrical features of the porous bed and are often restricted to simple unidirectional flows. In the present work we are concerned with a transversely isotropic material composed by parallel fibers of circular cross-section, with one axis of symmetry, $(O,x_3)$; in such materials the permeability is a diagonal tensor
+As already seen in chapter 2, the VANS theory requires the knowledge of a number of terms, most notably, in the case of an isotropic porous bed, a permeability coefficient and a Forchheimer coefficient. Initial efforts in defining these terms were based on a combination of physical reasoning and measurements, leading to  expressions known as the Kozeny-Carman \citet{kozeny, carman} and the Ergun \citet{ergun} correlations. These approaches do not consider microstructural or geometrical features of the porous bed and are often restricted to simple unidirectional flows. In the present work we are concerned with a transversely isotropic material composed by parallel fibers of circular cross-section, with one axis of symmetry, $(O,x_3)$; in such materials the permeability is a diagonal tensor
 with the component in the direction parallel to the fibers greater than those along the transverse axes. For such an arrangement
 we will investigate, in this chapter, the effects of both the direction of the forcing pressure gradient and inertia. When the latter effect is present,
 embodied by a Reynolds number $Re_d$, based on mean velocity through the medium and fibers' diameter, exceeding an order one threshold, 
@@ -90,16 +90,17 @@ flows through bundles of fibers of varying orientation and porosity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
-The system under investigation consists of an incompressible Newtonian fluid which flows through a rigid porous medium. The governing equations valid at the microscale \eqref{eq:NS}. 
-% which we recall:
-%$$
-%\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f}
-%$$
-%
-%$$
-%\nabla \cdot \vb = 0
-%$$
-%where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
+The system under investigation consists of an incompressible Newtonian fluid which flows through a rigid porous medium. The governing equations valid at the microscale are:
+
+\begin{eqnarray*}
+	\begin{cases}
+\dfrac{\partial \vb}{\partial t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  + \mathbf{f} \\
+\nabla \cdot \vb = 0 
+	\end{cases}
+\label{eq:ns_f}
+\end{eqnarray*}
+
+where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
 The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives the fluid motion and can be interpreted as the macroscopic pressure gradient acting on the system.
 %
 %\begin{figure}[H]
@@ -117,7 +118,7 @@ The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives 
 %
 %In the computational domain, any flow variable  $\phi$ can be decomposed into an intrinsic average part $\meani{\phi}$ plus a perturbation $\tilde{\phi}$, as:
 %$$  \phi = \meani{\phi} + \tilde{\phi}.$$
-%The intrinsic average is defined with an integration carried out only on the fluid phase \cite{whitaker2013method}:
+%The intrinsic average is defined with an integration carried out only on the fluid phase \citet{whitaker2013method}:
 %\begin{equation}
 %\meani{\psi_{\beta}} = \dfrac{1}{\volb} \int_{\volb} \psi_\beta (\mathbf{x}) d \volb.
 %\label{eq:avg_intrinsic}
@@ -134,16 +135,19 @@ The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives 
 %\nabla \cdot \meani{\vb} = 0,
 %\label{eq:cont_vans}
 %\end{equation}	
-%upon neglecting in equation \eqref{eq:darcy_forch} the sub-REV scale dispersion term (linked to the $\left< \vbt \vbt \right>^{\beta}$ term) which is often small in porous media flows \cite{brugem_phd}.
+%upon neglecting in equation \eqref{eq:darcy_forch} the sub-REV scale dispersion term (linked to the $\left< \vbt \vbt \right>^{\beta}$ term) which is often small in porous media flows \citet{brugem_phd}.
 %
 In chapter 2 we have already shown how the above equations can be homogenized and a new set of equations, valid at the macroscale, can be retrieved.
 The macroscale system \eqref{eq:vans_mom_1} introduce the surface integral term:
 $$\mathbf{F}^{\textit{m}} = \dfrac{1}{V} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA, $$
 
 that we have discussed in chapter 2 section \ref{ch:closure_fm}. This term is close by means of the equation \eqref{eq:closure_final} that we recall here:
-$$
+
+\begin{equation}
 \mathbf{F}^m \approx \mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \meani{\vb}
-$$
+\label{eq:closure_model}
+\end{equation}
+
 %$\mathbf{F}^{\textit{M}}$, must be used to replace $\mathbf{F}^{\textit{m}}$ in the governing equation. Such a model is often based on a permeability tensor, $\mathbf{K}$, and a Forchheimer tensor, $\mathbf{F}$, and reads:
 %\begin{equation} 
 %\mathbf{F}^{\textit{M}} = - \nub \mathbf{K}^{-1} (\mathbf{I} + \mathbf{F})\vbmi,
@@ -161,11 +165,32 @@ The drag force $\mathbf{F}^{\textit{m}}$ computed by direct numerical simulation
 This is just a useful exercise to demonstrate consistency of the approach and accuracy of the numerical simulations; it does nothing else since, as briefly described below, to derive the Forchheimer tensor the microscopic velocity field must be known anyhow.  Nonetheless, knowledge of the behavior of these tensors (or, equivalently, of the related apparent permeability) might prove both useful and instructive, in particular should one wish to extend the range of applicability of the model to cases for which the microscopic solution is not available.
 
 The core of the VANS approach consists in the identification of the permeability and Forchheimer tensors. This problem, referred to as the closure problem, is discussed at length in paragraph \ref{ch:closure_fm}.
-The two different tensors $\mathbf{K}$ and $\mathbf{F}$  can be computed by means by the two differential problems \eqref{eq:D_problem} and \eqref{eq:M_problem}.
+The two different tensors $\mathbf{K}$ and $\mathbf{F}$  can be computed by means by the two differential problems \eqref{eq:D_problem} and \eqref{eq:M_problem} reported here and discussed in detail in chapter 2.
 
+\begin{eqnarray*}
+\begin{cases}
+0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I}\\
+\nabla \cdot \mathbf{D} = 0  \\
+\mathbf{D} = 0 \quad \textrm{at} \; A_{\beta \sigma} \\
+\mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 \\
+\meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}
+\end{cases}
+\end{eqnarray*}
 
 The second closure problem differs from the first only for the presence of a linearised convective term 
 in which the microscopic velocity obtained from the DNS, $\vb$, is used as an input.  This of course implies knowledge of the microscopic velocity field. A Oseen-like approximation which relaxes this constraint has been proposed by \citet{zampogna}.
+
+\begin{eqnarray}
+\begin{cases}
+\dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
+\nabla \cdot \mathbf{M} = 0  \\
+\mathbf{M} = 0 \quad at \; A_{\beta \sigma} \\
+\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 \\
+\meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}
+\end{cases}
+\label{eq:h_model}
+\end{eqnarray}
+
 
 The closure problems reflect the structure of the solution of the two system \eqref{eq:D_problem} and \eqref{eq:M_problem}. In particular, the solution of the former depends only on the geometry of the porous medium so that the permeability tensor $\mathbf{K}$ is symmetric. This is not the case for $\mathbf{H}$, because of the effect of the microscopic velocity amplitude and direction.  Clearly, the solution of system \eqref{eq:M_problem} tends to that of \eqref{eq:D_problem} when $Re_d \rightarrow 0$. 
 
@@ -267,8 +292,8 @@ The  forcing term $\mathbf{f}$ of the DNS  is a vector whose direction is define
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The simulations have been carried out with the open-source code OpenFOAM \cite{openfoam}, based on  a finite volume discretization with a staggered arrangement for the unknowns.
-The standard solver icoFoam (incompressible Navier-Stokes) has been modified in order to include a constant pressure gradient acting as a forcing term $\mathbf{f}$  in equation \eqref{eq:mom}. 
+The simulations have been carried out with the open-source code OpenFOAM \citet{openfoam}, based on  a finite volume discretization with a staggered arrangement for the unknowns.
+The standard solver icoFoam (incompressible Navier-Stokes) has been modified in order to include a constant pressure gradient acting as a forcing term $\mathbf{f}$  in equation \eqref{eq:ns_f}. 
 The coupling between  the velocity and the pressure equations is based on the pressure implicit split operator referred to as the PISO algorithm. 
 The time derivative term is discretized using the second order backward Euler scheme and all the spatial terms use a second-order central difference stencil  based on Gauss finite volume approach. The velocity system is solved with a preconditioned bi-conjugate gradient (PBiCG) iterative solver with the tolerance on the velocity residuals set to $10^{-8}$, associated to a   diagonal incomplete lower upper pre-conditioner (DILU).
 The pressure equation is solved with a geometric-algebraic multigrid (GAMG) algorithm associated to a Gauss-Seidel smoother and the tolerance on the pressure residuals is here equal to $10^{-6}$.  Cyclic boundary conditions are applied to all fields on all fluid
@@ -320,7 +345,7 @@ The method follows the following four steps:
 	
 	\item Compute
 	$ {GCI}_{ij}=\dfrac{F_s {|\epsilon|}_{ij}}{r^p -1}$, with
-	$F_s$ a safety factor equal to 1.25 if the grids are three, and equal to 3 if the grids are only two \cite{roache}.
+	$F_s$ a safety factor equal to 1.25 if the grids are three, and equal to 3 if the grids are only two \citet{roache}.
 	
 	\item Check whether each grid level yields a solution that is in the asymptotic range of convergence; this means that the quotient
 	$ AC = \dfrac{{GCI}_{23}}{{GCI}_{12}} \dfrac{1}{r^p}$ should be as close as possible to one.
@@ -389,7 +414,7 @@ Figure \ref{fig:hexa} shows a similar comparison for a staggered arrangement of 
 	\caption{Relative error between the microscopically computed forces along the $x_1$ direction and those arising from the Darcy-Forcheimmer model; $\varepsilon=0.8$ for the REV in the staggered arrangement of \citet{yazdchi2011}.}
 	\label{fig:force_comparison}
 \end{figure}	
-Finally, to check the correct implementation of the closure model \eqref{eq:closure_KF} it is important to verify the equality \eqref{eq:closure_KF}  between the amplitude $F^M$ of the macroscopic force and its microscopic counterpart obtained through an integration of the DNS fields over the solid boundaries of the inclusions in the REV. Figure \ref{fig:force_comparison} shows a plot of the relative error between these two forces, i.e. 
+Finally, to check the correct implementation of the closure model \eqref{eq:closure_model} it is important to verify the equality between the amplitude $F^M$ of the macroscopic force and its microscopic counterpart $F^m$ obtained through an integration of the DNS fields over the solid boundaries of the inclusions in the REV. Figure \ref{fig:force_comparison} shows a plot of the relative error between these two forces, i.e. 
 $\displaystyle \frac{||F^M-F^m||}{||F^m||}$, as function of the Reynolds number. We consider the successful comparison displayed in figure \ref{fig:force_comparison} 
 as the conclusive demonstration of the validity of the approach described here. We have nonetheless carried out the same verification displayed in figure \ref{fig:force_comparison} for each one of the simulations described in the following, to our satisfaction.
 
@@ -427,7 +452,7 @@ For both these test cases, no appreciable differences, neither in the mean veloc
 \section{Microscopic solutions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section, some local microscopic fields computed with direct numerical simulations are shown, together with components of the intermediate tensor $\mathbf{M}$ coming from the numerical solution of the closure equations \eqref{eq:F_closure1}. 
+In this section, some local microscopic fields computed with direct numerical simulations are shown, together with components of the intermediate tensor $\mathbf{M}$ coming from the numerical solution of the closure equations \eqref{eq:h_model}. 
 
 In figure \ref{fig:1ch4} (top row) the local $x_1$ velocity component is drawn for the two-dimensional flow when $\varepsilon=0.6$, for three 
 Reynolds numbers, to cover the transition from the Stokes to the inertial regime. In all plots, the velocities are rendered non-dimensional by
@@ -440,7 +465,7 @@ could only be investigated with longer/larger/thicker REV's.
 
 The non-dimensional local $M_{11}$ fields for the same parameters are displayed in figure \ref{fig:1ch4} (mid row). All values in the figures 
 arise from scaling $\bf{M}$ with $\ell^2$. Visually, these local fields are strongly correlated to the local streamwise velocity component in the whole $Re_d$ range. 
-This is not unexpected since the local velocity drives the convective term of system \eqref{eq:F_closure1}. 
+This is not unexpected since the local velocity drives the convective term of system \eqref{eq:h_model}. 
 The central symmetry of all components of $\bf{M}$ in the Stokes regime is coupled to the rotational invariance of the apparent permeability tensor in two-dimensional flows.
 
 The effect of varying the porosity is shown in figure \ref{fig:1ch4} (bottom row) where $\varepsilon$ is taken equal to $0.4$. Even at such a
@@ -492,9 +517,6 @@ represents the solution of the closure problem in a specific direction (first in
 	\caption{Non-dimensional $\mathbf{M}$ components fields for the case $\theta=22.5^{\circ}, \phi=45^{\circ}, Re_d=50, \varepsilon=0.6$.}
 	\label{fig:5ch4}
 \end{figure}    
-
-
-
 
 
 
@@ -586,7 +608,7 @@ gradient along $x_3$ is present the strong packing of the fibers constrain the f
 apparent permeability is almost $Re_d$-independent. When assessing variations in $H_{jj}$ for this case, attention should also be paid to the 
 fact that the permeability is now at least one order of magnitude smaller than in the previous cases so that variations of the diagonal 
 components shown in figure \ref{fig:04_H} are tiny in absolute terms.  This is related to the fact that  the  inverse of the permeability  
-plays the role of a drag coefficient in the macroscopic expression of the force  (cf. equation \eqref{eq:macroscale}).  In other words, 
+plays the role of a drag coefficient in the macroscopic expression of the force  (cf. equation \eqref{eq:vans_mom_1}).  In other words, 
 materials with higher porosity (larger space between solid inclusions) offer lower resistance to the motion of the fluid.
 
 
@@ -614,7 +636,7 @@ porosity, flow direction and local Reynolds number. The complete solution of the
 approximately 4 CPU hours on our two-processor Intel(r) IVYBRIDGE 2.8Ghz, each with 10 cores and 64 GB of RAM, so that a complete parametric 
 study is, to say the least, unpractical. In view of this, the construction of a metamodel capable to provide a full characterisation of the 
 permeability as a function of all parameters is a worthy endeavor. We have tested several surrogate models, before eventually settling on the kriging 
-approach \cite{Kleijnen20171} described in the following.
+approach \citet{Kleijnen20171} described in the following.
 
 
 
@@ -662,8 +684,8 @@ Computer Experiments), a technique to fill in the best possible way the space of
 %
 %Actually, to be more efficient, we have to use the methodologies developed for the design and analysis of computer experiment refers as DACE. %DACE models 
 %are canonical methods that fills in the best way the space parameters of the problem, knowing  the number of variables and their discrete %values. 
-The Dakota library \cite{dakota} has been selected for the purpose and 
-the Monte-Carlo incremental random sampling algorithm \cite{giunta} has been chosen, in order to make efficient use of the cases
+The Dakota library \citet{dakota} has been selected for the purpose and 
+the Monte-Carlo incremental random sampling algorithm \citet{giunta} has been chosen, in order to make efficient use of the cases
 already computed. This incremental approach selects in a quasi-random way the new samples to generate, starting from the existing ones. In the end, the set of samples comprises 118 cases.
 
 
@@ -806,7 +828,7 @@ The relative mean error can be computed as:
 $$
 E_{cv\%} = 100 \dfrac{\sqrt{\xi_{cv}}}{mean(|\hat{f_{i}}^{n}|)} .
 $$
-In our case the number of points used to test the model $n_2$ is equal to $\sqrt{N} \approx 12$ as recommended for kriging metamodels \cite{wang2007review}.
+In our case the number of points used to test the model $n_2$ is equal to $\sqrt{N} \approx 12$ as recommended for kriging metamodels \citet{wang2007review}.
 The number of folds has been varied from $5$ to $25$ and in all the cases tested the $E_{cv\%}$ has been found to decrease below $6\%$ when we use at least 16 folds (which means leaving out 7 to 8 points from the metamodel construction), which is more than acceptable to prove that our kriging method is a robust approximation.
 
 \begin{figure}[h]
@@ -925,8 +947,6 @@ in detail; however, all components have been computed and the same conclusions c
 \section{Concluding remarks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Red{write clearly that you have taken Reynolds 100 max because after that the closure problems are not true. In fact the linear correlation hypothesis holds till 100. The check has been performed comparing H from inverting the DNS field and Darcy relation and the H from the closure problems, or comparing the latter  directly with the force}
-
 The components of the permeability tensor are essential ingredients for any solution of flow
 through anisotropic porous media.  When the flow through the pores resents of significant
 acceleration effects, the permeability must be modified (it is then called \emph{apparent}) by the presence
@@ -943,13 +963,13 @@ thus been able to solve the linear system \eqref{eq:linear_k} for all the unknow
 intermediate tensor  
 $\mathbf{M}$, from which, through averaging, we have computed the apparent permeability.  Such a tensor
 is  indispensable to evaluate accurately the drag force caused by the presence of the fibers, for a macroscopic solution of the flow on the
-basis of equations \cite{whitaker2013method} when inertial effects are present.
+basis of equations \citet{whitaker2013method} when inertial effects are present.
 
 It has been found that the apparent permeability tensor is strongly diagonally dominant for whatever
 forcing direction and porosity,  provided the local Reynolds number remains below a value 
-approximately equal to 100; this results -- which is a direct
-consequence of the transverse isotropy of the material which has been considered here -- 
+approximately equal to 100; this results (which is a direct
+consequence of the transverse isotropy of the material which has been considered here) 
 can be used to compute $\mathbf{H}$ rapidly, approximating it as a diagonal tensor.
 
 Finally, a metamodel has been used to produce results so as to cover the whole space of parameters,
-and this has allowed the construction of a complete data base.  This data base is now being used in simulations of poroelastic media based on the VANS approach. 
+and this has allowed the construction of a complete data base. This database can be used in simulations of porous media based on the VANS approach as we will show in the next chapter. 

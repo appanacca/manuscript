@@ -3,67 +3,62 @@
 
 \chapquote{While knowledge can create problems, it is not through ignorance that we can solve them.}{Asimov's New Guide to Science, 1984}{Isaac Asimov}
 
-\citet{segura2017permeable} \Red{state that their results agree with yours ??}
-
-Include this paper \citet{sharma2017stabilitycanopy}
-
-cita \citet{ortiz2002spatial}
 
 
-cita \citet{garcia2017analysis} nelle conclusioni dicendo che ha usato il nostro modello in caso turbolento ecc..
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\Red{modify the introduction to not repeat the same parts that you have presented in the intro}
 
 
-Flows through submerged aquatic plants exhibit large scale vortices at the top of the vegetation,
-advecting along the flow direction and causing a periodic waving of the plants, referred to as
-monami (\citet{ackerman1993reduced}).  Vortices arise from the nonlinear amplification of a Kelvin-Helmholtz instability mode,
-related to the presence of an inflection point in the base flow profile (\citet{asaeda2005morphological}); the profile itself is inflectional
-because the fluid is slowed down by the drag exerted by the canopy, whose modeling has recently
-been addressed (\citet{py2004mixing}, \citet{singh2016linear}, \citet{zampogna2016instability}). The correct prediction of the onset and characteristics of the Kelvin-Helmholtz
-instability is important for assessing the effects of turbulence, in particular to
-\begin{itemize}
-	\item  understand how the vertical exchange of momentum occurs (\citet{ikeda1996three})
-	\item clarify how the transport of $CO_2$ , dissolved nutrients or sediments takes place between the
-	obstructed vegetation flow and the free overflow motion (\citet{gambi1990flume}, \citet{eckman1987role}, \citet{grizzle1996hydrodynamically}, \citet{finnigan2000turbulence}), and also
-	\item assess the changes in the morphology of the vegetation in inland or coastal wetlands in
-	response to continuous periodic forcing (\citet{asaeda2005morphological}, \citet{patil2010characteristics})
-\end{itemize}
+%Flows through submerged aquatic plants exhibit large scale vortices at the top of the vegetation,
+%advecting along the flow direction and causing a periodic waving of the plants, referred to as
+%monami (\citet{ackerman1993reduced}).  Vortices arise from the nonlinear amplification of a Kelvin-Helmholtz instability mode,
+%related to the presence of an inflection point in the base flow profile (\citet{asaeda2005morphological}); the profile itself is inflectional
+%because the fluid is slowed down by the drag exerted by the canopy, whose modeling has recently
+%been addressed (\citet{py2004mixing}, \citet{singh2016linear}, \citet{zampogna2016instability}). The correct prediction of the onset and characteristics of the Kelvin-Helmholtz
+%instability is important for assessing the effects of turbulence, in particular to
+%\begin{itemize}
+%	\item  understand how the vertical exchange of momentum occurs (\citet{ikeda1996three})
+%	\item clarify how the transport of $CO_2$ , dissolved nutrients or sediments takes place between the
+%	obstructed vegetation flow and the free overflow motion (\citet{gambi1990flume}, \citet{eckman1987role}, \citet{grizzle1996hydrodynamically}, \citet{finnigan2000turbulence}), and also
+%	\item assess the changes in the morphology of the vegetation in inland or coastal wetlands in
+%	response to continuous periodic forcing (\citet{asaeda2005morphological}, \citet{patil2010characteristics})
+%\end{itemize}
 
-Because of the flexibility of the vegetation, some theoretical studies have focussed on the
-modeling of the stems of the aquatic plants and their displacement in response to the forcing by the
-water flow (\citet{py2004mixing}, \citet{patil2010characteristics}). However, Kelvin-Helmholtz vortices occur whether or not the plants bend and—to ascertain causes and effects to first order—it is acceptable to focus on the flow over and through a
-submerged array of rigid, cylindrical pillars. This has been the basis of the approach by Ghisalberti
-and Nepf (\citet{ghisalberti2002mixing}, \citet{ghisalberti2004limited}, \citet{ghisalberti2005mass}) who have conducted a series of careful experiments; their results have often been
-used by fluid dynamicists to put forth and test theoretical hypotheses to predict the frequency and
-wavelength of the large scale vortical motion, for a variety of conditions. The configuration studied
-consists of a regular grid of rigid pillars, orthogonal to the surface, of identical height h; in some
-of the theoretical models proposed to analyze the stability of this system, the Rayleigh equation is
-used throughout the water channel, with or without a drag term in correspondence of the canopy (\citet{raupach1996coherent}, \citet{py2004mixing}, \citet{singh2016linear})
-\citet{zampogna2016instability} have recently demonstrated that the addition of a drag term through the vegetation reduces the amplification factor of the Kelvin-Helmholtz instability throughout the whole
-range of wavenumbers and increases mildly the wavelength of the fastest growing mode; further
-unpublished work by the same authors shows that the addition of a mixing length turbulence model
-in the stability equations has but a negligible influence on the leading instability mode. Questions
-remain, however, on the accuracy of the drag model and on its sensitivity. A partial answer to these
-questions is provided in \citet{zampogna2016instability}: there, a different model, applicable within the vegetated layer and
+%Because of the flexibility of the vegetation, some theoretical studies have focused on the
+%modeling of the stems of the aquatic plants and their displacement in response to the forcing by the
+%water flow (\citet{py2004mixing}, \citet{patil2010characteristics}). However, Kelvin-Helmholtz vortices occur whether or not the plants bend and—to ascertain causes and effects to first order—it is acceptable to focus on the flow over and through a
+%submerged array of rigid, cylindrical pillars. This has been the basis of the approach by Ghisalberti
+%and Nepf (\citet{ghisalberti2002mixing}, \citet{ghisalberti2004limited}, \citet{ghisalberti2005mass}) who have conducted a series of careful experiments; their results have often been
+%used by fluid dynamicists to put forth and test theoretical hypotheses to predict the frequency and
+%wavelength of the large scale vortical motion, for a variety of conditions. The configuration studied
+%consists of a regular grid of rigid pillars, orthogonal to the surface, of identical height h; in some
+%of the theoretical models proposed to analyze the stability of this system, the Rayleigh equation is
+%used throughout the water channel, with or without a drag term in correspondence of the canopy (\citet{raupach1996coherent}, \citet{py2004mixing}, \citet{singh2016linear})
+%\citet{zampogna2016instability} have recently demonstrated that the addition of a drag term through the vegetation reduces the amplification factor of the Kelvin-Helmholtz instability throughout the whole
+%range of wavenumbers and increases mildly the wavelength of the fastest growing mode; further
+%unpublished work by the same authors shows that the addition of a mixing length turbulence model
+%in the stability equations has but a negligible influence on the leading instability mode. 
+In section \ref{sec:stability} of the introduction we have already introduced the stability problems for flow through porous media.
+In the same text some results has already been discussed and it has been enlightened that most of the modelling problem rely on the choice of the drag model that include the canopy effects inside the flow.
+
+Questions remain, however, on which is the most accurate and/or less sensible model for the canopy drag. Most of the authors (\citet{raupach1996coherent}, \citet{py2004mixing} and \citet{singh2016linear}) uses a drag coefficient based source term, inside the momentum equation, that mimic the presence on the canopy. Instead in the work of \citet{zampogna2016instability} a different model, applicable within the vegetated layer and
 based on the equations ruling the behavior of a transversely isotropic porous medium, has been
 developed and the stability results appear to better match experimental correlations. This conclusion
 is, however, not consolidated yet, and further studies are needed to assess the influence of the model
 of the drag force through the vegetation, both in setting up a particular (inflectional) mean flow and
 on the onset and growth of Kelvin-Helmholtz waves.
-The present work addresses the points above through an adjoint-based sensitivity analysis along
+The present work addresses the points above through an adjoint based sensitivity analysis along
 the lines of \citet{bottaro2003effect} the direct stability equations are written with account of viscosity, and
 the adjoint equations are found and solved in the temporal framework. Results in the spatial setting
 are discussed in Appendix B, where a digression is made on the computation of the group velocity
 of the instability waves by the use of the adjoint fields. The sensitivity functions to both mild
 modifications in the base shear layer and in the drag coefficient are computed and discussed. Finally,
 a different sensitivity analysis is developed on the basis of the recent anisotropic model by \citet{zampogna2016instability} and the results qualitatively compared to those obtained with the more conventional
-isotropic-drag-force model.
+isotropic drag force model.
 
 
 
@@ -140,16 +135,15 @@ Appendix A we provide some considerations on how $C_d$ affects the mean flow in 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec2b}
 A temporal linear stability analysis is carried out, with the generic perturbation $q'(x, y,t)$ of the
-form
+form:
 
 \begin{equation}
 q'(x,y,z,t)=\tilde q(y){\rm e}^{i(\alpha \  x -\omega \ t)}
 \label{eq:q}
 \end{equation}
 
-with $\alpha$ the real streamwise wavenumber and $\omega$ a complex number whose real part, $\omega_r$ , is the fre-
-quency of the mode and the imaginary part, $\omega_i$ , is the growth rate. The dimensionless linear stability
-equations in primitive variables read
+with $\alpha$ the real streamwise wavenumber and $\omega$ a complex number whose real part, $\omega_r$ , is the frequency of the mode and the imaginary part, $\omega_i$ , is the growth rate. The dimensionless linear stability
+equations in primitive variables read:
 
 \begin{equation}
 \begin{split}
@@ -171,17 +165,15 @@ and in the inviscid limit (${Re}^{-1}  \rightarrow 0$ ), for comparison purposes
 conditions are simply $v = 0$ at $y = 0$ and $y_{\infty}$ .
 System \ref{eq:uvp} above and its boundary conditions are, in the following, also written in short
 notation as $\mathscr{L} q = 0$. The eigenvalues of the system are those complex values of $\omega$ which yield
-non-trivial solutions for $u$, $v$, and $p$. Two numerical collocation codes are written, and success-
-fully compared; one is based on the equations in primitive variables form, the second solves an
-Orr-Sommerfeld-like equation (with the addition of the drag term) along the lines of \citet{singh2016linear}.
+non trivial solutions for $u$, $v$, and $p$. Two numerical collocation codes are written, and success fully compared; one is based on the equations in primitive variables form, the second solves an
+Orr-Sommerfeld like equation (with the addition of the drag term) along the lines of \citet{singh2016linear}.
 In both cases, a spectral scheme based on N Chebyshev polynomials is used (N is typically equal
-to 300 to ensure grid-converged results), with an algebraic mapping between the physical and the
+to 300 to ensure grid converged results), with an algebraic mapping between the physical and the
 spectral domains (\citet{hussaini1987spectral} ).
 Viscous and inviscid stability results for case G are shown in \ref{fig:2} (center and right frames);
 differences are small, in consideration of the fact that the Reynolds number of the viscous case
 is relatively large ($Re = 3450$). The viscous wavenumber of largest amplification is found for
-$\alpha = 0.4790$; the waves are weakly dispersive, particularly at low wavenumbers (an original inter-
-pretation of phase and group velocities is proposed in Appendix B). The wavelength of largest
+$\alpha = 0.4790$; the waves are weakly dispersive, particularly at low wavenumbers (an original interpretation of phase and group velocities is proposed in section \ref{appB}). The wavelength of largest
 growth is smaller than that found by \citet{zampogna2016instability} which was $0.73$; this is related to the slightly
 different base flow in the two cases (in the present contribution a smoothing has been applied to the
 $U$ velocity distribution to render $dU/dy$ continuous across $y$) and highlights the sensitivity of this
@@ -209,14 +201,14 @@ the properties of the adjoint system which is defined from the Lagrange identity
 	\label{fig:3}
 \end{figure}
 
-and considering the effect of independent variations of $U$ and $C_d$ onto $q$ and $\omega$. It is found that
+and considering the effect of independent variations of $U$ and $C_d$ onto $q$ and $\omega$. It is found that:
 
 \begin{equation}
 \delta \omega =\delta \omega_r + i \delta \omega_i= \int_0^{y_{\infty}}  G_U(y) \delta U(y) dy + \int_0^{1}  G_{C_D}(y) \delta C_D(y) dy
 \label{eq:s_omega}
 \end{equation}
 
-with
+with:
 
 \begin{equation}
 \begin{split}
@@ -228,7 +220,7 @@ with
 
 the required sensitivity functions; the real parts of $G_U$ and $G_{C_d}$ express sensitivities to variations in
 the frequency of the mode while the imaginary parts are sensitivities to variations in the growth rate.
-Direct and adjoint eigenfunctions are normalized so that $N_{\omega} = 1$, with
+Direct and adjoint eigenfunctions are normalized so that $N_{\omega} = 1$, with:
 
 \begin{equation}
 N_{\omega} = \int_0^{y_{\infty}} \left[ \overline{ v^{\dagger}} v  +  \overline{ u^{\dagger}} u \right] dy
@@ -251,11 +243,10 @@ equations are much less effective.
 \label{sec:3}
 
 Some representative sensitivity functions are plotted in \ref{fig:4}; viscous and inviscid results
-concur in showing that the largest sensitivities to variations of U are found right above the vegeta-
-tion’s edge, where there are peaks in the adjoint eigenfunctions and where $d^2 U/d y^2$ vanishes. The
-$U$-sensitivities are negligible within the vegetated layer and for values of $y$ larger than twice the
-canopy’s height. The $C_d$-sensitivities are non-negligible only in close proximity of the interface.
-It is interesting to observe that real and imaginary parts of the $U$-sensitivity functions are
+concur in showing that the largest sensitivities to variations of U are found right above the vegetation’s edge, where there are peaks in the adjoint eigenfunctions and where $d^2 U/d y^2$ vanishes. The
+$U$ sensitivities are negligible within the vegetated layer and for values of $y$ larger than twice the
+canopy’s height. The $C_d$ sensitivities are non negligible only in close proximity of the interface.
+It is interesting to observe that real and imaginary parts of the $U$ sensitivity functions are
 shifted in y with respect to one another; this means that, for example, a localized perturbation at
 a given $y$ position (above the canopy) might have a strong repercussion on the growth rate but not
 on the frequency of the most unstable Kelvin-Helmholtz mode, or vice versa. Comparing left and
@@ -313,7 +304,7 @@ pressure and velocity in the inner region with the same scales as previously, we
 
 
 with $\mathcal{K}_{ij}$ the dimensionless permeability. The effective interface between the inertial region and the
-slow, viscosity-dominated region does not coincide with the edge of the canopy; in fact, the rapid
+slow, viscosity dominated region does not coincide with the edge of the canopy; in fact, the rapid
 outer flow penetrates through the upper part of the vegetation and an effective matching between
 outer and inner flows must be enforced some distance $\delta$ below the canopy’s edge \citet{le2006interfacial}.  This distance,
 a penetration depth, has been successfully computed by \citet{zampogna2016fluid} for a few cases
@@ -335,10 +326,8 @@ $$
 B(\alpha) = Re \dfrac{d}{ah^2} \sqrt{\mathcal{K}_{11}\mathcal{K}_{22}} \alpha \tanh (\theta), \qquad \theta = \alpha \sqrt{\dfrac{\mathcal{K}_{11}}{\mathcal{K}_{22}}}  y_{itf}
 $$
 
-The second boundary condition that the Rayleigh stability equation must satisfy at $y_{\infty}$ is sim-
-ply $v = 0$. Thus, we solve only for the inviscid flow in the outer region, and the permeability
-of the inner domain enters the equations only through the interface condition \ref{eq:darcybc}. $\mathcal{K}_{ij}$ is a two-
-by-two diagonal tensor; $\mathcal{K}_{11}$ is the component of the dimensionless permeability along $x$ and
+The second boundary condition that the Rayleigh stability equation must satisfy at $y_{\infty}$ is simply $v = 0$. Thus, we solve only for the inviscid flow in the outer region, and the permeability
+of the inner domain enters the equations only through the interface condition \ref{eq:darcybc}. $\mathcal{K}_{ij}$ is a two by two diagonal tensor; $\mathcal{K}_{11}$ is the component of the dimensionless permeability along $x$ and
 $\mathcal{K}_{22}$ is the $y$ component. For case G considered here, the packing density of the elements is
 $a = 0.04 cm^{-1}$ ; it is also found that $\mathcal{K}_{11}= 0.0512$ and $\mathcal{K}_{22} = 0.0575$ \citet{zampognaprivate},  so that the function $B(\alpha)$
 reads $B = 15.727 \alpha \tanh (0.566 \alpha)$.
@@ -356,8 +345,7 @@ v^{\dagger}|_{itf} - B(\alpha) p^{\dagger}|_{itf} = 0, \qquad v^{\dagger}|_{y_{\
 \label{eq:darcybc_adjoint}
 \end{equation}
 
-The variation in the complex frequency is related to variations in the mean flow and in the perme-
-ability components through the equation
+The variation in the complex frequency is related to variations in the mean flow and in the permeability components through the equation
 
 $$
 \delta \omega = \int_{y_{itf}}^{y_{\infty}}  G_U(y) \delta U(y) dy + G_{\mathcal{K}_{11}} \delta \mathcal{K}_{11} + G_{\mathcal{K}_{22}} \delta \mathcal{K}_{22}
@@ -397,7 +385,7 @@ canopy ( $y = 1$), whereas the adjoint eigenfunctions have a maximum value sligh
 general remark, the shapes of the direct and adjoint modes are quite similar to those found with
 the isotropic resistance model; as reported at the end of \ref{sec2b}, it is found that the flow
 is most sensitive to streamwise momentum forcing. Also, real and imaginary parts of $G_U$ have a
-double-peak structure, like in the isotropic-drag model, but now the largest absolute value of $G_U$ is
+double peak structure, like in the isotropic drag model, but now the largest absolute value of $G_U$ is
 
 \begin{figure}[H]
 	\centering
@@ -415,7 +403,7 @@ double-peak structure, like in the isotropic-drag model, but now the largest abs
 	\label{fig:8}
 \end{figure}
 
-smaller and shifted towards a larger y than in the previous inviscid case (cf.\ref{fig:4}, top-right frame).
+smaller and shifted towards a larger y than in the previous inviscid case (cf.\ref{fig:4}, top right frame).
 This can also be appreciated by the inspection of \ref{fig:8} (left); $|G U |_{\infty}$ still grows monotonically with
 $\alpha$, but the sensitivity is smaller than that computed earlier (cf. \ref{fig:5}) with either the viscous or
 inviscid model (it is actually closer to the viscous sensitivity, as an effect of the interface condition).
@@ -434,6 +422,7 @@ by variations in the first component of the permeability tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Digression on spatial stability theory and group velocity}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{appB}
 
 Stability problems such as the first one considered in this paper can be approached with the
 spatial theory framework, with the wavenumber $\alpha$ complex, its imaginary part being a growth rate,
@@ -486,7 +475,7 @@ $$
 err = \dfrac{|c_g|_{\ref{eq:group_vel}} - c_g|_{FD}|}{c_g|_{\ref{eq:group_vel}}}
 $$
 
-with $c_g|_{FD}$ arising from a first-order finite difference approximation of the group velocity. The
+with $c_g|_{FD}$ arising from a first order finite difference approximation of the group velocity. The
 bottom four values are defined by the formula
 
 $$
@@ -527,11 +516,11 @@ the growth rate approximated through Gaster’s relationship is also found to be
 	\end{center}
 	\label{tab:spa_tem}
 	\caption{Temporal versus spatial stability, Case G. The model employed
-		here is based on a modified Orr-Sommerfeld equation—rather than a system
+		here is based on a modified Orr-Sommerfeld equation rather than a system
 		based on primitive variables as done in the bulk of the paper—which is
 		why the temporal results have slightly larger growth rates $\omega_i$ than those
 		displayed in Fig. \ref{fig:2}; this is related to the need of computing numerically
-		$d^2 U /dy^2$ and $dC_d /dy$ in the Orr-Sommerfeld-like equation. In italics,
+		$d^2 U /dy^2$ and $dC_d /dy$ in the Orr-Sommerfeld like equation. In italics,
 		the growth rates obtained from Gaster’s transformation are reported; the
 		parameters imposed in each simulation are indicated with bold characters.
 		The solutions for $Re = 10^9$ coincide with those found using the inviscid
@@ -550,32 +539,26 @@ computations of the adjoint stability equations.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Concluding remarks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-We have considered two different models of the flow through a vegetated layer experienc-
-ing Kelvin-Helmholtz destabilization. One model is based on the use of a single drag coefficient
-to express the force exerted by the vegetation on the fluid, the second considers the canopy as
-an orthotropic porous medium and is based on Darcy’s equation with a tensorial permeability \citet{zampogna2016fluid}. 
+We have considered two different models of the flow through a vegetated layer experiencing Kelvin-Helmholtz destabilization. One model is based on the use of a single drag coefficient to express the force exerted by the vegetation on the fluid, the second considers the canopy as an orthotropic porous medium and is based on Darcy’s equation with a tensorial permeability \citet{zampogna2016fluid}. 
 Both models have advantages and drawbacks. The main advantage of the first model is that the
 drag coefficient can be taken to vary across the canopy; whether this positive consideration, based
-on macroscopic experimental measurements \citet{ghisalberti2002mixing} \citet{ghisalberti2004limited} \citet{ghisalberti2005mass},  carries over to the stability problem remains to
-be established. The second model, applicable to dense porous media, considers two independent
-parameters to express the disturbance flow perpendicular and parallel to the rigid dowels forming
-the canopy. Such parameters and components of the transversely isotropic permeability tensor K i j
+on macroscopic experimental measurements \citet{ghisalberti2002mixing}, \citet{ghisalberti2004limited} and \citet{ghisalberti2005mass},  carries over to the stability problem remains to be established. The second model, applicable to dense porous media, considers two independent parameters to express the disturbance flow perpendicular and parallel to the rigid dowels forming
+the canopy. Such parameters and components of the transversely isotropic permeability tensor $\mathbf{K}$
 arise from the solution of a local Oseen problem \citet{zampogna2016fluid}. The drawback of the second model is the
 fact that an interface (whether real or effective) appears, and adequate matching conditions must
 be enforced there. Despite much work since the seminal contribution by \citet{beaver}, a
-consensus on the “best” interface conditions between a pure fluid region and a porous medium has
+consensus on the "best" interface conditions between a pure fluid region and a porous medium has
 not yet emerged.
-The models have been put to test through a classical sensitivity analysis \citet{bottaro2003effect}. Beyond display-
-ing stability results which correspond better to those to be expected from available experimental
-correlations \citet{raupach1996coherent} \citet{zampogna2016instability}, the anisotropic model is less sensitive to variations in the base flow (with potentially
+The models have been put to test through a classical sensitivity analysis (\citet{bottaro2003effect}). Beyond displaying stability results which correspond better to those to be expected from available experimental correlations \citet{raupach1996coherent}, \citet{zampogna2016instability}, the anisotropic model is less sensitive to variations in the base flow (with potentially
 larger variations in frequency and growth rate of the instability mode for the case of shorter waves).
 As far as a direct comparison between $G_{C_d}$ and $G_{\mathcal{K}_{ii}}$ is concerned, this can hardly be made since
 the variables represent different objects; in particular, the pressure drop through the canopy depends
 directly on $C_d$ and inversely on the permeability. The present results indicate that the anisotropic
-model depends significantly on the value of the apparent \citet{zampogna2016fluid} permeability component $\mathcal{K}_{11}$ , whose
-evaluation must thus be conducted carefully. This model is also of interest for further developments,
-in particular for the study of instabilities developing over waving canopies. Darcy’s law in this latter
-case would need to be modified, as described in \citet{mei2010homogenization} and \citet{zampognaMech}.
+model depends significantly on the value of the apparent \citet{zampogna2016fluid} permeability component $\mathbf{H}_{11}$, whose
+evaluation must thus be conducted carefully. The problem of computing the effective permeability tensor will be addressed in the next chapter in which we show its modelling issues and possible solutions.
+
+It also worth mention that the results presented here has been the basis for some other works (\citet{segura2017permeable}, \citet{sharma2017stabilitycanopy} and \citet{garcia2017analysis}). The authors had used our very approach to study some properties of the porous media to further explore drag reduction mechanisms and stability issues.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
