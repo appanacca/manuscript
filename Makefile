@@ -6,7 +6,7 @@ all: $(FILE).pdf
 clean:
 	\rm *.aux *.blg *.out *.bbl *.log *.dvi *.pdf biblio.bib
 
-$(FILE).pdf: $(FILE).tex biblio.bib chapter_*/chapter_*.tex appendix_a/appendix_a.tex
+$(FILE).pdf: $(FILE).tex biblio.bib chapter_*/chapter_*.tex appendix_a/appendix_a.tex conclusions/conclusions.tex
 	pdflatex -shell-escape $(FILE)
 	bibtex $(FILE)
 	pdflatex -shell-escape $(FILE)
