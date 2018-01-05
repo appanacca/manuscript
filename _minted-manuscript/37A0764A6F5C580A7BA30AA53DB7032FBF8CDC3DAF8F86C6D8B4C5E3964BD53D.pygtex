@@ -33,7 +33,7 @@
 	\PYG{c+c1}{\PYGZsh{} or define the Matern model}
 	\PYG{c+c1}{\PYGZsh{} covarianceModel = ot.MaternModel()}
 
-	\PYG{n}{algo} \PYG{o}{=} \PYG{n}{ot}\PYG{o}{.}\PYG{n}{KrigingAlgorithm}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{covarianceModel}\PYG{p}{,} \PYG{n}{basis}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} build the metamodel}
+	\PYG{n}{algo} \PYG{o}{=} \PYG{n}{ot}\PYG{o}{.}\PYG{n}{krigingAlgorithm}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{covarianceModel}\PYG{p}{,} \PYG{n}{basis}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} build the metamodel}
 
 	\PYG{c+c1}{\PYGZsh{} eta = 0.2}
 	\PYG{c+c1}{\PYGZsh{} algo.setNoise([eta]*len(y)) \PYGZsh{} set the optional nugget}
