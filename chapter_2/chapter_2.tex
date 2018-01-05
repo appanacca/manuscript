@@ -314,6 +314,8 @@ $$
 \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \vb \nbs \;dA \right) = \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA. \right)
 $$
 
+\noindent This integral term is zero in case of rigid porous media and is also zero in case of rigid motion of the solid. A manipulation procedure of this term has been proposed in \citet{hussong2011continuum} but its influence in the poroelastic case is yet to be clarified. In the following development this term will be included for completeness although, its study it is out of scope of our study.
+
 %and using Gauss theorem on the second term we get:
 %\begin{equation*}
 %	\means{\nub\nabla^2 \vb} = \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{\volb} \nabla \cdot \left( \nub \vb \right) dV \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA,  
@@ -345,19 +347,19 @@ The decomposition proposed by \citet{gray1975derivation} is now used to get the 
 \label{eq:gray}
 \end{equation}
 
-where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution and $ \meani{\psi_{\beta}}$ the volume average one.  The two contributions should be added together to obtain the local filed value for the considered quantity $\psi_{\beta}$.
-This decomposition has been introduced in order to separate the different scales of the spatial variation of the fields, and so separate the low frequencies from the high one.
+\noindent where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution and $ \meani{\psi_{\beta}}$ the volume-averaged one. The two contributions should be added together to obtain the local field values for the considered quantity $\psi_{\beta}$.
+This decomposition has been introduced in order to separate the different scales of the spatial variation of the fields, and so separate the low frequencies from the high ones.
 
-If the hypothesis of that this division holds, it is possible to demonstrate that the average value of the perturbation field is null \footnote{the paragraph \ref{ch:appendix_a} specifically addresses the hypothesis behind this result}:
+If the hypothesis of this decomposition holds, it is possible to demonstrate that the average value of the perturbation field vanishes\footnote{the paragraph \ref{ch:appendix_a} addresses specifically the hypothesis behind this result.}:
 $$
-\means{\tilde{\psi}_{\beta}} = \means{\psi_{\beta}} - \means{\meani{\psi_{\beta}}} \approx \means{\psi_{\beta}} -\varepsilon \meani{\psi_{\beta}} = \means{\psi_{\beta}} -\means{\psi_{\beta}} = 0
+\means{\tilde{\psi}_{\beta}} = \means{\psi_{\beta}} - \means{\meani{\psi_{\beta}}} \approx \means{\psi_{\beta}} -\varepsilon \meani{\psi_{\beta}} = \means{\psi_{\beta}} -\means{\psi_{\beta}} = 0.
 $$
 
 
-Using the above results, the non-homogeneous term in equation \eqref{eq:mom_2} can be converted in:
+Using the above results, the non-linear term in equation \eqref{eq:mom_2} can be converted to:
 
 \begin{equation}
-\means{\vb\vb} = \means{\means{\vb}\meani{\vb}} +2\means{\meani{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}
+\means{\vb\vb} = \means{\meani{\vb}\meani{\vb}} +2\means{\meani{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}.
 \label{eq:dec_1}
 \end{equation}
 
@@ -365,13 +367,13 @@ For each integral term of \eqref{eq:mom_2} the same field decomposition should b
 
 \begin{eqnarray}
 \dfrac{1}{V} \int_{A_{\beta \sigma}}  - \left( \dfrac{\pb}{\rho_{\beta}} \mathbf{I} \right) \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}}  -\dfrac{1}{\rho_{\beta}} \left(\meani{\pb}   + \pbt \right)  \nbs \;dA  \nonumber \\
-&=& +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}}  \dfrac{\pbt}{\rho_{\beta}}  \nbs \;dA
+&=& +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}}  \dfrac{\pbt}{\rho_{\beta}}  \nbs \;dA,
 \end{eqnarray}
 
 
 \begin{eqnarray}
 \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\vbt) \cdot \nbs \;dA   \nonumber \\
-&=& - \nub \nabla \varepsilon \; \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA
+&=& - \nub \nabla \varepsilon \; \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA.
 \end{eqnarray}
 
 %\begin{eqnarray}
@@ -380,40 +382,38 @@ For each integral term of \eqref{eq:mom_2} the same field decomposition should b
 %&=& -\nub  \nabla  \meani{\vb} \nabla \varepsilon -\nub \meani{\vb} \nabla^2 \varepsilon + \dfrac{1}{V} \nabla \cdot \left(\int_{A_{\beta \sigma}}  \nub \nbs \vbt \;dA \right)
 %\end{eqnarray}
 
-The momentum equation now reads:
+\noindent The momentum equation now reads:
 
 \begin{eqnarray}
-\derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon \meani{\vb}\meani{\vb}) + \nabla \cdot (\means{\vbt\vbt}) = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + - \nub \nabla \varepsilon \nabla \meani{\vb}  \nonumber \\
- +\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pbt}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vbt  \right)\cdot \nbs \;dA + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right).
+&&\derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon \meani{\vb}\meani{\vb}) + \nabla \cdot (\means{\vbt\vbt}) = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + - \nub \nabla \varepsilon \nabla \meani{\vb}  \nonumber \\
+&&+\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pbt}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vbt  \right)\cdot \nbs \;dA + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right).  \nonumber \\
 \label{eq:NS_2}
 \end{eqnarray}
 
-At this step the momentum equation is not closed since either the averaged quantities and the perturbation fields are present.
-In order to overcome this problem in the next section the intrinsic version of these equations will be computed. 
+At this step the momentum equation is not closed since both the averaged quantities and perturbation fields are present.
+In order to overcome this problem in the next section the intrinsic version of the equation will be derived. 
 
 \subsection{Intrinsic average form}
-In order to get the intrinsic average formulation the relation \eqref{eq:means_vs_meani} is used to express surface averaged quantities in terms of intrinsic ones.
-
-First, the continuity equation becomes:
+In order to get the intrinsic average formulation, relation \eqref{eq:means_vs_meani} is used to express surface averaged quantities in terms of intrinsic ones. First, the continuity equation becomes:
 $$
-\nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0
+\nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t}= 0.
 $$
 
-The temporal derivative term of the momentum equation becomes:
+\noindent The temporal derivative term of the momentum equation becomes:
 $$
-\derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}
+\derp{\means{\vb}}{t} = \derp{(\varepsilon\meani{\vb})}{t} = \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t}.
 $$
 
-Applying the same relation to the viscous term it yields:
+Applying the same relation to the viscous term yields:
 
 \begin{equation}
-	\nabla^2 \means{\vb} = \nabla^2 \left( \varepsilon \meani{\vb} \right) = \varepsilon \nabla^2 \meani{\vb} + \meani{\vb} \nabla^2 \varepsilon +2 \nabla \varepsilon \nabla \meani{\vb}
+	\nabla^2 \means{\vb} = \nabla^2 \left( \varepsilon \meani{\vb} \right) = \varepsilon \nabla^2 \meani{\vb} + \meani{\vb} \nabla^2 \varepsilon +2 \nabla \varepsilon \nabla \meani{\vb},
 \end{equation}
 
 and the pressure term is also transformed into:
 
 \begin{equation}
-\nabla \means{\pb} = \nabla \left( \varepsilon \meani{\pb} \right) = \varepsilon \nabla \meani{\pb} + \meani{\pb} \nabla \varepsilon
+\nabla \means{\pb} = \nabla \left( \varepsilon \meani{\pb} \right) = \varepsilon \nabla \meani{\pb} + \meani{\pb} \nabla \varepsilon.
 \end{equation}
 
 Summing up all the terms, we get:
@@ -433,26 +433,28 @@ After the proper simplification we have the final versions of the Navier-Stokes 
  \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} &+ \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right)   \\
 &= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nub \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon  \\
 &+ \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \\
-& + \nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right) \\
-\nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t} = &0 
+& + \nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right), \\
+\nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t} = &0.
 \end{cases}
 \label{eq:vans_mom_1}
 \end{eqnarray}
 
 
-It is important to pinpoint that the intrinsic momentum equation explicitly depends on the porosity of the medium, because of the terms involving gradients of the porosity field.
+It is important to highlight that the intrinsic momentum equation explicitly depends on the porosity of the medium, because of the terms involving gradients of the porosity field.
 In applications where the porosity can vary spatially, like the interface of a porous medium, this formulation has the advantage to treat explicitly the interface non-homogeneities \footnote{further discussion of the interface treatment is presented in paragraph \ref{ch:interface}}.
 
 %Another difference between the superficial and the intrinsic formulation is in the continuity equation; \Red{we }can observe that even in case of steady problem only the superficial velocity field is solenoidal.
 
-The equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume average quantities and surface integrals.
-This terms need some explicit manipulation in order to get a close formulation of the above system.
-In the next paragraphs a closure formulation of these terms is discussed. Usually these latter terms of the equations are named as \textit{sub-filter stresses} $\boldsymbol{\zeta}$ and \textit{microscopic force} $\mathbf{F}^m$:
+Equation \eqref{eq:vans_mom_1} is also \textit{non-local} since it has volume-averaged quantities and surface integrals.
+These terms need some explicit manipulation in order to get a close formulation of the above system.
+In the next paragraphs a closure formulation of these terms is discussed. Usually these terms of the equations are named \textit{sub-filter stresses} $\boldsymbol{\zeta}$ and \textit{microscopic force} $\mathbf{F}^m$:
 
 \begin{eqnarray}
-\boldsymbol{\zeta}&=& \nabla \cdot \left(\means{\vbt \vbt}\right) \nonumber \\
-\mathbf{F}^m &=&  \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \nonumber
+\boldsymbol{\zeta}&=& \nabla \cdot \left(\means{\vbt \vbt}\right), \nonumber \\
+\mathbf{F}^m &=&  \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA. \nonumber
 \end{eqnarray}
+
+We remember that the last integral term will not be further developed since it vanishes in case of rigid porous media (hypothesis needed further in the development).
 
 
 
@@ -460,214 +462,211 @@ In the next paragraphs a closure formulation of these terms is discussed. Usuall
 
 \subsection{Microscopic force $\mathbf{F}^m$}
 \label{ch:closure_fm}
-The term $\mathbf{F}^m$ act as a surface filter in the momentum equation. The perturbation fields are filtered out by the integral operation over the fluid-solid interface. However is usually called microscopic force since it physically represent the force per unit mass that the fluid exerts on the solid inclusions.
+The term $\mathbf{F}^m$ act as a surface filter in the momentum equation. The perturbation fields are filtered out by the integral operation over the fluid-solid interface. However, the term is usually called microscopic force since it physically represents the force per unit mass that the fluid exerts on the solid inclusions.
 
 There is no simple representation for $\mathbf{F}^m$ if we include the terms that contain gradients of the porosity ($\nabla \varepsilon$).
-Although since we are interested in developing a \textbf{local} closure problem, which will depend on the geometry of each REV, it is possible to neglect these terms.
-It means that the closure problems are not correct at the interface between a porous medium and a free fluid. 
-However if we use these closure problems at the interface we can still obtain good results, as shown in the last chapter, even if they are not formally correct.
+Since we are interested in developing a \textbf{local} closure problem, which will depend on the geometry of each REV, it is possible to neglect these terms.
+This means that the closure problems are not correct at the interface between a porous medium and a free fluid. 
+However, if we use these closure problems at the interface we can still obtain good results, as shown in the last chapter, even if they are not formally correct.
 
-The continuity equation in the system \eqref{eq:vans_mom_1} becomes $ \nabla \cdot  \meani{\vb}=0$ after the assumption of constant porosity.
+The continuity equation in system \eqref{eq:vans_mom_1} becomes $ \nabla \cdot  \meani{\vb}=0$ after the assumption of constant porosity.
 We subtract this last equation from the continuity equation valid for the local velocity velocity \eqref{eq:NS}:
 
 $$
-\nabla \cdot  \vb - \nabla \cdot  \meani{\vb} = 0
+\nabla \cdot  \vb - \nabla \cdot  \meani{\vb} = 0.
 $$
 
-From the Gray decomposition \eqref{eq:gray} the perturbation velocity field is written as $\tilde{\vb} = \vb - \meani{\vb}$, using this relation after grouping the divergence we obtain the continuity equation for the perturbations:
+From Gray's decomposition \eqref{eq:gray} the perturbation velocity field is written as $\tilde{\vb} = \vb - \meani{\vb}$, using this relation after grouping the divergence we obtain the continuity equation for the perturbations:
 
 \begin{equation}
-\nabla \cdot \vbt = 0 
+\nabla \cdot \vbt = 0.
 \end{equation}
 
 
-To continue the development, we first divide the momentum equation present in system \ref{eq:vans_mom_1} by the permeability $\varepsilon$, and we also apply the assumption of constant porosity:
+To continue the development, we first divide the momentum equation present in system \eqref{eq:vans_mom_1} by the permeability $\varepsilon$, and we also apply the assumption of constant porosity:
 \begin{eqnarray}
-&& \derp{\meani{\vb}}{t} + \nabla \cdot \left(\meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right)   \nonumber \\
+&& \derp{\meani{\vb}}{t} + \nabla \cdot \left(\meani{\vb}\meani{\vb}\right)   + \dfrac{1}{\varepsilon}\nabla \cdot \left(\means{\vbt \vbt}\right)   \nonumber \\
 && \qquad \qquad = - \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub  \nabla^2 \meani{\vb} + \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA  \nonumber
 \end{eqnarray}
 
 
-Subtracting the above momentum equation from the local field one \eqref{eq:NS} it yields:
+\noindent Subtracting the above momentum equation from the local field one \eqref{eq:NS} it is found:
 \begin{eqnarray}
 &&  \derp{\vbt}{t} + \vb \cdot \nabla \vbt + \vbt \cdot \nabla \meani{\vb} + \varepsilon^{-1}\nabla \cdot  \means{\vbt \vbt} = \nonumber \\
-&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt  - \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA
+&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt  - \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA.
 \label{eq:vans_mom_3}
 \end{eqnarray}
 
-Now in order to simplify this last equation the following length-scale estimates are introduced:
-$$ \vbt = O(\meani{\vb}), \qquad \nabla\vbt = O \left(\dfrac{\meani{\vb}}{\ell} \right), \qquad  \nabla \meani{\vb} = O\left(\dfrac{\meani{\vb}}{L}\right), \qquad \varepsilon = O(\delta) $$
+Now in order to simplify this last equation the following length-scale estimates can be introduced:
+$$ \vbt = O(\meani{\vb}), \qquad \nabla\vbt = O \left(\dfrac{\meani{\vb}}{\ell} \right), \qquad  \nabla \meani{\vb} = O\left(\dfrac{\meani{\vb}}{L}\right), \qquad \varepsilon = O(\delta). $$
 
-The last relation state that the porosity varies at a scale $\delta$. \citet{valdes2013velocity} and \citet{ochoa1995momentum} propose the estimate $\ell \ll \delta$ arguing that $\delta$ has the size of the zone in which the porosity varies, in case of an interface between a porous medium and a free fluid.
-However it is important to state that this assumption does not holds at the interface of all the porous media geometry. As a matter of fact for ordered porous media $\varepsilon = O(\ell)$.
+The last relation state that the porosity varies over a length scale $\delta$. \citet{valdes2013velocity} and \citet{ochoa1995momentum} propose the estimate $\ell \ll \delta$ arguing that $\delta$ has the size of the zone in which the porosity varies, in case of an interface between a porous medium and a free fluid.
+However it is important to state that this assumption does not holds at the interface of all porous media geometries. For ordered porous media $\varepsilon = O(\ell)$.
 \citet{whitaker1996forchheimer} state clearly that there is no easy way to define a \textit{local} closure problem when the relation $\ell \ll \delta$ does not hold.
-In order to continue with the development of the equation, the relationship $\ell \ll \delta$ is assumed to be true. Although the derived closure problem will be formally correct only far from regions where the porosity varies.
+In order to continue with the development of the equation, the relationship $\ell \ll \delta$ is assumed to be true. However, the derived closure problem will be formally correct only far from regions where the porosity varies.
 
-Analyzing the estimates order of magnitude it is possible to neglect some of the terms in momentum equation \eqref{eq:vans_mom_3}:
+Analyzing the orders of magnitude, it is possible to neglect some of the terms in the momentum equation \eqref{eq:vans_mom_3}:
 \begin{eqnarray}
-\vb \cdot \nabla \vbt \gg \vbt \cdot \nabla \meani{\vb} \quad &\Rightarrow&  \quad O\left(\dfrac{\meani{\vb}}{\ell}\right) \gg O\left(\dfrac{\meani{\vb}}{L} \right) \\
-\vb \cdot \nabla \meani{\vbt} \gg  \varepsilon^{-1} \nabla \cdot \left(\means{\vbt \vbt}\right)  \quad &\Rightarrow& \quad O\left(\dfrac{(\meani{\vb})^2}{\ell}\right) \gg O\left(\dfrac{(\meani{\vb})^2}{\delta} \right) \label{eq:sbs}\\
-\nub \nabla^2 \vbt \gg  \derp{\vbt}{t}  \quad &\Rightarrow&  \quad O\left(\dfrac{(\meani{\vb})^2}{\ell}\right) \gg O\left(\dfrac{(\meani{\vb})^2}{L} \right) 
+\vb \cdot \nabla \vbt \gg \vbt \cdot \nabla \meani{\vb} \quad &\Rightarrow&  \quad O\left(\dfrac{\meani{\vb}}{\ell}\right) \gg O\left(\dfrac{\meani{\vb}}{L} \right), \\
+\vb \cdot \nabla \meani{\vbt} \gg  \varepsilon^{-1} \nabla \cdot \left(\means{\vbt \vbt}\right)  \quad &\Rightarrow& \quad O\left(\dfrac{(\meani{\vb})^2}{\ell}\right) \gg O\left(\dfrac{(\meani{\vb})^2}{\delta} \right), \label{eq:sbs}\\
+\nub \nabla^2 \vbt \gg  \derp{\vbt}{t}  \quad &\Rightarrow&  \quad O\left(\dfrac{(\meani{\vb})^2}{\ell}\right) \gg O\left(\dfrac{(\meani{\vb})^2}{L} \right).
 \end{eqnarray}
 
-In the last assessment it has been assumed that the time scale associated respectively with the micro and macro-scale are $t = \ell/\meani{\vb}$ and $T =L/\meani{\vb}$.
-These assumptions imply that the perturbation problem is \textit{quasi-stationary}, since physically the perturbation field can be considered steady from the macroscopic point of view (\citet{davit2013homogenization} and \citet{zhu2014study}).
-I can also be notice that in the above simplifications we have neglected terms that contains the small parameter $\epsilon$ or its powers. This last results is coherent with the multiple scale theory in which only zero order terms are kept in the local closure problem formulation.
+In the last assessment it has been assumed that the time scale associated respectively with the micro and the macro-scale are $t = \ell/\meani{\vb}$ and $T =L/\meani{\vb}$.
+These assumptions imply that the perturbation problem is \textit{quasi-stationary}, since physically the perturbation field can be considered steady from the macroscopic point of view (\citet{davit2013homogenization}; \citet{zhu2014study}).
+It can also be noticed that in the above simplifications we have neglected terms that contains the small parameter $\epsilon$ or its powers. This last results is coherent with the multiple scale theory (\citet{mei2010homogenization}) in which only zero order terms are kept in the local closure problem formulation.
 
 With this order of magnitude analysis the governing equations are simplified as:
 \begin{eqnarray}
 	\begin{cases}
-		\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA  \\
-		\nabla \cdot \vbt = 0  \\
-		\vbt = -\meani{\vb} \quad \textrm{at} \; A_{\beta \sigma}
+		\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA,  \\
+		\nabla \cdot \vbt = 0,  \\
+		\vbt = -\meani{\vb} \quad \textrm{at} \; A_{\beta \sigma},
 	\end{cases}
 \label{eq:vans_mom_}
 \end{eqnarray}
-it is indeed the transport equations system for the perturbation fields.
+and these represent the transport equations for the perturbation fields.
 
-Considering rigid porous media is possible to derive the boundary condition at the interface, substituting the Gray decomposition inside the boundary condition expression \eqref{eq:NS}. As a consequence in this section the solid phase is assumed rigid, although in section \ref{ph:moving} this model is extend for take into account moving porous media.
+Considering rigid porous media it is possible to derive the boundary conditions at the interface, substituting Gray's decomposition inside the boundary condition  \eqref{eq:NS}. As a consequence in this section the solid phase is assumed rigid, although in section \ref{ph:moving} this model is extended to take into account moving porous media.
 The above system is still defined on all the porous domain and so we would like to find a way to reduce its size and still obtain the same results.
-Although it is possible to use Green function to solve the problem in this form (\citet{wood2013volume}).
+One possibility (not explored further here) is to use Green's functions to solve the problem in this form (\citet{wood2013volume}).
 
-This can be done restricting the solution region to a single REV, enforcing periodic boundary condition at the exterior of such volume.
-Such hypothesis is consistent with periodic ordered porous media in which the macroscopic field variation inside the REV are negligible \footnote{see paragraph \ref{ch:appendix_a}}.
-The problem as stated here becomes:
+Here we proceed by restricting the solution region to a single REV, enforcing periodic boundary conditions at the boundaries of such a volume.
+Such hypothesis is consistent with the assumption of periodic ordered porous media in which the macroscopic field variation inside the REV are negligible\footnote{see paragraph \ref{ch:appendix_a}.}.
+The problem on the REV thus becomes:
 
 \begin{eqnarray}
 \begin{cases}
-\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA  \\
-\nabla \cdot \vbt = 0  \\
-\vbt = -\meani{\vb} \quad \textrm{at} \; A_{\beta \sigma} \\
-\pbt(\mathbf{x} +\ell_i) = \pbt(\mathbf{x}), \qquad \vbt(\mathbf{x} +\ell_i) = \vbt(\mathbf{x}), \qquad i=1,2,3 \\
-\meani{\vbt} = 0
+\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA,  \\
+\nabla \cdot \vbt = 0, \\
+\vbt = -\meani{\vb} \quad \textrm{at} \; A_{\beta \sigma}, \\
+\pbt(\mathbf{x} +\ell_i) = \pbt(\mathbf{x}), \qquad \vbt(\mathbf{x} +\ell_i) = \vbt(\mathbf{x}), \qquad i=1,2,3 ,\\
+\meani{\vbt} = 0.
 \end{cases}
 \label{eq:vans_mom_2}
 \end{eqnarray}
 
-In this set of equations the averaged condition $\meani{\vbt} = 0$ is imposed to ensure a unique solution.
+In this set of equations the last condition, $\meani{\vbt} = 0$,is imposed to ensure a unique solution.
 
-Now the perturbed field have to be express as a function of some averaged values. Let us introduce the closure tensor $\mathbf{R}$ and  the closure vector $\mathbf{r}$ as:
+Now the perturbed field has to be express as a function of some averaged values. Let us introduce the closure tensor $\mathbf{R}$ and  the closure vector $\mathbf{r}$ as:
 \begin{eqnarray}
 && \vbt(\mathbf{x}) = \mathbf{R}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  +\boldsymbol{\xi}(\mathbf{x})  	\label{eq:closure_viab_h1} \\
 && \pbt(\mathbf{x})  = \mub \mathbf{r}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  + \gamma(\mathbf{x}) \label{eq:closure_viab_h2}
 \end{eqnarray}
-where $\boldsymbol{\xi}(\mathbf{x})$ is vector and $\gamma(\mathbf{x})$ a scalar, however \citet{whitaker1996forchheimer} have demonstrated that the first is null and the second constant.
-Is very important to pinpoint that \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} are crucial since a linear correlation between the micro and macro-scale fields is implied.
+where $\boldsymbol{\xi}(\mathbf{x})$ is a vector and $\gamma(\mathbf{x})$ a scalar. \citet{whitaker1996forchheimer} has demonstrated that the first vanishes and the second is constant.
+It is very important to point out that \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} are crucial since a linear correlation between the micro and macro-scale fields is implied.
 However these relations can be function of the space coordinate $\mathbf{x}$ as explored later in chapter \ref{ch:4}.
 
-Since it is free to define the tensor $\mathbf{R}$ and the vector $\mathbf{r}$ as we wish, \citet{whitaker1996forchheimer} proposed to define the two quantities with the following problem:
+\citet{whitaker1996forchheimer} propose to define $\mathbf{R}$ and $\mathbf{r}$ via the following problem:
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{R} = -\nabla \mathbf{r} + \nabla^2 \mathbf{R} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) \cdot \nbs \;dA  \\
-		\nabla \cdot \mathbf{R} = 0  \\
-		\mathbf{R} = \mathbf{I} \quad \textrm{at} \; A_{\beta \sigma} \\
-		\mathbf{r}(\mathbf{x} +\ell_i) = \mathbf{r}(\mathbf{x}), \qquad \mathbf{R}(\mathbf{x} +\ell_i) = \mathbf{R}(\mathbf{x}), \qquad i=1,2,3 \\
-		\meani{\mathbf{R}} = 0
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{R} = -\nabla \mathbf{r} + \nabla^2 \mathbf{R} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) \cdot \nbs \;dA,  \\
+		\nabla \cdot \mathbf{R} = 0, \\
+		\mathbf{R} = \mathbf{I} \quad \textrm{at} \; A_{\beta \sigma}, \\
+		\mathbf{r}(\mathbf{x} +\ell_i) = \mathbf{r}(\mathbf{x}), \qquad \mathbf{R}(\mathbf{x} +\ell_i) = \mathbf{R}(\mathbf{x}), \qquad i=1,2,3 ,\\
+		\meani{\mathbf{R}} = 0.
 	\end{cases}
 \label{eq:R_problem}
 \end{eqnarray}
-
 It is difficult to solve this problem computationally because it is an integral-differential equation.
-In order to simplify the problem, it is decomposed in two parts, the solution if the first one gives us the \textit{permeability tensor} and the solution of the second one the \textit{Forchheimer tensor}.
-
-The variables $\mathbf{R}$ and $\mathbf{r}$ are further decomposed as:
+In order to simplify the problem, it is further decomposed into two parts, the solution of the first one gives us the \textit{permeability tensor} and the solution of the second one the \textit{Forchheimer tensor}. The variables $\mathbf{R}$ and $\mathbf{r}$ are further decomposed as:
 
 $$
- \mathbf{R} = \mathbf{B} + \mathbf{C}, \qquad \mathbf{r} = \mathbf{b} + \mathbf{c}
+ \mathbf{R} = \mathbf{B} + \mathbf{C}, \qquad \mathbf{r} = \mathbf{b} + \mathbf{c}.
 $$
 
-In this manner the micro-macro field relationship can be written as:
+\noindent In this manner the micro-macro field relationship can be written as:
 
 \begin{eqnarray}
-	&& \vbt = \mathbf{B} \cdot \meani{\vb} + \mathbf{C} \cdot \meani{\vb}  	\label{eq:closure_viab_divison} \\
-	&& \pbt = \mub \mathbf{b} \cdot \meani{\vb} + \mub \mathbf{c} \cdot \meani{\vb} \label{eq:closure_viab_hp}
+	&& \vbt = \mathbf{B} \cdot \meani{\vb} + \mathbf{C} \cdot \meani{\vb},  	\label{eq:closure_viab_divison} \\
+	&& \pbt = \mub \mathbf{b} \cdot \meani{\vb} + \mub \mathbf{c} \cdot \meani{\vb}, \label{eq:closure_viab_hp}
 \end{eqnarray}
 
-Where $\mathbf{B}$ is defined as:
+where $\mathbf{B}$ is defined from the problem:
 
 \begin{eqnarray}
 	\begin{cases}
-		0 = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA  \\
-		\nabla \cdot \mathbf{B} = 0  \\
-		\mathbf{B} = -\mathbf{I} \quad \textrm{at} \; A_{\beta \sigma} \\
-		\mathbf{b}(\mathbf{x} +\ell_i) = \mathbf{b}(\mathbf{x}), \qquad \mathbf{B}(\mathbf{x} +\ell_i) = \mathbf{B}(\mathbf{x}), \qquad i=1,2,3 \\
-		\meani{\mathbf{B}} = 0
+		0 = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA,  \\
+		\nabla \cdot \mathbf{B} = 0,  \\
+		\mathbf{B} = -\mathbf{I} \quad \textrm{at} \; A_{\beta \sigma}, \\
+		\mathbf{b}(\mathbf{x} +\ell_i) = \mathbf{b}(\mathbf{x}), \qquad \mathbf{B}(\mathbf{x} +\ell_i) = \mathbf{B}(\mathbf{x}), \qquad i=1,2,3 , \\
+		\meani{\mathbf{B}} = 0.
 	\end{cases}
 \label{eq:B_problem}
 \end{eqnarray}
 
-and $\mathbf{C}$ as:
+and $\mathbf{C}$ from:
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} +\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{C} = -\nabla \mathbf{c} +  \nabla^2 \mathbf{C} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}}  \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA  \\
-		\nabla \cdot \mathbf{C} = 0  \\
-		\mathbf{C} = 0 \quad \textrm{at} \; A_{\beta \sigma} \\
-		\mathbf{c}(\mathbf{x} +\ell_i) = \mathbf{c}(\mathbf{x}), \qquad \mathbf{C}(\mathbf{x} +\ell_i) = \mathbf{C}(\mathbf{x}), \qquad i=1,2,3 \\
-		\meani{\mathbf{C}} = 0
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} +\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{C} = -\nabla \mathbf{c} +  \nabla^2 \mathbf{C} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}}  \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA,  \\
+		\nabla \cdot \mathbf{C} = 0, \\
+		\mathbf{C} = 0 \quad \textrm{at} \; A_{\beta \sigma}, \\
+		\mathbf{c}(\mathbf{x} +\ell_i) = \mathbf{c}(\mathbf{x}), \qquad \mathbf{C}(\mathbf{x} +\ell_i) = \mathbf{C}(\mathbf{x}), \qquad i=1,2,3 ,\\
+		\meani{\mathbf{C}} = 0.
 	\end{cases}
 \label{eq:C_problem}
 \end{eqnarray}
 
-The problems definition for $\mathbf{R}$, $\mathbf{B}$ and $\mathbf{C}$ do not arise from the direct substitution of \eqref{eq:closure_viab_divison} and 	\eqref{eq:closure_viab_hp} into the system \eqref{eq:vans_mom_2} they are instead a choice made to simply the calculations (\citet{whitaker1996forchheimer}). Substituting the decomposition \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} inside the surface filter $\mathbf{F}^m$ we get:
+The problems definition for $\mathbf{R}$, $\mathbf{B}$ and $\mathbf{C}$ do not arise from the direct substitution of \eqref{eq:closure_viab_divison} and 	\eqref{eq:closure_viab_hp} into the system \eqref{eq:vans_mom_2} they are instead a choice made to simplify the calculations (\citet{whitaker1996forchheimer}). Substituting the decomposition \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} inside the surface filter $\mathbf{F}^m$ we get:
 
 $$
 \mathbf{F}^m = \nub \left(\dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) \cdot \nbs \;dA \right) \vbmi
 $$
 
-Diving then the closure variable as in \eqref{eq:closure_viab_divison} is possible to define the \textit{permeability tensor} $\mathbf{K}$:
+\noindent Dividing then the closure variables as in \eqref{eq:closure_viab_divison} it is possible to define the \textit{permeability tensor} $\mathbf{K}$:
 
 $$
- \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1}
+ \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1},
 $$
 
-and the \textit{Forchheimer tensor} $\mathbf{F}$:
+\noindent and the \textit{Forchheimer tensor} $\mathbf{F}$:
 
 $$
-\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1} \cdot \mathbf{F}
+\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1} \cdot \mathbf{F}.
 $$
 
-Using this definition to make the changing of variables proposed by \citet{barrere1992closure}:
+\noindent Using these definitions to make the change of variables (\citet{barrere1992closure}):
 
 
 \begin{eqnarray}
-	\mathbf{d} = \varepsilon^{-1} \mathbf{b} \cdot \mathbf{K}, \qquad \mathbf{D} = \varepsilon^{-1} \left(\mathbf{B} + \mathbf{I} \right)\cdot \mathbf{K} \\
-\mathbf{m} = \varepsilon^{-1} \mathbf{n} \cdot \mathbf{H}, \qquad \mathbf{M} = \varepsilon^{-1} \left(\mathbf{N} + \mathbf{I} \right)\cdot \mathbf{H} \label{eq:barrere2}
+	\mathbf{d} = \varepsilon^{-1} \mathbf{b} \cdot \mathbf{K}, \qquad \mathbf{D} = \varepsilon^{-1} \left(\mathbf{B} + \mathbf{I} \right)\cdot \mathbf{K}, \\
+\mathbf{m} = \varepsilon^{-1} \mathbf{n} \cdot \mathbf{H}, \qquad \mathbf{M} = \varepsilon^{-1} \left(\mathbf{N} + \mathbf{I} \right)\cdot \mathbf{H}, \label{eq:barrere2}
 \end{eqnarray}
 
 
-the problem \eqref{eq:B_problem} can be written as:
+\noindent problem \eqref{eq:B_problem} can be written as:
 \begin{eqnarray}
 	\begin{cases}
-		0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I}\\
-		\nabla \cdot \mathbf{D} = 0  \\
-		\mathbf{D} = 0 \quad \textrm{at} \; A_{\beta \sigma} \\
-		\mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 \\
-		\meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}
+		0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I},\\
+		\nabla \cdot \mathbf{D} = 0,  \\
+		\mathbf{D} = 0 \quad \textrm{at} \; A_{\beta \sigma} ,\\
+		\mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 ,\\
+		\meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K},
 	\end{cases}
 \label{eq:D_problem}
 \end{eqnarray}
-from which is possible to compute the permeability tensor.
+from the solution of which it becomes possible to compute the permeability tensor $\mathbf{K}$.
 
-The problem \eqref{eq:C_problem} with the change of variables \eqref{eq:barrere2} becomes:
+\noindent Problem \eqref{eq:C_problem} with the change of variables \eqref{eq:barrere2} becomes:
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
-		\nabla \cdot \mathbf{M} = 0  \\
-		\mathbf{M} = 0 \quad at \; A_{\beta \sigma} \\
-		\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 \\
-		\meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}
+		\dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I},\\
+		\nabla \cdot \mathbf{M} = 0,  \\
+		\mathbf{M} = 0 \quad at \; A_{\beta \sigma}, \\
+		\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 ,\\
+		\meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H},
 	\end{cases}
 \label{eq:M_problem}
 \end{eqnarray}
 
-where $\mathbf{H}$ is called \textit{effective permeability tensor} and it represent a generalization of the permeability tensor in the inertia regime.
+\noindent where $\mathbf{H}$ is called \textit{effective permeability tensor} and it represents a generalization of the permeability tensor in the inertia regime.
 The relation between the Forchheimer tensor and the effective permeability is the following:
 
 $$
-\mathbf{H}^{-1} = \mathbf{K}^{-1} \left(\mathbf{I} +\mathbf{F}\right)
+\mathbf{H}^{-1} = \mathbf{K}^{-1} \left(\mathbf{I} +\mathbf{F}\right).
 $$
 
 With the help of the above closure problem the final closed formulation for the microscopic force becomes:
@@ -675,27 +674,26 @@ With the help of the above closure problem the final closed formulation for the 
 \mathbf{F}^m \approx \mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \meani{\vb}
 \label{eq:closure_final}
 \end{equation}
-in which it is clear the equivalence between the descriptions by means of the perturbation fields and the one that uses only the macroscopic fields.
+in which the correspondence between the descriptions by means of the perturbation fields and the one that uses only the macroscopic fields become readily apparent.
 
-
-However it is possible to use simplified regression that permits to by-pass the \textit{local} closure problem computation and get directly the tensors $\mathbf{K}$ and $\mathbf{F}$.
-One of the most famous relations are the Kozeny-Carman equation \citet{kozeny} and the modified Ergun equation \citet{transport2002bird}.
-Extended version of this empirical formulation can be found in \citet{zampogna2016fluid} and \citet{yazdchi2012towards}.
-The above relationships are always based on regressions from experiments and they are usually parameterized with the porosity and some geometrical characteristic of the medium. The downsizes in using these simplified formulas is that the geometries used are most of the time very simple such as spheres, or 2D regular arranged cylinders and they are difficult to generalize. Also their range of application is usually restricted to very small Reynolds number. Such restrictions makes the local closure problem the main reliable source to compute the Forchheimer and permeability tensors.
+It is also possible to use simplified regressions that permit to by-pass the \textit{local} closure problems and get directly the tensors $\mathbf{K}$ and $\mathbf{F}$.
+One of the most famous relations are the Kozeny-Carman equation (\citet{kozeny}) and the modified Ergun equation.
+An extended version of this empirical formulation can be found in \citet{zampogna2016fluid} and \citet{yazdchi2012towards}.
+The above relationships are always based on regressions from experiments and they are usually parameterized with the porosity and some geometrical characteristics of the medium. The downsizes in using these simplified formulas is that the geometries used are most of the times very simple such as spheres, or 2D regular arranged cylinders and they are difficult to generalize. Also their range of application is usually restricted to very small Reynolds number. Such restrictions render the local closure problems the most reliable means to compute the Forchheimer and permeability tensors.
 
 \subsection{Sub-filter stresses $\boldsymbol{\zeta}$}
 
-The model is not yet completed, also the \textit{sub-filter stresses} needs to be closed. This term act as a volume filter for the perturbation velocity, in fact the product of the velocity perturbation appear inside the volume averaging operator:
-$$\boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right)$$
-The same term has already been neglected in the equation \eqref{eq:sbs} in the previous paragraph, based on some length-scale argument.  Here we want to explain briefly what this term represent and possibly when it can become important.
+The model is not yet completed, also the \textit{sub-filter stresses} need to be closed. This term acts as a volume filter for the perturbation velocity, in fact the product of the velocity perturbations appear inside the volume averaging operator:
+$$\boldsymbol{\zeta} = \nabla \cdot \left(\means{\vbt \vbt}\right).$$
+The same term has already been neglected in equation \eqref{eq:sbs} in the previous paragraph, based on some length-scale argument.  Here we want to explain briefly what this term represents and possibly when it can become important.
 
-\citet{breugem2006influence} and \citet{nepf1999drag} separates the nature of sub-filter stresses in two different components:
+\citet{breugem2006influence} and \citet{nepf1999drag} separates the nature of sub-filter stresses into two different components:
 \begin{itemize}
-	\item \textit{mechanical diffusion:} when the fluid is forced to flow inside the pore, it has to pass around the solid structure causing an augmentation of diffusion inside the VANS momentum equations. This mechanism is usually studied by means of the flow path tortuosity for each different particle.
-	\item \textit{turbulent dispersion:} it is caused by the subfilter scales eddies that create at the pore scale. This turbulent diffusivity can be anisotropic. For example in case of fibrous porous media the vertical penetration and breakdown, of eddies, is much higher than the horizontal one.
+	\item \textit{mechanical diffusion:} when the fluid is forced to flow through the pores, it has to pass around the solid structure causing an increase of diffusion inside the VANS momentum equations. This mechanism is usually studied by means of the flow path tortuosity for each different particle (\citet{duda2011hydraulic}; \citet{sivanesapillai2014transition}).
+	\item \textit{turbulent dispersion:} it is caused by the subfilter scales eddies that appear at the pore scale. This turbulent diffusivity can be anisotropic. For example, in the case of fibrous porous media the vertical penetration and breakdown of eddies is much higher than the horizontal one.
 \end{itemize}
 
-\citet{breugem2006influence} shows that even if the two different components are equally important they are negligible in the volume averaged field equations.
+\citet{breugem2006influence} show that even if the two different components are equally important they are negligible in the volume averaged field equations.
 
 %%%%  JUST A REMAINDER FOR THE REVIEWER
 %\citet{paez2017macroscopic} proposed a closure formulation based from the back substitution of \eqref{eq:closure_viab_hp} inside the term $\boldsymbol{\zeta}$ giving:
@@ -706,39 +704,39 @@ The same term has already been neglected in the equation \eqref{eq:sbs} in the p
 %introducing the fourth order tensor $\mathbf{J} = \meani{\mathbf{R}^T\mathbf{R}}$, which if \Red{we }recall that for our computation M, H are minor than 1 so their product is smaller and so J is negligible compared to H.
 %However is that correct to back substitute the closure formulation using R where the closure term $\boldsymbol{\zeta}$ was neglected in the closure problem formulation for R ??
 
-However, we speculate that this term can becomes important in situations involving elastic porous media where sweep and injection of fluid can be observed at the interface.
-This statement is supported by \citet{finnigan2000turbulence} and \citet{de2008effects} that have shown the turbulence spectrum modification in case of canopy flow. Possibly the sub-filter stresses term can model this shift of the spectrum to high frequencies.
+However, we speculate that this term can becomes important in situations involving elastic porous media where sweeps and ejection of fluid can be observed at the interface.
+This statement is supported by \citet{finnigan2000turbulence} and \citet{de2008effects} who have shown the turbulence spectrum modification in the case of canopy flows. Possibly, the sub-filter stresses can model this shift of the spectrum to high frequencies.
 
-In order to better study this term, we need many more reliable full DNS inside the porous media at high pore Reynolds number. However such simulations are very expensive and almost un-existent in literature.
+In order to better study this term, we need many reliable full DNS inside the porous media at high pore Reynolds number. However, such simulations are very expensive and almost absent from the literature.
 Experimental measurements inside the porous structure can be another way to study this volume filter, even though such measurements can be very difficult to perform.
 
 \section{Interface treatment}
 \label{ch:interface}
 
-The problem of the interface condition between a porous medium and a free fluid has been approached by many different authors. \citet{ehrhardt2010interface} has given a concise but very clear introduction on the problem, even thought the field is rapidly evolving (\citet{minale2014momentum}, \citet{angot2017asymptotic}, \citet{lacis2017framework} and \Red{cite new work of Giuseppe}).
+The problem of the interface condition between a porous medium and a free fluid has been approached by many different authors. \citet{ehrhardt2010interface} has given a concise but very clear introduction on the problem, even thought the field is rapidly evolving (\citet{minale2014momentum}, \citet{angot2017asymptotic}, \citet{lacis2017framework}).
 Our work is not focused on the development of a new condition although, in this paragraph, we want to explain our choice for the interface treatment over the many possible ones.
 
-The interface conditions can be classified in two groups, the \textit{one domain approach} (ODA) and the \textit{two domain approach} (TDA).
-In the TDA the porous domain is splitted in two and a boundary condition at the interface is specified. Historically the necessity of such a treatment was mainly due by the difference of order of the Stokes equations and the Darcy one, that makes them incompatible at the interface.
-The Brinkmann model adjust the order of the porous media equations, however the validity of this correction deep inside the porous medium was questionable.
+The interface conditions can be classified into two groups: the \textit{one domain approach} (ODA) and the \textit{two domain approach} (TDA).
+In the TDA the whole domain is split into two and a boundary condition at the interface is specified. Historically, the necessity of such a treatment was mainly due by the difference of order of the Stokes equations and the Darcy one, that makes them incompatible at the interface.
+The Brinkmann model adjusts the order of the porous medium equation, however the validity of this correction deep inside the porous medium is questionable.
 The TDA was followed by \citet{beavers1967boundary}, \citet{mikelic2000interface}, \citet{ochoa1995momentum} and \citet{le2006interfacial}.
-These works have all in common the fact that a certain slip in specified at the interface, for example the \citet{beavers1967boundary} condition read:
+These works have all in common the fact that a certain slip is specified at the interface; for example the \citet{beavers1967boundary} condition reads:
 $$
-\meani{\vb}(x,\Gamma^+) = \dfrac{\sqrt{\mathbf{K}}}{\alpha} \derp{\meani{\vb}(x, \Gamma^-)}{y}
+\meani{\vb}(x,\Gamma^+) = \dfrac{\sqrt{K_{11}}}{\alpha} \derp{\meani{\vb}(x, \Gamma^-)}{y},
 $$
-where $\Gamma^+$ and $\Gamma^-$ represent the wall normal coordinate above and below the interface, $\mathbf{K}$ is the permeability tensor and $\alpha$ is a coefficient based on the porous medium geometry.
-Others proposition changes and extends this formulation but basically still imposes a velocity jump at the interface, as a function of a parameter $\alpha$ needed to fit the experimental data.
+where $\Gamma^+$ and $\Gamma^-$ represent the wall normal coordinate above and below the interface, $K_{11}$ is a measure of the permeability component in the tangential direction and $\alpha$ is a coefficient based on the porous medium geometry.
+Other propositions change and extend this formulation but basically still impose a velocity jump at the interface, as a function of a parameter $\alpha$ needed to fit the experimental data.
 
-On the contrary in the ODA approach the final averaged equation are valid through all the domain and the quantities that define the presence of the porous media i.e. the porosity and permeability, vanished in the free fluid region.
-This method is also know as \textit{penalization method}. One of the first porous media application can be found in \citet{caltagirone1994interaction}, after that it was used by many other authors, like \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bruneau2010coupling}, \citet{hussong2011continuum}.
+On the contrary in the ODA approach the final averaged equation are valid through the all domain and the quantities that define the presence of the porous media, i.e. the porosity and the permeability, vanish in the free fluid region.
+This method is also know as \textit{penalization method}. One of the first applications of the penalization method can be found in \citet{caltagirone1994interaction}; after that it was used by many other authors, like \citet{bruneau2004passive}, \citet{bruneau2008numerical}, \citet{bruneau2010coupling}, \citet{hussong2011continuum}.
 We think that the interface boundary condition approach is not superior, neither physically nor mathematically.
 As a matter of fact either methods require a parameter to close the formulation. The advantage of using the penalization method is that in this case the parameter needed is the spatial distribution of the porosity field that is trivial to compute when the geometry of the medium is known.
-Although it is still not clear how to vary the permeability in the transition zone. Most of the authors propose a sharp jump from the porous media value and the free fluid one. Neglecting the variation of permeability at the transition zone appear to be acceptable, even though examples of linear variation of this term exists (\citet{caltagirone1994interaction}).
-\citet{hussong2011continuum} made a direct comparison, with a DNS simulation, for the porosity treatment concluding that the variation of the permeability is very important in order to have a good comparison with high fidelity computation.
+However, it is still not clear how to vary the permeability in the transition zone. Most of the authors propose a sharp jump from the porous media value and the free fluid one. Neglecting the variation of permeability across the transition zone appears to be acceptable, even though examples of linear variation of this term exists (\citet{caltagirone1994interaction}).
+\citet{hussong2011continuum} made a direct comparison with a DNS simulation which included a discretization of all the pores, and concluded that the variation of the permeability is very important in order to have a good comparison with high fidelity computation.
 
-A direct comparison between the ODA and TDA is presented in \citet{cimolin2013navier} that concludes that the macroscopic description of the interface provided by the two different methods is similar. They also pinpoint that the penalization method has the advantage to be easily implemented in a Navier-Stokes solver and it does not present sensible convergence properties as the TDA do.
+A direct comparison between the ODA and TDA is presented in \citet{cimolin2013navier} who conclude that the macroscopic description of the interface provided by the two different methods is similar. They also point out that the penalization method has the advantage to be easily implemented in a Navier-Stokes solver and it does not present sensible convergence properties as the TDA do.
 
-Also, there is evidence in literature (\citet{ochoa2017fluid}) that exist a transition zone with the size of the pore scale in which the velocity and pressure have a continuous variation and not a steep one. It has been demonstrated, by the same author, that the same transition zone is physical and not a result of the averaging procedure.
+Also, there is evidence in the literature (\citet{ochoa2017fluid}) that transition zone exist, of the size of the pore scale, in which the velocity and pressure have a continuous variation and not a steep one. It has been demonstrated by the same authors that the same transition zone is physical and not a result of the averaging procedure.
 
 In the following work we adopt the penalization approach with the porosity variation computed directly from the geometry of our fibrous medium and a steep variation of the effective permeability at the interface. In chapter 5 we show some details and results on this approach.
 
@@ -746,21 +744,31 @@ In the following work we adopt the penalization approach with the porosity varia
 \section{Elastic porous media: hybrid homogenization approach}
 \label{ph:moving}
 
-Elastic porous media has been studied by \citet{biot1956theory} which developed a model for the stresses wave propagation inside the solid matrix of a porous medium.
+Elastic porous media have been studied by \citet{biot1956theory} who developed a model for the stresses wave propagation inside the solid matrix of a porous medium.
 His model has been a reference for elastic porous media with a close to unity density ratio ($\rho_{\beta}/\rho_{\sigma}$), as for the case of saturated soil.
 
-\citet{whitaker1986deformable} has also approached the problem using the volume average method to homogenize either the solid and the fluid part.
-But the closure problems that came out from the averaging procedure of the solid equation are very difficult to solve. Also there are no following studies that neither clarify the problem nor confirm the formulation.
+\citet{whitaker1986deformable} has also approached the problem using the volume average method to homogenize the solid and the fluid part.
+But the closure problems that came out from the averaging procedure of the solid equation are very difficult to solve. 
 
-The following works by \citet{hussong2011continuum} and \citet{wang2015volume} showed how to extend the rigid case formulation of the VANS in case of elastic medium.
-They show that the only term that has to be changed is the closure for the microscopic force \eqref{eq:closure_final}. As a matter of fact the hypothesis of rigid porous media has been used in only in the development of this term.
+The following works by \citet{hussong2011continuum} and \citet{wang2015volume} showed how to extend the rigid case formulation of the VANS in the case of elastic media.
+They show that the closure for the microscopic force \eqref{eq:closure_final} had to be changed. As a matter of fact, the hypothesis of rigid porous media has been used in the development of this term.
 They proposed a modification based on the physical interpretation of the microscopic force. In reality the force exerted by the fluid on the solid part has to take into account the solid velocity:
 $$
-\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \left[ \meani{\vb} - \meani{\ws} \right]
+\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \left[ \meani{\vb} - \meani{\ws} \right];
 $$
-the physic behind the force generation is the same and so it should be the formulation of the closure.
+the physics behind the force generation is the same and so it should be the formulation of the closure.
 
-This simple modification can be included in a \textit{hybrid homogenization approach}. As presented in paragraph \ref{ch:model_porous}, in order to describe the dynamic of a poroelastic layer we need a model for the fluid phase, one for the solid phase and an interface condition. Nevertheless since the dynamic of the solid is usually computationally cheap there is no need to use an homogenized model for this part. Here we propose an approach that is independent from whatever solid model one want to use. The pseudo-code fo the macroscopic algorithm is the one in \ref{algo:vans_elastic}.
+We recall that the integral term: $$\nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right),$$ needs to be included in the momentum equation. This increase the complexity of the VANS equations that still contain an integral quantity. We think that this term can be simplified making the assumption of locally rigid motion of the REV solid skeleton that reads:
+$$
+\meani{\ws} = \ws,
+$$
+\noindent with this assumption the integral terms becomes:
+$$
+\nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right) = - \nub \nabla \cdot \left( \meani{\ws} \nabla \varepsilon \right).
+$$
+However, this assumption needs to be addressed by further studies.
+
+These simple modifications can be included in a \textit{hybrid homogenization approach}. As presented in paragraph \ref{ch:model_porous}, in order to describe the dynamic of a poroelastic layer we need a model for the fluid phase, one for the solid phase and an interface condition. Since the dynamics of the solid is usually computationally cheap there is no need to use an homogenized model for this part. Here we propose an approach that is independent from whatever solid model one wants to use. The pseudo-code for the macroscopic algorithm is the one briefly outlined in algorithm  \ref{algo:vans_elastic}, below.
 \vspace{0.5cm}
 
 \begin{algorithm}[H]
@@ -789,52 +797,52 @@ This simple modification can be included in a \textit{hybrid homogenization appr
 \end{algorithm}
 
 \vspace{0.5cm}
-Any solid model can be used in the model (for example Bernulli beam) and after its solution the new porosity field and homogenized solid velocity can be computed in the following manner:
+Any solid model can be used in the model (for example the Bernoulli beam) and after its solution the new porosity field and homogenized solid velocity can be computed in the following manner:
 
 
 \begin{eqnarray}
-	\varepsilon &=& \dfrac{1}{V} \int_{\volb} \; dV  \nonumber \\
-\meani{\ws} &=& \dfrac{1}{V} \int_{V_{\sigma}} \ws \; dV \nonumber 
+	\varepsilon &=& \dfrac{1}{V} \int_{\volb} \; dV,  \nonumber \\
+\meani{\ws} &=& \dfrac{1}{V} \int_{V_{\sigma}} \ws \; dV, \nonumber 
 \end{eqnarray}
 
-where $V_{\sigma}$ is the solid part of the REV.
+\noindent where $V_{\sigma}$ is the solid part of the REV.
 The latter averaging procedure of the solid phase makes sense only in presence of multiple fibers in each REV or in case of non-rigid solids.
 
-Using this approach with just some slight modification in the fluid equations, it is possible to easily develop a macroscopic algorithm that can take into account moving fibrous media.
+Using this approach with just some slight modifications in the fluid equations, it is possible to easily develop a macroscopic algorithm that can take into account moving fibrous media.
 In the above algorithm we also introduce (in line 7) the concept of a metamodel for the apparent permeability. This model is needed since the effective permeability $\mathbf{H}$ can be affected by the direction and intensity of the mean velocity field, as we show later in chapter \ref{ch:4}.
 It is also worth noting that with the use of the penalization method (paragraph \ref{ch:interface}) the interface condition is implicitly treated in the above algorithm, and it is very simple to implement even for moving porous media.
-Also possible convergence and numerical instabilities of the algorithm can be controlled in a certain manner with the relaxation parameter $\omega$ (\citet{irons1969aitken}).
+Also, possible convergence and numerical instabilities of the algorithm can be controlled with the relaxation parameter $\omega$ (\citet{irons1969aitken}).
 
 \section{Note on the average of an average field}
 \label{ch:appendix_a}
 
 In the above sections we have briefly talked about the results in equation \eqref{eq:well_behaved} that we recall here:
-$$\Big<\means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}}$$
+$$\Big<\means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}}.$$
 
-And introducing the decomposition \eqref{eq:gray} the above results can be used to state that the perturbation fields have null averaged:
-$$  \means{\tilde{\psi}_{\beta}} = 0 $$
+\noindent Introducing the decomposition \eqref{eq:gray} the above results can be used to state that the perturbation fields have zero average:
+$$  \means{\tilde{\psi}_{\beta}} = 0.$$
 
-But let's recall what the average operator really does when applied to an averaged quantities:
-$$  \Big< \means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}}  = \dfrac{1}{V} \int_{\volb(\mathbf{x})} \means{\psi_{\beta}}|_{\mathbf{r}}(\mathbf{r}) \; dV $$
+\noindent Let us recall what the average operator really does when applied to an averaged quantities:
+$$  \Big< \means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}}  = \dfrac{1}{V} \int_{\volb(\mathbf{x})} \means{\psi_{\beta}}|_{\mathbf{r}}(\mathbf{r}) \; dV; $$
 
-The above equation can be described as the average computed over the volume $V$ with centroid $\mathbf{x}$, of the averaged field $\means{\psi_{\beta}}|_{\mathbf{r}}$ that can vary spatially, because of the change of $\mathbf{r}$.
+\noindent the above equation can be described as the average computed over the volume $V$ with centroid $\mathbf{x}$, of the averaged field $\means{\psi_{\beta}}|_{\mathbf{r}}$ that can vary spatially, because of the change of $\mathbf{r}$.
 
-In order to show how the above expression can be simplified we expand the averaged quantity $\means{\psi_{\beta}}|_{\mathbf{r}}$ over the centroid $\mathbf{x}$ using Taylor's polynomial:
+In order to show how the above expression can be simplified we expand the averaged quantity $\means{\psi_{\beta}}|_{\mathbf{r}}$ over the centroid $\mathbf{x}$ using a Taylor expansion:
 $$
 \means{\psi_{\beta}}|_{\mathbf{r}} = \means{\psi_{\beta}}|_{\mathbf{x}} + \mathbf{y} \cdot \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + \dfrac{1}{2} \mathbf{y}\mathbf{y} :  \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + O(\mathbf{y}^3)
 $$
 
-Now if we put this expansion inside the averaging operator, we get:
+Now, if we put this expansion inside the averaging operator, we get:
 $$
 \Big< \means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}} + \means{\mathbf{y}}|_{\mathbf{x}} \cdot \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + \dfrac{1}{2} \means{\mathbf{y}\mathbf{y}}|_{\mathbf{x}} :  \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + O(\mathbf{y}^3)
 $$
 
-The term $\means{\mathbf{y}}$ is zero for REV used in ordered porous media since they are always chosen to be symmetric around the REV centroid.
+The term $\means{\mathbf{y}}$ is zero for REVs used in ordered porous media since they are always chosen to be symmetric around the REV centroid.
 The second term can be shown to be negligible either with the same length-scale constraint used in the REV definition, in fact \citet{ochoa1995momentum}, \citet{paez2017macroscopic} showed that this term is order $O(\epsilon^2)$.
-Although there is possible to choose an appropriate weight function that  enforce $m*\mathbf{y}\mathbf{y} =0$ strictly, these function are impractical (\citet{davit2017technical}).
-As we recall from section \ref{ch:filter} the triangle shaped weight function almost satisfy this hypothesis. The function $m^{\triangle}$ guarantee a second order closure it means that $\dfrac{1}{2} \means{\mathbf{y}\mathbf{y}}|_{\mathbf{x}} :  \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}}$ is a constant. Further manipulation can show that it is also negligible ($O(\epsilon^2)$).
+Although it is possible to choose an appropriate weight function that  enforce $m*\mathbf{y}\mathbf{y} =0$ strictly, these function are impractical (\citet{davit2017technical}).
+As we recall from section \ref{ch:filter} the triangle shaped weight function almost satisfy this hypothesis. The function $m^{\triangle}$ guarantees a second order closure; this means that $\dfrac{1}{2} \means{\mathbf{y}\mathbf{y}}|_{\mathbf{x}} :  \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}}$ is a constant. Further manipulations (\cite{davit2017technical}) can show that it is also negligible ($O(\epsilon^2)$).
 
 \section{Conclusions}
-We have shown in this chapter how to formally derive the homogenized version of the Navier-Stokes equations. We have also discussed the extension of the model in case of elastic porous medium. A lot of emphasis has been put on the closure problem for the microscopic force since the topic is further developed in chapter 4.
-Although the average volume method is not a new we think that this chapter help to place in context the latest works in literature. The chapter also form a basis for better understand the next chapters.
+We have shown in this chapter how to formally derive the homogenized version of the Navier-Stokes equations. We have also discussed the extension of the model in case of an elastic porous medium. A lot of emphasis has been put on the closure problem for the microscopic force and the topic is further developed in chapter 4.
+Although the average volume method is not new, we think that this chapter helps to place in context the latest works in the literature. The chapter also forms a basis for a better understanding of the next chapters.
 
