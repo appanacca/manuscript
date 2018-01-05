@@ -348,6 +348,7 @@ The decomposition proposed by \citet{gray1975derivation} is now used to get the 
 \end{equation}
 
 \noindent where $\tilde{\psi}_{\beta}$ is the microscopic scale contribution and $ \meani{\psi_{\beta}}$ the volume-averaged one. The two contributions should be added together to obtain the local field values for the considered quantity $\psi_{\beta}$.
+In this equation the independent variable is $\mathbf{r}$ because we want to put emphasis on the fact that the Gray's decomposition is valid at every point in the space and, not only in the REV's centroid $\mathbf{x}$. The implication of computing this decomposition in a point in space rather than $\mathbf{x}$ are explained in paragraph \ref{ch:appendix_a}.
 This decomposition has been introduced in order to separate the different scales of the spatial variation of the fields, and so separate the low frequencies from the high ones.
 
 If the hypothesis of this decomposition holds, it is possible to demonstrate that the average value of the perturbation field vanishes\footnote{the paragraph \ref{ch:appendix_a} addresses specifically the hypothesis behind this result.}:
@@ -548,32 +549,32 @@ The problem on the REV thus becomes:
 
 In this set of equations the last condition, $\meani{\vbt} = 0$,is imposed to ensure a unique solution.
 
-Now the perturbed field has to be express as a function of some averaged values. Let us introduce the closure tensor $\mathbf{R}$ and  the closure vector $\mathbf{r}$ as:
+Now the perturbed field has to be express as a function of some averaged values. Let us introduce the closure tensor $\mathbf{S}$ and  the closure vector $\mathbf{s}$ as:
 \begin{eqnarray}
-&& \vbt(\mathbf{x}) = \mathbf{R}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  +\boldsymbol{\xi}(\mathbf{x})  	\label{eq:closure_viab_h1} \\
-&& \pbt(\mathbf{x})  = \mub \mathbf{r}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  + \gamma(\mathbf{x}) \label{eq:closure_viab_h2}
+&& \vbt(\mathbf{x}) = \mathbf{S}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  +\boldsymbol{\xi}(\mathbf{x})  	\label{eq:closure_viab_h1} \\
+&& \pbt(\mathbf{x})  = \mub \mathbf{s}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  + \gamma(\mathbf{x}) \label{eq:closure_viab_h2}
 \end{eqnarray}
 where $\boldsymbol{\xi}(\mathbf{x})$ is a vector and $\gamma(\mathbf{x})$ a scalar. \citet{whitaker1996forchheimer} has demonstrated that the first vanishes and the second is constant.
 It is very important to point out that \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} are crucial since a linear correlation between the micro and macro-scale fields is implied.
 However these relations can be function of the space coordinate $\mathbf{x}$ as explored later in chapter \ref{ch:4}.
 
-\citet{whitaker1996forchheimer} propose to define $\mathbf{R}$ and $\mathbf{r}$ via the following problem:
+\citet{whitaker1996forchheimer} propose to define $\mathbf{S}$ and $\mathbf{s}$ via the following problem:
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{R} = -\nabla \mathbf{r} + \nabla^2 \mathbf{R} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) \cdot \nbs \;dA,  \\
-		\nabla \cdot \mathbf{R} = 0, \\
-		\mathbf{R} = \mathbf{I} \quad \textrm{at} \; A_{\beta \sigma}, \\
-		\mathbf{r}(\mathbf{x} +\ell_i) = \mathbf{r}(\mathbf{x}), \qquad \mathbf{R}(\mathbf{x} +\ell_i) = \mathbf{R}(\mathbf{x}), \qquad i=1,2,3 ,\\
-		\meani{\mathbf{R}} = 0.
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{S} = -\nabla \mathbf{s} + \nabla^2 \mathbf{S} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\mathbf{s}\mathbf{I}  +  \nabla \mathbf{S} \right) \cdot \nbs \;dA,  \\
+		\nabla \cdot \mathbf{S} = 0, \\
+		\mathbf{S} = \mathbf{I} \quad \textrm{at} \; A_{\beta \sigma}, \\
+		\mathbf{s}(\mathbf{x} +\ell_i) = \mathbf{s}(\mathbf{x}), \qquad \mathbf{S}(\mathbf{x} +\ell_i) = \mathbf{S}(\mathbf{x}), \qquad i=1,2,3 ,\\
+		\meani{\mathbf{S}} = 0.
 	\end{cases}
 \label{eq:R_problem}
 \end{eqnarray}
 It is difficult to solve this problem computationally because it is an integral-differential equation.
-In order to simplify the problem, it is further decomposed into two parts, the solution of the first one gives us the \textit{permeability tensor} and the solution of the second one the \textit{Forchheimer tensor}. The variables $\mathbf{R}$ and $\mathbf{r}$ are further decomposed as:
+In order to simplify the problem, it is further decomposed into two parts, the solution of the first one gives us the \textit{permeability tensor} and the solution of the second one the \textit{Forchheimer tensor}. The variables $\mathbf{S}$ and $\mathbf{s}$ are further decomposed as:
 
 $$
- \mathbf{R} = \mathbf{B} + \mathbf{C}, \qquad \mathbf{r} = \mathbf{b} + \mathbf{c}.
+ \mathbf{S} = \mathbf{B} + \mathbf{C}, \qquad \mathbf{s} = \mathbf{b} + \mathbf{c}.
 $$
 
 \noindent In this manner the micro-macro field relationship can be written as:
@@ -609,10 +610,10 @@ and $\mathbf{C}$ from:
 \label{eq:C_problem}
 \end{eqnarray}
 
-The problems definition for $\mathbf{R}$, $\mathbf{B}$ and $\mathbf{C}$ do not arise from the direct substitution of \eqref{eq:closure_viab_divison} and 	\eqref{eq:closure_viab_hp} into the system \eqref{eq:vans_mom_2} they are instead a choice made to simplify the calculations (\citet{whitaker1996forchheimer}). Substituting the decomposition \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} inside the surface filter $\mathbf{F}^m$ we get:
+The problems definition for $\mathbf{S}$, $\mathbf{B}$ and $\mathbf{C}$ do not arise from the direct substitution of \eqref{eq:closure_viab_divison} and 	\eqref{eq:closure_viab_hp} into the system \eqref{eq:vans_mom_2} they are instead a choice made to simplify the calculations (\citet{whitaker1996forchheimer}). Substituting the decomposition \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} inside the surface filter $\mathbf{F}^m$ we get:
 
 $$
-\mathbf{F}^m = \nub \left(\dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{r}\mathbf{I}  +  \nabla \mathbf{R} \right) \cdot \nbs \;dA \right) \vbmi
+\mathbf{F}^m = \nub \left(\dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{s}\mathbf{I}  +  \nabla \mathbf{S} \right) \cdot \nbs \;dA \right) \vbmi
 $$
 
 \noindent Dividing then the closure variables as in \eqref{eq:closure_viab_divison} it is possible to define the \textit{permeability tensor} $\mathbf{K}$:
@@ -698,10 +699,10 @@ The same term has already been neglected in equation \eqref{eq:sbs} in the previ
 %%%%  JUST A REMAINDER FOR THE REVIEWER
 %\citet{paez2017macroscopic} proposed a closure formulation based from the back substitution of \eqref{eq:closure_viab_hp} inside the term $\boldsymbol{\zeta}$ giving:
 %$$
-%\nabla \cdot ( \meani{\vb} \meani{\mathbf{R}^T\mathbf{R}} \meani{\vb})
+%\nabla \cdot ( \meani{\vb} \meani{\mathbf{S}^T\mathbf{S}} \meani{\vb})
 %$$
 %
-%introducing the fourth order tensor $\mathbf{J} = \meani{\mathbf{R}^T\mathbf{R}}$, which if \Red{we }recall that for our computation M, H are minor than 1 so their product is smaller and so J is negligible compared to H.
+%introducing the fourth order tensor $\mathbf{J} = \meani{\mathbf{S}^T\mathbf{S}}$, which if \Red{we }recall that for our computation M, H are minor than 1 so their product is smaller and so J is negligible compared to H.
 %However is that correct to back substitute the closure formulation using R where the closure term $\boldsymbol{\zeta}$ was neglected in the closure problem formulation for R ??
 
 However, we speculate that this term can becomes important in situations involving elastic porous media where sweeps and ejection of fluid can be observed at the interface.
