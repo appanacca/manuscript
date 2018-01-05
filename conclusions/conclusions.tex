@@ -1,57 +1,33 @@
-\chapter{Conclusions, recommendation and discussions}
+\chapter{Conclusions, recommendations and discussions}
 
 
 
-\section{Main conclusion}
+\section{Main conclusions}
 
-In chapter 1 we have reviewed the latest advances and open questions present in literature. The same chapter form a new and improved basis from which
- many researchers could find and/or explore new research path and ideas. In this final chapter we list the main results and conclusion that had been drawn 
- from our work.
+In chapter 1 we have reviewed the latest advances and open questions present in the literature. The same chapter forms a new and improved basis from which many researchers could find and/or explore new research paths and ideas. In this final chapter we list the main results and conclusions that can be drawn from our work.
 
 \begin{itemize}
 
-\item The volume averaged method has been detailed in key hypothesis. The mathematical procedure needed to find the macroscopic equations, and the closure 
-problem, has also been presented. Some of the most notabale new extensions to the method has been included in the discussion that we hope it could help new  
-researchers to approach the study of this method and serve as a review for who is already accostumed to it.
+\item The volume average method has been detailed in its key hypothesis. The mathematical procedure needed to find the macroscopic equations, and the closure problem, has also been presented. Some of the most notable new extensions to the method have been included in the discussion that we hope could help new researchers to approach the study of this method.
 
-\item The sensitivity analysis shows that the VANS approach is the less sensitive one in respect to variations in the base flow. Also, the stability results
- still agree with the experimental results. One of the possible drawbacks in the use of the VANS model is the need of computing the effective permeability 
- tensor $\mathbf{H}$ although, even the parametrization of the drag force is not an easy task. The computational cost and difficulties to compute the 
- components of the permeability tensor is the main reason that have take us in the development of a metamodel for the tensor $\mathbf{H}$ in chapter 4.
+\item The sensitivity analysis shows that the VANS approach is the less sensitive one with respect to variations in the base flow. Also, the stability results agree reasonably with the experimental results. One of the possible drawbacks in the use of the VANS model is the need of computing the effective permeability tensor $\mathbf{H}$, although even the parametrization of the drag force is not an easy task. The computational cost and difficulties to compute the components of the permeability tensor is the main reason that have taken toward the development of a metamodel for the tensor $\mathbf{H}$ in chapter 4.
  
-\item Opposed to the result in the work of \citet{lasseux} for rectangular fibers, our computed effective permeability tensor for circular fibers is diagonal.
- This means that the geometrical shape of the porous structure is very important in this sense. A possible generalization of different porous structures is 
- shown in \citet{pauthenet} even though further investigations on the non diagonal terms are needed.
+\item Opposed to the results in the work of \citet{lasseux} for rectangular fibers, our computed effective permeability tensor for circular fibers is, to good approximation, diagonal. This means that the geometrical shape of the porous structure is very important in this sense. A possible generalization of different porous structures is shown in \citet{pauthenet} even though further investigations on the non diagonal terms are needed.
 
-\item We have also shown that the 3D effects can be very important in changing the oermeability tensor components. In our data analysis, in the chapter 4, 
-we have shown that the angle $\phi$ \footnote{the angle between the forcing term in the momentum equations and the fiber axis} have a big influence in the 
-tensor $\mathbf{H}$ components, especially in the inertia regime.
-The same angle $\phi$, when present, make the flow three dimensional and it bends the fluid path along the fiber axis. This process translate into a non zero
-deviation angle $\gamma$ in the fiber axis direction.
+\item We have also shown that the 3D effects can be very important in changing the permeability tensor components. In our data analysis, in chapter 4, we has shown that the angle $\phi$\footnote{the angle between the forcing term in the momentum equations and the fiber axis.} has a big influence in the tensor $\mathbf{H}$ components, especially in the inertia regime.
+The same angle $\phi$, when present, makes the flow three dimensional and it bends the fluid path along the fiber axis. This process translates into a non-zero deviation angle $\gamma$ in the fiber axis direction.
 
-\item In chapter 4 we have shown that the $\mathbf{H}$ metamodel has been developed up to a Reynolds number equal to $100$. This limit has been derived 
-from the data and it was not fixed a priori. To estimate this limit we have checked the the direct comparison of $F^m$ and $F^M$ since it is a fair 
-estimation of the correctness of the hypothesis behind the our closure model. For our geometry, and range of porosities tested, the correct limit is around 
-Reynolds number $100$. After this limit the error between the two quantities start to be appreciable and so the closure problem \eqref{eq:M_problem} is no more
- correct. We suppose that at higher Reynolds number the liner correlation hypothesis between the averaged and perturbation (equations \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2}) does not hold.
+\item In chapter 4 we have shown that the $\mathbf{H}$ metamodel has been developed up to a Reynolds number equal to $100$. This limit has been derived from the data and it was not fixed a priori. To estimate this limit we have checked the direct comparison of $F^m$ and $F^M$ since it is a fair estimation of the correctness of the hypothesis behind our closure model. For our geometry and range of porosities tested, the correct limit is around Reynolds number $100$. After this limit the error between the two quantities starts to be appreciable and so the closure problem \eqref{eq:M_problem} is no more correct. We suppose that at higher Reynolds numbers the linear correlation hypothesis between the average fields and the perturbations (equations \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2}) does not hold.
 
-\item The interface treatment, based on the penalization method, has been investigated in chapter 5. It has been showed that the double linear
- smoothing of either the porosity and the permeability has a positive effect on the correctness of the homogenized model. We have also shown that the 
- linear porosity profile derive directly from the geometry of the porous media and it is exact. On the contrary the linear smoothing for the permeability tensor is 
- purely euristic, but it can be supported by the fact that the porosity effects are largerly the most important in the variability of $\mathbf{H}$. So is 
- possible to argue that the two fields should have the same interface treatment. Another confirmation for this fact came from the metamodel that if left "free" 
- it return the linear profile at the interface without previously imposing it.
+\item The interface treatment, based on the penalization method, has been investigated in chapter 5. It has been shown that the double linear smoothing of porosity and permeability has a positive effect on the correctness of the homogenized model. We have also shown that linear porosity profile derives directly from the geometry of the porous media and it is exact. On the contrary the linear smoothing for the permeability tensor is purely heuristic, but it can be supported by the fact that the porosity effects are largely the most important in the variability of $\mathbf{H}$. So, it is possible to argue that the two fields should have the same interface treatment. Another confirmation for this fact comes from the metamodel that, if left "free", it return the linear profile at the interface without imposing it a priori.
  
- \item Our VANS approach has been tested in geometry that naturally develop spearation. THe inclusion of a porous media layer has been tested and the solver
- had shown good computational performance and no convergence problems has been found. However, the physics of the separation is no mush modified by the porous 
- layer. This findings suggest that the laminar suppression mechanisc could be not as effective as the turbulent one (already observed in literature). In any case more simulations
- with different parameters and different problem geometry are needed to generalize the results.
+ \item Our VANS approach has been tested in cases that naturally develop separation. The inclusion of a porous media layer has been tested and the solver has shown good computational performance and no convergence problems. However, the physics of the separation is not much modified by the porous layer. This finding suggest that the laminar suppression mechanism could be not as effective as the turbulent one (already observed in literature). In any case, more simulations with different problem geometries are needed to generalize the results.
 
 \item The OpenFoam implementation of the macroscopic solver based on the VANS equations can be downloaded from github from the address: \url{https://github.com/appanacca/porous_solvers_OF}.
-The code listing is not directly showed in the manuscript since detailing the solver implementation would have require to explain lot of OpenFoam library 
-technicalities. These details has been already addressed in multiple sources (\citet{jasak1996error}, \citet{moukalled2016finite} and 
-\cite{maric2014openfoam}) and they are out of the scope of this work.
-Although, to someone not new to OpenFoam programming the comments inside the code listing are sufficient to clarify the technical points.
+The code listing is not directly shown in the manuscript since detailing the solver implementation would have required to explain and describes in details many OpenFoam library 
+technicalities. These details have been already addressed in multiple sources (\citet{jasak1996error}, \citet{moukalled2016finite} and 
+\citet{maric2014openfoam}) and they are out of the scope of this work.
+To someone not new to OpenFoam programming the comments inside the code listing are sufficient to clarify the technical points.
 
 
 \end{itemize}
@@ -61,20 +37,11 @@ Although, to someone not new to OpenFoam programming the comments inside the cod
 
 \begin{itemize}
 
-\item The database from which we have built our metamodel for the tensor $\mathbf{H}$ can be extended. For example we could easily included more data 
-points to make the model more reliable. Another the interesting part could be the extension to other fiber geometry section or even other completely different
- porous media geometries (shperes, rocks ...). The database could also been extended to moving porous media, the imput parameters could include some of the 
- typical dynamic parameters like the the mass ratio and or the stiffness of the fibers. New metamodelling approaches could also be explored, expecially as 
- the database grow \textit{deep neural networks} could permorf better than Kriging.
+\item The database from which we have built our metamodel for the tensor $\mathbf{H}$ can be extended. For example, we could easily include more data points to make the model more reliable. Another interesting part could be the extension to other fibers geometry section or even other completely different porous media geometries (spheres, rocks ...). The database could also be extended to moving porous media, the input parameters could include some of the typical dynamical parameters like the mass ratio or the stiffness of the fibers. New metamodelling approaches could also be explored, especially as the database grows \textit{deep neural networks} could perform better than Kriging.
 
-\item The validation of the the interface treatment need more data from DNS simulations or experiment in similar configurations. The availability of high 
-resolution data is still a missing piece in the field.
+\item The validation of the interface treatment needs more data from DNS simulations or experiments in similar configurations. The availability of high resolution data is still a missing piece in the field.
 
-\item The application of the macroscopic model to separated flow is only a starting point. We have shown that our model is capable of provide fairly correct 
-homogenized flow field at a low computational cost. Although the capacity of a porous media layer to suppress the separation is still questioned, at least 
-with the parameters used. This means that the optimal parameters are still to be found. An optimization procedure using the adjoint equation could solve this
- problem, now that we have clarified the penalization approach used in the VANS equations.
+\item The application of the macroscopic model to separated flow is only a starting point. We have shown that our model is capable of providing fairly correct homogenized flow fields at a low computational cost. However, the capacity of a porous media layer to suppress the separation is still questioned, at least with the parameters used. This means that the optimal parameters are still to be found. An optimization procedure using the adjoint equation could solve this problem, now that we have clarified the penalization approach used in the VANS equations.
 
-\item Another possible extension to the metamodel could be the implementation of the algorithm \ref{algo:vans_elastic} for elastic porous media. Since the 
-VANS solver is already been implemented this extension using a Bernoulli beam should be fairly easy.
+\item Another possible extension to the metamodel could be the implementation of the algorithm \ref{algo:vans_elastic} for elastic porous media. Since the VANS solver is already been implemented this extension, for example by using a Bernoulli beam, should be fairly easy.
 \end{itemize}
