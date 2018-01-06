@@ -4,21 +4,21 @@
 
 \section{Introduction}
 
-In this last chapter the macroscopic VANS equation are validated against a full microscopic DNS. Special attention is focused on the interface treatment using the penalization method. We also assess the effects of the permeability tensor metamodel introduction in the algorithm. The computation is performed using the classical  closed cavity configuration. The aim for the cavity problem is to validate the VANS approach and show the importance of the interface treatment and the permeability metamodel. In the last part the Ercoftac periodic hill case is also tested. This open configuration aim to test the performance of porous coating as a device that helps to reduce separated flow.
+In this chapter the macroscopic VANS equations are validated against a full microscopic DNS. Special attention is focused on the interface treatment using the penalization method. We also assess the effects of the permeability tensor metamodel within the algorithm. Computations are performed initially on the classical closed cavity configuration. The aim for the cavity problem is to validate the VANS approach and show the importance of the interface treatment and the permeability metamodel. In the last part the Ercoftac periodic hill case is also tested. This open configuration aims to test the performance of porous coating as a device to reduce separated flow.
 
 
 \section{Closed cavity problem}
-The configuration chosen is the squared closed cavity, depicted in figure \ref{fig:geom}.
-The cavity is square shaped with size $L$, the lateral and bottom walls are fixed and a constant velocity $U_{top}$ is specified at the top side.
-On the front and back side we apply periodic boundary condition since the simulation domain has a depth equal to $\ell$.
-A rigid porous media made by regularly arranged fibers is set at the bottom of the cavity, its vertical extension is equal to $h$.
-The \textit{reference elementary volume} (REV) of the porous medium is a cubic cell of size $\ell$ with a cylinder, with diameter $d$, at his center.
-The permeability of the medium $\varepsilon$ is equal to 0.8 and with 50 fibers in the cavity.
+The configuration chosen is the square closed cavity, depicted in figure \ref{fig:geom}.
+The cavity is square shaped with size $L$, the lateral and bottom walls are fixed and a constant velocity $U^{top}$ is specified at the top side.
+On the front and back side we apply periodic boundary conditions since the simulation domain has a depth equal to $\ell$.
+A rigid porous medium made by regularly arranged fibers is set at the bottom of the cavity, its vertical extension is equal to $h$.
+The \textit{reference elementary volume} (REV) of the porous medium is a cubic cell of size $\ell$ with a cylinder, with diameter $d$, at its center.
+The porosity of the medium, $\varepsilon$, is equal to 0.8 and 50 fibers are assumed to be present in the cavity.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\linewidth]{chapter_5/figure/cavity_draw.eps}
-\caption{Schematics of the closed cavity 2D problem. The porous medium internal structure is depicted in the zoom on the right side in which the REV geometry is showed.}
+\caption{Schematics of the closed cavity 2D problem. The porous medium internal structure is depicted in the zoom on the right side in which the REV geometry is shown.}
 \label{fig:geom}
 \end{figure}
 
@@ -30,13 +30,13 @@ To summarize the configuration:
 	\item $d$: diameter of the cylindrical fiber
 	\item $V_{\beta}$: volume of the fluid inside the REV
 	\item $V_{\sigma}$: volume of the solid inside the REV
-	\item $\varepsilon = \dfrac{V_{\beta}}{V_{\sigma} +V_{\beta}}$: porosity of the medium
+	\item $\varepsilon = \dfrac{V_{\beta}}{V_{\sigma} +V_{\beta}} = \dfrac{\ell^3 -\ell \pi d^2 / 4}{\ell^3} = 1 - \pi \left(\dfrac{d}{2 \ell}\right)^2$: porosity of the medium
 	\item $\epsilon = \dfrac{\ell}{L}$: length scale ratio
-	\item $Re= \dfrac{U_{top} L}{\nub}$: Reynolds number of the cavity
+	\item $Re= \dfrac{U^{top} L}{\nub}$: Reynolds number of the cavity
 \end{itemize}
 
 The overall domain has the size $L \, \times \, L \times \, \ell$ respectively in the $x_1$, $x_2$ and $x_3$ directions. The origin of our coordinate system at the bottom left corner of the cavity. 
-This configuration and porous arrangement has been chosen to reuse DNS data already available for this configuration (private communication with the authors of \citet{zampogna2016fluid}).
+This configuration and porous arrangement has been chosen to employ DNS data already available for this configuration (private communication with \citet{zampogna2016fluid}).
 
 The length parameters for the specific case are:
 \begin{itemize}
@@ -48,16 +48,18 @@ The length parameters for the specific case are:
 \subsection{Microscopic approach with direct numerical simulations}
 
 In this approach the incompressible Navier-Stokes equations are solved in the three dimensional case \eqref{eq:NScavity}. 
-The problem is weakly three dimensional problem since we include only one REV in the $x_3$ axes and we impose periodic boundary condition in this direction.
-This assumption seems fair since the Reynolds numbers tested are small and no 3D structure are expected in the flow.
-To complete the set of boundary condition the no-slip condition is applied at the rigid walls and a prescribed horizontal velocity is imposed at the top wall \eqref{eq:NScavity}. The subscript $\beta$ means that the variables belongs to the fluid phase, as usual. The mesh was fine enough to resolve the flow inside the fibers and the spatial converged is also assured.
+The problem is weakly three dimensional since we include only one REV along the $x_3$ axes and we impose periodic boundary condition in this direction.
+This assumption seems fair since the Reynolds numbers tested are small and no 3D structures are expected in the flow.
+To complete the set of boundary conditions the no-slip condition is applied at the rigid walls and a prescribed horizontal velocity is imposed at the top wall \eqref{eq:NScavity}. The subscript $\beta$ means that the variables belongs to the fluid phase, as usual. The mesh is fine enough to resolve the flow within the fibers and the spatial converged is also assured.
+
+% (50000 hexahedral cells including a refinement at the interface)
 
 \begin{eqnarray}
 \begin{cases}
 \derp{\vb}{t} + \vb \cdot \nabla \vb = -\frac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb \\
 \nabla \cdot \vb = 0\\
-\vb = 0 \qquad \text{on} \quad x_1 = 0/L \quad x_3 = 0 \\
-\vb = U^{top} \qquad \text{on} \quad x_3 = L\\
+\vb = 0 \qquad \text{on} \quad x_1 = 0,L \quad x_2 = 0 \\
+\vb = U^{top} \qquad \text{on} \quad x_2 = L\\
 \vb|_{x_3 = 0} = \vb|_{x_3 = \ell}  \\
 \pb|_{x_3 = 0} = \pb|_{x_3 = \ell}
 \end{cases}
@@ -71,9 +73,9 @@ Once the system \eqref{eq:NScavity} is solved, the microscopic fields (velocity 
 	\label{eq:supavg}
 \end{equation}
 
-The operator \eqref{eq:supavg} has been applied through the all porous domain using a REV with dimension $\ell \times \ell \times \ell$.
-It means that the centroid of the REV, in which the average operation is performed, span all the porous domain extension.
-It should be noted that the averaging procedure gives a two dimensional averaged fields as results, the only not null values are in the $x_1$ and $x_2$ directions. This is due to the symmetry of velocity and pressure in the $x_3$ direction that return null averaged field as a result of the averaging operation \eqref{eq:supavg}.
+The operator \eqref{eq:supavg} has been applied through the whole porous domain using a REV with dimension $\ell \times \ell \times \ell$.
+It means that the centroid of the REV, in which the average operation is performed, spans all the porous domain extension.
+It should be noted that the averaging procedure gives a two dimensional averaged field as a result, the only not zero values are in the $x_1$ and $x_2$ directions. This is due to the symmetry of velocity and pressure in the $x_3$ direction that return zero averaged field as a result of the averaging operation \eqref{eq:supavg}.
 
 \subsection{Macroscopic approach though VANS}
 
@@ -86,14 +88,14 @@ The derivation of this set of equation has been already discussed in chapter 2.
 \derp{\vbms}{t} + \dfrac{1}{\varepsilon} \nabla \cdot \left[  \vbmi  \vbmi \right] = -\dfrac{1}{\rho_{\beta}} \nabla \meani{\pb} + \nub \nabla^2 \vbmi \\ 
 \qquad \qquad \qquad \qquad \qquad \qquad- \nub \varepsilon \mathbf{H}^{-1} \vbmi +\dfrac{\nub}{\varepsilon} \nabla \varepsilon \cdot \nabla \vbmi + \dfrac{\nub}{\varepsilon} \vbmi \nabla^2 \varepsilon \\
 \nabla \cdot \left(\varepsilon \vbmi \right) = 0\\
-\vbms = 0 \qquad \textrm{at} \quad x_1 = 0/L \quad x_2 = 0\\
+\vbms = 0 \qquad \textrm{at} \quad x_1 = 0,L \quad x_2 = 0\\
 \vbms = U^{top} \qquad \textrm{at} \quad x_2 = L
 \label{eq:vans_cav}
 \end{cases}
 \end{eqnarray}
 
 The boundary conditions are the same as the DNS approach except for the $x_3$ dimension that in this case is neglected since the homogenized problem is already two dimensional.
-The solution of the system \ref{eq:vans_cav} gives directly the averaged velocity and pressure fields to be compared to the averaged DNS fields.
+The solution of system \eqref{eq:vans_cav} gives directly the averaged velocity and pressure fields to be compared to the averaged DNS fields.
 
 \subsubsection{Interface treatment}
 The penalization method (or one domain approach) has been chosen to threat the interface of the porous medium.
