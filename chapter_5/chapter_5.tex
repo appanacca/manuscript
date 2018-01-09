@@ -186,7 +186,7 @@ Some differences between the two models have to expected since in the VANS appro
 The same case and comparison has been done also for a Reynolds number equal to $Re=1000$.
 For this case the same conclusion as the previous case are confirmed. Some of the relative errors are even smaller compared to the previous Reynolds number case. This support the robustness of our model in this range of Reynolds numbers.
 These two solutions of the cavity problem shown that varying the permeability and the porosity in a linear manner through the interface is an acceptable choice when using the penalization method.
-%Compared to previous case the flow show two different recirculations vortex inside the porous medium domain.
+Compared to previous case the flow field now presents two different recirculations inside the porous medium domain, increasing the complexity of the dynamics inside the porous medium. Looking at the zone around the porous interface in figures \ref{fig:ux} and \ref{fig:uy}, the differences between the DNS and homogenized approach are clear. The DNS shows oscillations in both the vertical and horizontal velocity components due to the presence of the fibers, on the contrary in the homogenized approach this local oscillations are smoothed out by the averaging operation. However, these oscillations have a very small amplitude and, to make them visible the range of values plotted needs to be modified (bottom pictures of figures \ref{fig:ux} and \ref{fig:uy}).
 
 \begin{figure}[H]
 	\centering
@@ -319,21 +319,22 @@ The permeability tensor components are then evaluated with the kriging metamodel
 
 \subsection{Comparison between smooth and porous leeward side of the hill}
 
-The above geometrical setup has been studied in the stable laminar regime. In this case the source term is equal to $\mathbf{g} = (0.5 \,10^{-9}, \quad0, \quad0)$ that results in a Reynolds number equal to $83$.
+The above geometrical setup has been studied in the stable laminar regime. In this case the source term is equal to $\mathbf{g} = (0.5 \,10^{-8}, \quad0, \quad0)$ that results in a Reynolds number equal to $83$.
 For all the cases the recirculation bubble has been measured in its vertical and horizontal extension. The horizontal extension $L_R$ is defined as the first streamwise point in which a sampled velocity profile shows only positive streamwise velocities. The vertical extension has been measured at $x=4.5$ that is the mean extension of the domain.
-Table \ref{tb:bubble} collects these results. Looking at the results the porous media has a negative effect in both $L_R$ and $h_{x=4.5}$. For the case \textit{external} the geometry of the hill is modified by the porous medium and the leeward side is pushed downstream, so it is not surprising that the recirculation extension is pushed downstream. A similar negative effects can be found also for the \textit{internal}. This is line with some observation made by \citet{jimenez2001turbulent} and \citet{segura2017permeable} in which they argues that some configuration of the porous surfaces characteristic (porosity and permeability) can produce negatives effects.
-
+Table \ref{tb:bubble} collects these results. Looking at the results the porous media has a negative effect in both $L_R$ and $h_{x=4.5}$. For the case \textit{external} the geometry of the hill is modified by the porous medium and the leeward side is pushed downstream, so it is not surprising that the recirculation extension is pushed downstream. A similar negative effects can be found also for the \textit{internal}. This is in line with some observation made by \citet{jimenez2001turbulent} and \citet{segura2017permeable} in which they argues that some configuration of the porous surfaces characteristic (porosity and permeability) can produce negatives effects. The last case analyses the flow for a completely permeable hill obstacle, this means that the fluid can pass through the overall hill geometry. Also in this case the length and the height of the recirculation is increased, with similar values as the previous cases.
 \begin{table}[h]
 	\centering
 	\begin{tabular}{c|c|c}
 		case & $L_R$ & $h_{x=4.5}$ \\ 
 		\hline 
 		\hline 
-		\textit{base} & 5.6 & 0.27 \\ 
+		\textit{impermeable wall} & 5.6 & 0.27 \\ 
 		\hline 
 		\textit{external} & 5.95 & 0.33 \\ 
 		\hline 
 		\textit{internal} & 5.8 & 0.31 \\ 
+		\hline 
+		\textit{completely permeable} & 5.7 & 0.3 \\ 
 		\hline 
 		\hline 
 	\end{tabular}
@@ -341,23 +342,24 @@ Table \ref{tb:bubble} collects these results. Looking at the results the porous 
 	\label{tb:bubble}
 \end{table}
 
-The streamlines in figure \ref{fig:streamlines} show the shape of the recirculation bubble for the three cases. It can be seen that they look very similar and as a matter of fact the differences described in table \ref{tb:bubble} are within $5\%$ from the base case without the porous layer.
+The streamlines in figure \ref{fig:streamlines} show the shape of the recirculation bubble for the four cases. It can be seen that they look very similar and as a matter of fact the differences described in table \ref{tb:bubble} are within $5\%$ from the base case without the porous layer.
+It can be noted that for the completely permeable hill obstacle the flow field show a complex behavior inside the porous domain. The streamlines at the inlet are almost horizontal because the fluid is forced to flow in this direction but it soon deviates upwards due to the permeability of the fibrous porous media that is higher in the vertical direction.
 In figure \ref{fig:cuts_hill} the local velocity fields are analyzed. The sampled velocities at $x=1$ seems very different because the geometry in that point is not the same. If we look at the horizontal velocity gradients, they are similar. Some differences can be observed for the vertical velocities. The \textit{internal} case presents smaller vertical velocities than the other two cases at $x=1$, close to the detachment point. The situation is inverted further downstream at $x=2$ and the three profiles collapse onto one another at $x=3$. This different local behaviors can be used for example in situations were the vertical exchange of momentum has to enhanced for examples in aquatics plant applications where the nutrient exchange has to be optimized.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{chapter_5/figure/streamlines}
-	\caption{Streamlines for the three cases tested. The top picture shows the case without the porous medium. The central picture shows the case where the porous media layer is put on the external part of the leeward side and the bottom case shows the case with porous medium put inside the leeward side.}
-	\label{fig:streamlines}
+	\includegraphics[width=1\linewidth]{chapter_5/figure/cuts_hill}
+	\caption{The top three figures show the horizontal velocity profile for the sampled cut at $x=1$, $x=2$ and $x=3$ respectively from left to right. The bottom figures follow the same patterns but instead shows the vertical velocity profile. The red line is the \textbf{impermeable wall} case the blue line is the \textbf{external case}, the green line is the \textbf{internal} case and the magenta line is the \textbf{completely porous} case.}
+	\label{fig:cuts_hill}
 \end{figure}
-
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{chapter_5/figure/cuts_hill}
-	\caption{The top three figures show the horizontal velocity profile for the sampled cut at $x=1$, $x=2$ and $x=3$ respectively from left to right. The bottom figures follow the same patterns but instead shows the vertical velocity profile. The red line is the \textbf{base} case the blue line is the \textbf{external case} and the green line is the \textbf{internal} case.}
-	\label{fig:cuts_hill}
+	\includegraphics[width=0.85\linewidth]{chapter_5/figure/streamlines}
+	\caption{Streamlines for the three cases tested. The top picture shows the case without the porous medium. The two central pictures show the cases where the porous media layer is put on the external and internal part of the hill base profile. The bottom picture shows the streamlines for a completely porous hill obstacle.}
+	\label{fig:streamlines}
 \end{figure}
+
 
 
 \section{Conclusions}
