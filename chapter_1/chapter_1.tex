@@ -308,7 +308,7 @@ The behavior of wind over plants is very important in a large variety of fields,
 The boundary layer profile over such canopies differs substantially from the rough wall one, as figure \ref{fig:spectra} shows.
 The vegetation resistance causes the creation of an inflection point in the mean velocity profile that leads to a mixing layer type of instability (Kelvin-Helmholtz instability) near the vegetation top.
 As a consequence of such instabilities \citet{finnigan2000turbulence} indicated that the vegetation can heavily modify the turbulence spectra as a result of the interface instabilities and the coherent structures above it.
-The two lower pictures in figure \ref{fig:spectra} outline the above statements; the spectrum in case of canopy flow presents a larger peak in the frequency of the mixing layer instability, a steeper slope in the energy cascade part due to the larger dissipation inside the permeable layer and a high frequency peak associated to the swinging of the plants that can emit or absorb small scales vorticies.
+The two lower pictures in figure \ref{fig:spectra} outline the above statements. The spectrum in case of canopy flow presents a larger peak in the frequency of the mixing layer instability. It presents also a steeper slope in the energy cascade part due to the larger dissipation inside the permeable layer and a high frequency peak associated to the swinging of the plants that can emit or absorb small scales vorticies.
  
 \begin{figure}[h]
 	\centering
@@ -318,7 +318,7 @@ The two lower pictures in figure \ref{fig:spectra} outline the above statements;
 		\label{fig:spectra}
 	\end{figure}
 
-Is it clear from the literature that the dynamics of the permeable substrate made by vegetation is extremely important and should always be taken into account to fully generalize the physics in such problems involving moving canopies; \citet{nepf2012flow} shows how the interface between aquatic plants and the free flow can be largely modified due to the movement of the fibers (most of the plants arms and branches can be viewed as fibers).
+Is it clear from the literature that the dynamics of the permeable substrate made by vegetation is extremely important and should always be taken into account to fully generalize the physics in such problems involving moving canopies. \citet{nepf2012flow} shows how the interface between aquatic plants and the free flow can be largely modified due to the movement of the fibers (most of the plants arms and branches can be viewed as fibers).
 
 In order to discriminate the different behavior of the fibrous structure it is convenient to introduce some non-dimensional parameters typically used in fluid structure interaction problems:
 $$ m^* = \rho_{\beta} / \rho_{\sigma}, \quad C_Y= \rho_{\beta} {U_{\infty}}^2 s^3 / E, \quad s = H/d, $$
@@ -328,9 +328,9 @@ The mass ratio can be used to quantify the added mass effects caused by solid in
 The Cauchy number defines the static deformation of a fiber caused by the fluid flow; when the Cauchy number is greater than unity, important deformations are expected.
 This last parameter is extremely important since it controls a phenomenon called \textit{reconfiguration} that leads to drag reduction (\citet{gosselin2011drag};  \citet{alvarado2017nature}).
 The reconfiguration can be defined as the capability of the structure to adopt a new shape when forced by a flow, usually it become more streamlined to reduce its exposed frontal area with the aim to reduce the total drag.
-When dealing with this phenomenon one should take into account the frontal area $A$ and the drag coefficient $C_D$ together, in order to avoid misinterpretation of the drag reduction; in figure \ref{fig:cycd} the ratio of the parameter $AC_D$ has been represented for different natural structures against the Cauchy number and it is evident that for a $C_Y>1$ a drastic drag reduction can be observed.
+When dealing with this phenomenon one should take into account the frontal area $A$ and the drag coefficient $C_D$ together, in order to avoid misinterpretation of the drag reduction. In figure \ref{fig:cycd} the ratio of the parameter $AC_D$ has been represented for different natural structures against the Cauchy number and it is evident that for a $C_Y>1$ a drastic drag reduction can be observed.
 
-\begin{figure}[h]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_1/cy_cd}
 	\caption{Effects of the Cauchy number $C_Y$ on drag reduction. The drag reduction is represented as the ratio between the frontal area $A$ and the drag coefficient $C_D$ in dynamic conditions, divided by the same product wider static conditions (subscript). Image from \citet{de2008effects}}
@@ -341,14 +341,14 @@ The overall reconfiguration of the permeable medium can lead to pressure recover
 
 Another important non-dimensional number is the \textit{reduced velocity} ($U_R$), that can be derived from the previous ones:
 $$ U_R = \sqrt{C_Y s / m^*}$$
-This number is used when dealing with vortex induced vibrations of slender structures; when it is near one, dynamical coupling between the fluid and the structure is expected, such as resonance or lock-in phenomena (self-excited vortex-induced vibrations accompanied by the synchronization of the frequency of vortex formation with the frequency of structure vibration).
+This number is used when dealing with vortex induced vibrations of slender structures. When its value is near one, dynamical coupling between the fluid and the structure is expected, such as resonance or lock-in phenomena\footnote{self-excited vortex-induced vibrations accompanied by the synchronization of the frequency of vortex formation with the frequency of structure vibration.}.
 
-Canopies can also help to prevent separation in the presence of adverse pressure gradients. \citet{belcher2012wind} have carried out an analysis of the flow over a hill covered with canopies using numerical and experimental data; the authors show how the permeable layer can present a re-circulation region inside the canopy in the decreasing slope side of the hill. This zone move the separation away from the flow over the hill to the internal structure of the canopy.
+Canopies can also help to prevent separation in the presence of adverse pressure gradients. \citet{belcher2012wind} have carried out an analysis of the flow over a hill covered with canopies using numerical and experimental data. The authors show how the permeable layer can present a re-circulation region inside the canopy in the decreasing slope side of the hill. This zone move the separation away from the flow over the hill to the internal structure of the canopy.
 %In this sense when we look at the "global" hill (ground and canopy layer) the reversed flow typical of this geometry is not present.
 
 It is important to point out that the above results are restricted to fibrous or slender structures and they cannot be extrapolated in general for different porous structure and shapes, even though similar mechanisms are expected.
 
-The research on canopy flow embraces a wide range of configurations and this makes very difficult the comparison of the results since most of the authors use very different models in various regimes of velocities, using flexible structures with very different shapes.
+The research on canopy flow embraces a wide range of configurations and this renders any comparison very difficult to make since most of the authors use very different models in various regimes of velocities, using flexible structures with very different shapes.
 Even if experiments are easier to find, like \citet{segalini2011experimental}, \citet{segalini2013scaling}, \citet{maza2013coupled}, \citet{barsu2016drag} and \citet{alvarado2017nature}, there is no quantitative mathematical model established for the fluid and structure equations and almost all models available rely on empirical correlations that fit the data in each different application.
 
 
@@ -356,7 +356,7 @@ Even if experiments are easier to find, like \citet{segalini2011experimental}, \
 \label{ch:model_porous}
 
 In this section we want to show some insight of the key characteristics that a model of flows through poroelastic layers should have.
-In order to be as clear as possible we have taken as example a very simple geometry to sketch the problem; the flow over a wall that includes multiple flexible filaments (in the hypothesis of highly packed fibers the medium can be treated like a porous medium). 
+In order to be as clear as possible we have taken as example a very simple geometry to sketch the problem: the flow over a wall that includes multiple flexible filaments, in the hypothesis of highly packed fibers the medium can be treated like a porous medium. 
 This simple geometrical configuration still has all the characteristic and difficulties of more interesting applications, such as a bluff body with a poroelastic layer.
 
 \begin{figure}[h]
@@ -366,7 +366,7 @@ This simple geometrical configuration still has all the characteristic and diffi
 	\label{fig:schema_problem}
 \end{figure}
 
-Figure \ref{fig:schema_problem} shows a graphical representation of such a flow; the main fluid direction is aligned with the $x_1$ axis and the projection of the stream-wise component of the velocity is shown in the plane $x_1 - x_3$.
+Figure \ref{fig:schema_problem} shows a graphical representation of such a flow. The main fluid direction is aligned with the $x_1$ axis and the projection of the stream-wise component of the velocity is shown in the plane $x_1 - x_3$.
 Such flow can bend the filaments that can show a more or less coherent response.
 The surface that envelops all the filaments lid ($\Gamma$) defines the limit between the region of free flow ($\Omega_{f}$) and that inside the poroelastic medium ($\Omega_{p}$). Its projection is shown in the  $x_1 - x_3$ plane.
 
@@ -376,33 +376,33 @@ In order to computationally solve this problem there are some key points to addr
 	Turbulence dynamic can be also problematic; the hypothesis that pore size eddies can exist deep inside the porous medium is still object of some debate in the community.
 	How to deal with such small scale dynamics and/or find a model is not an easy task. 
 	
-	\item Compliance (fluid-structure interaction): if the filaments are flexible, they can bend and swing due to the fluid load.
+	\item Compliance or fluid-structure interaction: if the filaments are flexible, they can bend and swing due to the fluid load.
 	We have to take into account a structural model for the filaments (by using, for example, the Bernoulli beam equation), including also the computation of energy that the swing motion re-inject inside the fluid.
-	This two-way coupling could also be really computational expensive in the presence of a large number of filaments. If the flexibility is important, one should in principle take into account also the contact and repulsion (elastic coupling) between the fibers.
-	If the porous medium has more complicated shapes (like the scales in the butterfly wing) to come out with a simplified model for the solid dynamics is even harder and the use of a general finite elements discretization is probably a necessity (increasing also the computational cost of the problem).
+	This two-way coupling could also be really computational expensive in the presence of a large number of filaments. If the flexibility is important, one should in principle take into account also the contact and repulsion, elastic coupling, between the fibers.
+	If the porous medium has more complicated shapes, like the scales in the butterfly wing, is even harder to come out with a simplified model for the solid dynamics and the use of a general finite elements discretization is probably a necessity but it increasing also the computational cost of the problem.
 	Another approach consists in deriving a "rheological" model for the medium, in which the average mechanical properties can be found.
-	Such models are applicable only to porous media where the solid inclusions are connected to each other. Such average methods are convenient computationally but their mathematical description can be difficult.
+	Such models are applicable only to porous media where the solid inclusions are connected to each other. Such average methods are computationally convenient but their mathematical description can be difficult.
 	
-	\item Anisotropy: the model used should be capable to treat permeable surfaces that have different responses when stressed in different directions. For instance, the geometrical arrangement and/or the mechanical properties of the medium can be non-homogeneous, so that the medium can appear more permeable in one direction and show a preferential flow path. The different reaction for a specific direction can be modeled with a tensorial parameter as for the case of the permeability tensor that is basically a generalized drag coefficient.
+	\item Anisotropy: the model used should be able to treat permeable surfaces that have different responses when stressed in different directions. For instance, the geometrical arrangement and/or the mechanical properties of the medium can be non-homogeneous, so that the medium can appear more permeable in one direction and show a preferential flow path. The different reaction for a specific direction can be modeled with a tensorial parameter as for the case of the permeability tensor that is basically a generalized drag coefficient.
 \end{itemize}
 
 \citet{dupont2010modelling} performed a LES simulation introducing a two-way coupling for the fluid-structure interaction problem over a carpet of fibers. They validated their simulations with video recording of a similar experiment and the frequency measurements of the Kelvin–Helmholtz instabilities at the interface agrees very well.
 They have not specified the computational configuration used, but they have mentioned an important high performance computing center in the acknowledgment which made us assume that the computational power involved was substantial.
 Recently, also \citet{marjoribanks2017does} have adopted a similar approach.
 
-Some other examples that solve the fully coupled problem directly are discussed by \citet{monti2017large}, \citet{pinelli2017pelskin}, \citet{favier2017pelskin} and \citet{revell2017pelskin}, but in their cases the number of filaments is small and so they can be assimilated to isolated filaments rather than to a poroelastic carpet.
+Some other examples that solve the fully coupled problem directly are discussed by \citet{monti2017large}, \citet{pinelli2017pelskin}, \citet{favier2017pelskin} and \citet{revell2017pelskin}. However, in their cases the number of filaments is small and so they can be assimilated to isolated filaments rather than to a poroelastic carpet.
 
-Due to the computationally cost of solving the problem directly, the scientific community has came out with other approaches that treat the porous domain with a generalized model that does not resolve the fine scales inside the medium, but instead expresses them as a function of the length scales present in the fluid domain $\Omega_{f}$.
+Due to the computationally cost of solving the problem directly, the scientific community has came out with other approaches that treat the porous domain with a generalized model that does not resolve the fine scales inside the medium, but instead it expresses them as a function of the length scales present in the fluid domain $\Omega_{f}$.
 
 These are called homogenization approaches and the key points in such methods are:
 \begin{itemize}
-	\item The division of the overall domain in two different parts: the fluid domain $\Omega_{f}$ and the porous domain $\Omega_{p}$;
-	\item Two different fluid models are used in the two domains. In $\Omega_{f}$ the Naver-Stokes equations for incompressible Newtonian fluids are solved. In the porous part there are a number of different models that adds source terms in the former equations to take into account the presence of the porous medium;
-	\item The two domains should be coupled together with a boundary condition at the interface or a transitional region around the interface is added with its specific treatment;
+	\item The division of the overall domain in two different parts: the fluid domain $\Omega_{f}$ and the porous domain $\Omega_{p}$.
+	\item Two different fluid models are used in the two domains. In $\Omega_{f}$ the Naver-Stokes equations for incompressible Newtonian fluids are solved. In the porous part there are a number of different models that add source terms in the former equations to take into account of the presence of the porous medium.
+	\item The two domains should be coupled together with a boundary condition at the interface or a transitional region around the interface is added with its specific treatment.
 	\item A model for the structural mechanics. It can be an averaged model or it can solve the mechanic equations directly.
 \end{itemize}
 
-The key points shown above are extensively discussed, in chapter \ref{ch:vans}, for the homogenization method chosen in this thesis.
+The key points written above are extensively discussed, in chapter \ref{ch:vans}, for the homogenization method chosen in this thesis.
 However, in the next section the two main branches in literature, that take into account the presence of a porous medium layer are summarized in order to give a panoramic on the possible choices.
 
 
@@ -428,12 +428,12 @@ The drag term is quadratic in the velocity, but there is some evidence in the li
 From our point of view this approach lacks of strong mathematical formalism. As a matter of fact the definition of the additional terms of the equations heavily relies on empirical relations.
 Another issue is that the isotropic hypothesis rules out the possibility to model the anisotropic nature of most surfaces in which we are interested. %\footnote{as equation \eqref{eq:max_dr} suggests, the difference in the permeability along each direction can be important for drag reduction.}.
 
-In the field of flows through vegetation some authors have successfully used this approach, for example \citet{maza2013coupled} and \citet{maza2015tsunami} used it to study wave attenuation and \citet{ghisalberti2004limited}, \citet{battiato2014single} developed simple models for the 2D mean flow over a canopy.
+In the field of flows through vegetation some authors have successfully used this approach. For example \citet{maza2013coupled} and \citet{maza2015tsunami} used it to study wave attenuation and \citet{ghisalberti2004limited}, \citet{battiato2014single} developed simple models for the 2D mean flow over a canopy.
 
 
 \subsection{Homogenization models}
 
-In this section we want to introduce the most used approach to derive the equations valid in the porous domain.
+In this section we want to introduce the most popular approach to derive the equations valid in the porous domain.
 The fundamental idea is to build a micro-scale model, for both the fluid and the solid, and then derive the macro-scale equations using some averaging operator over the micro-scale.
 
 The two most used homogenization methods are the \textit{Volume Averaging} method (\citet{whitaker2013method}) and the \textit{Multiple Scales} method (\citet{mei2010homogenization}) which can be broadly classified as perturbations methods. 
@@ -443,7 +443,7 @@ The key differences and the main results retrieved using these approaches are pr
 \subsubsection{Volume Averaging}
 \label{sec:vans}
 
-The method of Volume Averaging has been developed to treat transport equations in porous media applications; in this case the presence of two different length scales is obvious, as it can be evinced from figure \ref{fig:porsystem}.
+The method of Volume Averaging has been developed to solve transport equations in porous media applications; in this case the presence of two different length scales is obvious, as it can be evinced from figure \ref{fig:porsystem}.
 	
 	\begin{figure}[h]
 		\centering
