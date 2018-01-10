@@ -610,7 +610,8 @@ and $\mathbf{C}$ from:
 \label{eq:C_problem}
 \end{eqnarray}
 
-The problems definition for $\mathbf{S}$, $\mathbf{B}$ and $\mathbf{C}$ do not arise from the direct substitution of \eqref{eq:closure_viab_divison} and 	\eqref{eq:closure_viab_hp} into the system \eqref{eq:vans_mom_2} they are instead a choice made to simplify the calculations (\citet{whitaker1996forchheimer}). Substituting the decomposition \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} inside the surface filter $\mathbf{F}^m$ we get:
+%The problems definition for $\mathbf{S}$, $\mathbf{B}$ and $\mathbf{C}$ do not arise from the direct substitution of \eqref{eq:closure_viab_divison} and 	\eqref{eq:closure_viab_hp} into the system \eqref{eq:vans_mom_2} they are instead a choice made to simplify the calculations (\citet{whitaker1996forchheimer}).
+Substituting the decomposition \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} inside the surface filter $\mathbf{F}^m$ we get:
 
 $$
 \mathbf{F}^m = \nub \left(\dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{s}\mathbf{I}  +  \nabla \mathbf{S} \right) \cdot \nbs \;dA \right) \vbmi
@@ -720,8 +721,8 @@ Our work is not focused on the development of a new condition although, in this 
 The interface conditions can be classified into two groups: the \textit{one domain approach} (ODA) and the \textit{two domain approach} (TDA).
 In the TDA the whole domain is split into two and a boundary condition at the interface is specified. Historically, the necessity of such a treatment was mainly due by the difference of order of the Stokes equations and the Darcy one, that makes them incompatible at the interface.
 The Brinkmann model adjusts the order of the porous medium equation, however the validity of this correction deep inside the porous medium is questionable.
-The TDA was followed by \citet{beavers1967boundary}, \citet{mikelic2000interface}, \citet{ochoa1995momentum} and \citet{le2006interfacial}.
-These works have all in common the fact that a certain slip is specified at the interface; for example the \citet{beavers1967boundary} condition reads:
+The TDA was followed by \citet{beaver}, \citet{mikelic2000interface}, \citet{ochoa1995momentum} and \citet{le2006interfacial}.
+These works have all in common the fact that a certain slip is specified at the interface; for example the \citet{beaver} condition reads:
 $$
 \meani{\vb}(x,\Gamma^+) = \dfrac{\sqrt{K_{11}}}{\alpha} \derp{\meani{\vb}(x, \Gamma^-)}{y},
 $$
