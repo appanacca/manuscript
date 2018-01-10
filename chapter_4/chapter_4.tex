@@ -169,27 +169,27 @@ The two different tensors $\mathbf{K}$ and $\mathbf{F}$  can be computed by mean
 
 \begin{eqnarray*}
 \begin{cases}
-0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I}\\
-\nabla \cdot \mathbf{D} = 0  \\
-\mathbf{D} = 0 \quad \textrm{at} \; A_{\beta \sigma} \\
-\mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 \\
-\meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}
+0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I},\\
+\nabla \cdot \mathbf{D} = 0,  \\
+\mathbf{D} = 0 \quad \textrm{at} \; A_{\beta \sigma}, \\
+\mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 , \\
+\meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}.
 \end{cases}
 \end{eqnarray*}
 
 The second closure problem differs from the first only for the presence of a linearised convective term 
 in which the microscopic velocity obtained from the DNS, $\vb$, is used as an input.  This of course implies knowledge of the microscopic velocity field. A Oseen-like approximation which relaxes this constraint has been proposed by \citet{zampogna}.
 
-\begin{eqnarray}
+\begin{eqnarray*}
 \begin{cases}
-\dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I}\\
-\nabla \cdot \mathbf{M} = 0  \\
-\mathbf{M} = 0 \quad at \; A_{\beta \sigma} \\
-\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 \\
-\meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}
+\dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I},\\
+\nabla \cdot \mathbf{M} = 0,  \\
+\mathbf{M} = 0 \quad at \; A_{\beta \sigma}, \\
+\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 ,\\
+\meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}.
 \end{cases}
 \label{eq:h_model}
-\end{eqnarray}
+\end{eqnarray*}
 
 
 The closure problems reflect the structure of the solution of the two system \eqref{eq:D_problem} and \eqref{eq:M_problem}. In particular, the solution of the former depends only on the geometry of the porous medium so that the permeability tensor $\mathbf{K}$ is symmetric. This is not the case for $\mathbf{H}$, because of the effect of the microscopic velocity amplitude and direction.  Clearly, the solution of system \eqref{eq:M_problem} tends to that of \eqref{eq:D_problem} when $Re_d \rightarrow 0$. 

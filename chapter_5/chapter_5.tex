@@ -129,9 +129,9 @@ With the above relationship it is possible to define the porosity as a function 
 \begin{equation}
 \varepsilon(y) = 
 \begin{cases}
-1 & y\geqslant(y_{itf}+\ell) \\
-\varepsilon +\dfrac{1-\varepsilon}{2\ell}\left[y -\left(y_{itf} -\ell\right)\right] &  (y_{itf}-\ell)<y<(y_{itf}+\ell)\\
-\varepsilon &y\leqslant(y_{itf}-\ell) \\
+1 & y\geqslant(y_{itf}+\ell/2) \\
+\varepsilon +\dfrac{1-\varepsilon}{\ell}\left[y -\left(y_{itf} -\ell/2\right)\right] &  (y_{itf}-\ell/2)<y<(y_{itf}+\ell/2)\\
+\varepsilon &y\leqslant(y_{itf}-\ell/2) \\
 \end{cases}
 \label{eq:porsitity_fun}
 \end{equation}
@@ -143,9 +143,9 @@ The ${H_{ii}}$ term in equation \eqref{eq:permeability_fun} refers to the effect
 \begin{equation}
 {H_{ii}}^{-1}(y) = 
 \begin{cases}
-0 & y\geqslant(y_{itf}+\ell) \\
-{H_{ii}}^{-1} - \dfrac{{H_{ii}}^{-1}}{2\ell}\left[y -\left(y_{itf} -\ell\right)\right] &  (y_{itf}-\ell)<y<(y_{itf}+\ell)\\
-{H_{ii}}^{-1} &y\leqslant(y_{itf}-\ell) \\
+0 & y\geqslant(y_{itf}+\ell/2) \\
+{H_{ii}}^{-1} - \dfrac{{H_{ii}}^{-1}}{\ell}\left[y -\left(y_{itf} -\ell/2\right)\right] &  (y_{itf}-\ell/2)<y<(y_{itf}+\ell/2)\\
+{H_{ii}}^{-1} &y\leqslant(y_{itf}-\ell/2) \\
 \end{cases}
 \label{eq:permeability_fun}
 \end{equation}
@@ -186,7 +186,7 @@ Some differences between the two models have to expected since in the VANS appro
 The same case and comparison has been done also for a Reynolds number equal to $Re=1000$.
 For this case the same conclusion as the previous case are confirmed. Some of the relative errors are even smaller compared to the previous Reynolds number case. This support the robustness of our model in this range of Reynolds numbers.
 These two solutions of the cavity problem shown that varying the permeability and the porosity in a linear manner through the interface is an acceptable choice when using the penalization method.
-Compared to previous case the flow field now presents two different recirculations inside the porous medium domain, increasing the complexity of the dynamics inside the porous medium. Looking at the zone around the porous interface in figures \ref{fig:ux} and \ref{fig:uy}, the differences between the DNS and homogenized approach are clear. The DNS shows oscillations in both the vertical and horizontal velocity components due to the presence of the fibers, on the contrary in the homogenized approach this local oscillations are smoothed out by the averaging operation. However, these oscillations have a very small amplitude and, to make them visible the range of values plotted needs to be modified (bottom pictures of figures \ref{fig:ux} and \ref{fig:uy}).
+Compared to previous case the flow field now presents two different recirculations inside the porous medium domain, increasing the complexity of the dynamics inside the porous medium. Looking at the zone around the porous interface in figures \ref{fig:ux} and \ref{fig:uy}, the differences between the DNS and homogenized approach are clear. The DNS shows oscillations in both the vertical and horizontal velocity components due to the presence of the fibers, on the contrary in the homogenized approach this local oscillations are smoothed out by the averaging operation. However, these oscillations have a very small amplitude and to make them visible the range of values plotted needs to be modified (bottom pictures of figures \ref{fig:ux} and \ref{fig:uy}).
 
 \begin{figure}[H]
 	\centering
