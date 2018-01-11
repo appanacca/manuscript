@@ -452,7 +452,7 @@ The method of Volume Averaging has been developed to solve transport equations i
 		\label{fig:porsystem}
 	\end{figure}
 
-The core idea of the methods is to firstly define an average operator as $$\meani{\psi} = \dfrac{1}{\volb} \displaystyle\int_{V} \psi \, dV$$ in this case the variable $\psi$ represents any vector or scalar variable in the system of equations that we want to homogenize; for Navier-Stokes equation $\psi$ is the velocity and the pressure. In the above operator $\volb$ is the fluid fraction present inside a reference volume $V$.
+The core idea of the methods is to firstly define an average operator as $$\meani{\psi} = \dfrac{1}{\volb} \displaystyle\int_{V} \psi \, dV,$$ in this case the variable $\psi$ represents any vector or scalar variable in the system of equations that we want to homogenize. For Navier-Stokes equation $\psi$ is the velocity and the pressure. In the above operator $\volb$ is the fluid fraction present inside a reference volume $V$.
 
 The average operator has the purpose to homogenize the equations. The second crucial step of the method is to decompose the variables as proposed by \citet{gray1975derivation}:
 
@@ -463,7 +463,7 @@ The average operator has the purpose to homogenize the equations. The second cru
 
 \noindent Equation \eqref{eq:vans_decomp} shows how each variable can be decomposed into an averaged part which contains only spatial variations at the macro-scale $L$ and a \textit{fluctuation} part that contains only the micro-scale $\ell$ spatial variations.
 
-Also the decomposition can be substituted in the transport equations that we want to average, and after some mathematical manipulations it is possible to retrieve the new averaged equations that include only variables of order $L$.
+Also the decomposition can be substituted in the transport equations, and after some mathematical manipulations it is possible to retrieve the new averaged equations that include only variables of order $L$.
 Since this is the method chosen to develop our work, all the technical details are explained in chapter \ref{ch:vans}.
 
 To introduce briefly some other aspects about this method, we show, as an example, how to derive the homogenized version of the Stokes equation. The described problem is a steady flow inside a rigid porous medium, like the one in figure \ref{fig:porsystem}.
@@ -480,10 +480,10 @@ The homogenized version of \eqref{eq:stokes} is the well known Darcy's equation:
 $$\vbmi = -\dfrac{ \mathbf{K} }{\varepsilon \mub} \nabla \pbmi,$$
 developed with this approach by  \citet{whitaker1986flow}.
 
-The Darcy's equation allows to recognize two additional quantities that arise from the averaging procedure, the first one is a scalar called porosity $\varepsilon$ that represents the ratio between the volume of the fluid inside a reference volume over the total volume.
+The Darcy's equation allows to recognize two additional quantities that arise from the averaging procedure. The first one is a scalar called porosity $\varepsilon$ that represents the ratio between the volume of the fluid inside a reference volume over the total volume.
 The second one is the tensor $\mathbf{K}$ called permeability tensor and it expresses the resistance of the porous medium that affects the flow in its motion.
 The term $\mathbf{K}$ plays the same role as $C_D a$ in the isotropic drag model; the main difference is that the permeability tensor can be computed directly from the geometry of the medium (see chapter \ref{ch:vans}), i.e. it does not rely on empirical relations.
-In addition, the tensorial nature of this terms allows us to model porous inclusions that are anisotropic.
+In addition, the tensorial nature of this terms allows to model porous inclusions that are anisotropic.
 
 Applications of the theory include flow where inertial terms are not negligible (\citet{whitaker1996forchheimer}), porous media with small deformations (\citet{whitaker1986flow2}) and with high deformations (\citet{hussong2011continuum}), turbulent problems (\citet{soulaine2014}, \citet{breugem2006influence}), interface between a permeable medium and a free flow (\citet{beaver}), multi-phase systems (\citet{whitaker1973transport}), heat transfer (\citet{carbonell1984heat}) and sound propagation (\citet{firdaouss1998some}, \citet{lafarge1998sound}).
 
@@ -514,10 +514,10 @@ It can be shown that analyzing each equation in the set the homogenized equation
 \label{eq:darcy_ms}
 \end{equation} 
 
-In which either the pressure or the velocity fields appears only at the order zero, and the equation depends only on the macro-scale length.
+\noindent in which either the pressure or the velocity fields appears only at the order zero, and the equation depends only on the macro-scale length.
 
 The same permeability tensor $\mathbf{K}$ as before is found, with the same definition and interpretation.
-It is clear that for this simple problem we end up with the same homogenized equation; the point that has changed is the starting hypotheses of the method and the mathematical development.
+It is clear that for this simple problem we end up with the same homogenized equation. The point that has changed is the starting hypotheses of the method and the mathematical development.
 
 A full analysis of the dualism of the two approaches can be found in the work by \citet{davit2013homogenization}.
 
@@ -542,7 +542,7 @@ The effect of the onset of the monami is depicted qualitatively in figure \ref{f
 	\label{fig:monami}
 \end{figure}
 
-Vortices arise from the nonlinear amplification of a Kelvin-Helmholtz instability mode, related to the presence of an inflection point in the base flow profile (\citet{asaeda2005morphological}); the profile itself is inflectional because the fluid is slowed down by the drag exerted by the canopy, whose modeling has recently been addressed (\citet{py2004mixing}; \citet{singh2016linear};  \citet{zampogna2016instability}; \citet{tilton2008linear}).
+Vortices arise from the nonlinear amplification of a Kelvin-Helmholtz instability mode, related to the presence of an inflection point in the base flow profile (\citet{asaeda2005morphological}). The profile itself is inflectional because the fluid is slowed down by the drag exerted by the canopy, whose modeling has recently been addressed (\citet{py2004mixing}; \citet{singh2016linear};  \citet{zampogna2016instability}; \citet{tilton2008linear}).
 The correct prediction of the onset and characteristics of the Kelvin-Helmholtz instability is important to assess the effects of turbulence (\citet{finnigan2000turbulence}, \citet{jimenez2001turbulent}) in particular to:
 
 \begin{itemize}
@@ -553,13 +553,13 @@ The correct prediction of the onset and characteristics of the Kelvin-Helmholtz 
 	response to continuous periodic forcing (\citet{asaeda2005morphological}, \citet{patil2010characteristics}).
 \end{itemize}
 
-One of the possible approaches to study how and when these instabilities start is the linear stability analysis. In the following section we briefly introduce the key assumption and simplifications of the method, and in the next section some results in the context of permeable surfaces are presented.
+One of the possible approaches to study how and when these instabilities start is the linear stability analysis. In the following section we briefly introduce the key assumption and simplifications of the method, and some results in the context of permeable surfaces are also presented.
 
 
 \subsection{Stability theory generalities}
 
 Stability theory covers the modeling of transition of fluid systems towards unstable states eventually leading to turbulence.
-The theory gives us a fast and robust method to compute the frequency and grow rate of the unstable mode, if there is any, in the base flow.
+The theory provides a fast and robust method to compute the frequency and grow rate of the unstable mode in the base flow.
 
 The linear stability relies on the decomposition of the flow variables $\mathbf{q}$ into a steady-state part $\overline{\mathbf{q}}$, called base flow, and an unsteady part $\widetilde{\mathbf{q}}$:
 
@@ -568,7 +568,7 @@ Where the unsteady part is small compared to the steady one. We also simplify $\
 $$  \widetilde{\mathbf{q}} =  \widehat{\mathbf{q}}(\mathbf{x}) e^{i\Theta(\mathbf{x},t)} $$
 where $\widehat{\mathbf{q}}$ is the amplitude function and $\Theta$ is the phase of the perturbation.
 The choice made to determine the time and space dependency of either the phase function and the amplitude determine a certain hierarchy inside the stability theories. This hierarchy depend on how many directions we consider to be periodic in the amplitude function\footnote{The hierarchy goes from local approach with 2 direction periodic out of 3, to tri-global with all the 3 directions considered space dependent.}.
-Figure \ref{fig:table} below present each possible choice in literature and the theory that derives from it.
+Table \ref{fig:table} below present each possible choice in literature and the theory that derives from it.
 
 \begin{figure}[h]
 	\centering
@@ -577,12 +577,12 @@ Figure \ref{fig:table} below present each possible choice in literature and the 
 	\label{fig:table}
 \end{figure}
  
-In our case we have limited our study to a local approach build on mode decomposition, \textit{local stability theory} (LST, also known as \textit{ordinary stability equations} OSE in the denomination of figure \ref{fig:table}).
-In the LST we make the hypothesis that the amplitude and the base flow depend only on the wall normal spatial coordinate (parallel flow) and the phase function takes into account the periodicity in time and in the streamwise and cross-flow directions.
+In our case we have limited our study to a local approach build on normal mode decomposition, \textit{local stability theory} (LST, also known as \textit{ordinary stability equations} OSE in the denomination of table \ref{fig:table}).
+In the LST we make the hypothesis that the amplitude and the base flow depend only on the wall normal spatial coordinate (parallel flow) and the phase function takes into account of the periodicity in time and in the streamwise and cross-flow directions.
 The last hypothesis should not only be seen as a simplification since there are some problems (such as canopy flows) in which two of the three directions are really homogeneous.
-The complete formulation is in the following equation:
+The complete formulation is:
  $$  \widetilde{\mathbf{q}}(\mathbf{x},t) =  \widehat{\mathbf{q}}(x_2) e^{i(\alpha x_1 + \beta x_3 - \omega t)}  $$ 
-where $x_2$ is the wall normal direction, $\alpha$ is the streamwise ($x_1$) wavenumber, $\beta$ is the crossflow ($x_3$) wavenumber and $\omega$ is the temporal frequency.
+where $x_2$ is the wall normal direction, $\alpha$ is the streamwise ($x_1$) wavenumber, $\beta$ is the crossflow ($x_3$) wavenumber and the real part of $\omega$ is the temporal frequency.
 
 Casting this form for the pressure and velocity inside the Navier-Stokes equation, the equations that we get describe the evolution of the perturbations, taking the base flow as an input of the problem.
 In order to study the stability of the perturbations in their time evolution, problem known as \textit{temporal stability}, we fix the space perturbation form imposing $\alpha$ and $\beta$ as real numbers (inputs of the problem) and solving for $\omega$ as a complex number.
@@ -620,6 +620,6 @@ In chapter \ref{ch:stability} we study how the perturbation of the base flow aff
 
 
 \section{Conclusions}
-The key points of this introductory chapter were to first present the context of this research. We have started explaining that the idea of using porous surface as aerodynamical performance enhancement from various examples in Nature.
+The key point of this introductory chapter was to first present the context of this research. We have started explaining that the idea of using porous surface as aerodynamical performance enhancement from various examples in Nature.
 Many models based on this idea already exist and we gave an extensive summary of the results present in the literature. We have also presented the key points of the mathematical methods used to derive the porous medium equations that supply a basis for the next chapter in which the volume average method is formally explained.
 %Some of the results and the context of the chapter \ref{ch:stability} has been also presented to clarify the connection between the stability analysis and the porous flows.
