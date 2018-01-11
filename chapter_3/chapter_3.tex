@@ -54,7 +54,7 @@ on the onset and growth of Kelvin-Helmholtz waves.
 The present work addresses the points above through an adjoint based sensitivity analysis along
 the lines of \citet{bottaro2003effect} the direct stability equations are written with account of viscosity, and
 the adjoint equations are found and solved in the temporal framework. Results in the spatial setting
-are discussed in Appendix B, where a digression is made on the computation of the group velocity
+are discussed in section \ref{appB}, where a digression is made on the computation of the group velocity
 of the instability waves by the use of the adjoint fields. The sensitivity functions to both mild
 modifications in the base shear layer and in the drag coefficient are computed and discussed. Finally,
 a different sensitivity analysis is developed on the basis of the recent anisotropic model by \citet{zampogna2016instability} and the results qualitatively compared to those obtained with the more conventional
@@ -78,7 +78,7 @@ not repeated here, aside from a few brief comments. A mildly inclined water chan
 $d = 0.64 cm$. The frontal area of the vegetation per unit volume, i.e., the packing density of the
 elements, is either $a = 0.04 cm^{-1}$ or  $0.08 cm^{-1}$ ; the free surface is positioned at a level $H = 46.7 cm$
 from the bottom plate and the flow velocity at the free surface, $U_2$ , varies from $4.4$ to $13.7 cm/s$. The
-Froude number, $F_r = \dfrac{U_2}{g H} $ is thus very low and water surface fluctuations can be ignored \citet{brevis2014experimental}. 
+Froude number, $F_r = \dfrac{U_2}{g H} $ is thus very low and water surface fluctuations can be ignored (\citet{brevis2014experimental}). 
 To a good approximation the mean flow can be taken as steady and parallel, with the streamwise
 velocity varying from the value $U_1$ at the bottom wall (not accounting for the thin bottom boundary
 layer) to the value $U_2$ at the top, near the free surface (\ref{fig:1}). The slope of the bottom surface is
@@ -101,14 +101,7 @@ variable across the canopy and equal to zero when $y \geq h$.
 \end{figure}
 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=1\linewidth]{chapter_3/figure/2}
-	\caption{Left frame: mean flow U , together with experimental data points \citet{ghisalberti2004limited},  its first derivative, and drag coefficient
-		distribution (case G). Center: viscous and inviscid growth rates, $\omega_i$ , as a function of the streamwise wavenumber $\alpha$. Right:
-		corresponding frequencies, $\omega_r$}
-	\label{fig:2}
-\end{figure}
+
 
 
 
@@ -118,16 +111,16 @@ on the gradient of the mean velocity U. Referring to \citet{ghisalberti2004limit
 correlations used to close the equations and the solution method, we limit ourselves here to stating
 that the results obtained for the mean flow are very close to those reported in \citet{zampogna2016instability} (cf.
 their Figure 3) and closely match experimental points for the cases G, H, I, and J considered (we use
-the same terminology of\citet{ghisalberti2002mixing} \citet{ghisalberti2004limited} \citet{ghisalberti2005mass} to indicate the different flow configurations). An
+the same terminology of \citet{ghisalberti2002mixing} \cite{ghisalberti2004limited} \cite{ghisalberti2005mass} to indicate the different flow configurations). An
 example of mean flow is reported in \ref{fig:2} (left frame). There, one can observe the computed flow
 (against discrete measurement points), its first derivative, and the drag coefficient distribution for one
 representative case (experiment G), used below also to discuss stability and sensitivity results.
 Other procedures have been employed in the past to calculate the mean flow, with satisfactory
-results. For example,\citet{singh2016linear} have considered a constant value of $C_d$ through the canopy, while
+results. For example, \citet{singh2016linear} have considered a constant value of $C_D$ through the canopy, while
 \citet{zampogna2016instability} have coupled, at a fictitious interface, the fluid equations outside the canopy
 to Darcy’s law within the vegetation. Thus, for the purposes of the present paper, the mean flow is
-assumed as given; it could be, for example, simply a fit through experimental data. Nonetheless, in
-Appendix A we provide some considerations on how $C_d$ affects the mean flow in the model used here.
+assumed as given; it could be, for example, simply a fit through experimental data. 
+%Nonetheless, in Appendix A we provide some considerations on how $C_D$ affects the mean flow in the model used here.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,8 +135,10 @@ q'(x,y,z,t)=\tilde q(y){\rm e}^{i(\alpha \  x -\omega \ t)}
 \label{eq:q}
 \end{equation}
 
-with $\alpha$ the real streamwise wavenumber and $\omega$ a complex number whose real part, $\omega_r$ , is the frequency of the mode and the imaginary part, $\omega_i$ , is the growth rate. The dimensionless linear stability
-equations in primitive variables read:
+with $\alpha$ the real streamwise wavenumber and $\omega$ a complex number whose real part, $\omega_r$ , is the frequency of the mode and the imaginary part, $\omega_i$ , is the growth rate. 
+
+\newpage
+\noindent The dimensionless linear stability equations in primitive variables read:
 
 \begin{equation}
 \begin{split}
@@ -154,22 +149,32 @@ equations in primitive variables read:
 \end{split}
 \end{equation}
 
-with the perturbation velocity components which vanish when $y=0$ and $y_{\infty}$. The upper boundary
+with the perturbation velocity components which vanish when $y=0$ and $y=y_{\infty}$. The upper boundary
 of the computational domain is taken far enough away from the lower boundary to ensure that the
 results do not vary upon modifications of $y_{\infty}$ . All the terms in the equations are dimensionless; the
 mean speed through the shear layer, $U_m = \dfrac{U_1 +U_2}{2}$ , is used to scale the disturbance velocity components, pressure is scaled with
 $\rho {U_m}^2$ , distances with $h$, and time with $h/U_m$ . The Reynolds number
-in the equations above is thus defined as $Re = \rho U_m/ \mu h$ , with $\rho$ and $\mu$ the fluid’s density and dynamic
+in the equations above is thus defined as $Re = \rho U_m h/ \mu$ , with $\rho$ and $\mu$ the fluid’s density and dynamic
 viscosity, respectively. The computations are performed both at the $Re$ values of the experiments
 and in the inviscid limit (${Re}^{-1}  \rightarrow 0$ ), for comparison purposes. In the latter case, the boundary
 conditions are simply $v = 0$ at $y = 0$ and $y_{\infty}$ .
-System \ref{eq:uvp} above and its boundary conditions are, in the following, also written in short
+System \eqref{eq:uvp} above and its boundary conditions are, in the following, also written in short
 notation as $\mathscr{L} q = 0$. The eigenvalues of the system are those complex values of $\omega$ which yield
 non trivial solutions for $u$, $v$, and $p$. Two numerical collocation codes are written, and success fully compared; one is based on the equations in primitive variables form, the second solves an
 Orr-Sommerfeld like equation (with the addition of the drag term) along the lines of \citet{singh2016linear}.
 In both cases, a spectral scheme based on N Chebyshev polynomials is used (N is typically equal
 to 300 to ensure grid converged results), with an algebraic mapping between the physical and the
 spectral domains (\citet{hussaini1987spectral} ).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{chapter_3/figure/2}
+	\caption{Left frame: mean flow U , together with experimental data points \citet{ghisalberti2004limited},  its first derivative, and drag coefficient
+		distribution (case G). Center: viscous and inviscid growth rates, $\omega_i$ , as a function of the streamwise wavenumber $\alpha$. Right:
+		corresponding frequencies, $\omega_r$}
+	\label{fig:2}
+\end{figure}
+
 Viscous and inviscid stability results for case G are shown in \ref{fig:2} (center and right frames);
 differences are small, in consideration of the fact that the Reynolds number of the viscous case
 is relatively large ($Re = 3450$). The viscous wavenumber of largest amplification is found for
@@ -180,9 +185,11 @@ $U$ velocity distribution to render $dU/dy$ continuous across $y$) and highlight
 stability problem to base flow variations.
 Following \citet{bottaro2003effect} it is assumed that small variations in base flow and drag coefficient
 entail infinitesimal variations in the system’s eigenvalues and eigenfunctions. We stress here the fact
-that $C_d$ is identically equal to zero outside of the canopy, and this implies that there are no possible
-variations in $C_d$ for $y \geq 1$. The sensitivity functions to variations in $U$ and $C_d$ are obtained by using
-the properties of the adjoint system which is defined from the Lagrange identity
+that $C_D$ is identically equal to zero outside of the canopy, and this implies that there are no possible
+variations in $C_D$ for $y \geq 1$. 
+\newpage
+The sensitivity functions to variations in $U$ and $C_D$ are obtained by using
+the properties of the adjoint system which is defined from the Lagrange identity:
 
 \begin{equation}
 0 = \delta \langle q^{\dagger}, \mathscr{L} q \rangle = 
@@ -193,15 +200,7 @@ the properties of the adjoint system which is defined from the Lagrange identity
 \label{eq:lagid}
 \end{equation}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{chapter_3/figure/3}
-	\caption{Moduli of direct (left frame) and adjoint (right frame) eigenfunctions for the viscous (continuous lines, $Re = 3450$)
-		and the inviscid (symbols) case, in correspondence to the wavenumber of largest amplification.}
-	\label{fig:3}
-\end{figure}
-
-and considering the effect of independent variations of $U$ and $C_d$ onto $q$ and $\omega$. It is found that:
+and considering the effect of independent variations of $U$ and $C_D$ onto $q$ and $\omega$. It is found that:
 
 \begin{equation}
 \delta \omega =\delta \omega_r + i \delta \omega_i= \int_0^{y_{\infty}}  G_U(y) \delta U(y) dy + \int_0^{1}  G_{C_D}(y) \delta C_D(y) dy
@@ -227,6 +226,14 @@ N_{\omega} = \int_0^{y_{\infty}} \left[ \overline{ v^{\dagger}} v  +  \overline{
 \label{eq:norm}
 \end{equation}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{chapter_3/figure/3}
+	\caption{Moduli of direct (left frame) and adjoint (right frame) eigenfunctions for the viscous (continuous lines, $Re = 3450$)
+		and the inviscid (symbols) case, in correspondence to the wavenumber of largest amplification.}
+	\label{fig:3}
+\end{figure}
+
 An example of direct and adjoint eigenfunctions is provided in \ref{fig:3}, both in the viscous case
 ($Re = 3450$) and in the inviscid limit, for $\alpha = 0.4790$. It is interesting to observe that while the
 direct eigenfunctions are almost overlapped, the same is not the case for the adjoint eigenfunctions,
@@ -245,18 +252,18 @@ equations are much less effective.
 Some representative sensitivity functions are plotted in \ref{fig:4}; viscous and inviscid results
 concur in showing that the largest sensitivities to variations of U are found right above the vegetation’s edge, where there are peaks in the adjoint eigenfunctions and where $d^2 U/d y^2$ vanishes. The
 $U$ sensitivities are negligible within the vegetated layer and for values of $y$ larger than twice the
-canopy’s height. The $C_d$ sensitivities are non negligible only in close proximity of the interface.
+canopy’s height. The $C_D$ sensitivities are non negligible only in close proximity of the interface.
 It is interesting to observe that real and imaginary parts of the $U$ sensitivity functions are
-shifted in y with respect to one another; this means that, for example, a localized perturbation at
+shifted in $y$ with respect to one another; this means that, for example, a localized perturbation at
 a given $y$ position (above the canopy) might have a strong repercussion on the growth rate but not
 on the frequency of the most unstable Kelvin-Helmholtz mode, or vice versa. Comparing left and
-right frames of the figure, it is seen that inviscid $G_U$ sensitivity functions display sharper peaks and
+right frames of the figure \ref{fig:4}, it is seen that inviscid $G_U$ sensitivity functions display sharper peaks and
 steeper gradients, and yield larger variations in $\omega$ than their viscous counterparts in the proximity of
 the $U$ inflection point, a clear consequence of the inviscid mechanism ruling the instability. In both
 the viscous and the inviscid models, the sensitivity to base flow variations is typically one order of
 magnitude larger than the sensitivity to changes in the drag coefficient.
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_3/figure/4}
 	\caption{Real and imaginary parts of the sensitivities to mean flow variations (top) and to variations in the drag distribution
@@ -267,23 +274,23 @@ magnitude larger than the sensitivity to changes in the drag coefficient.
 The infinite norm of the sensitivities for the four cases studied (G, H, I, and J) is reported in
 \ref{fig:5}; the main result found is that ${|G_U|}_{\infty}$ grows monotonically with $\alpha$ (and more so in the inviscid
 case) whereas ${|G_{C_d}|}_{\infty}$ does not. It is consistently found that ${|G_U|}_{\infty}$ of case H is larger than that of
-case I, which exceeds the corresponding value of case J, in turn larger than${|G_U|}_{\infty}$ of case G. This is
-not unexpected in view of the values of the mean shear $\dfrac{U_2 - U_1}{H}$  which are, going from H to G, equal
+case I, which exceeds the corresponding value of case J, in turn larger than ${|G_U|}_{\infty}$ of case G. This is
+not unexpected in view of the values of the mean shear $\dfrac{U_2 - U_1}{H}$  which are, going from H to G, equal to $0.236$, $0.158$, $0.084$, and $0.071 s^{-1}$ , respectively. The sensitivity of the eigenvalue $\omega$ to variations
+in the mean flow is generally stronger than the corresponding sensitivity to variations in the drag
+coefficient (aside for the long wave limit, where they are comparable). This might be interpreted
+positively, considering that the use of a scalar coefficient $C_D$ to represent the drag within the canopy
+is but a crude approximation. 
+\newpage
+An alternative model to represent the flow throughout a network of
+rigid, cylindrical dowels has recently been proposed by \citet{zampogna2016instability} The sensitivity results for
+such a new model are discussed next.
 
-\begin{figure}[H]
+\begin{figure}[t!]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_3/figure/5}
 	\caption{Infinite norms of the sensitivity functions for varying $\alpha$}
 	\label{fig:5}
 \end{figure}
-
-to $0.236$, $0.158$, $0.084$, and $0.071 s^{-1}$ , respectively. The sensitivity of the eigenvalue $\omega$ to variations
-in the mean flow is generally stronger than the corresponding sensitivity to variations in the drag
-coefficient (aside for the long wave limit, where they are comparable). This might be interpreted
-positively, considering that the use of a scalar coefficient $C_d$ to represent the drag within the canopy
-is but a crude approximation. An alternative model to represent the flow throughout a network of
-rigid, cylindrical dowels has recently been proposed by \citet{zampogna2016instability} The sensitivity results for
-such a new model are discussed next.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -294,11 +301,14 @@ such a new model are discussed next.
 The stability problem in this section is based on the coupling between two regions, one outer
 region dominated by inertia and ruled by the inviscid equations and an inner one dominated by
 viscosity and ruled by Darcy’s law, with account of the canopy geometry through a tensorial
-permeability, as described by \citet{zampogna2016instability} Normalizing the disturbance equation which couples
+permeability, as described by \citet{zampogna2016instability}. 
+
+\newpage
+Normalizing the disturbance equation which couples
 pressure and velocity in the inner region with the same scales as previously, we obtain
 
 \begin{equation}
-{u_i}' = -Re \dfrac{d}{ah^2} {H}_{ij} \derp{p'}{{}x_j}',  \qquad (x_1, x_2) = (x,y)
+{u_i}' = -Re \dfrac{d}{ah^2} {H}_{ij} \derp{p'}{x_j},  \qquad (x_1, x_2) = (x,y)
 \label{eq:darcy}
 \end{equation}
 
@@ -306,30 +316,30 @@ pressure and velocity in the inner region with the same scales as previously, we
 with ${H}_{ij}$ the dimensionless apparent (or effective) permeability. The effective interface between the inertial region and the
 slow, viscosity dominated region does not coincide with the edge of the canopy; in fact, the rapid
 outer flow penetrates through the upper part of the vegetation and an effective matching between
-outer and inner flows must be enforced some distance $\delta$ below the canopy’s edge \citet{le2006interfacial}.  This distance,
+outer and inner flows must be enforced some distance $\delta$ below the canopy’s edge (\citet{le2006interfacial}).  This distance,
 a penetration depth, has been successfully computed by \citet{zampogna2016fluid} for a few cases
 and is found to increase with the Reynolds number of the flow; for experiment G discussed below it
-is$ \delta = 0.40$ \citet{zampognaprivate}. On account of the results shown in \ref{fig:4}, with the sensitivities which are negligible
+is $\delta = 0.40$ (\citet{zampognaprivate}). On account of the results shown in \ref{fig:4}, with the sensitivities which are negligible
 for $y \approx 0.60$, we expect that the exact position of the effective interface will not affect the results
 significantly.
 Using the fact that the velocity within the orthotropic porous medium is divergence free, the
-interface condition to be applied at $y_{itf} = 1 - \delta$ is found to be \ref{eq:darcybc}
+interface condition to be applied at $y_{itf} = 1 - \delta$ is found to be \eqref{eq:darcybc}
 
 \begin{equation}
 v|_{itf} + B(\alpha) p|_{itf} = 0
 \label{eq:darcybc}
 \end{equation}
 
-with
+with:
 
 $$
 B(\alpha) = Re \dfrac{d}{ah^2} \sqrt{{H}_{11} {H}_{22}} \alpha \tanh (\theta), \qquad \theta = \alpha \sqrt{\dfrac{{H}_{11}}{{H}_{22}}}  y_{itf}
 $$
 
 The second boundary condition that the Rayleigh stability equation must satisfy at $y_{\infty}$ is simply $v = 0$. Thus, we solve only for the inviscid flow in the outer region, and the permeability
-of the inner domain enters the equations only through the interface condition \ref{eq:darcybc}. ${H}_{ij}$ is a two by two diagonal tensor; ${H}_{11}$ is the component of the dimensionless permeability along $x$ and
+of the inner domain enters the equations only through the interface condition \eqref{eq:darcybc}. ${H}_{ij}$ is a two by two diagonal tensor; ${H}_{11}$ is the component of the dimensionless permeability along $x$ and
 ${H}_{22}$ is the $y$ component. For case G considered here, the packing density of the elements is
-$a = 0.04 cm^{-1}$ ; it is also found that ${H}_{11}= 0.0512$ and ${H}_{22} = 0.0575$ \citet{zampognaprivate},  so that the function $B(\alpha)$
+$a = 0.04 cm^{-1}$ ; it is also found that ${H}_{11}= 0.0512$ and ${H}_{22} = 0.0575$ (\citet{zampognaprivate}),  so that the function $B(\alpha)$
 reads $B = 15.727 \alpha \tanh (0.566 \alpha)$.
 
 
@@ -337,30 +347,23 @@ reads $B = 15.727 \alpha \tanh (0.566 \alpha)$.
 \subsection{The sensitivity equations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The adjoint equations in this case are the same as system \ref{eq:uvp}, without the terms containing $1/Re$
-and $C_d$ , and the boundary conditions are
+The adjoint equations in this case are the same as system \eqref{eq:uvp}, without the terms containing $1/Re$
+and $C_D$ , and the boundary conditions are:
 
 \begin{equation}
 v^{\dagger}|_{itf} - B(\alpha) p^{\dagger}|_{itf} = 0, \qquad v^{\dagger}|_{y_{\infty}} = 0
 \label{eq:darcybc_adjoint}
 \end{equation}
 
-The variation in the complex frequency is related to variations in the mean flow and in the permeability components through the equation
+\newpage
+The variation in the complex frequency is related to variations in the mean flow and in the permeability components through the equation:
 
 $$
 \delta \omega = \int_{y_{itf}}^{y_{\infty}}  G_U(y) \delta U(y) dy + G_{{H}_{11}} \delta {H}_{11} + G_{{H}_{22}} \delta {H}_{22}
 $$
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{chapter_3/figure/6}
-	\caption{Amplification factor (left) and frequency of the most unstable mode as a function of $\alpha$, for the anisotropic drag
-		model}
-	\label{fig:6}
-\end{figure}
 
-
-with
+with:
 
 \begin{equation}
 \begin{split}
@@ -374,20 +377,24 @@ with
 the required sensitivities, with the normalization  $\int_{y_{itf}}^{y_{\infty}} \left[  \overline{v^{\dagger}} v +  \overline{u^{\dagger}} u \right] = 1$.
 In writing $\delta \omega$ above, we have made the assumption that the mean flow $U$ does not vary at the two extreme points of the
 integration domain.
-The stability results (for the same parameters as in \ref{fig:2}) are displayed in \ref{fig:6}. As already
-observed in \citet{zampogna2016instability}, both the growth rate and the frequency are slightly larger with this model than
+The stability results (for the same parameters as in \ref{fig:2}) are displayed in \ref{fig:6}. 
+
+
+As already observed in \citet{zampogna2016instability}, both the growth rate and the frequency are slightly larger with this model than
 with the isotropic resistance model, for all $\alpha$’s, and the most unstable mode is found at a larger
 value of $\alpha$ (here $\alpha \approx 0.8$) in better agreement with experimental correlations \citet{zampogna2016instability} \citet{raupach1996coherent}.  Also in this case the
 waves are found to be only weakly dispersive.
-Eigenfunctions are plotted in \ref{fig:7}, together with the real and imaginary parts of the $G_U$
-sensitivity function. As in \ref{fig:3}, the modulus of the $u$ eigenfunction peaks near the edge of the
-canopy ( $y = 1$), whereas the adjoint eigenfunctions have a maximum value slightly above. As a
-general remark, the shapes of the direct and adjoint modes are quite similar to those found with
-the isotropic resistance model; as reported at the end of \ref{sec2b}, it is found that the flow
-is most sensitive to streamwise momentum forcing. Also, real and imaginary parts of $G_U$ have a
-double peak structure, like in the isotropic drag model, but now the largest absolute value of $G_U$ is
 
-\begin{figure}[H]
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{chapter_3/figure/6}
+	\caption{Amplification factor (left) and frequency of the most unstable mode as a function of $\alpha$, for the anisotropic drag
+		model}
+	\label{fig:6}
+\end{figure}
+
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_3/figure/7}
 	\caption{Left and center frames: moduli of direct and adjoint eigenfunctions; pressure and “adjoint pressure” are drawn with
@@ -395,7 +402,15 @@ double peak structure, like in the isotropic drag model, but now the largest abs
 	\label{fig:7}
 \end{figure}
 
-\begin{figure}[H]
+Eigenfunctions are plotted in \ref{fig:7}, together with the real and imaginary parts of the $G_U$
+sensitivity function. As in \ref{fig:3}, the modulus of the $u$ eigenfunction peaks near the edge of the
+canopy ( $y = 1$), whereas the adjoint eigenfunctions have a maximum value slightly above. As a
+general remark, the shapes of the direct and adjoint modes are quite similar to those found with
+the isotropic resistance model; as reported at the end of \ref{sec2b}, it is found that the flow
+is most sensitive to streamwise momentum forcing. Also, real and imaginary parts of $G_U$ have a
+double peak structure, like in the isotropic drag model, but now the largest absolute value of $G_U$ is smaller and shifted towards a larger $y$ than in the previous inviscid case (cf.\ref{fig:4}, top right frame).
+
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{chapter_3/figure/8}
 	\caption{Case G. Left: infinite norm of $G_U$ for varying $\alpha$. Center and right frames: real and imaginary parts of the sensitivity
@@ -403,20 +418,22 @@ double peak structure, like in the isotropic drag model, but now the largest abs
 	\label{fig:8}
 \end{figure}
 
-smaller and shifted towards a larger y than in the previous inviscid case (cf.\ref{fig:4}, top right frame).
-This can also be appreciated by the inspection of \ref{fig:8} (left); $|G U |_{\infty}$ still grows monotonically with
+This can also be appreciated by the inspection of figure \ref{fig:8} (left); $|G U |_{\infty}$ still grows monotonically with
 $\alpha$, but the sensitivity is smaller than that computed earlier (cf. \ref{fig:5}) with either the viscous or
 inviscid model (it is actually closer to the viscous sensitivity, as an effect of the interface condition).
 Furthermore, it is interesting to observe that both real and imaginary parts of $G_U$ vanish for $y = y|_{itf}$
-(cf.\ref{fig:7}, right), and this supports the statement made previously that a small shift in the position
+(cf. figure \ref{fig:7}, right), and this supports the statement made previously that a small shift in the position
 of the effective interface has but a minor influence on the most unstable mode.
-The sensitivity coefficients for the two components of the permeability tensors are displayed in
+The sensitivity coefficients for the two components of the permeability tensors are displayed in figure 
 \ref{fig:8} (center and right frames): the present model is more effective to variations in $ {H}_{11}$ than to $ {H}_{22}$
 as far as modifying the complex eigenfrequency. Significantly, different ranges of wavenumbers
 behave differently as far as the variation in $\omega$ is concerned. The frequency $\omega_r$ of long waves (around
 $\alpha \approx 0.3$) is more easily modified by acting on $ {H}_{11}$ (with an almost negligible effect on the growth
 rate of the wave); conversely, the growth rate of modes with large values of $\alpha$ is affected efficiently
 by variations in the first component of the permeability tensor.
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -427,7 +444,7 @@ by variations in the first component of the permeability tensor.
 Stability problems such as the first one considered in this paper can be approached with the
 spatial theory framework, with the wavenumber $\alpha$ complex, its imaginary part being a growth rate,
 and the circular frequency $\omega$ a real constant parameter. Let us generalize the sensitivity analysis by
-considering, as a first step, $\alpha$ and $\omega$ as complex numbers which can vary. Equation \ref{eq:lagid} contains one
+considering, as a first step, $\alpha$ and $\omega$ as complex numbers which can vary. Equation \eqref{eq:lagid} contains one
 additional term and reads:
 
 \begin{equation}
@@ -441,21 +458,21 @@ additional term and reads:
 \end{equation}
 
 To obtain the sensitivities in the spatial problem (for which $\delta \omega = 0$) we now have to solve an adjoint
-system similar to \ref{eq:uvp}, where $\omega^{\dagger}$ is replaced by $\omega$ and $\alpha$ by $\alpha^{\dagger}$ . The variation of the wavenumber  $\delta \alpha = 0$ is thus given by:
+system similar to equation \eqref{eq:uvp}, where $\omega^{\dagger}$ is replaced by $\omega$ and $\alpha$ by $\alpha^{\dagger}$ . The variation of the wavenumber  $\delta \alpha = 0$ is thus given by:
 
 $$
 \delta \alpha =\delta \alpha_r + i \delta \alpha_i= \int_0^{y_{\infty}}  G_U(y) \delta U(y) dy + \int_0^{1}  G_{C_D}(y) \delta C_D(y) dy
 $$
 
-the functions $G_U$ and $G_{C_d}$ maintain the same form as in the temporal theory \ref{eq:GCD}, with the direct and
-adjoint eigenfunctions which are now normalized by imposing that $N_{\alpha} = -1$, with
+the functions $G_U$ and $G_{C_d}$ maintain the same form as in the temporal theory \eqref{eq:GCD}, with the direct and
+adjoint eigenfunctions which are now normalized by imposing that $N_{\alpha} = -1$, with:
 
 $$
 N_{\alpha} = \int_0^{y_{\infty}} \left[ \left(U - \dfrac{2i\alpha}{Re}\right) ( \overline{ v^{\dagger}} v +  \overline{ u^{\dagger}} u  )   +  \overline{ p^{\dagger}} u +  \overline{ u^{\dagger}} p  \right] d \; y
 $$
 
-Let us now consider a problem in which $U$ and $C_d$ are not allowed to vary, but $\alpha$ and $\omega$ are.
-With reference to Equation \ref{eq:lagid_spatial}, with any choice of normalization of direct and adjoint modes, it
+Let us now consider a problem in which $U$ and $C_D$ are not allowed to vary, but $\alpha$ and $\omega$ are.
+With reference to Equation \eqref{eq:lagid_spatial}, with any choice of normalization of direct and adjoint modes, it
 is found that $ N_{\omega} \delta \omega = N_{\alpha} \delta \alpha $. Thus, once the adjoint problem is solved, it is possible to accurately
 compute the group velocity $c_g$ of any stability problem using the value of $ N_{\omega}$ and $ N_{\alpha}$ , i.e.,
 
@@ -465,18 +482,18 @@ c_g := \dfrac{d \omega_r}{d \alpha_r} \approx \dfrac{real(N_{\alpha})}{real(N_{\
 \end{equation}
 
 Note that $c_g$ above is different from the “complex group velocity” $C_g := \dfrac{d \omega}{d \alpha} \approx  \dfrac{N_{\alpha}}{N_{\omega}}$ , and it is also
-$c_g \neq real(C_g)$. Relation \ref{eq:group_vel} can be employed in either a spatial or temporal stability analysis and
+$c_g \neq real(C_g)$. Relation \eqref{eq:group_vel} can be employed in either a spatial or temporal stability analysis and
 some representative results (for case G) are provided in Table I with the phase velocity $c_r := \omega_r / \alpha_r$
-and the group velocity determined from Equation \ref{eq:group_vel} . The temporal or spatial amplification factors, $\omega_i$ or $-\alpha_i$ , respectively, are also given for all cases using Gaster’s transformation: $\omega_i = - \alpha_i c_g$ .
+and the group velocity determined from Equation \eqref{eq:group_vel} . The temporal or spatial amplification factors, $\omega_i$ or $-\alpha_i$ , respectively, are also given for all cases using Gaster’s transformation: $\omega_i = - \alpha_i c_g$ .
 Two types of errors on the calculation of the group velocity (noted $err$) are given in the table; the top
-four values, relative to the temporal theory, are defined as
+four values, relative to the temporal theory, are defined as:
 
 $$
-err = \dfrac{|c_g|_{\ref{eq:group_vel}} - c_g|_{FD}|}{c_g|_{\ref{eq:group_vel}}}
+err = \dfrac{|c_g|_{\eqref{eq:group_vel}} - c_g|_{FD}|}{c_g|_{\eqref{eq:group_vel}}}
 $$
 
 with $c_g|_{FD}$ arising from a first order finite difference approximation of the group velocity. The
-bottom four values are defined by the formula
+bottom four values are defined by the formula:
 
 $$
 err = \dfrac{|c_g|_{temporal} - c_g|_{spatial}|}{c_g|_{temporal}}
@@ -529,7 +546,7 @@ the growth rate approximated through Gaster’s relationship is also found to be
 
 The amplitude of the sensitivity functions, $|G_{U} ( y)|$ and $|G_{C_d} (y)|$, in the spatial and temporal
 stability frameworks is of same order of magnitude (not shown here) since they are related through
-temporal spatial the complex group velocity $C_g$ . It is found that $|{G_U}^{temporal}| \approx |C_g ||{G_U}^{spatial}|$ with $|C_g | \approx c_g \approx 1$ in the
+ the complex group velocity $C_g$ . It is found that $|{G_U}^{temporal}| \approx |C_g ||{G_U}^{spatial}|$ with $|C_g | \approx c_g \approx 1$ in the
 present case.
 Obtaining and comparing results in the temporal and spatial stability frameworks, such as in
 Table I, is a good means to validate the sensitivity functions and to verify the accuracy of the
@@ -544,7 +561,7 @@ Both models have advantages and drawbacks. The main advantage of the first model
 drag coefficient can be taken to vary across the canopy; whether this positive consideration, based
 on macroscopic experimental measurements \citet{ghisalberti2002mixing}, \citet{ghisalberti2004limited} and \citet{ghisalberti2005mass},  carries over to the stability problem remains to be established. The second model, applicable to dense porous media, considers two independent parameters to express the disturbance flow perpendicular and parallel to the rigid dowels forming
 the canopy. Such parameters and components of the transversely isotropic permeability tensor $\mathbf{H}$
-arise from the solution of a local Oseen problem \citet{zampogna2016fluid}. The drawback of the second model is the
+arise from the solution of a local Oseen problem (\citet{zampogna2016fluid}). The drawback of the second model is the
 fact that an interface (whether real or effective) appears, and adequate matching conditions must
 be enforced there. Despite much work since the seminal contribution by \citet{beaver}, a
 consensus on the "best" interface conditions between a pure fluid region and a porous medium has
@@ -553,11 +570,11 @@ The models have been put to test through a classical sensitivity analysis (\cite
 larger variations in frequency and growth rate of the instability mode for the case of shorter waves).
 As far as a direct comparison between $G_{C_d}$ and $G_{ {H}_{ii}}$ is concerned, this can hardly be made since
 the variables represent different objects; in particular, the pressure drop through the canopy depends
-directly on $C_d$ and inversely on the permeability. The present results indicate that the anisotropic
-model depends significantly on the value of the apparent \citet{zampogna2016fluid} permeability component $\mathbf{H}_{11}$, whose
+directly on the drag coefficient and inversely on the permeability. The present results indicate that the anisotropic
+model depends significantly on the value of the apparent permeability component $\mathbf{H}_{11}$ (\citet{zampogna2016fluid}), whose
 evaluation must thus be conducted carefully. The problem of computing the effective permeability tensor will be addressed in the next chapter in which we show its modelling issues and possible solutions.
 
-It also worth mention that the results presented here has been the basis for some other works (\citet{segura2017permeable}, \citet{sharma2017stabilitycanopy} and \citet{garcia2017analysis}). The authors had used our very approach to study some properties of the porous media to further explore drag reduction mechanisms and stability issues.
+It also worth mention that the results presented here has been the basis for some other works (\citet{segura2017permeable}, \citet{sharma2017stabilitycanopy} and \citet{garcia2017analysis}). The authors had used our approach to study some properties of the porous media to further explore drag reduction mechanisms and stability issues.
 
 
 
@@ -577,7 +594,7 @@ It also worth mention that the results presented here has been the basis for som
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %In \ref{sec:2ch3} of the paper it is described how the eigenvalue $\omega$ varies as an effect of indepen-
-%dent variations of $U$ and $C_d$. However, since $C_d$ is not zero within the canopy and it is used to
+%dent variations of $U$ and $C_D$. However, since $C_D$ is not zero within the canopy and it is used to
 %compute the mean flow profile $U$, we should in principle have expressed $\delta U$ as $\delta U = \dfrac{dU}{d C_d} \delta C_d$
 %and considered a single sensitivity function ${G^*}_{C_d} = G_{C_d} + \dfrac{dU}{d C_d} G_U$, instead of the two sensitivities given
 %in \ref{eq:GCD}. This would have certainly been the appropriate line of action if the mean flow equa-
@@ -585,31 +602,31 @@ It also worth mention that the results presented here has been the basis for som
 %of the base flow equation in our variational problem. However, the mean flow model by \citet{ghisalberti2004limited} contains empirical approximations and parameters, and alternative models \citet{singh2016linear}, \citet{zampogna2016instability} —including
 %very different ones—have been used successfully in the past to predict the mean field; we have thus
 %made the choice, in both \ref{sec:3} and \ref{sec:4}, of considering the mean flow as given, and to take
-%independent variations of $U$ and $C_d$ in the stability analysis to assess the effect of modifications in
+%independent variations of $U$ and $C_D$ in the stability analysis to assess the effect of modifications in
 %either variable.
 %If we were to find how much the base flow depends on the drag coefficient in this particular
 %problem, we would need to determine the function $U(C_d)$ and take its derivative. Since both $U$
-%and  $C_d$ are functions of the space coordinate $y$, the implicit dependence can be found, and we
+%and  $C_D$ are functions of the space coordinate $y$, the implicit dependence can be found, and we
 %have plotted it for one case on the left frame of \ref{fig:9}. Clearly, the function $U = f(C_d)$ is not
 %single-valued and therefore the derivative can be calculated only over two separate $U$ (or, equiva-
 %lently, $y$) intervals. We have carried out the derivation numerically over each interval, within the
 %range $0.3 \leq y \leq 1$, and the result is reported on the right frame of \ref{fig:9}. The filled triangle and
 %circle symbols indicate the two y intervals within the canopy.
-%We first observe that both the location where $C_d$ is maximum and the shape of the function 
+%We first observe that both the location where $C_D$ is maximum and the shape of the function 
 %$U = f(C_d)$ are strongly correlated to the drag law $C_d(y)$, modeled by \citet{ghisalberti2004limited}
 %
 %
 %\begin{figure}[H]
 %	\centering
 %	\includegraphics[width=1\linewidth]{chapter_3/figure/9}
-%	\caption{Case G. Left: mean velocity profile, $U$ , versus the drag coefficient, $C_d$ . Right: first derivative, $dU / d C_d$ . The triangles denote the region $y \in [0.76, 1]$, the filled circles denote the region $y \in [0.3, 0.76]$.}
+%	\caption{Case G. Left: mean velocity profile, $U$ , versus the drag coefficient, $C_D$ . Right: first derivative, $dU / d C_d$ . The triangles denote the region $y \in [0.76, 1]$, the filled circles denote the region $y \in [0.3, 0.76]$.}
 %	\label{fig:9}
 %\end{figure}
 %
 %through their measurement data (cf. their Figure 7 and Equation (18)). We also notice that the deriv-
 %ative $dU/dC_d$ is reasonably small except locally at the point where the derivative of the function is
 %not continuous, where it is of order 1. The discontinuity there is however artificial since the function
-%$C_d(y)$ given in Equation (18) of \citet{ghisalberti2004limited}, where $C_d$ is divided into a parabolic and a
+%$C_d(y)$ given in Equation (18) of \citet{ghisalberti2004limited}, where $C_D$ is divided into a parabolic and a
 %linear part, can be easily modified to yield a continuous first derivative at $y = 0.76$ if required, still
 %maintaining a mean flow very close to the measured one.
 

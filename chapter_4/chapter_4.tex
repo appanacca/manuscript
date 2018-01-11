@@ -13,7 +13,7 @@ Since Darcy's original formulation (\citet{darcy}), which relates the flow rate 
 All of the cited works are of empirical nature, but the volume averaged methods (VANS) has been able to recover all of these
 formulations rigorously starting from the Navier-Stokes equations (\citet{whitaker2013method}).
 
-As already seen in chapter 2, the VANS theory requires the knowledge of a number of terms, most notably, in the case of an isotropic porous bed, a permeability coefficient and a Forchheimer coefficient. Initial efforts in defining these terms were based on a combination of physical reasoning and measurements, leading to  expressions known as the Kozeny-Carman \citet{kozeny, carman} and the Ergun \citet{ergun} correlations. These approaches do not consider microstructural or geometrical features of the porous bed and are often restricted to simple unidirectional flows. In the present work we are concerned with a transversely isotropic material composed by parallel fibers of circular cross-section, with one axis of symmetry, $(O,x_3)$; in such materials the permeability is a diagonal tensor
+As already seen in chapter 2, the VANS theory requires the knowledge of a number of terms, most notably, in the case of an isotropic porous bed, a permeability coefficient and a Forchheimer coefficient. Initial efforts in defining these terms were based on a combination of physical reasoning and measurements, leading to  expressions known as the Kozeny-Carman \citet{kozeny, carman} and the Ergun \citet{ergun} correlations. These approaches do not consider microstructural or geometrical features of the porous bed and are often restricted to simple unidirectional flows. In the present work we are concerned with a transversely isotropic material composed by parallel fibers of circular cross-section, with one axis of symmetry, $(O,x_3)$. In such materials the permeability is a diagonal tensor
 with the component in the direction parallel to the fibers greater than those along the transverse axes. For such an arrangement
 we will investigate, in this chapter, the effects of both the direction of the forcing pressure gradient and inertia. When the latter effect is present,
 embodied by a Reynolds number $Re_d$, based on mean velocity through the medium and fibers' diameter, exceeding an order one threshold, 
@@ -32,11 +32,11 @@ for beds of medium-high porosity ($\varepsilon>0.7$) and a stronger dependence a
 The influence of the Reynolds number on the permeability and on the Forchheimer correction has been presented in a number of papers (\citet{firdaouss1997nonlinear}, \citet{penha2011computing} and \citet{edwards1990}). These authors show that, for arrays of fibers, the apparent permeability decreases with the increase of the Reynolds number, and the rate of this decrease depends on the geometry of the array;
 also, the Reynolds number is found to have a stronger influence on the apparent permeability when the medium is highly porous.
 The results of the work by \citet{edwards1990} agree with those by \citet{zampogna2016fluid} and with our own work (as shown later), all for
-the case of cylindrical fibers, although some issues remain on the persistence of steady solutions in the simulations by \citet{edwards1990} 
+the case of cylindrical fibers. Although some issues remain on the persistence of steady solutions in the simulations by \citet{edwards1990} 
 in cases for which a limit cycle should have set in. A fully three-dimensional porous medium, more complex than those discussed so far, 
 has been considered by \citet{soulaine2014}, confirming the decreasing trend of the apparent permeability with the Reynolds number. 
 
-Another contribution which deserves mention is that by \citet{lasseux}; they have computed the permeability tensor 
+Another contribution which deserves mention is the one by \citet{lasseux}. They have computed the permeability tensor 
 for various Reynolds numbers, in a two-dimensional geometry with cylinders of square cross-section.
 Forcing the flow along the main symmetric directions of the fiber, the same authors have identified different regimes:
 \begin{itemize}
@@ -45,8 +45,7 @@ Forcing the flow along the main symmetric directions of the fiber, the same auth
 	\item a strong inertia regime for $1 < Re_d < 10$, where the Forchheimer correction is linear with the Reynolds number; 
 	\item a turbulent regime, for  $Re_d > 10 $, with the Forchheimer correction again quadratic with the Reynolds number.
 \end{itemize}  
-The boundaries between the different regimes are specific to the geometrical arrangements and to the porosities being considered; 
-a step forward in rendering (some of) these boundaries rigorous and independent of the arrangement of the pores, through the definition 
+The boundaries between the different regimes are specific to the geometrical arrangements and to the porosities being considered. A step forward in rendering (some of) these boundaries rigorous and independent of the arrangement of the pores, through the definition 
 of a Reynolds number which accounts for a "topological" coefficient, has been recently made by \citet{pauthenet}. 
 For the purposes of the present paper, we must retain that \citet{lasseux} have parametrized the Forchheimer correction with the Reynolds 
 number, and have found that the inertial correction is orders of magnitude smaller than the Darcy's term, at least before the turbulent 
@@ -64,8 +63,8 @@ described further below. In all cases, the off-diagonal components of the appare
 components display but a small variation upon rotation of the driving pressure gradient.
 
 
-Here we want to show how the direction of the macroscopic pressure gradient, the porosity and the Reynolds number can 
-modify the Darcy and Forchheimer closures arising from a VANS model of a fibrous porous medium. We will consider a three-dimensional 
+Our aim is to show how the direction of the macroscopic pressure gradient, the porosity and the Reynolds number can 
+modify the Darcy and Forchheimer closures arising from a VANS model of a fibrous porous medium. We are going to consider a three-dimensional 
 unit cell for the microscopic model, with a generic forcing 
 whose direction is defined by two Euler angles. Given the formidable space of parameters, some representative results are first
 shown and discussed. Response surfaces in the space of parameters are then identified by the use of a metamodel based on Kriging 
@@ -74,7 +73,7 @@ They represent an extremely useful data base which can be afterward used in macr
 flows through bundles of fibers of varying orientation and porosity.
 
 
-
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -276,7 +275,7 @@ The geometry used for the base REV is shown in figure \ref{fig:cell_3d}: a cylin
 
 The  forcing term $\mathbf{f}$ of the DNS  is a vector whose direction is defined by two Euler angles, with rotations of the form:  $\theta \ \mathbf{e_3} + \phi \ \mathbf{e_2}^{I}$ (cf. figure \ref{fig:cell_3d}). Its amplitude is set a priori and is connected to the Reynolds number, $Re_d$, defined with the mean velocity over the REV and the fiber diameter, $d$. $Re_d$ is a result of the calculations, once the mean velocity is evaluated.
 
-\begin{figure}[h]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\linewidth]{chapter_4/figure/cell_3d}
 	\caption{REV for the fiber geometry investigated.}
@@ -506,9 +505,7 @@ structure with $\varepsilon=0.6$. The components shown are $M_{11}$, $M_{22}$,$M
 not plotted because they are identically zero to machine accuracy. Distinct features are visible in each image; in particular, in the last 
 frame the $M_{33}$ microscopic component displays a low wavelength structure along the cylinder's axis. Increasing the dimensions of the REV 
 along $x_3$ does not alter such a structure, i.e. the $\ell^3$ domain chosen with its periodic boundary conditions does not filter out 
-significant high wave-numbers of the flow. We further note that the tensor $\mathbf{M}$ is not symmetric in this case since each off-diagonal component 
-represents the solution of the closure problem in a specific direction (first index of the field) and the forcing term acts orthogonally to it
-(second index of the field).  Once averaged over the REV it is found that both $H_{12}$ and $H_{21}$ are very close to zero.  
+significant high wave-numbers of the flow. 
 
 
 \begin{figure}[H]
@@ -518,6 +515,10 @@ represents the solution of the closure problem in a specific direction (first in
 	\label{fig:5ch4}
 \end{figure}    
 
+	\newpage 
+We further note that the tensor $\mathbf{M}$ is not symmetric in this case since each off-diagonal component 
+represents the solution of the closure problem in a specific direction (first index of the field) and the forcing term acts orthogonally to it
+(second index of the field).  Once averaged over the REV it is found that both $H_{12}$ and $H_{21}$ are very close to zero.  
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -705,6 +706,7 @@ already computed. This incremental approach selects in a quasi-random way the ne
 \end{figure}
 
 
+\newpage
 
 In the scatter plot of figure \ref{fig:scatter_matrix} the three diagonal components of the permeability tensor are shown 
 as function of one another. The three porosities are separately considered in each of the above plot, and the permeability points are 
@@ -787,6 +789,7 @@ when  the model parameters are  conveniently  set,  the trend function and the c
 
 The trend function defined  here is  based on a second order least-square regression, with the coefficients found from 
 the solution of the associated linear system.
+\newpage
 The Gaussian process error model has zero-mean and its covariance between two generic data-points, $x_i$ and $x_j$, is written as 
 $$
 \textrm{Cov}(y(\mathbf{x_i}), y(\mathbf{x_j})) = c(\mathbf{x_i}, \mathbf{x_j})
@@ -818,6 +821,7 @@ For the sake of clarity, the metamodel built with only the subset $S_{n_1}$ will
 The idea now is to use the points in the set $S_{n_2}$ as test, since they are essentially "new" for the metamodel $\hat{f}^{n_1}$.
 The division of the subset is performed picking points in a random way, and is repeated $k$ times in order to rule out any possible "lucky" combination.
 
+\newpage 
 Thus, the metric used for the error computation is the following:
 $$
 \xi_{cv} = \dfrac{1}{k \; n_2}\sum_{i = 1}^{k} \sum_{j = 1}^{n_2} (\hat{f_{i}}(x_j)^{n} -\hat{f_{i}}(x_j)^{n_2} )^2 ,
@@ -831,7 +835,7 @@ $$
 In our case the number of points used to test the model $n_2$ is equal to $\sqrt{N} \approx 12$ as recommended for kriging metamodels \citet{wang2007review}.
 The number of folds has been varied from $5$ to $25$ and in all the cases tested the $E_{cv\%}$ has been found to decrease below $6\%$ when we use at least 16 folds (which means leaving out 7 to 8 points from the metamodel construction), which is more than acceptable to prove that our kriging method is a robust approximation.
 
-\begin{figure}[h]
+\begin{figure}[b!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{chapter_4/figure/kfold_err}
 	\caption{Relative mean error computed using the \textit{k}-fold approach presented against the number of folds $k$ used to divide the
@@ -967,9 +971,9 @@ basis of equations \citet{whitaker2013method} when inertial effects are present.
 
 It has been found that the apparent permeability tensor is strongly diagonally dominant for whatever
 forcing direction and porosity,  provided the local Reynolds number remains below a value 
-approximately equal to 100; this results (which is a direct
-consequence of the transverse isotropy of the material which has been considered here) 
+approximately equal to 100; this results, which is a direct
+consequence of the transverse isotropy of the material which has been considered here, 
 can be used to compute $\mathbf{H}$ rapidly, approximating it as a diagonal tensor.
 
 Finally, a metamodel has been used to produce results so as to cover the whole space of parameters,
-and this has allowed the construction of a complete data base. This database can be used in simulations of porous media based on the VANS approach as we will show in the next chapter. 
+and this has allowed the construction of a complete data base. This database can be used in simulations of porous media based on the VANS approach as we will show in the next chapter.
