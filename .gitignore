@@ -5,10 +5,10 @@
 *.log
 *.lot
 *.toc
-/home/nluminar/Documents/phd/phd_manuscript/biblio_manuscript/appendix_a/*.pdf
-/home/nluminar/Documents/phd/phd_manuscript/biblio_manuscript/chapter_1/*.pdf
-/home/nluminar/Documents/phd/phd_manuscript/biblio_manuscript/chapter_2/*.pdf
-/home/nluminar/Documents/phd/phd_manuscript/biblio_manuscript/chapter_3/*.pdf
-/home/nluminar/Documents/phd/phd_manuscript/biblio_manuscript/chapter_4/*.pdf
-/home/nluminar/Documents/phd/phd_manuscript/biblio_manuscript/chapter_5/*.pdf
+biblio_manuscript/appendix_a/*.pdf
+biblio_manuscript/chapter_1/*.pdf
+biblio_manuscript/chapter_2/*.pdf
+biblio_manuscript/chapter_3/*.pdf
+biblio_manuscript/chapter_4/*.pdf
+biblio_manuscript/chapter_5/*.pdf
 
