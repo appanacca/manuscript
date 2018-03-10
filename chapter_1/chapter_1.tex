@@ -96,18 +96,18 @@ We have shown that natural surfaces can be an inspiration to find strategies in 
 It is known that the total drag contribution can be separated into different components and the classical decomposition is between viscous drag (sometimes referred to as skin friction) and pressure drag.
 
 \begin{equation}
- \int_{A_{\sigma}}  [ \underbrace{\left({p} \mathbf{I} \right) \cdot  \mathbf{n}_{\sigma} }_\text{pressure drag}  +  \underbrace{\boldsymbol{\tau}}_\text{viscous drag} ] \; dA,
+ \int_{A_{\sigma}}  [ \underbrace{\left({p} \mathbf{I}  \cdot  \mathbf{n}_{\sigma} \right)   \cdot \mathbf{n}_{\parallel} }_\text{pressure drag}  +  \underbrace{\boldsymbol{\tau} \cdot \mathbf{n}_{\parallel}}_\text{viscous drag} ] \; dA ,
  \label{eq:force}
 \end{equation}
 
-\noindent where the shear stress $\tau$, for incompressible flow, is defined as:
+\noindent where the shear stress $\tau$, for incompressible and newtornian fluid flow, is defined as:
 $$
 \boldsymbol{\tau} = \mu \left( \nabla \mathbf{v} +  \nabla^T \mathbf{v} \right) \cdot  \mathbf{n}_{\sigma}
 $$
 
-\noindent In \eqref{eq:force} $A_{\sigma}$ is the solid interface of some body where a no-slip condition is usually applied and $ \mathbf{n}_{\sigma}$ is its outward normal unit vector.
+\noindent In \eqref{eq:force} $A_{\sigma}$ is the solid interface of some body where a no-slip condition is usually applied and $ \mathbf{n}_{\sigma}$ is its outward normal unit vector, and $\mathbf{n}_{\parallel}$ is the unit vector parallel to the fluid direction.
 
-\noindent The shear stress for incompressible flow in the turbulent case is often defined as:
+\noindent The shear stress for incompressible and newtonian fluid flow in the turbulent case is often defined as:
 \begin{equation}
 \boldsymbol{\tau_t} =  (\mu + \mu_t)\left[ \nabla \mathbf{\overline{v}} +  \nabla^T  \mathbf{\overline{v}} \right] \cdot  \mathbf{n}_{\sigma}
 \end{equation}
@@ -452,12 +452,12 @@ The method of Volume Averaging has been developed to solve transport equations i
 		\label{fig:porsystem}
 	\end{figure}
 
-The core idea of the methods is to firstly define an average operator as $$\meani{\psi} = \dfrac{1}{\volb} \displaystyle\int_{V} \psi \, dV,$$ in this case the variable $\psi$ represents any vector or scalar variable in the system of equations that we want to homogenize. For Navier-Stokes equation $\psi$ is the velocity and the pressure. In the above operator $\volb$ is the fluid fraction present inside a reference volume $V$.
+The core idea of the methods is to firstly define an average operator as $$\meani{\psi_{\beta}} = \dfrac{1}{\volb} \displaystyle\int_{V} \psi_{\beta} \, dV,$$ in this case the variable $\psi_{\beta}$ represents any vector or scalar variable, associated to the fluid phase (indicated with the sub-script $\beta$), that is present in the system of equations that we want to homogenize. For Navier-Stokes equation $\psi$ is the velocity and the pressure. In the above operator $\volb$ is the fluid fraction present inside a reference volume $V$.
 
 The average operator has the purpose to homogenize the equations. The second crucial step of the method is to decompose the variables as proposed by \citet{gray1975derivation}:
 
 \begin{equation}
-\psi =   \underbrace{ \meani{\psi} }_\text{O($L$)}  +  \underbrace{\tilde{\psi} }_\text{O($\ell$)}
+\psi_{\beta} =   \underbrace{ \meani{\psi_{\beta}} }_\text{O($L$)}  +  \underbrace{\tilde{\psi_{\beta}} }_\text{O($\ell$)}
 \label{eq:vans_decomp}
 \end{equation}
 
@@ -478,7 +478,7 @@ It is important to specify that equation \eqref{eq:stokes} is valid only in the 
 Applying the Averaging Method, we can derive a homogeneous version of \eqref{eq:stokes} that is valid in all the domain that includes the two different phases, the solid and the liquid one.
 The homogenized version of \eqref{eq:stokes} is the well known Darcy's equation:
 $$\vbmi = -\dfrac{ \mathbf{K} }{\varepsilon \mub} \nabla \pbmi,$$
-developed with this approach by  \citet{whitaker1986flow}.
+developed with this approach by  \citet{whitaker1986flow}. It is important to specify that the continuity equation, in his incompressible form, is need to retrieve the averaged equation above.
 
 The Darcy's equation allows to recognize two additional quantities that arise from the averaging procedure. The first one is a scalar called porosity $\varepsilon$ that represents the ratio between the volume of the fluid inside a reference volume over the total volume.
 The second one is the tensor $\mathbf{K}$ called permeability tensor and it expresses the resistance of the porous medium that affects the flow in its motion.

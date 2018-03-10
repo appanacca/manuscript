@@ -37,7 +37,8 @@ The dynamic of the fluid phase (indicated with the subscript $\beta$), inside an
 	\begin{cases}
 		\dfrac{\partial \vb}{\partial t} +  \nabla \cdot (\vb \vb)  = -\dfrac{1}{\rho_{\beta}} \nabla \pb + \nub \nabla^2  \vb  \\
 		\nabla \cdot \vb = 0 \\
-		\vb = \ws \quad \text{at} \; A_{\beta\sigma}
+		\vb = \ws \quad \text{at} \; A_{\beta\sigma} \\
+		\vb = \phi(\mathbf{x}, t) \; A_{\beta e}
 	\end{cases}
 \label{eq:NS}
 \end{eqnarray}\\
@@ -45,6 +46,7 @@ The dynamic of the fluid phase (indicated with the subscript $\beta$), inside an
 \noindent where $\vb$, $\pb$, $\rho_{\beta}$ and $\nub$ stand, respectively, for  the velocity, the pressure, the density and the kinematic viscosity of the fluid.
 The interface between the fluid and the solid is indicated as $A_{\beta\sigma}$, in which the no-slip condition for the velocity apply.
 In the above boundary condition $\ws$ is the velocity of the solid phase.
+$A_{\beta e}$ indicate the external flow boundary of the macroscopic region in which a certain velocity field $\phi(\mathbf{x}, t)$ is defined.
 Initial conditions should also be specified in order to solve the system, but they do not take active part in the homogenization procedure.
 The next sections shows how to average this system using the volume averaging method.
 
@@ -213,7 +215,8 @@ In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operato
 	Applying the theorem \eqref{th:spat_avg} to a constant field $\psi_{\beta} = 1$ the following relation can be found:
 	
 	\begin{equation}
-		\nabla \varepsilon = - \int_{A_{\sigma \beta}} \nbs d \, A,
+		\nabla \varepsilon = - \dfrac{1}{V} \int_{A_{\sigma \beta}} \nbs d \, A,
+					\label{th:vec_spat_avg_vec}
 	\end{equation}
 \end{corollary}
 
@@ -223,7 +226,7 @@ In the above $\means{\psi_{\beta}}$ is evaluated at $\mathbf{x}$ and the operato
 	Let $\psi_{\beta}$ be a quantity defined in the fluid phase $\beta$, then:
 	
 	\begin{equation}
-	\dfrac{\partial}{\partial t} \int_{\volb(t)} \psi_{\beta} \; dV =  \int_{\volb(t)} \dfrac{\partial \psi_{\beta}}{\partial t} \; dV + \int_{A_{\beta \sigma}(t)} \psi_{\beta} ( \mathbf{\ v}_{\sigma} \cdot \mathbf{n}_{\beta \sigma} ) \;dA,
+	\meani{\derp{\psi_{\beta}}{t}} =  \derp{\meani{\psi_{\beta}}}{t} - \dfrac{1}{V} \int_{A_{\beta \sigma}(t)}   \mathbf{n}_{\beta \sigma} \cdot \psi_{\beta}   \mathbf{\ v}_{\sigma} \;dA,
 	\label{th:transport}
 	\end{equation}
 	
@@ -296,7 +299,7 @@ The pressure term is also expanded using theorem \eqref{th:spat_avg}:
 \end{equation}
 
 \subsubsection{Diffusion term}
-Here we fist use the identity $\nabla^2 = \nabla \cdot (\nabla)$, then we apply theorem \eqref{th:vec_spat_avg} directly to this expansion to get:
+Here we fist use the identity $\nabla^2 = \nabla \cdot (\nabla)$, then we apply theorem \eqref{th:vec_spat_avg_vec} directly to this expansion to get:
 
 \begin{equation}
 \means{\nub\nabla^2 \vb} = \means{\nub\nabla \cdot \nabla \vb} = \nabla \cdot \means{\nub\nabla \vb} +\dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nabla \vb \cdot \nbs \;dA.
@@ -332,7 +335,7 @@ $$
 
 \begin{eqnarray}
 && \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
-&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right). \nonumber
+&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right). 
 \label{eq:mom_2}
 \end{eqnarray}
 
@@ -690,7 +693,7 @@ The above relationships are always based on regressions from experiments and the
 
 The model is not yet completed, also the \textit{sub-filter stresses} need to be closed. This term acts as a volume filter for the perturbation velocity, in fact the product of the velocity perturbations appear inside the volume averaging operator:
 $$\boldsymbol{\zeta} = \nabla \cdot \means{\vbt \vbt}.$$
-The same term has already been neglected in equation \eqref{eq:sbs} in the previous paragraph, based on some length-scale argument.  Here we want to explain briefly what this term represents and possibly when it can become important.
+The same term has already been neglected in equation \eqref{eq:sbs} in the previous paragraph, based on some length-scale argument  \citep{whitaker1996forchheimer}.  Here we want to explain briefly what this term represents and possibly when it can become important.
 
 \citet{breugem2006influence} and \citet{nepf1999drag} separate the nature of sub-filter stresses into two different components:
 \begin{itemize}
