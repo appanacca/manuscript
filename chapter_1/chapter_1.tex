@@ -318,7 +318,7 @@ The two lower pictures in figure \ref{fig:spectra} outline the above statements.
 		\label{fig:spectra}
 	\end{figure}
 
-Is it clear from the literature that the dynamics of the permeable substrate made by vegetation is extremely important and should always be taken into account to fully generalize the physics in such problems involving moving canopies. \citet{nepf2012flow} shows how the interface between aquatic plants and the free flow can be largely modified due to the movement of the fibers (most of the plants arms and branches can be viewed as fibers).
+It is clear from the literature that the dynamics of the permeable substrate made by vegetation is extremely important and should always be taken into account to fully generalize the physics in such problems involving moving canopies. \citet{nepf2012flow} shows how the interface between aquatic plants and the free flow can be largely modified due to the movement of the fibers (most of the plants arms and branches can be viewed as fibers).
 
 In order to discriminate the different behavior of the fibrous structure it is convenient to introduce some non-dimensional parameters typically used in fluid structure interaction problems:
 $$ m^* = \rho_{\beta} / \rho_{\sigma}, \quad C_Y= \rho_{\beta} {U_{\infty}}^2 s^3 / E, \quad s = H/d, $$
@@ -397,7 +397,7 @@ Due to the computationally cost of solving the problem directly, the scientific 
 These are called homogenization approaches and the key points in such methods are:
 \begin{itemize}
 	\item The division of the overall domain in two different parts: the fluid domain $\Omega_{f}$ and the porous domain $\Omega_{p}$.
-	\item Two different fluid models are used in the two domains. In $\Omega_{f}$ the Naver-Stokes equations for incompressible Newtonian fluids are solved. In the porous part there are a number of different models that add source terms in the former equations to take into account of the presence of the porous medium.
+	\item Two different fluid models are used in the two domains. In $\Omega_{f}$ the Navier-Stokes equations for incompressible Newtonian fluids are solved. In the porous part there are a number of different models that add source terms in the former equations to take into account of the presence of the porous medium.
 	\item The two domains should be coupled together with a boundary condition at the interface or a transitional region around the interface is added with its specific treatment.
 	\item A model for the structural mechanics. It can be an averaged model or it can solve the mechanic equations directly.
 \end{itemize}
@@ -452,7 +452,7 @@ The method of Volume Averaging has been developed to solve transport equations i
 		\label{fig:porsystem}
 	\end{figure}
 
-The core idea of the methods is to firstly define an average operator as $$\meani{\psi_{\beta}} = \dfrac{1}{\volb} \displaystyle\int_{V} \psi_{\beta} \, dV,$$ in this case the variable $\psi_{\beta}$ represents any vector or scalar variable, associated to the fluid phase (indicated with the sub-script $\beta$), that is present in the system of equations that we want to homogenize. For Navier-Stokes equation $\psi$ is the velocity and the pressure. In the above operator $\volb$ is the fluid fraction present inside a reference volume $V$.
+The core idea of the methods is to firstly define an average operator as $$\meani{\psi_{\beta}} = \dfrac{1}{\volb} \displaystyle\int_{V} \psi_{\beta} \, dV,$$ in this case the variable $\psi_{\beta}$ represents any vector or scalar variable, associated to the fluid phase (indicated with the sub-script $\beta$), that is present in the system of equations that we want to homogenize. For Navier-Stokes equation $\psi$ is the velocity and the pressure. In the above operator $\volb$ is the fluid volume present inside a reference volume $V$.
 
 The average operator has the purpose to homogenize the equations. The second crucial step of the method is to decompose the variables as proposed by \citet{gray1975derivation}:
 
@@ -500,7 +500,7 @@ We introduce the micro-scale and the macro-scale coordinates defined respectivel
 $$
  X_i = \dfrac{\tilde{x}_i}{L}, \quad   x_i = \dfrac{\tilde{x}_i}{\ell},
 $$
-where $x_i$ are the original eulerian coordinate of the problem.
+where $\tilde{x}_i$ are the original eulerian coordinate of the problem.
 Using the above separation factor it is possible to expand the pressure and velocity as:
 $$
 \psi(X_i, x_i) = \psi^{(0)}(X_i, x_i)  +\epsilon \psi^{(1)}(X_i, x_i) +\epsilon^2 \psi^{(2)}(X_i, x_i) +O(\epsilon^3),
@@ -521,7 +521,7 @@ It is clear that for this simple problem we end up with the same homogenized equ
 
 A full analysis of the dualism of the two approaches can be found in the work by \citet{davit2013homogenization}.
 
-The multiple scales method has also been used to study many other problems: inertial effects (\citet{mei1991effect}, \citet{skjetne1999new}), coupling between a free fluid and a porous media (\citet{mikelic2000interface}), porous media with small deformations (\citet{auriault1977etude}), heat conduction in composites (\citet{auriault1983effective}), rigid and moving permeable layers (\citet{zampogna2016fluid}, \citet{ugis} and \citet{zampogna2017pelskin}).
+The multiple scales method has also been used to study many other problems: inertial effects (\citet{mei1991effect}, \citet{skjetne1999new}), coupling between a free fluid and a porous medium (\citet{mikelic2000interface}), porous media with small deformations (\citet{auriault1977etude}), heat conduction in composites (\citet{auriault1983effective}), rigid and moving permeable layers (\citet{zampogna2016fluid}, \citet{ugis} and \citet{zampogna2017pelskin}).
 
 %There is also another homogenization based method called \textit{Mixture Theory} that is also worth a mention.
 %It is based on a similar approach as the previous ones and \citet{rajagopal2007hierarchy} showed that it is possible to retrieve the same equation as the previous two methods in case of porous media flow.
@@ -559,7 +559,7 @@ One of the possible approaches to study how and when these instabilities start i
 \subsection{Stability theory generalities}
 
 Stability theory covers the modeling of transition of fluid systems towards unstable states eventually leading to turbulence.
-The theory provides a fast and robust method to compute the frequency and grow rate of the unstable mode in the base flow.
+The theory provides a fast and robust method to compute the frequency and growth rate of the unstable mode in the base flow.
 
 The linear stability relies on the decomposition of the flow variables $\mathbf{q}$ into a steady-state part $\overline{\mathbf{q}}$, called base flow, and an unsteady part $\widetilde{\mathbf{q}}$:
 
@@ -567,7 +567,7 @@ $$ \mathbf{q} (\mathbf{x},t)= \overline{\mathbf{q}} (\mathbf{x}) + \widetilde{\m
 Where the unsteady part is small compared to the steady one. We also simplify $\widetilde{\mathbf{q}}$ with the hypothesis to have a general wave form:
 $$  \widetilde{\mathbf{q}} =  \widehat{\mathbf{q}}(\mathbf{x}) e^{i\Theta(\mathbf{x},t)} $$
 where $\widehat{\mathbf{q}}$ is the amplitude function and $\Theta$ is the phase of the perturbation.
-The choice made to determine the time and space dependency of either the phase function and the amplitude determine a certain hierarchy inside the stability theories. This hierarchy depend on how many directions we consider to be periodic in the amplitude function\footnote{The hierarchy goes from local approach with 2 direction periodic out of 3, to tri-global with all the 3 directions considered space dependent.}.
+The choice made to determine the time and space dependency of either the phase function and the amplitude determine a certain hierarchy inside the stability theories. This hierarchy depends on how many directions we consider to be periodic in the amplitude function\footnote{The hierarchy goes from local approach with 2 direction periodic out of 3, to tri-global with all the 3 directions considered space dependent.}.
 Table \ref{fig:table} below present each possible choice in literature and the theory that derives from it.
 
 \begin{figure}[h]
@@ -586,7 +586,7 @@ where $x_2$ is the wall normal direction, $\alpha$ is the streamwise ($x_1$) wav
 
 Casting this form for the pressure and velocity inside the Navier-Stokes equation, the equations that we get describe the evolution of the perturbations, taking the base flow as an input of the problem.
 In order to study the stability of the perturbations in their time evolution, problem known as \textit{temporal stability}, we fix the space perturbation form imposing $\alpha$ and $\beta$ as real numbers (inputs of the problem) and solving for $\omega$ as a complex number.
-With such choices the problem became a generalized eigenvalue problem for $\omega$:
+With such choices the problem become a generalized eigenvalue problem for $\omega$:
 $$ A \widehat{\mathbf{q}} =  \omega B\widehat{\mathbf{q}} $$
 The solution gives the frequency (real part of the eigenvalues) and the growth-rate (imaginary part) of the perturbation modes (eigenvectors) of the flow.
 
