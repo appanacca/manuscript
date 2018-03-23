@@ -76,7 +76,7 @@ procedure outlined by \citet{ghisalberti2004limited} and recently closely follow
 used. For the sake of conciseness, the procedure which relies on several empirical correlations is
 not repeated here, aside from a few brief comments. A mildly inclined water channel is considered, with a canopy formed by rigid cylindrical dowels of height $h$ equal to $13.8 \, cm$ and diameter
 $d = 0.64 cm$. The frontal area of the vegetation per unit volume, i.e., the packing density of the
-elements, is either $a = 0.04 cm^{-1}$ or  $0.08 cm^{-1}$ ; the free surface is positioned at a level $H = 46.7 cm$
+elements, is either $a = 0.04 cm^{-1}$ or  $0.08 cm^{-1}$; the free surface is positioned at a level $H = 46.7 cm$
 from the bottom plate and the flow velocity at the free surface, $U_2$ , varies from $4.4$ to $13.7 cm/s$. The
 Froude number, $F_r = \dfrac{U_2}{g H} $ is thus very low and water surface fluctuations can be ignored (\citet{brevis2014experimental}). 
 To a good approximation the mean flow can be taken as steady and parallel, with the streamwise
@@ -131,11 +131,11 @@ A temporal linear stability analysis is carried out, with the generic perturbati
 form:
 
 \begin{equation}
-q'(x,y,z,t)=\tilde q(y){\rm e}^{i(\alpha \  x -\omega \ t)}
+q'(x,y,t)=\tilde q(y){\rm e}^{i(\alpha \  x -\omega \ t)}
 \label{eq:q}
 \end{equation}
 
-with $\alpha$ the real streamwise wavenumber and $\omega$ a complex number whose real part, $\omega_r$ , is the frequency of the mode and the imaginary part, $\omega_i$ , is the growth rate. 
+with $\alpha$ the real streamwise wavenumber and $\omega$ a complex number whose real part, $\omega_r$, is the frequency of the mode and the imaginary part, $\omega_i$ , is the growth rate. 
 
 \newpage
 \noindent The dimensionless linear stability equations in primitive variables read:
@@ -149,7 +149,7 @@ with $\alpha$ the real streamwise wavenumber and $\omega$ a complex number whose
 \end{split}
 \end{equation}
 
-with the perturbation velocity components which vanish when $y=0$ and $y=y_{\infty}$. The upper boundary
+with the perturbation velocity components which vanishes when $y=0$ and $y=y_{\infty}$. The upper boundary
 of the computational domain is taken far enough away from the lower boundary to ensure that the
 results do not vary upon modifications of $y_{\infty}$ . All the terms in the equations are dimensionless; the
 mean speed through the shear layer, $U_m = \dfrac{U_1 +U_2}{2}$ , is used to scale the disturbance velocity components, pressure is scaled with
@@ -160,7 +160,7 @@ and in the inviscid limit (${Re}^{-1}  \rightarrow 0$ ), for comparison purposes
 conditions are simply $v = 0$ at $y = 0$ and $y_{\infty}$ .
 System \eqref{eq:uvp} above and its boundary conditions are, in the following, also written in short
 notation as $\mathscr{L} q = 0$. The eigenvalues of the system are those complex values of $\omega$ which yield
-non trivial solutions for $u$, $v$, and $p$. Two numerical collocation codes are written, and success fully compared; one is based on the equations in primitive variables form, the second solves an
+non trivial solutions for $u$, $v$, and $p$. Two numerical collocation codes are written, and successfully compared; one is based on the equations in primitive variables form, the second solves an
 Orr-Sommerfeld like equation (with the addition of the drag term) along the lines of \citet{singh2016linear}.
 In both cases, a spectral scheme based on N Chebyshev polynomials is used (N is typically equal
 to 300 to ensure grid converged results), with an algebraic mapping between the physical and the
@@ -175,7 +175,7 @@ spectral domains (\citet{hussaini1987spectral} ).
 	\label{fig:2}
 \end{figure}
 
-Viscous and inviscid stability results for case G are shown in \ref{fig:2} (center and right frames);
+Viscous and inviscid stability results for case G are shown in figure \ref{fig:2} (center and right frames);
 differences are small, in consideration of the fact that the Reynolds number of the viscous case
 is relatively large ($Re = 3450$). The viscous wavenumber of largest amplification is found for
 $\alpha = 0.4790$; the waves are weakly dispersive, particularly at low wavenumbers (an original interpretation of phase and group velocities is proposed in section \ref{appB}). The wavelength of largest
@@ -234,7 +234,7 @@ N_{\omega} = \int_0^{y_{\infty}} \left[ \overline{ v^{\dagger}} v  +  \overline{
 	\label{fig:3}
 \end{figure}
 
-An example of direct and adjoint eigenfunctions is provided in \ref{fig:3}, both in the viscous case
+An example of direct and adjoint eigenfunctions is provided in figure \ref{fig:3}, both in the viscous case
 ($Re = 3450$) and in the inviscid limit, for $\alpha = 0.4790$. It is interesting to observe that while the
 direct eigenfunctions are almost overlapped, the same is not the case for the adjoint eigenfunctions,
 with the inviscid mode (drawn with symbols) which has a larger amplitude than the viscous one.
@@ -249,7 +249,7 @@ equations are much less effective.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:3}
 
-Some representative sensitivity functions are plotted in \ref{fig:4}; viscous and inviscid results
+Some representative sensitivity functions are plotted in figure \ref{fig:4}; viscous and inviscid results
 concur in showing that the largest sensitivities to variations of U are found right above the vegetation’s edge, where there are peaks in the adjoint eigenfunctions and where $d^2 U/d y^2$ vanishes. The
 $U$ sensitivities are negligible within the vegetated layer and for values of $y$ larger than twice the
 canopy’s height. The $C_D$ sensitivities are non negligible only in close proximity of the interface.
@@ -294,7 +294,7 @@ such a new model are discussed next.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{An alternative sensitivity model: accounting for the canopy anisotropicity}
+\section{An alternative sensitivity model: accounting for the canopy anisotropy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:4}
 
@@ -319,7 +319,7 @@ outer flow penetrates through the upper part of the vegetation and an effective 
 outer and inner flows must be enforced some distance $\delta$ below the canopy’s edge (\citet{le2006interfacial}).  This distance,
 a penetration depth, has been successfully computed by \citet{zampogna2016fluid} for a few cases
 and is found to increase with the Reynolds number of the flow; for experiment G discussed below it
-is $\delta = 0.40$ (\citet{zampognaprivate}). On account of the results shown in \ref{fig:4}, with the sensitivities which are negligible
+is $\delta = 0.40$ (\citet{zampognaprivate}). On account of the results shown in figure \ref{fig:4}, with the sensitivities which are negligible
 for $y \approx 0.60$, we expect that the exact position of the effective interface will not affect the results
 significantly.
 Using the fact that the velocity within the orthotropic porous medium is divergence free, the
@@ -377,7 +377,7 @@ with:
 the required sensitivities, with the normalization  $\int_{y_{itf}}^{y_{\infty}} \left[  \overline{v^{\dagger}} v +  \overline{u^{\dagger}} u \right] = 1$.
 In writing $\delta \omega$ above, we have made the assumption that the mean flow $U$ does not vary at the two extreme points of the
 integration domain.
-The stability results (for the same parameters as in \ref{fig:2}) are displayed in \ref{fig:6}. 
+The stability results (for the same parameters as in figure \ref{fig:2}) are displayed in figure \ref{fig:6}. 
 
 
 As already observed in \citet{zampogna2016instability}, both the growth rate and the frequency are slightly larger with this model than
@@ -402,8 +402,8 @@ waves are found to be only weakly dispersive.
 	\label{fig:7}
 \end{figure}
 
-Eigenfunctions are plotted in \ref{fig:7}, together with the real and imaginary parts of the $G_U$
-sensitivity function. As in \ref{fig:3}, the modulus of the $u$ eigenfunction peaks near the edge of the
+Eigenfunctions are plotted in figure \ref{fig:7}, together with the real and imaginary parts of the $G_U$
+sensitivity function. As in figure \ref{fig:3}, the modulus of the $u$ eigenfunction peaks near the edge of the
 canopy ( $y = 1$), whereas the adjoint eigenfunctions have a maximum value slightly above. As a
 general remark, the shapes of the direct and adjoint modes are quite similar to those found with
 the isotropic resistance model; as reported at the end of \ref{sec2b}, it is found that the flow
@@ -441,7 +441,7 @@ by variations in the first component of the permeability tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{appB}
 
-Stability problems such as the first one considered in this paper can be approached with the
+Stability problems such as the first one considered here can be approached with the
 spatial theory framework, with the wavenumber $\alpha$ complex, its imaginary part being a growth rate,
 and the circular frequency $\omega$ a real constant parameter. Let us generalize the sensitivity analysis by
 considering, as a first step, $\alpha$ and $\omega$ as complex numbers which can vary. Equation \eqref{eq:lagid} contains one

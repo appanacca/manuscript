@@ -309,16 +309,16 @@ Here we fist use the identity $\nabla^2 = \nabla \cdot (\nabla)$, then we apply 
 \noindent Now using theorem \eqref{th:spat_avg} on $\means{\nabla \vb}$ we get:
 
 \begin{eqnarray}
-	\means{\nub\nabla^2 \vb} &=& \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \vb  \nbs \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA  \nonumber \\
-	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \vb \nbs \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}} \left( \nub \nabla \vb \right) \cdot \nbs \;dA,   \nonumber
+	\means{\nub\nabla^2 \vb} &=& \nabla \cdot \nub \nabla \means{\vb} + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nbs \vb  \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub   \nbs \cdot \nabla \vb \;dA  \nonumber \\
+	&=& \nub\nabla^2 \means{\vb} +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nbs \vb  \;dA \right) + \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub   \nbs \cdot \nabla \vb \;dA,   \nonumber
 \end{eqnarray}
 
-The second term can be transformed due to the boundary condition at the interface in:
-$$
-\nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \vb \nbs \;dA \right) = \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA. \right)
-$$
+%The second term can be transformed due to the boundary condition at the interface in:
+%$$
+%\nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \vb \nbs \;dA \right) = \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA. \right)
+%$$
 
-\noindent This integral term is null in case of rigid porous media and is also null in case of rigid motion of the solid. A manipulation procedure of this term has been proposed in \citet{hussong2011continuum} but its influence in the poroelastic case is yet to be clarified. In the following development this term will be included for completeness although, it is out of scope of our study.
+\noindent The first integral term is null in case of rigid porous media and is also null in case of rigid motion of the solid. A manipulation procedure of this term has been proposed in \citet{hussong2011continuum} but its influence in the poroelastic case is yet to be clarified. In the following development this term will be included for completeness although, it is out of scope of our study.
 
 %and using Gauss theorem on the second term we get:
 %\begin{equation*}
@@ -335,7 +335,7 @@ $$
 
 \begin{eqnarray}
 && \derp{\means{\vb}}{t} + \nabla \cdot \means{\vb \vb} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb} + \nonumber \\
-&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\cdot \nbs \;dA +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right). 
+&& +\dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs  \cdot  \left( -\dfrac{\pb}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vb  \right)\;dA +  \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nbs \vb  \;dA \right). 
 \label{eq:mom_2}
 \end{eqnarray}
 
@@ -364,7 +364,7 @@ $$
 Using the above results, the non-linear term in equation \eqref{eq:mom_2} can be converted to:
 
 \begin{equation}
-\means{\vb\vb} = \means{\meani{\vb}\meani{\vb}} +2\means{\meani{\vb}\vbt} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}.
+\means{\vb\vb} = \means{\meani{\vb}\meani{\vb}} +\means{\meani{\vb}\vbt} +\means{\vbt \meani{\vb}} +\means{\vbt \vbt} = \varepsilon \meani{\vb}\meani{\vb} +\means{\vbt\vbt}.
 \label{eq:dec_1}
 \end{equation}
 
@@ -377,8 +377,8 @@ For each integral term of \eqref{eq:mom_2} the same field decomposition should b
 
 
 \begin{eqnarray}
-\dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vb \cdot \nbs \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla (\meani{\vb} +\vbt) \cdot \nbs \;dA   \nonumber \\
-&=& - \nub \nabla \varepsilon \; \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA.
+\dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nbs \cdot  \nabla \vb  \;dA &=& \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nbs \cdot  \nabla (\meani{\vb} +\vbt) \;dA   \nonumber \\
+&=& - \nub  \nabla \meani{\vb} \cdot  \nabla \varepsilon + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub  \nbs  \cdot \nabla \vbt  \;dA.
 \end{eqnarray}
 
 %\begin{eqnarray}
@@ -390,8 +390,8 @@ For each integral term of \eqref{eq:mom_2} the same field decomposition should b
 \noindent The momentum equation now reads:
 
 \begin{eqnarray}
-&&\derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon \meani{\vb}\meani{\vb}) + \nabla \cdot \means{\vbt\vbt} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb}  - \nub \nabla \varepsilon \nabla \meani{\vb}  \nonumber \\
-&&+\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left( -\dfrac{\pbt}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vbt  \right)\cdot \nbs \;dA + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right).  \nonumber \\
+&&\derp{\means{\vb}}{t} + \nabla \cdot (\varepsilon \meani{\vb}\meani{\vb}) + \nabla \cdot \means{\vbt\vbt} = -\dfrac{1}{\rho_{\beta}} \nabla \means{\pb} + \nub\nabla^2 \means{\vb}  - \nub  \nabla \meani{\vb} \cdot \nabla \varepsilon  \nonumber \\
+&&+\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \; \meani{\pb} +\dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}\nbs   \cdot  \left( -\dfrac{\pbt}{\rho_{\beta}} \mathbf{I} + \nub \nabla \vbt  \right) \;dA + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub  \nbs \vb \;dA \right).  \nonumber \\
 \label{eq:NS_2}
 \end{eqnarray}
 
@@ -425,10 +425,10 @@ Summing up all the terms, we get:
 
 \begin{eqnarray}
 && \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} + \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right)  \nonumber \\
-&&= -\varepsilon \; \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) - \nabla \varepsilon \; \dfrac{1}{\rho_{\beta}} \meani{\pb}  + \nub \varepsilon \; \nabla^2 \meani{\vb} + \nub \meani{\vb} \; \nabla^2 \varepsilon + 2 \nub \nabla \varepsilon \; \nabla \meani{\vb} \nonumber \\
+&&= -\varepsilon \; \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) - \nabla \varepsilon \; \dfrac{1}{\rho_{\beta}} \meani{\pb}  + \nub \varepsilon \; \nabla^2 \meani{\vb} + \nub \meani{\vb} \; \nabla^2 \varepsilon + 2 \nub  \nabla \meani{\vb} \cdot \nabla \varepsilon \nonumber \\
 &&+\dfrac{1}{\rho_{\beta}}\nabla\varepsilon \meani{\pb} - \dfrac{1}{V} \int_{A_{\beta \sigma}} \dfrac{\pbt}{\rho_{\beta}} \nbs \;dA \nonumber \\
-&&- \nub \nabla \varepsilon \nabla \meani{\vb} + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub \nabla \vbt \cdot \nbs \;dA \nonumber \\
-&& + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right).
+&&- \nub \nabla \meani{\vb} \cdot \nabla \varepsilon + \dfrac{1}{V} \int_{A_{\beta \sigma}} \nub  \nbs  \cdot  \nabla \vbt \;dA \nonumber \\
+&& + \nabla \cdot \left( \dfrac{1}{V} \int_{A_{\beta \sigma}}  \nub \nbs \vb  \;dA \right).
 \end{eqnarray}
 
 After the proper simplification we have the final versions of the Navier-Stokes system of equations \eqref{eq:NS} using intrinsic quantities:
@@ -436,9 +436,9 @@ After the proper simplification we have the final versions of the Navier-Stokes 
 \begin{eqnarray}
 \begin{cases}
  \derp{\varepsilon}{t}\meani{\vb} + \varepsilon \derp{\meani{\vb}}{t} &+ \nabla \cdot \left(\varepsilon \meani{\vb}\meani{\vb}\right)   + \nabla \cdot \left(\means{\vbt \vbt}\right)   \\
-&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nub \nabla \varepsilon \nabla \meani{\vb} + \nub \meani{\vb} \nabla^2 \varepsilon  \\
-&+ \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA \\
-& + \nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right), \\
+&= -\varepsilon \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub \varepsilon \nabla^2 \meani{\vb} +  \nub  \nabla \meani{\vb} \cdot \nabla \varepsilon + \nub \meani{\vb} \nabla^2 \varepsilon  \\
+&+ \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}} \nbs \cdot  \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \;dA \\
+& + \nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \nbs \vb  \;dA \right), \\
 \nabla \cdot (\varepsilon\meani{\vb} ) + \derp{\varepsilon}{t} = &0.
 \end{cases}
 \label{eq:vans_mom_1}
@@ -456,7 +456,7 @@ In the next paragraphs a closure formulation of these terms is discussed. Usuall
 
 \begin{eqnarray}
 \boldsymbol{\zeta}&=& \nabla \cdot \left(\means{\vbt \vbt}\right), \nonumber \\
-\mathbf{F}^m &=&  \dfrac{1}{V} \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA. \nonumber
+\mathbf{F}^m &=&  \dfrac{1}{V} \int_{A_{\beta \sigma}} \nbs \cdot \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \;dA. \nonumber
 \end{eqnarray}
 
 We remember that the last integral term will not be further developed since it vanishes in case of rigid porous media (assumption required further in the development).
@@ -491,14 +491,14 @@ From Gray's decomposition \eqref{eq:gray} the perturbation velocity field is wri
 \noindent To continue the development, we first divide the momentum equation of system \eqref{eq:vans_mom_1} by the permeability $\varepsilon$, and we also apply the assumption of constant porosity:
 \begin{eqnarray}
 && \derp{\meani{\vb}}{t} + \nabla \cdot \left(\meani{\vb}\meani{\vb}\right)   + \dfrac{1}{\varepsilon}\nabla \cdot \left(\means{\vbt \vbt}\right)   \nonumber \\
-&& \qquad \qquad = - \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub  \nabla^2 \meani{\vb} + \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA  \nonumber
+&& \qquad \qquad = - \nabla \left(\dfrac{\meani{\pb}}{\rho_{\beta}}\right) + \nub  \nabla^2 \meani{\vb} + \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \nbs  \cdot \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \;dA  \nonumber
 \end{eqnarray}
 
 
 \noindent Subtracting the above momentum equation from the local field one \eqref{eq:NS} it is found:
 \begin{eqnarray}
 &&  \derp{\vbt}{t} + \vb \cdot \nabla \vbt + \vbt \cdot \nabla \meani{\vb} + \varepsilon^{-1}\nabla \cdot  \means{\vbt \vbt} = \nonumber \\
-&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt  - \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA.
+&&= -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt  - \dfrac{1}{\volb} \displaystyle\int_{A_{\beta \sigma}} \nbs  \cdot \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)  \;dA.
 \label{eq:vans_mom_3}
 \end{eqnarray}
 
@@ -524,7 +524,7 @@ It can also be noticed that in the above simplifications we have neglected terms
 With this order of magnitude analysis the governing equations are simplified as:
 \begin{eqnarray}
 	\begin{cases}
-		\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA,  \\
+		\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \nbs  \cdot \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)  \;dA,  \\
 		\nabla \cdot \vbt = 0,  \\
 		\vbt = -\meani{\vb} \quad \textrm{at} \; A_{\beta \sigma},
 	\end{cases}
@@ -542,7 +542,7 @@ The problem on the REV thus becomes:
 
 \begin{eqnarray}
 \begin{cases}
-\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right) \cdot \nbs \;dA,  \\
+\vb \cdot \nabla \vbt = -\nabla \left(\dfrac{\pbt}{\rho_{\beta}}\right) + \nub \nabla^2 \vbt - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \nbs  \cdot \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)  \;dA,  \\
 \nabla \cdot \vbt = 0, \\
 \vbt = -\meani{\vb} \quad \textrm{at} \; A_{\beta \sigma}, \\
 \pbt(\mathbf{x} +\ell_i) = \pbt(\mathbf{x}), \qquad \vbt(\mathbf{x} +\ell_i) = \vbt(\mathbf{x}), \qquad i=1,2,3 ,\\
@@ -555,10 +555,10 @@ In this set of equations the last condition, $\meani{\vbt} = 0$, is imposed to e
 
 Now the perturbed field has to be expressed as a function of some averaged values. Let us introduce the closure tensor $\mathbf{S}$ and  the closure vector $\mathbf{s}$ as:
 \begin{eqnarray}
-&& \vbt(\mathbf{x}) = \mathbf{S}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  +\boldsymbol{\xi}(\mathbf{x})  	\label{eq:closure_viab_h1} \\
-&& \pbt(\mathbf{x})  = \mub \mathbf{s}(\mathbf{x})  \cdot \meani{\vb}(\mathbf{x})  + \gamma(\mathbf{x}) \label{eq:closure_viab_h2}
+&& \vbt= \mathbf{S} \cdot \meani{\vb}(\mathbf{x})  +\boldsymbol{\xi}  	\label{eq:closure_viab_h1} \\
+&& \pbt  = \mub \mathbf{s}  \cdot \meani{\vb}(\mathbf{x})  + \gamma \label{eq:closure_viab_h2}
 \end{eqnarray}
-where $\boldsymbol{\xi}(\mathbf{x})$ is a vector and $\gamma(\mathbf{x})$ a scalar. \citet{whitaker1996forchheimer} has demonstrated that the first vanishes and the second is constant.
+where $\boldsymbol{\xi}$ is a vector and $\gamma$ a scalar. \citet{whitaker1996forchheimer} has demonstrated that the first vanishes and the second is constant.
 It is very important to point out that equation \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} are crucial since a linear correlation between the micro and macro-scale fields is implied.
 However these relations can be function of the space coordinate $\mathbf{x}$ as explored later in chapter \ref{ch:4}.
 
@@ -566,7 +566,7 @@ However these relations can be function of the space coordinate $\mathbf{x}$ as 
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{S} = -\nabla \mathbf{s} + \nabla^2 \mathbf{S} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \left(-\mathbf{s}\mathbf{I}  +  \nabla \mathbf{S} \right) \cdot \nbs \;dA,  \\
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{S} = -\nabla \mathbf{s} + \nabla^2 \mathbf{S} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \nbs  \cdot \left(-\mathbf{s}\mathbf{I}  +  \nabla \mathbf{S} \right)  \;dA,  \\
 		\nabla \cdot \mathbf{S} = 0, \\
 		\mathbf{S} = \mathbf{I} \quad \textrm{at} \; A_{\beta \sigma}, \\
 		\mathbf{s}(\mathbf{x} +\ell_i) = \mathbf{s}(\mathbf{x}), \qquad \mathbf{S}(\mathbf{x} +\ell_i) = \mathbf{S}(\mathbf{x}), \qquad i=1,2,3 ,\\
@@ -592,7 +592,7 @@ where $\mathbf{B}$ is defined from:
 
 \begin{eqnarray}
 	\begin{cases}
-		0 = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA,  \\
+		0 = -\nabla \mathbf{b} + \nabla^2 \mathbf{B} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}} \nbs  \cdot \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right)  \;dA,  \\
 		\nabla \cdot \mathbf{B} = 0,  \\
 		\mathbf{B} = -\mathbf{I} \quad \textrm{at} \; A_{\beta \sigma}, \\
 		\mathbf{b}(\mathbf{x} +\ell_i) = \mathbf{b}(\mathbf{x}), \qquad \mathbf{B}(\mathbf{x} +\ell_i) = \mathbf{B}(\mathbf{x}), \qquad i=1,2,3 , \\
@@ -606,7 +606,7 @@ and $\mathbf{C}$ from:
 
 \begin{eqnarray}
 	\begin{cases}
-		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} +\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{C} = -\nabla \mathbf{c} +  \nabla^2 \mathbf{C} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}}  \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA,  \\
+		\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{B} +\dfrac{\vb}{\nub} \cdot  \nabla \mathbf{C} = -\nabla \mathbf{c} +  \nabla^2 \mathbf{C} - \dfrac{1}{\volb} \displaystyle \int_{A_{\beta \sigma}}  \nbs  \cdot \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right)  \;dA,  \\
 		\nabla \cdot \mathbf{C} = 0, \\
 		\mathbf{C} = 0 \quad \textrm{at} \; A_{\beta \sigma}, \\
 		\mathbf{c}(\mathbf{x} +\ell_i) = \mathbf{c}(\mathbf{x}), \qquad \mathbf{C}(\mathbf{x} +\ell_i) = \mathbf{C}(\mathbf{x}), \qquad i=1,2,3 ,\\
@@ -619,19 +619,19 @@ and $\mathbf{C}$ from:
 \noindent Substituting the decomposition \eqref{eq:closure_viab_h1} and \eqref{eq:closure_viab_h2} inside the surface filter $\mathbf{F}^m$ we get:
 
 $$
-\mathbf{F}^m = \nub \left(\dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{s}\mathbf{I}  +  \nabla \mathbf{S} \right) \cdot \nbs \;dA \right) \vbmi
+\mathbf{F}^m = \nub \left(\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \nbs  \cdot \left(-\mathbf{s}\mathbf{I}  +  \nabla \mathbf{S} \right) \;dA \right) \vbmi
 $$
 
 \noindent Decomposing then the closure variables as in \eqref{eq:closure_viab_divison} it is possible to define the \textit{permeability tensor} $\mathbf{K}$:
 
 $$
- \dfrac{1}{\volb} \int_{A_{\beta \sigma}}  \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1},
+ \dfrac{1}{\volb} \int_{A_{\beta \sigma}} \nbs  \cdot \left(-\mathbf{b}\mathbf{I}  +  \nabla \mathbf{B} \right) \;dA = -\varepsilon \mathbf{K}^{-1},
 $$
 
 \noindent and the \textit{Forchheimer tensor} $\mathbf{F}$:
 
 $$
-\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right) \cdot \nbs \;dA = -\varepsilon \mathbf{K}^{-1} \cdot \mathbf{F}.
+\dfrac{1}{\volb} \int_{A_{\beta \sigma}} \nbs  \cdot \left(-\mathbf{c}\mathbf{I}  +  \nabla \mathbf{C} \right)  \;dA = -\varepsilon \mathbf{K}^{-1} \cdot \mathbf{F}.
 $$
 
 \noindent A change of variables is now made (\citet{barrere1992closure}):
@@ -639,7 +639,7 @@ $$
 
 \begin{eqnarray}
 	\mathbf{d} = \varepsilon^{-1} \mathbf{b} \cdot \mathbf{K}, \qquad \mathbf{D} = \varepsilon^{-1} \left(\mathbf{B} + \mathbf{I} \right)\cdot \mathbf{K}, \\
-\mathbf{m} = \varepsilon^{-1} \mathbf{n} \cdot \mathbf{H}, \qquad \mathbf{M} = \varepsilon^{-1} \left(\mathbf{N} + \mathbf{I} \right)\cdot \mathbf{H}, \label{eq:barrere2}
+\mathbf{m} = \varepsilon^{-1} \mathbf{c} \cdot \mathbf{H}, \qquad \mathbf{M} = \varepsilon^{-1} \left(\mathbf{C} + \mathbf{I} \right)\cdot \mathbf{H}, \label{eq:barrere2}
 \end{eqnarray}
 
 
@@ -648,6 +648,7 @@ $$
 	\begin{cases}
 		0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I},\\
 		\nabla \cdot \mathbf{D} = 0,  \\
+		\meani{d} =0, \\
 		\mathbf{D} = 0 \quad \textrm{at} \; A_{\beta \sigma} ,\\
 		\mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 ,\\
 		\meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K},
@@ -663,6 +664,7 @@ the permeability tensor $\mathbf{K}$ can now be computed from $\mathbf{D}$.
 	\begin{cases}
 		\dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I},\\
 		\nabla \cdot \mathbf{M} = 0,  \\
+		\meani{m} =0, \\
 		\mathbf{M} = 0 \quad at \; A_{\beta \sigma}, \\
 		\mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 ,\\
 		\meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H},
@@ -748,78 +750,78 @@ Also, there is evidence in the literature (\citet{ochoa2017fluid}) that transiti
 
 In the following work we adopt the penalization approach with the porosity variation computed directly from the geometry of our fibrous medium and a steep variation of the effective permeability at the interface. In chapter 5 we show some details and results from this approach.
 
-
-\section{Elastic porous media: hybrid homogenization approach}
-\label{ph:moving}
-
-Elastic porous media have been studied by \citet{biot1956theory} who developed a model for the stresses wave propagation inside the solid matrix of a porous medium.
-His model has been a reference for elastic porous media with a close to unity density ratio ($\rho_{\beta}/\rho_{\sigma}$), as for the case of saturated soil.
-
-\citet{whitaker1986deformable} has also approached the problem using the volume average method to homogenize the solid and the fluid part.
-But the closure problems that came out from the averaging procedure of the solid equation are very difficult to solve. 
-
-The following works by \citet{hussong2011continuum} and \citet{wang2015volume} showed how to extend the rigid case formulation of the VANS in the case of elastic media.
-They showed that the closure for the microscopic force \eqref{eq:closure_final} had to be changed. As a matter of fact, the hypothesis of rigid porous media has been used in the development of this term.
-They proposed a modification based on the physical interpretation of the microscopic force. In reality the force exerted by the fluid on the solid part has to take into account the solid velocity:
-$$
-\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \left[ \meani{\vb} - \meani{\ws} \right];
-$$
-the physics behind the force generation is the same and so it should be the formulation of the closure.
-
-We recall that the integral term: $$\nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right),$$ needs to be included in the momentum equation. This increase the complexity of the VANS equations that still contain an integral quantity. We speculate that this term can be simplified making the assumption of locally rigid motion of the REV solid skeleton that reads:
-$$
-\meani{\ws} = \ws,
-$$
-\noindent with this assumption the integral terms becomes:
-$$
-\nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right) = - \nub \nabla \cdot \left( \meani{\ws} \nabla \varepsilon \right).
-$$
-However, this assumption needs to be addressed by further studies.
-
-These simple modifications can be included in a \textit{hybrid homogenization approach}. As presented in section \ref{ch:model_porous}, we need a model for the fluid phase, one for the solid phase and an interface condition in order to describe the dynamic of a poroelastic layer. Since the dynamics of the solid is usually computationally cheap there is not any need to use an homogenized model for this part. Here we propose an approach that is independent from whatever solid model one wants to use. The pseudo-code for the macroscopic algorithm is the one briefly outlined in algorithm  \ref{algo:vans_elastic}, below.
-\vspace{0.5cm}
-
-\begin{algorithm}[H]
-	\KwData{${\boldsymbol{\meani{\psi_{\beta}}}}_n = \{\meani{\vb}_n, \meani{\ws}_n, \meani{\pb}_n, \mathbf{H}_n, \varepsilon_n \} $}
-	%\KwResult{how to write algorithm with \LaTeX2e }
-	%initialization\;
-	\While{t<T}{
-	$n \longrightarrow 0$ \;
-		\While{$n < n_{max}$}{
-			Fluid solver VANS: $\meani{\vb}_{n+1}, \meani{\pb}_{n+1}$ \\
-			Solid solver: $\mathbf{v}_{\sigma \, n+1}$ \\
-			Solid averaging: $\varepsilon_{n+1}(x), \meani{\ws}_{n+1}$ \\
-			Effective permeability metamodel:  $\mathbf{H}_{n+1} =f(\meani{\vb}_{n+1}, \meani{\ws}_{n+1}) $ \\
-			Relaxation: ${\boldsymbol{\meani{\psi_{\beta}}}}_{n+1} = (1- \omega){\boldsymbol{\meani{\psi_{\beta}}}}_{n} + \omega {\boldsymbol{\meani{\psi_{\beta}}}}_{n+1}  $ \\
-			\eIf{$|| \meani{\mathbf{\ v}_{\beta}}_{n+1} - \meani{\mathbf{\ v}_{\beta}}_n || < \epsilon$}{
-				\textbf{break} \;
-			}{
-				$n = n +1$\;
-			}
-		}
-		$t = t+\Delta t$\;
-		${\boldsymbol{\meani{\psi_{\beta}}}}_{n+1} = {\boldsymbol{\meani{\psi_{\beta}}}}_{t+ \Delta t}$\;
-	}
-	\caption{Macroscopic algorithm for fluid-structure interaction of homogenized poroelastic medium.}
-	\label{algo:vans_elastic}
-\end{algorithm}
-
-\vspace{0.5cm}
-Any solid model can be used in the model (for example the Bernoulli beam) and after its solution the new porosity field and homogenized solid velocity can be computed in the following manner:
-
-
-\begin{eqnarray}
-	\varepsilon &=& \dfrac{1}{V} \int_{\volb} \; dV,  \nonumber \\
-\meani{\ws} &=& \dfrac{1}{V} \int_{V_{\sigma}} \ws \; dV, \nonumber 
-\end{eqnarray}
-
-\noindent where $V_{\sigma}$ is the solid part of the REV.
-The latter averaging procedure of the solid phase makes sense only in presence of multiple fibers in each REV or in case of non-rigid solids.
-
-Using this approach with just some slight modifications in the fluid equations, it is possible to easily develop a macroscopic algorithm that can take into account moving fibrous media.
-In the above algorithm we also introduce (in line 7) the concept of a metamodel for the apparent permeability. This model is needed since the effective permeability $\mathbf{H}$ can be affected by the direction and intensity of the mean velocity field, as we show later in chapter \ref{ch:4}.
-It is also worth noting that with the use of the penalization method (section \ref{ch:interface}) the interface condition is implicitly treated in the above algorithm, and it is very simple to implement even for moving porous media.
-Also, possible convergence and numerical instabilities of the algorithm can be controlled with the relaxation parameter $\omega$ (\citet{irons1969aitken}).
+%
+%\section{Elastic porous media: hybrid homogenization approach}
+%\label{ph:moving}
+%
+%Elastic porous media have been studied by \citet{biot1956theory} who developed a model for the stresses wave propagation inside the solid matrix of a porous medium.
+%His model has been a reference for elastic porous media with a close to unity density ratio ($\rho_{\beta}/\rho_{\sigma}$), as for the case of saturated soil.
+%
+%\citet{whitaker1986deformable} has also approached the problem using the volume average method to homogenize the solid and the fluid part.
+%But the closure problems that came out from the averaging procedure of the solid equation are very difficult to solve. 
+%
+%The following works by \citet{hussong2011continuum} and \citet{wang2015volume} showed how to extend the rigid case formulation of the VANS in the case of elastic media.
+%They showed that the closure for the microscopic force \eqref{eq:closure_final} had to be changed. As a matter of fact, the hypothesis of rigid porous media has been used in the development of this term.
+%They proposed a modification based on the physical interpretation of the microscopic force. In reality the force exerted by the fluid on the solid part has to take into account the solid velocity:
+%$$
+%\mathbf{F}^M = - \nub \varepsilon \mathbf{H}^{-1} \cdot \left[ \meani{\vb} - \meani{\ws} \right];
+%$$
+%the physics behind the force generation is the same and so it should be the formulation of the closure.
+%
+%We recall that the integral term: $$\nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right),$$ needs to be included in the momentum equation. This increase the complexity of the VANS equations that still contain an integral quantity. We speculate that this term can be simplified making the assumption of locally rigid motion of the REV solid skeleton that reads:
+%$$
+%\meani{\ws} = \ws,
+%$$
+%\noindent with this assumption the integral terms becomes:
+%$$
+%\nabla \cdot \left( \dfrac{1}{V} \displaystyle\int_{A_{\beta \sigma}}  \nub \ws \nbs \;dA \right) = - \nub \nabla \cdot \left( \meani{\ws} \nabla \varepsilon \right).
+%$$
+%However, this assumption needs to be addressed by further studies.
+%
+%These simple modifications can be included in a \textit{hybrid homogenization approach}. As presented in section \ref{ch:model_porous}, we need a model for the fluid phase, one for the solid phase and an interface condition in order to describe the dynamic of a poroelastic layer. Since the dynamics of the solid is usually computationally cheap there is not any need to use an homogenized model for this part. Here we propose an approach that is independent from whatever solid model one wants to use. The pseudo-code for the macroscopic algorithm is the one briefly outlined in algorithm  \ref{algo:vans_elastic}, below.
+%\vspace{0.5cm}
+%
+%\begin{algorithm}[H]
+%	\KwData{${\boldsymbol{\meani{\psi_{\beta}}}}_n = \{\meani{\vb}_n, \meani{\ws}_n, \meani{\pb}_n, \mathbf{H}_n, \varepsilon_n \} $}
+%	%\KwResult{how to write algorithm with \LaTeX2e }
+%	%initialization\;
+%	\While{t<T}{
+%	$n \longrightarrow 0$ \;
+%		\While{$n < n_{max}$}{
+%			Fluid solver VANS: $\meani{\vb}_{n+1}, \meani{\pb}_{n+1}$ \\
+%			Solid solver: $\mathbf{v}_{\sigma \, n+1}$ \\
+%			Solid averaging: $\varepsilon_{n+1}(x), \meani{\ws}_{n+1}$ \\
+%			Effective permeability metamodel:  $\mathbf{H}_{n+1} =f(\meani{\vb}_{n+1}, \meani{\ws}_{n+1}) $ \\
+%			Relaxation: ${\boldsymbol{\meani{\psi_{\beta}}}}_{n+1} = (1- \omega){\boldsymbol{\meani{\psi_{\beta}}}}_{n} + \omega {\boldsymbol{\meani{\psi_{\beta}}}}_{n+1}  $ \\
+%			\eIf{$|| \meani{\mathbf{\ v}_{\beta}}_{n+1} - \meani{\mathbf{\ v}_{\beta}}_n || < \epsilon$}{
+%				\textbf{break} \;
+%			}{
+%				$n = n +1$\;
+%			}
+%		}
+%		$t = t+\Delta t$\;
+%		${\boldsymbol{\meani{\psi_{\beta}}}}_{n+1} = {\boldsymbol{\meani{\psi_{\beta}}}}_{t+ \Delta t}$\;
+%	}
+%	\caption{Macroscopic algorithm for fluid-structure interaction of homogenized poroelastic medium.}
+%	\label{algo:vans_elastic}
+%\end{algorithm}
+%
+%\vspace{0.5cm}
+%Any solid model can be used in the model (for example the Bernoulli beam) and after its solution the new porosity field and homogenized solid velocity can be computed in the following manner:
+%
+%
+%\begin{eqnarray}
+%	\varepsilon &=& \dfrac{1}{V} \int_{\volb} \; dV,  \nonumber \\
+%\meani{\ws} &=& \dfrac{1}{V} \int_{V_{\sigma}} \ws \; dV, \nonumber 
+%\end{eqnarray}
+%
+%\noindent where $V_{\sigma}$ is the solid part of the REV.
+%The latter averaging procedure of the solid phase makes sense only in presence of multiple fibers in each REV or in case of non-rigid solids.
+%
+%Using this approach with just some slight modifications in the fluid equations, it is possible to easily develop a macroscopic algorithm that can take into account moving fibrous media.
+%In the above algorithm we also introduce (in line 7) the concept of a metamodel for the apparent permeability. This model is needed since the effective permeability $\mathbf{H}$ can be affected by the direction and intensity of the mean velocity field, as we show later in chapter \ref{ch:4}.
+%It is also worth noting that with the use of the penalization method (section \ref{ch:interface}) the interface condition is implicitly treated in the above algorithm, and it is very simple to implement even for moving porous media.
+%Also, possible convergence and numerical instabilities of the algorithm can be controlled with the relaxation parameter $\omega$ (\citet{irons1969aitken}).
 
 \section{Note on the average of an average field}
 \label{ch:appendix_a}
@@ -845,7 +847,7 @@ $$
 \Big< \means{\psi_{\beta}}|_{\mathbf{r}} \Big>|_{\mathbf{x}} = \means{\psi_{\beta}}|_{\mathbf{x}} + \means{\mathbf{y}}|_{\mathbf{x}} \cdot \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + \dfrac{1}{2} \means{\mathbf{y}\mathbf{y}}|_{\mathbf{x}} :  \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}} + O(\mathbf{y}^3)
 $$
 
-The term $\means{\mathbf{y}}$ is zero for REVs used in ordered porous media since they are always chosen to be symmetric around the REV centroid.
+The term $\means{\mathbf{y}}$ is zero for REVs used in ordered porous media.
 The second term can be shown to be negligible either with the same length-scale constraint used in the REV definition, in fact \citet{ochoa1995momentum}, \citet{paez2017macroscopic} showed that this term is order $O(\epsilon^2)$.
 Although it is possible to choose an appropriate weight function that strictly enforces $m*\mathbf{y}\mathbf{y} =0$, these function are unpractical (\citet{davit2017technical}).
 As we recall from section \ref{ch:filter} the triangle shaped weight function almost satisfies this hypothesis. The function $m^{\triangle}$ guarantees a second order closure. This means that $\dfrac{1}{2} \means{\mathbf{y}\mathbf{y}}|_{\mathbf{x}} :  \nabla \nabla \means{\psi_{\beta}}|_{\mathbf{x}}$ is a constant. Further manipulations (\cite{davit2017technical}) can show that it is also negligible ($O(\epsilon^2)$).
