@@ -76,7 +76,7 @@ Once the system \eqref{eq:NScavity} is solved, the microscopic fields (velocity 
 
 The operator \eqref{eq:supavg} has been applied through the whole porous domain using a REV with dimension $\ell \times \ell \times \ell$.
 It means that the centroid of the REV, in which the average operation is performed, spans all the porous domain extension.
-It should be noted that the averaging procedure gives a two dimensional averaged field as a result, the only not zero values are in the $x_1$ and $x_2$ directions. This is due to the symmetry of velocity and pressure in the $x_3$ direction that return zero averaged field as a result of the averaging operation \eqref{eq:supavg}.
+It should be noted that the averaging procedure gives a two dimensional averaged field as a result, the only non zero values are in the $x_1$ and $x_2$ directions. This is due to the symmetry of velocity and pressure in the $x_3$ direction that returns zero averaged field as a result of the averaging operation \eqref{eq:supavg}.
 
 \subsection{Macroscopic approach through VANS}
 
@@ -86,7 +86,7 @@ The derivation of this set of equation has been already discussed in chapter 2 a
 
 \begin{eqnarray}
 \begin{cases}
-\derp{\vbms}{t} + \dfrac{1}{\varepsilon} \nabla \cdot \left[  \vbmi  \vbmi \right] = -\dfrac{1}{\rho_{\beta}} \nabla \meani{\pb} + \nub \nabla^2 \vbmi \\ 
+\derp{\vbmi}{t} + \dfrac{1}{\varepsilon} \nabla \cdot \left[ \varepsilon \vbmi  \vbmi \right] = -\dfrac{1}{\rho_{\beta}} \nabla \meani{\pb} + \nub \nabla^2 \vbmi \\ 
 \qquad \qquad \qquad \qquad \qquad \qquad- \nub \varepsilon \mathbf{H}^{-1} \vbmi +\dfrac{\nub}{\varepsilon} \nabla \varepsilon \cdot \nabla \vbmi + \dfrac{\nub}{\varepsilon} \vbmi \nabla^2 \varepsilon \\
 \nabla \cdot \left(\varepsilon \vbmi \right) = 0\\
 \vbms = 0 \qquad \textrm{at} \quad x_1 = 0,L \quad x_2 = 0\\
@@ -102,7 +102,7 @@ The solution of system \eqref{eq:vans_cav} gives directly the averaged velocity 
 The penalization method (or one domain approach) has been chosen to treat the interface of the porous medium.
 The method has been already discussed in section \ref{ch:interface}  of chapter 2 but here some technical aspect are further discussed.
 In order to use the so called penalization method the porosity field and the effective permeability have to be defined in all the domain. In the free fluid the porosity is, of course, unitary and the effective permeability infinite. With such a numerical values the Navier-Stokes system \eqref{eq:NScavity} is retrieved from the system \eqref{eq:vans_cav} after some simplifications.
-In the deep porous medium the porosity is constant and set equal to $0.8$. The effective permeability is also constant and the components of the tensor have been taken from a posteriori computation of the homogenized-DNS problem. This procedure involves the inversion of the Darcy system $\vbms = \nub \varepsilon \mathbf{H}^{-1} \nabla \meani{\pb}$. The numeric values for $\mathbf{H}$ are represented in table \ref{tab:H}.
+In the deep porous medium the porosity is constant and set equal to $0.8$. The effective permeability is also constant and the components of the tensor have been taken from a posteriori computation of the homogenized-DNS problem. This procedure involves the inversion of the Darcy system $\vbms = \nub \varepsilon \mathbf{H}^{-1} \cdot \nabla \meani{\pb}$. The numerical values for $\mathbf{H}$ are represented in table \ref{tab:H}.
 
 
 \begin{table}[b!]
@@ -245,7 +245,7 @@ However, the inverse of the effective permeability component shows some differen
 However the value of the permeability deep in the medium is almost the same. 
 In any case even if there are some differences in the permeability profiles it seems not to affect the average velocities.
 
-The fact that with the kriging metamodel the same linear profile as equation \ref{eq:permeability_fun} is retrieved is another confirmation that the linear variation of the permeability is acceptable.
+The fact that with the kriging metamodel the same linear profile as equation \eqref{eq:permeability_fun} is retrieved is another confirmation that the linear variation of the permeability is acceptable.
 
 %\footnote{The dots in the figure \ref{fig:cav5000} lines are used only to ease the read of the plots and do not correspond at the mesh nodes (that are too much to be represented clearly).}
 
@@ -280,7 +280,7 @@ The equations solved are a slightly modified version of the VANS system \eqref{e
 
 \begin{eqnarray}
 \begin{cases}
-\derp{\vbms}{t} + \dfrac{1}{\varepsilon} \nabla \cdot \left[  \vbmi  \vbmi \right] = -\dfrac{1}{\rho_{\beta}} \nabla \meani{\pb} + \nub \nabla^2 \vbmi \\ 
+\derp{\vbmi}{t} + \dfrac{1}{\varepsilon} \nabla \cdot \left[ \varepsilon \vbmi  \vbmi \right] = -\dfrac{1}{\rho_{\beta}} \nabla \meani{\pb} + \nub \nabla^2 \vbmi \\ 
 \qquad \qquad \qquad \qquad \qquad \qquad- \nub \varepsilon \mathbf{H}^{-1} \vbmi +\dfrac{\nub}{\varepsilon} \nabla \varepsilon \cdot \nabla \vbmi + \dfrac{\nub}{\varepsilon} \vbmi \nabla^2 \varepsilon - \mathbf{g}\\
 \nabla \cdot \left(\varepsilon \vbmi \right) = 0\\
 \vbms = 0 \qquad \textrm{at hill wall} \\
@@ -327,7 +327,7 @@ The permeability tensor components are then evaluated with the kriging metamodel
 
 The above geometrical setup has been studied in the stable laminar regime. In this case the source term is equal to $\mathbf{g} = (0.5 \,10^{-8}, \quad0, \quad0)$ that results in a Reynolds number equal to $83$.
 For all the cases the recirculation bubble has been measured in its vertical and horizontal extension. The horizontal extension $L_R$ is defined as the first streamwise point in which a sampled velocity profile shows only positive streamwise velocities. The vertical extension has been measured at $x=4.5$ that is the mean extension of the domain.
-Table \ref{tb:bubble} collects these results. Looking at the results the porous media has a negative effect in both $L_R$ and $h_{x=4.5}$. For the case \textit{external} the geometry of the hill is modified by the porous medium and the leeward side is pushed downstream, so it is not surprising that the recirculation extension is pushed downstream. A similar negative effects can be found also for the \textit{internal}. This is in line with some observation made by \citet{jimenez2001turbulent} and \citet{segura2017permeable} in which they argues that some configuration of the porous surfaces characteristic (porosity and permeability) can produce negatives effects. The last case analyses the flow for a completely permeable hill obstacle, this means that the fluid can pass through the overall hill geometry. Also in this case the length and the height of the recirculation is increased, with similar values as the previous cases.
+Table \ref{tb:bubble} collects these results. Looking at the results the porous media has a negative effect in both $L_R$ and $h_{x=4.5}$. For the case \textit{external} the geometry of the hill is modified by the porous medium and the leeward side is pushed downstream, so it is not surprising that the recirculation extension is pushed downstream. A similar negative effects can be found also for the \textit{internal}. This is in line with some observation made by \citet{jimenez2001turbulent} and \citet{segura2017permeable} in which they argue that some configuration of the porous surfaces characteristic (porosity and permeability) can produce negatives effects. The last case analyses the flow for a completely permeable hill obstacle, this means that the fluid can pass through the overall hill geometry. Also in this case the length and the height of the recirculation is increased, with similar values as the previous cases.
 \begin{table}[h]
 	\centering
 	\begin{tabular}{c|c|c}
@@ -370,6 +370,6 @@ In figure \ref{fig:cuts_hill} the local velocity fields are analyzed. The sample
 
 \section{Conclusions}
 
-In the chapter we have shown how the VANS equations derived in chapter 2 can be used to describe the averaged macroscopic field for rigid porous medium. We have also shown how the interface should be threated in order to retrieve good results. Direct comparison with DNS data show that the linear smoothing of the porosity field and of the effective permeability field are necessary. We have also shown that using the metamodel developed for $\mathbf{H}$ produces the same smoothing for the interface. Finally the periodic hill application demonstrate that our homogenized solver can be used easily as a tool to test and measure porous coating and their effectiveness.
+In the chapter we have shown how the VANS equations derived in chapter 2 can be used to describe the averaged macroscopic field for rigid porous medium. We have also shown how the interface should be treated in order to retrieve good results. Direct comparison with DNS data show that the linear smoothing of the porosity field and of the effective permeability field are necessary. We have also shown that using the metamodel developed for $\mathbf{H}$ produces the same smoothing for the interface. Finally the periodic hill application demonstrate that our homogenized solver can be used easily as a tool to test and measure porous coating and their effectiveness.
 For the porous characteristics used in our study it has been found that the porous medium has negative effects for separation. But our focus was on the validation and easiness-to-use of our macroscopic model, further investigations are required to understand the physics under this negative effect. With this tool it is now possible to extensively study porous media coatings in order to find the optimal characteristics with respect to various objectives.
 %If it would be possible to obtain systematically the same results with a reduced information model \footnote{like a general metamodel or a macroscopic model for porous media or a turbulence model for turbulent flow} and a full physic simulation we would be in a paradox. Basically it would means that some of the input information are redundant. This statements should be kept in mind when making analysis on the macroscopic model against the DNS.

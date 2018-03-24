@@ -138,7 +138,7 @@ The right-hand side term, $\mathbf{f}$, is a force (per unit mass) which drives 
 %
 In chapter 2 we have already shown how the above equations can be homogenized and a new set of equations, valid at the macroscale, can be retrieved.
 The macroscale system \eqref{eq:vans_mom_1} introduce the surface integral term:
-$$\mathbf{F}^{\textit{m}} = \dfrac{1}{V} \displaystyle \int_{A_{\beta \sigma}} \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)\cdot \nbs \;dA, $$
+$$\mathbf{F}^{\textit{m}} = \dfrac{1}{V} \displaystyle \int_{A_{\beta \sigma}} \nbs \cdot \left(-\dfrac{\pbt}{\rho_{\beta}} \mathbf{I}  + \nub \nabla \vbt \right)  \;dA, $$
 
 that we have discussed in chapter 2 section \ref{ch:closure_fm}. This term is close by means of the equation \eqref{eq:closure_final} that we recall here:
 
@@ -161,7 +161,7 @@ that we have discussed in chapter 2 section \ref{ch:closure_fm}. This term is cl
 
 The two terms $\mathbf{F}^m$ and $\mathbf{F}^M$ can be interpreted as the force that the fluid exert on the solid structure of the porous medium. The two formulations are different only in the way of computing the force, the former one uses the miscroscopic representation and the latter the macroscopic one.
 The drag force $\mathbf{F}^{\textit{m}}$ computed by direct numerical simulations (DNS) with account of all individual pores will be later compared to the model based on the permeability and Forchheimer tensors (whose equations are given below).
-This is just a useful exercise to demonstrate consistency of the approach and accuracy of the numerical simulations; it does nothing else since, as briefly described below, to derive the Forchheimer tensor the microscopic velocity field must be known anyhow.  Nonetheless, knowledge of the behavior of these tensors (or, equivalently, of the related apparent permeability) might prove both useful and instructive, in particular should one wish to extend the range of applicability of the model to cases for which the microscopic solution is not available.
+Nonetheless, knowledge of the behavior of these tensors (or, equivalently, of the related apparent permeability) might prove both useful and instructive, in particular should one wish to extend the range of applicability of the model to cases for which the microscopic solution is not available.
 
 The core of the VANS approach consists in the identification of the permeability and Forchheimer tensors. This problem, referred to as the closure problem, is discussed at length in paragraph \ref{ch:closure_fm}.
 The two different tensors $\mathbf{K}$ and $\mathbf{F}$  can be computed by means by the two differential problems \eqref{eq:D_problem} and \eqref{eq:M_problem} reported here and discussed in detail in chapter 2.
@@ -170,6 +170,7 @@ The two different tensors $\mathbf{K}$ and $\mathbf{F}$  can be computed by mean
 \begin{cases}
 0 = -\nabla \mathbf{d} + \nabla^2 \mathbf{D} +\mathbf{I},\\
 \nabla \cdot \mathbf{D} = 0,  \\
+\meani{d} = 0 \\
 \mathbf{D} = 0 \quad \textrm{at} \; A_{\beta \sigma}, \\
 \mathbf{d}(\mathbf{x} +\ell_i) = \mathbf{d}(\mathbf{x}), \qquad \mathbf{D}(\mathbf{x} +\ell_i) = \mathbf{D}(\mathbf{x}), \qquad i=1,2,3 , \\
 \meani{\mathbf{D}} = \varepsilon^{-1} \mathbf{K}.
@@ -183,6 +184,7 @@ in which the microscopic velocity obtained from the DNS, $\vb$, is used as an in
 \begin{cases}
 \dfrac{\vb}{\nub} \nabla \mathbf{M} = -\nabla \mathbf{m} + \nabla^2 \mathbf{M} +\mathbf{I},\\
 \nabla \cdot \mathbf{M} = 0,  \\
+\meani{m} =0 \\
 \mathbf{M} = 0 \quad at \; A_{\beta \sigma}, \\
 \mathbf{m}(\mathbf{x} +\ell_i) = \mathbf{m}(\mathbf{x}), \qquad \mathbf{M}(\mathbf{x} +\ell_i) = \mathbf{M}(\mathbf{x}), \qquad i=1,2,3 ,\\
 \meani{\mathbf{M}} = \varepsilon^{-1} \mathbf{H}.
@@ -291,7 +293,7 @@ The  forcing term $\mathbf{f}$ of the DNS  is a vector whose direction is define
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The simulations have been carried out with the open-source code OpenFOAM \citet{openfoam}, based on  a finite volume discretization with a staggered arrangement for the unknowns.
+The simulations have been carried out with the open-source code OpenFOAM \citet{openfoam}, based on  a finite volume discretization with a centered arrangement for the unknowns.
 The standard solver icoFoam (incompressible Navier-Stokes) has been modified in order to include a constant pressure gradient acting as a forcing term $\mathbf{f}$  in equation \eqref{eq:ns_f}. 
 The coupling between  the velocity and the pressure equations is based on the pressure implicit split operator referred to as the PISO algorithm. 
 The time derivative term is discretized using the second order backward Euler scheme and all the spatial terms use a second-order central difference stencil  based on Gauss finite volume approach. The velocity system is solved with a preconditioned bi-conjugate gradient (PBiCG) iterative solver with the tolerance on the velocity residuals set to $10^{-8}$, associated to a   diagonal incomplete lower upper pre-conditioner (DILU).
@@ -396,7 +398,7 @@ A good agreement is found with the published results.
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\linewidth]{chapter_4/figure/square}
-	\caption{Permeability versus porosity for a square arrangement of cylinders. The scaling of the permeability is $\ell^2$ and is explicitely indicated in the vertical axis.}
+	\caption{Permeability versus porosity for a square arrangement of cylinders. The scaling of the permeability is $\ell^2$ and is explicitly indicated in the vertical axis.}
 	\label{fig:square}
 \end{figure}
 Figure \ref{fig:hexa} shows a similar comparison for a staggered arrangement of the inclusions in the unit cell. In this case the section of the cell is rectangular. The agreement for the only permeability component available in the literature is again satisfactory.
@@ -537,7 +539,7 @@ dimensional flows characterized by symmetric and asymmetric patterns.
 
 Let us briefly recall the methodology. First, a DNS is carried out to compute the microscopic flow. Then the  closure problem is solved for the 
 tensor $\mathbf{M}$. Finally, each component of the apparent permeability  $\mathbf{H}$  is obtained by averaging (equation 
-\eqref{eq:avg_intrinsic}).
+\eqref{eq:M_problem}).
 The results are collected in figures \ref{fig:08_H}, \ref{fig:06_H} and \ref{fig:04_H}, showing the variation of the diagonal components 
 of $\mathbf{H}$. 
 
