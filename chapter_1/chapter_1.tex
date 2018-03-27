@@ -105,7 +105,7 @@ $$
 \boldsymbol{\tau} = \mu \left( \nabla \mathbf{v} +  \nabla^T \mathbf{v} \right) \cdot  \mathbf{n}_{\sigma}
 $$
 
-\noindent In \eqref{eq:force} $A_{\sigma}$ is the solid interface of some body where a no-slip condition is usually applied and $ \mathbf{n}_{\sigma}$ is its outward normal unit vector, and $\mathbf{n}_{\parallel}$ is the unit vector parallel to the fluid direction.
+\noindent In \eqref{eq:force} $A_{\sigma}$ is the solid interface of some body where a no-slip condition is usually applied and $ \mathbf{n}_{\sigma}$ is its outward normal unit vector to the solid interface $A_{\sigma}$, and $\mathbf{n}_{\parallel}$ is the unit vector parallel to the fluid direction.
 
 \noindent The shear stress for incompressible and newtonian fluid flow in the turbulent case is often defined as:
 \begin{equation}
@@ -533,7 +533,7 @@ The multiple scales method has also been used to study many other problems: iner
 Flows through submerged aquatic plants exhibit large scale vortices at the top of the vegetation,
 advected along the flow direction and causing a periodic waving of the plants, referred to as
 monami (if the fluid is air) and honami (in case of water) (\citet{inoue1955studies}, \citet{ackerman1993reduced}).
-The effect of the onset of the monami is depicted qualitatively in figure \ref{fig:monai_evol}.
+The effect of the onset of the monami is depicted qualitatively in figure \ref{fig:monami}.
 
 \begin{figure}[h]
 	\centering
@@ -568,7 +568,7 @@ Where the unsteady part is small compared to the steady one. We also simplify $\
 $$  \widetilde{\mathbf{q}} =  \widehat{\mathbf{q}}(\mathbf{x}) e^{i\Theta(\mathbf{x},t)} $$
 where $\widehat{\mathbf{q}}$ is the amplitude function and $\Theta$ is the phase of the perturbation.
 The choice made to determine the time and space dependency of either the phase function and the amplitude determine a certain hierarchy inside the stability theories. This hierarchy depends on how many directions we consider to be periodic in the amplitude function\footnote{The hierarchy goes from local approach with 2 direction periodic out of 3, to tri-global with all the 3 directions considered space dependent.}.
-Table \ref{fig:table} below present each possible choice in literature and the theory that derives from it.
+Figure \ref{fig:table} below present each possible choice in literature and the theory that derives from it.
 
 \begin{figure}[h]
 	\centering

@@ -75,7 +75,7 @@ Once the system \eqref{eq:NScavity} is solved, the microscopic fields (velocity 
 \end{equation}
 
 The operator \eqref{eq:supavg} has been applied through the whole porous domain using a REV with dimension $\ell \times \ell \times \ell$.
-It means that the centroid of the REV, in which the average operation is performed, spans all the porous domain extension.
+It means that the centroid of the REV, in which the average operation is performed, spans all the porous domain extension. It should be noted that in our case we have not taken into account any filter function inside the definition of the averaged operator \eqref{eq:supavg} used to make tha average of the DNS fields.
 It should be noted that the averaging procedure gives a two dimensional averaged field as a result, the only non zero values are in the $x_1$ and $x_2$ directions. This is due to the symmetry of velocity and pressure in the $x_3$ direction that returns zero averaged field as a result of the averaging operation \eqref{eq:supavg}.
 
 \subsection{Macroscopic approach through VANS}
@@ -367,9 +367,9 @@ In figure \ref{fig:cuts_hill} the local velocity fields are analyzed. The sample
 \end{figure}
 
 
-
 \section{Conclusions}
 
-In the chapter we have shown how the VANS equations derived in chapter 2 can be used to describe the averaged macroscopic field for rigid porous medium. We have also shown how the interface should be treated in order to retrieve good results. Direct comparison with DNS data show that the linear smoothing of the porosity field and of the effective permeability field are necessary. We have also shown that using the metamodel developed for $\mathbf{H}$ produces the same smoothing for the interface. Finally the periodic hill application demonstrate that our homogenized solver can be used easily as a tool to test and measure porous coating and their effectiveness.
+In the chapter we have shown how the VANS equations derived in chapter 2 can be used to describe the averaged macroscopic field for rigid porous medium. We have also shown how the interface should be treated in order to retrieve good results. Direct comparison with DNS data show that the linear smoothing of the porosity field and of the effective permeability field are necessary. We have also shown that using the metamodel developed for $\mathbf{H}$ produces the same smoothing for the interface. However it should be noted that the definition of the interface profile of the porosity and permeability if directly dependent of the side of the REV chosen, in our case, $\ell$. In our case the choice is dictated from the regular and ordered arrangement of the porous structure but, other choices are possible and this modifications will modify the slope of the interface functions. 
+Finally the periodic hill application demonstrate that our homogenized solver can be used easily as a tool to test and measure porous coating and their effectiveness.
 For the porous characteristics used in our study it has been found that the porous medium has negative effects for separation. But our focus was on the validation and easiness-to-use of our macroscopic model, further investigations are required to understand the physics under this negative effect. With this tool it is now possible to extensively study porous media coatings in order to find the optimal characteristics with respect to various objectives.
 %If it would be possible to obtain systematically the same results with a reduced information model \footnote{like a general metamodel or a macroscopic model for porous media or a turbulence model for turbulent flow} and a full physic simulation we would be in a paradox. Basically it would means that some of the input information are redundant. This statements should be kept in mind when making analysis on the macroscopic model against the DNS.

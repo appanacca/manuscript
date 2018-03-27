@@ -353,7 +353,7 @@ The method follows the following four steps:
 \end{enumerate}
 
 
-\noindent In our case the quantity of interest chosen is the intrinsic average velocity inside the porous medium, and the results are summarized in table \ref{table:convergence}.
+\noindent In our case the quantity of interest chosen is the intrinsic average velocity inside the porous medium, and the we have used a Reynolds number equal to 180 to well take into account all possible inertia effects. For these specifications the results are summarized in table \ref{table:convergence}.
 \begin{table}[t]
 	\begin{center}
 		\begin{tabular}{ l  |l   l   }
@@ -826,7 +826,7 @@ The division of the subset is performed picking points in a random way, and is r
 \newpage 
 Thus, the metric used for the error computation is the following:
 $$
-\xi_{cv} = \dfrac{1}{k \; n_2}\sum_{i = 1}^{k} \sum_{j = 1}^{n_2} (\hat{f_{i}}(x_j)^{n} -\hat{f_{i}}(x_j)^{n_2} )^2 ,
+\xi_{cv} = \dfrac{1}{k \; n_2}\sum_{i = 1}^{k} \sum_{j = 1}^{n_2} (\hat{f_{i}}^{n}(x_j) -\hat{f_{i}}^{n_2}(x_j) )^2 ,
 $$
 quantifying the quadratic error between the original metamodel and the one built each time with a different set that belongs to different folds.
 The metric is also averaged over all the test points $n_2$ present in all the \textit{k} folds. 
